@@ -1,0 +1,2152 @@
+{
+  "$schema": "./schema.json",
+  "systemConfig": {
+    "version": "3.0.0",
+    "templateEngine": {
+      "name": "TemplateMaster",
+      "version": "1.2.0",
+      "adaptableDomains": [
+        "restaurant",
+        "services",
+        "creative",
+        "ecommerce"
+      ],
+      "migrationPaths": {
+        "restaurant_to_services": "service-transformer-v2",
+        "restaurant_to_creative": "creative-transformer-v1"
+      }
+    },
+    "observability": {
+      "logging": {
+        "level": "debug",
+        "customizationEvents": true
+      },
+      "analyticsIntegration": [
+        "GA4",
+        "Hotjar",
+        "Facebook"
+      ]
+    }
+  },
+  "store": {
+    "id": "store_001",
+    "type": "restaurant",
+    "businessModel": "food_delivery",
+    "templateMetadata": {
+      "createdFrom": "template_restaurant_v3",
+      "lastAdaptation": "2025-08-14T12:00:00Z",
+      "compatibility": {
+        "services": 0.92,
+        "creative": 0.85,
+        "ecommerce": 0.78
+      }
+    },
+    "contact": {
+      "whatsapp": {
+        "businessAccount": true,
+        "messageTemplates": {
+          "orderConfirmation": "tmpl_order_confirmation_v2",
+          "deliveryUpdate": "tmpl_delivery_update_v1"
+        }
+      }
+    },
+    "settings": {
+      "customizationEngine": {
+        "type": "ingredients_and_features",
+        "realTimePreview": true,
+        "nutritionalCalculation": true,
+        "allergenTracking": true
+      }
+    }
+  },
+  "categories": [
+    {
+      "id": "cat_001",
+      "name": "Hot Dogs",
+      "displayOrder": 1,
+      "slug": "hot-dogs",
+      "itemsCount": 18
+    },
+    {
+      "id": "cat_002",
+      "name": "Acompañamientos",
+      "displayOrder": 2,
+      "slug": "acompanamientos",
+      "itemsCount": 4
+    },
+    {
+      "id": "cat_003",
+      "name": "Bebidas",
+      "displayOrder": 3,
+      "slug": "bebidas",
+      "itemsCount": 2
+    }
+  ],
+  "products": [
+    {
+      "id": "prod_001_pretzel",
+      "name": "Dogo Regiomontano - Pan Pretzel",
+      "description": "El clásico de Monterrey con salchicha de res, bacon, queso asadero derretido, frijoles charros, aguacate, jitomate y salsa verde de la casa.",
+      "images": [
+        {
+          "url": "/images/dogo-regiomontano-pretzel.jpg",
+          "alt": "Dogo Regiomontano con pan pretzel",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
+      "reviewsCount": 127,
+      "tags": ["clásico", "monterrey", "bacon", "queso asadero", "pretzel"],
+      "featured": true,
+      "prepTime": { "min": 8, "max": 12 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": true,
+      "templateVariant": {
+        "name": "tamano",
+        "label": "Tamaño",
+        "options": [
+          {
+            "id": "size_chico",
+            "name": "Chico",
+            "label": "Chico",
+            "price": { "basePrice": 100, "discount": 20, "finalPrice": 80 },
+            "sku": "DOGO-REG-PRET-CH",
+            "prepTime": { "min": 8, "max": 12 },
+            "isDefault": true,
+            "isActive": true
+          },
+          {
+            "id": "size_mediano",
+            "name": "Mediano",
+            "label": "Mediano",
+            "price": { "basePrice": 55.00, "discount": null, "finalPrice": 55.00 },
+            "sku": "DOGO-REG-PRET-MD",
+            "prepTime": { "min": 10, "max": 14 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_jumbo",
+            "name": "Jumbo",
+            "label": "Jumbo",
+            "price": { "basePrice": 65.00, "discount": null, "finalPrice": 65.00 },
+            "sku": "DOGO-REG-PRET-JB",
+            "prepTime": { "min": 12, "max": 16 },
+            "isDefault": false,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": {
+        "id": "hotdog_standard",
+        "name": "Hot Dog Standard",
+        "features": [
+          {
+            "type": "check",
+            "name": "addtionalIngredients",
+            "label": "Ingredientes Adicionales",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 3,
+            "options": [
+              { "name": "Queso cheddar", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Tocino Crujiente", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Cebolla Caramelizada", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Jalapeños", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Aguacate", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Champiñones", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          },
+          {
+            "type": "options",
+            "name": "salsas",
+            "label": "Salsas",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 1,
+            "options": [
+              { "name": "Ketchup", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": true },
+              { "name": "Mayonesa", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Mostaza", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Salsa BBQ", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Sriracha", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Chipotle", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "prod_001_integral",
+      "name": "Dogo Regiomontano - Pan Integral",
+      "description": "El clásico de Monterrey con salchicha de res, bacon, queso asadero derretido, frijoles charros, aguacate, jitomate y salsa verde de la casa.",
+      "images": [
+        {
+          "url": "/images/dogo-regiomontano-integral.jpg",
+          "alt": "Dogo Regiomontano con pan integral",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
+      "reviewsCount": 127,
+      "tags": ["clásico", "monterrey", "bacon", "queso asadero", "integral"],
+      "featured": true,
+      "prepTime": { "min": 8, "max": 12 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": true,
+      "templateVariant": {
+        "name": "tamano",
+        "label": "Tamaño",
+        "options": [
+          {
+            "id": "size_chico",
+            "name": "Chico",
+            "label": "Chico",
+            "price": { "basePrice": 45.00, "discount": null, "finalPrice": 45.00 },
+            "sku": "DOGO-REG-INT-CH",
+            "prepTime": { "min": 8, "max": 12 },
+            "isDefault": true,
+            "isActive": true
+          },
+          {
+            "id": "size_mediano",
+            "name": "Mediano",
+            "label": "Mediano",
+            "price": { "basePrice": 55.00, "discount": null, "finalPrice": 55.00 },
+            "sku": "DOGO-REG-INT-MD",
+            "prepTime": { "min": 10, "max": 14 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_jumbo",
+            "name": "Jumbo",
+            "label": "Jumbo",
+            "price": { "basePrice": 65.00, "discount": null, "finalPrice": 65.00 },
+            "sku": "DOGO-REG-INT-JB",
+            "prepTime": { "min": 12, "max": 16 },
+            "isDefault": false,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": {
+        "id": "hotdog_standard",
+        "name": "Hot Dog Standard",
+        "features": [
+          {
+            "type": "check",
+            "name": "addtionalIngredients",
+            "label": "Ingredientes Adicionales",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 3,
+            "options": [
+              { "name": "Queso cheddar", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Tocino Crujiente", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Cebolla Caramelizada", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Jalapeños", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Aguacate", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Champiñones", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          },
+          {
+            "type": "options",
+            "name": "salsas",
+            "label": "Salsas",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 1,
+            "options": [
+              { "name": "Ketchup", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": true },
+              { "name": "Mayonesa", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Mostaza", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Salsa BBQ", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Sriracha", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Chipotle", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "prod_001_blanco",
+      "name": "Dogo Regiomontano - Pan Blanco",
+      "description": "El clásico de Monterrey con salchicha de res, bacon, queso asadero derretido, frijoles charros, aguacate, jitomate y salsa verde de la casa.",
+      "images": [
+        {
+          "url": "/images/dogo-regiomontano-blanco.jpg",
+            "alt": "Dogo Regiomontano con pan blanco",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
+        "reviewsCount": 127,
+        "tags": ["clásico", "monterrey", "bacon", "queso asadero", "blanco"],
+        "featured": true,
+        "prepTime": { "min": 8, "max": 12 },
+        "vertical": "restaurant",
+        "hasVariants": true,
+        "isCustomizable": true,
+        "templateVariant": {
+          "name": "tamano",
+          "label": "Tamaño",
+          "options": [
+            {
+              "id": "size_chico",
+              "name": "Chico",
+              "label": "Chico",
+              "price": { "basePrice": 45.00, "discount": null, "finalPrice": 45.00 },
+              "sku": "DOGO-REG-BLA-CH",
+              "prepTime": { "min": 8, "max": 12 },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_mediano",
+              "name": "Mediano",
+              "label": "Mediano",
+              "price": { "basePrice": 55.00, "discount": null, "finalPrice": 55.00 },
+              "sku": "DOGO-REG-BLA-MD",
+              "prepTime": { "min": 10, "max": 14 },
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_jumbo",
+              "name": "Jumbo",
+              "label": "Jumbo",
+              "price": { "basePrice": 65.00, "discount": null, "finalPrice": 65.00 },
+              "sku": "DOGO-REG-BLA-JB",
+              "prepTime": { "min": 12, "max": 16 },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationTemplate": {
+          "id": "hotdog_standard",
+          "name": "Hot Dog Standard",
+          "features": [
+            {
+              "type": "check",
+              "name": "addtionalIngredients",
+              "label": "Ingredientes Adicionales",
+              "isActive": true,
+              "required": false,
+              "maxSelectable": 3,
+              "options": [
+                { "name": "Queso cheddar", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+                { "name": "Tocino Crujiente", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+                { "name": "Cebolla Caramelizada", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+                { "name": "Jalapeños", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+                { "name": "Aguacate", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+                { "name": "Champiñones", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+              ]
+            },
+            {
+              "type": "options",
+              "name": "salsas",
+              "label": "Salsas",
+              "isActive": true,
+              "required": false,
+              "maxSelectable": 1,
+              "options": [
+                { "name": "Ketchup", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": true },
+                { "name": "Mayonesa", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+                { "name": "Mostaza", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+                { "name": "Salsa BBQ", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+                { "name": "Sriracha", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+                { "name": "Chipotle", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+              ]
+            }
+          ]
+        }
+      },
+    {
+      "id": "prod_002_pretzel",
+      "name": "Perra Norteña - Pan Pretzel",
+      "description": "Jumbo de 30cm con arrachera asada, queso Oaxaca, guacamole, pico de gallo, chile toreado y salsa chipotle. Un clásico del norte mexicano.",
+      "images": [
+        {
+          "url": "/images/perra-nortena-pretzel.jpg",
+          "alt": "Perra Norteña con pan pretzel",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
+      "reviewsCount": 89,
+      "tags": ["premium", "arrachera", "jumbo", "30cm", "pretzel"],
+      "featured": true,
+      "prepTime": { "min": 10, "max": 15 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": true,
+      "templateVariant": {
+        "name": "tamano",
+        "label": "Tamaño",
+        "options": [
+          {
+            "id": "size_chico",
+            "name": "Chico",
+            "label": "Chico",
+            "price": { "basePrice": 65.00, "discount": null, "finalPrice": 65.00 },
+            "sku": "PERRA-NOR-PRET-CH",
+            "prepTime": { "min": 8, "max": 12 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_mediano",
+            "name": "Mediano",
+            "label": "Mediano",
+            "price": { "basePrice": 75.00, "discount": null, "finalPrice": 75.00 },
+            "sku": "PERRA-NOR-PRET-MD",
+            "prepTime": { "min": 10, "max": 14 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_jumbo",
+            "name": "Jumbo",
+            "label": "Jumbo",
+            "price": { "basePrice": 85.00, "discount": null, "finalPrice": 85.00 },
+            "sku": "PERRA-NOR-PRET-JB",
+            "prepTime": { "min": 10, "max": 15 },
+            "isDefault": true,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": {
+        "id": "hotdog_standard",
+        "name": "Hot Dog Standard",
+        "features": [
+          {
+            "type": "check",
+            "name": "addtionalIngredients",
+            "label": "Ingredientes Adicionales",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 3,
+            "options": [
+              { "name": "Queso cheddar", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Tocino Crujiente", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Cebolla Caramelizada", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Jalapeños", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Aguacate", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Champiñones", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          },
+          {
+            "type": "options",
+            "name": "salsas",
+            "label": "Salsas",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 1,
+            "options": [
+              { "name": "Ketchup", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": true },
+              { "name": "Mayonesa", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Mostaza", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Salsa BBQ", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Sriracha", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Chipotle", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "prod_002_integral",
+      "name": "Perra Norteña - Pan Integral",
+      "description": "Jumbo de 30cm con arrachera asada, queso Oaxaca, guacamole, pico de gallo, chile toreado y salsa chipotle. Un clásico del norte mexicano.",
+      "images": [
+        {
+          "url": "/images/perra-nortena-integral.jpg",
+          "alt": "Perra Norteña con pan integral",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
+      "reviewsCount": 89,
+      "tags": ["premium", "arrachera", "jumbo", "30cm", "integral"],
+      "featured": true,
+      "prepTime": { "min": 10, "max": 15 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": true,
+      "templateVariant": {
+        "name": "tamano",
+        "label": "Tamaño",
+        "options": [
+          {
+            "id": "size_chico",
+            "name": "Chico",
+            "label": "Chico",
+            "price": { "basePrice": 65.00, "discount": null, "finalPrice": 65.00 },
+            "sku": "PERRA-NOR-INT-CH",
+            "prepTime": { "min": 8, "max": 12 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_mediano",
+            "name": "Mediano",
+            "label": "Mediano",
+            "price": { "basePrice": 75.00, "discount": null, "finalPrice": 75.00 },
+            "sku": "PERRA-NOR-INT-MD",
+            "prepTime": { "min": 10, "max": 14 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_jumbo",
+            "name": "Jumbo",
+            "label": "Jumbo",
+            "price": { "basePrice": 85.00, "discount": null, "finalPrice": 85.00 },
+            "sku": "PERRA-NOR-INT-JB",
+            "prepTime": { "min": 10, "max": 15 },
+            "isDefault": true,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": {
+        "id": "hotdog_standard",
+        "name": "Hot Dog Standard",
+        "features": [
+          {
+            "type": "check",
+            "name": "addtionalIngredients",
+            "label": "Ingredientes Adicionales",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 3,
+            "options": [
+              { "name": "Queso cheddar", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Tocino Crujiente", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Cebolla Caramelizada", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Jalapeños", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Aguacate", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Champiñones", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          },
+          {
+            "type": "options",
+            "name": "salsas",
+            "label": "Salsas",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 1,
+            "options": [
+              { "name": "Ketchup", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": true },
+              { "name": "Mayonesa", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Mostaza", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Salsa BBQ", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Sriracha", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Chipotle", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "prod_002_blanco",
+      "name": "Perra Norteña - Pan Blanco",
+      "description": "Jumbo de 30cm con arrachera asada, queso Oaxaca, guacamole, pico de gallo, chile toreado y salsa chipotle. Un clásico del norte mexicano.",
+      "images": [
+        {
+          "url": "/images/perra-nortena-blanco.jpg",
+          "alt": "Perra Norteña con pan blanco",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
+      "reviewsCount": 89,
+      "tags": ["premium", "arrachera", "jumbo", "30cm", "blanco"],
+      "featured": true,
+      "prepTime": { "min": 10, "max": 15 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": true,
+      "templateVariant": {
+        "name": "tamano",
+        "label": "Tamaño",
+        "options": [
+          {
+            "id": "size_chico",
+            "name": "Chico",
+            "label": "Chico",
+            "price": { "basePrice": 65.00, "discount": null, "finalPrice": 65.00 },
+            "sku": "PERRA-NOR-BLA-CH",
+            "prepTime": { "min": 8, "max": 12 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_mediano",
+            "name": "Mediano",
+            "label": "Mediano",
+            "price": { "basePrice": 75.00, "discount": null, "finalPrice": 75.00 },
+            "sku": "PERRA-NOR-BLA-MD",
+            "prepTime": { "min": 10, "max": 14 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_jumbo",
+            "name": "Jumbo",
+            "label": "Jumbo",
+            "price": { "basePrice": 85.00, "discount": null, "finalPrice": 85.00 },
+            "sku": "PERRA-NOR-BLA-JB",
+            "prepTime": { "min": 10, "max": 15 },
+            "isDefault": true,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": {
+        "id": "hotdog_standard",
+        "name": "Hot Dog Standard",
+        "features": [
+          {
+            "type": "check",
+            "name": "addtionalIngredients",
+            "label": "Ingredientes Adicionales",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 3,
+            "options": [
+              { "name": "Queso cheddar", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Tocino Crujiente", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Cebolla Caramelizada", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Jalapeños", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Aguacate", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Champiñones", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          },
+          {
+            "type": "options",
+            "name": "salsas",
+            "label": "Salsas",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 1,
+            "options": [
+              { "name": "Ketchup", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": true },
+              { "name": "Mayonesa", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Mostaza", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Salsa BBQ", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Sriracha", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Chipotle", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "prod_003_pretzel",
+      "name": "Perro Pastor - Pan Pretzel",
+      "description": "Hot dog con carne de pastor auténtica, piña asada, cebolla morada, cilantro, salsa de pastor y un toque de limón. Sabor 100% mexicano.",
+      "images": [
+        {
+          "url": "/images/perro-pastor-pretzel.jpg",
+          "alt": "Perro Pastor con pan pretzel",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
+      "reviewsCount": 64,
+      "tags": ["pastor", "piña", "mexicano", "trompo", "pretzel"],
+      "featured": false,
+      "prepTime": { "min": 7, "max": 10 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": true,
+      "templateVariant": {
+        "name": "tamano",
+        "label": "Tamaño",
+        "options": [
+          {
+            "id": "size_chico",
+            "name": "Chico",
+            "label": "Chico",
+            "price": { "basePrice": 65.00, "discount": null, "finalPrice": 65.00 },
+            "sku": "PERRO-PAS-PRET-CH",
+            "prepTime": { "min": 7, "max": 10 },
+            "isDefault": true,
+            "isActive": true
+          },
+          {
+            "id": "size_mediano",
+            "name": "Mediano",
+            "label": "Mediano",
+            "price": { "basePrice": 80.00, "discount": null, "finalPrice": 80.00 },
+            "sku": "PERRO-PAS-PRET-MD",
+            "prepTime": { "min": 9, "max": 12 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_jumbo",
+            "name": "Jumbo",
+            "label": "Jumbo",
+            "price": { "basePrice": 95.00, "discount": null, "finalPrice": 95.00 },
+            "sku": "PERRO-PAS-PRET-JB",
+            "prepTime": { "min": 10, "max": 15 },
+            "isDefault": false,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": {
+        "id": "hotdog_standard",
+        "name": "Hot Dog Standard",
+        "features": [
+          {
+            "type": "check",
+            "name": "addtionalIngredients",
+            "label": "Ingredientes Adicionales",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 3,
+            "options": [
+              { "name": "Queso cheddar", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Tocino Crujiente", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Cebolla Caramelizada", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Jalapeños", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Aguacate", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Champiñones", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          },
+          {
+            "type": "options",
+            "name": "salsas",
+            "label": "Salsas",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 1,
+            "options": [
+              { "name": "Ketchup", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": true },
+              { "name": "Mayonesa", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Mostaza", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Salsa BBQ", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Sriracha", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Chipotle", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "prod_003_integral",
+      "name": "Perro Pastor - Pan Integral",
+      "description": "Hot dog con carne de pastor auténtica, piña asada, cebolla morada, cilantro, salsa de pastor y un toque de limón. Sabor 100% mexicano.",
+      "images": [
+        {
+          "url": "/images/perro-pastor-integral.jpg",
+          "alt": "Perro Pastor con pan integral",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
+      "reviewsCount": 64,
+      "tags": ["pastor", "piña", "mexicano", "trompo", "integral"],
+      "featured": false,
+      "prepTime": { "min": 7, "max": 10 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": true,
+      "templateVariant": {
+        "name": "tamano",
+        "label": "Tamaño",
+        "options": [
+          {
+            "id": "size_chico",
+            "name": "Chico",
+            "label": "Chico",
+            "price": { "basePrice": 65.00, "discount": null, "finalPrice": 65.00 },
+            "sku": "PERRO-PAS-INT-CH",
+            "prepTime": { "min": 7, "max": 10 },
+            "isDefault": true,
+            "isActive": true
+          },
+          {
+            "id": "size_mediano",
+            "name": "Mediano",
+            "label": "Mediano",
+            "price": { "basePrice": 80.00, "discount": null, "finalPrice": 80.00 },
+            "sku": "PERRO-PAS-INT-MD",
+            "prepTime": { "min": 9, "max": 12 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_jumbo",
+            "name": "Jumbo",
+            "label": "Jumbo",
+            "price": { "basePrice": 95.00, "discount": null, "finalPrice": 95.00 },
+            "sku": "PERRO-PAS-INT-JB",
+            "prepTime": { "min": 10, "max": 15 },
+            "isDefault": false,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": {
+        "id": "hotdog_standard",
+        "name": "Hot Dog Standard",
+        "features": [
+          {
+            "type": "check",
+            "name": "addtionalIngredients",
+            "label": "Ingredientes Adicionales",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 3,
+            "options": [
+              { "name": "Queso cheddar", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Tocino Crujiente", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Cebolla Caramelizada", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Jalapeños", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Aguacate", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Champiñones", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          },
+          {
+            "type": "options",
+            "name": "salsas",
+            "label": "Salsas",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 1,
+            "options": [
+              { "name": "Ketchup", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": true },
+              { "name": "Mayonesa", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Mostaza", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Salsa BBQ", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Sriracha", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Chipotle", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "prod_003_blanco",
+      "name": "Perro Pastor - Pan Blanco",
+      "description": "Hot dog con carne de pastor auténtica, piña asada, cebolla morada, cilantro, salsa de pastor y un toque de limón. Sabor 100% mexicano.",
+      "images": [
+        {
+          "url": "/images/perro-pastor-blanco.jpg",
+          "alt": "Perro Pastor con pan blanco",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
+      "reviewsCount": 64,
+      "tags": ["pastor", "piña", "mexicano", "trompo", "blanco"],
+      "featured": false,
+      "prepTime": { "min": 7, "max": 10 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": true,
+      "templateVariant": {
+        "name": "tamano",
+        "label": "Tamaño",
+        "options": [
+          {
+            "id": "size_chico",
+            "name": "Chico",
+            "label": "Chico",
+            "price": { "basePrice": 65.00, "discount": null, "finalPrice": 65.00 },
+            "sku": "PERRO-PAS-BLA-CH",
+            "prepTime": { "min": 7, "max": 10 },
+            "isDefault": true,
+            "isActive": true
+          },
+          {
+            "id": "size_mediano",
+            "name": "Mediano",
+            "label": "Mediano",
+            "price": { "basePrice": 80.00, "discount": null, "finalPrice": 80.00 },
+            "sku": "PERRO-PAS-BLA-MD",
+            "prepTime": { "min": 9, "max": 12 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_jumbo",
+            "name": "Jumbo",
+            "label": "Jumbo",
+            "price": { "basePrice": 95.00, "discount": null, "finalPrice": 95.00 },
+            "sku": "PERRO-PAS-BLA-JB",
+            "prepTime": { "min": 10, "max": 15 },
+            "isDefault": false,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": {
+        "id": "hotdog_standard",
+        "name": "Hot Dog Standard",
+        "features": [
+          {
+            "type": "check",
+            "name": "addtionalIngredients",
+            "label": "Ingredientes Adicionales",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 3,
+            "options": [
+              { "name": "Queso cheddar", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Tocino Crujiente", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Cebolla Caramelizada", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Jalapeños", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Aguacate", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Champiñones", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          },
+          {
+            "type": "options",
+            "name": "salsas",
+            "label": "Salsas",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 1,
+            "options": [
+              { "name": "Ketchup", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": true },
+              { "name": "Mayonesa", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Mostaza", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Salsa BBQ", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Sriracha", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Chipotle", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "prod_004_pretzel",
+      "name": "Perra Cochina - Pan Pretzel",
+      "description": "Especialidad yucateca en Monterrey: cochinita pibil desmenuzada, cebolla morada encurtida, habanero, aguacate y salsa de achiote.",
+      "images": [
+        {
+          "url": "/images/perra-cochina-pretzel.jpg",
+          "alt": "Perra Cochina con pan pretzel",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
+      "reviewsCount": 52,
+      "tags": ["yucateco", "cochinita pibil", "habanero", "especialidad", "pretzel"],
+      "featured": false,
+      "prepTime": { "min": 12, "max": 18 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": true,
+      "templateVariant": {
+        "name": "tamano",
+        "label": "Tamaño",
+        "options": [
+          {
+            "id": "size_chico",
+            "name": "Chico",
+            "label": "Chico",
+            "price": { "basePrice": 65.00, "discount": null, "finalPrice": 65.00 },
+            "sku": "PERRA-COC-PRET-CH",
+            "prepTime": { "min": 10, "max": 15 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_mediano",
+            "name": "Mediano",
+            "label": "Mediano",
+            "price": { "basePrice": 75.00, "discount": null, "finalPrice": 75.00 },
+            "sku": "PERRA-COC-PRET-MD",
+            "prepTime": { "min": 12, "max": 18 },
+            "isDefault": true,
+            "isActive": true
+          },
+          {
+            "id": "size_jumbo",
+            "name": "Jumbo",
+            "label": "Jumbo",
+            "price": { "basePrice": 85.00, "discount": null, "finalPrice": 85.00 },
+            "sku": "PERRA-COC-PRET-JB",
+            "prepTime": { "min": 15, "max": 20 },
+            "isDefault": false,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": {
+        "id": "hotdog_standard",
+        "name": "Hot Dog Standard",
+        "features": [
+          {
+            "type": "check",
+            "name": "addtionalIngredients",
+            "label": "Ingredientes Adicionales",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 3,
+            "options": [
+              { "name": "Queso cheddar", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Tocino Crujiente", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Cebolla Caramelizada", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Jalapeños", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Aguacate", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Champiñones", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          },
+          {
+            "type": "options",
+            "name": "salsas",
+            "label": "Salsas",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 1,
+            "options": [
+              { "name": "Ketchup", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": true },
+              { "name": "Mayonesa", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Mostaza", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Salsa BBQ", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Sriracha", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Chipotle", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "prod_004_integral",
+      "name": "Perra Cochina - Pan Integral",
+      "description": "Especialidad yucateca en Monterrey: cochinita pibil desmenuzada, cebolla morada encurtida, habanero, aguacate y salsa de achiote.",
+      "images": [
+        {
+          "url": "/images/perra-cochina-integral.jpg",
+          "alt": "Perra Cochina con pan integral",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
+      "reviewsCount": 52,
+      "tags": ["yucateco", "cochinita pibil", "habanero", "especialidad", "integral"],
+      "featured": false,
+      "prepTime": { "min": 12, "max": 18 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": true,
+      "templateVariant": {
+        "name": "tamano",
+        "label": "Tamaño",
+        "options": [
+          {
+            "id": "size_chico",
+            "name": "Chico",
+            "label": "Chico",
+            "price": { "basePrice": 65.00, "discount": null, "finalPrice": 65.00 },
+            "sku": "PERRA-COC-INT-CH",
+            "prepTime": { "min": 10, "max": 15 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_mediano",
+            "name": "Mediano",
+            "label": "Mediano",
+            "price": { "basePrice": 75.00, "discount": null, "finalPrice": 75.00 },
+            "sku": "PERRA-COC-INT-MD",
+            "prepTime": { "min": 12, "max": 18 },
+            "isDefault": true,
+            "isActive": true
+          },
+          {
+            "id": "size_jumbo",
+            "name": "Jumbo",
+            "label": "Jumbo",
+            "price": { "basePrice": 85.00, "discount": null, "finalPrice": 85.00 },
+            "sku": "PERRA-COC-INT-JB",
+            "prepTime": { "min": 15, "max": 20 },
+            "isDefault": false,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": {
+        "id": "hotdog_standard",
+        "name": "Hot Dog Standard",
+        "features": [
+          {
+            "type": "check",
+            "name": "addtionalIngredients",
+            "label": "Ingredientes Adicionales",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 3,
+            "options": [
+              { "name": "Queso cheddar", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Tocino Crujiente", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Cebolla Caramelizada", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Jalapeños", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Aguacate", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Champiñones", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          },
+          {
+            "type": "options",
+            "name": "salsas",
+            "label": "Salsas",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 1,
+            "options": [
+              { "name": "Ketchup", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": true },
+              { "name": "Mayonesa", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Mostaza", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Salsa BBQ", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Sriracha", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Chipotle", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "prod_004_blanco",
+      "name": "Perra Cochina - Pan Blanco",
+      "description": "Especialidad yucateca en Monterrey: cochinita pibil desmenuzada, cebolla morada encurtida, habanero, aguacate y salsa de achiote.",
+      "images": [
+        {
+          "url": "/images/perra-cochina-blanco.jpg",
+          "alt": "Perra Cochina con pan blanco",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
+      "reviewsCount": 52,
+      "tags": ["yucateco", "cochinita pibil", "habanero", "especialidad", "blanco"],
+      "featured": false,
+      "prepTime": { "min": 12, "max": 18 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": true,
+      "templateVariant": {
+        "name": "tamano",
+        "label": "Tamaño",
+        "options": [
+          {
+            "id": "size_chico",
+            "name": "Chico",
+            "label": "Chico",
+            "price": { "basePrice": 65.00, "discount": null, "finalPrice": 65.00 },
+            "sku": "PERRA-COC-BLA-CH",
+            "prepTime": { "min": 10, "max": 15 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_mediano",
+            "name": "Mediano",
+            "label": "Mediano",
+            "price": { "basePrice": 75.00, "discount": null, "finalPrice": 75.00 },
+            "sku": "PERRA-COC-BLA-MD",
+            "prepTime": { "min": 12, "max": 18 },
+            "isDefault": true,
+            "isActive": true
+          },
+          {
+            "id": "size_jumbo",
+            "name": "Jumbo",
+            "label": "Jumbo",
+            "price": { "basePrice": 85.00, "discount": null, "finalPrice": 85.00 },
+            "sku": "PERRA-COC-BLA-JB",
+            "prepTime": { "min": 15, "max": 20 },
+            "isDefault": false,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": {
+        "id": "hotdog_standard",
+        "name": "Hot Dog Standard",
+        "features": [
+          {
+            "type": "check",
+            "name": "addtionalIngredients",
+            "label": "Ingredientes Adicionales",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 3,
+            "options": [
+              { "name": "Queso cheddar", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Tocino Crujiente", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Cebolla Caramelizada", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Jalapeños", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Aguacate", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Champiñones", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          },
+          {
+            "type": "options",
+            "name": "salsas",
+            "label": "Salsas",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 1,
+            "options": [
+              { "name": "Ketchup", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": true },
+              { "name": "Mayonesa", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Mostaza", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Salsa BBQ", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Sriracha", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Chipotle", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "prod_005_pretzel",
+      "name": "Dogo Sonorense - Pan Pretzel",
+      "description": "Estilo Sonora con salchicha envuelta en tocino, frijoles bayos, jitomate, cebolla, jalapeños, aguacate, mayonesa y salsa de chile güero.",
+      "images": [
+        {
+          "url": "/images/dogo-sonorense-pretzel.jpg",
+          "alt": "Dogo Sonorense con pan pretzel",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
+      "reviewsCount": 78,
+      "tags": ["sonora", "tocino", "frijoles", "regional", "pretzel"],
+      "featured": false,
+      "prepTime": { "min": 8, "max": 12 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": true,
+      "templateVariant": {
+        "name": "tamano",
+        "label": "Tamaño",
+        "options": [
+          {
+            "id": "size_chico",
+            "name": "Chico",
+            "label": "Chico",
+            "price": { "basePrice": 55.00, "discount": null, "finalPrice": 55.00 },
+            "sku": "DOGO-SON-PRET-CH",
+            "prepTime": { "min": 8, "max": 12 },
+            "isDefault": true,
+            "isActive": true
+          },
+          {
+            "id": "size_mediano",
+            "name": "Mediano",
+            "label": "Mediano",
+            "price": { "basePrice": 65.00, "discount": null, "finalPrice": 65.00 },
+            "sku": "DOGO-SON-PRET-MD",
+            "prepTime": { "min": 10, "max": 14 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_jumbo",
+            "name": "Jumbo",
+            "label": "Jumbo",
+            "price": { "basePrice": 75.00, "discount": null, "finalPrice": 75.00 },
+            "sku": "DOGO-SON-PRET-JB",
+            "prepTime": { "min": 12, "max": 16 },
+            "isDefault": false,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": {
+        "id": "hotdog_standard",
+        "name": "Hot Dog Standard",
+        "features": [
+          {
+            "type": "check",
+            "name": "addtionalIngredients",
+            "label": "Ingredientes Adicionales",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 3,
+            "options": [
+              { "name": "Queso cheddar", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Tocino Crujiente", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Cebolla Caramelizada", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Jalapeños", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Aguacate", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Champiñones", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          },
+          {
+            "type": "options",
+            "name": "salsas",
+            "label": "Salsas",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 1,
+            "options": [
+              { "name": "Ketchup", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": true },
+              { "name": "Mayonesa", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Mostaza", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Salsa BBQ", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Sriracha", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Chipotle", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "prod_005_integral",
+      "name": "Dogo Sonorense - Pan Integral",
+      "description": "Estilo Sonora con salchicha envuelta en tocino, frijoles bayos, jitomate, cebolla, jalapeños, aguacate, mayonesa y salsa de chile güero.",
+      "images": [
+        {
+          "url": "/images/dogo-sonorense-integral.jpg",
+          "alt": "Dogo Sonorense con pan integral",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
+      "reviewsCount": 78,
+      "tags": ["sonora", "tocino", "frijoles", "regional", "integral"],
+      "featured": false,
+      "prepTime": { "min": 8, "max": 12 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": true,
+      "templateVariant": {
+        "name": "tamano",
+        "label": "Tamaño",
+        "options": [
+          {
+            "id": "size_chico",
+            "name": "Chico",
+            "label": "Chico",
+            "price": { "basePrice": 55.00, "discount": null, "finalPrice": 55.00 },
+            "sku": "DOGO-SON-INT-CH",
+            "prepTime": { "min": 8, "max": 12 },
+            "isDefault": true,
+            "isActive": true
+          },
+          {
+            "id": "size_mediano",
+            "name": "Mediano",
+            "label": "Mediano",
+            "price": { "basePrice": 65.00, "discount": null, "finalPrice": 65.00 },
+            "sku": "DOGO-SON-INT-MD",
+            "prepTime": { "min": 10, "max": 14 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_jumbo",
+            "name": "Jumbo",
+            "label": "Jumbo",
+            "price": { "basePrice": 75.00, "discount": null, "finalPrice": 75.00 },
+            "sku": "DOGO-SON-INT-JB",
+            "prepTime": { "min": 12, "max": 16 },
+            "isDefault": false,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": {
+        "id": "hotdog_standard",
+        "name": "Hot Dog Standard",
+        "features": [
+          {
+            "type": "check",
+            "name": "addtionalIngredients",
+            "label": "Ingredientes Adicionales",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 3,
+            "options": [
+              { "name": "Queso cheddar", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Tocino Crujiente", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Cebolla Caramelizada", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Jalapeños", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Aguacate", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Champiñones", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          },
+          {
+            "type": "options",
+            "name": "salsas",
+            "label": "Salsas",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 1,
+            "options": [
+              { "name": "Ketchup", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": true },
+              { "name": "Mayonesa", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Mostaza", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Salsa BBQ", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Sriracha", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Chipotle", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "prod_005_blanco",
+      "name": "Dogo Sonorense - Pan Blanco",
+      "description": "Estilo Sonora con salchicha envuelta en tocino, frijoles bayos, jitomate, cebolla, jalapeños, aguacate, mayonesa y salsa de chile güero.",
+      "images": [
+        {
+          "url": "/images/dogo-sonorense-blanco.jpg",
+          "alt": "Dogo Sonorense con pan blanco",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
+      "reviewsCount": 78,
+      "tags": ["sonora", "tocino", "frijoles", "regional", "blanco"],
+      "featured": false,
+      "prepTime": { "min": 8, "max": 12 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": true,
+      "templateVariant": {
+        "name": "tamano",
+        "label": "Tamaño",
+        "options": [
+          {
+            "id": "size_chico",
+            "name": "Chico",
+            "label": "Chico",
+            "price": { "basePrice": 55.00, "discount": null, "finalPrice": 55.00 },
+            "sku": "DOGO-SON-BLA-CH",
+            "prepTime": { "min": 8, "max": 12 },
+            "isDefault": true,
+            "isActive": true
+          },
+          {
+            "id": "size_mediano",
+            "name": "Mediano",
+            "label": "Mediano",
+            "price": { "basePrice": 65.00, "discount": null, "finalPrice": 65.00 },
+            "sku": "DOGO-SON-BLA-MD",
+            "prepTime": { "min": 10, "max": 14 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_jumbo",
+            "name": "Jumbo",
+            "label": "Jumbo",
+            "price": { "basePrice": 75.00, "discount": null, "finalPrice": 75.00 },
+            "sku": "DOGO-SON-BLA-JB",
+            "prepTime": { "min": 12, "max": 16 },
+            "isDefault": false,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": {
+        "id": "hotdog_standard",
+        "name": "Hot Dog Standard",
+        "features": [
+          {
+            "type": "check",
+            "name": "addtionalIngredients",
+            "label": "Ingredientes Adicionales",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 3,
+            "options": [
+              { "name": "Queso cheddar", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Tocino Crujiente", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Cebolla Caramelizada", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Jalapeños", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Aguacate", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Champiñones", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          },
+          {
+            "type": "options",
+            "name": "salsas",
+            "label": "Salsas",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 1,
+            "options": [
+              { "name": "Ketchup", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": true },
+              { "name": "Mayonesa", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Mostaza", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Salsa BBQ", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Sriracha", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Chipotle", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "prod_006_pretzel",
+      "name": "Mega Perrón de 50cm - Pan Pretzel",
+      "description": "¡El reto de Monterrey! 50cm de pura sabrosura con doble salchicha, chorizo, queso asadero, guacamole, frijoles charros y todas las salsas.",
+      "images": [
+        {
+          "url": "/images/mega-perron-pretzel.jpg",
+          "alt": "Mega Perrón de 50cm con pan pretzel",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
+      "reviewsCount": 203,
+      "tags": ["reto", "50cm", "challenge", "mega", "compartir", "pretzel"],
+      "featured": true,
+      "prepTime": { "min": 15, "max": 20 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": true,
+      "templateVariant": {
+        "name": "tamano",
+        "label": "Tamaño",
+        "options": [
+          {
+            "id": "size_mediano",
+            "name": "Mediano",
+            "label": "Mediano",
+            "price": { "basePrice": 95.00, "discount": null, "finalPrice": 95.00 },
+            "sku": "MEGA-PER-PRET-MD",
+            "prepTime": { "min": 12, "max": 17 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_jumbo",
+            "name": "Jumbo",
+            "label": "Jumbo",
+            "price": { "basePrice": 125.00, "discount": null, "finalPrice": 125.00 },
+            "sku": "MEGA-PER-PRET-JB",
+            "prepTime": { "min": 15, "max": 20 },
+            "isDefault": true,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": {
+        "id": "hotdog_standard",
+        "name": "Hot Dog Standard",
+        "features": [
+          {
+            "type": "check",
+            "name": "addtionalIngredients",
+            "label": "Ingredientes Adicionales",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 3,
+            "options": [
+              { "name": "Queso cheddar", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Tocino Crujiente", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Cebolla Caramelizada", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Jalapeños", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Aguacate", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Champiñones", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          },
+          {
+            "type": "options",
+            "name": "salsas",
+            "label": "Salsas",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 1,
+            "options": [
+              { "name": "Ketchup", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": true },
+              { "name": "Mayonesa", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Mostaza", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Salsa BBQ", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Sriracha", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Chipotle", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "prod_006_integral",
+      "name": "Mega Perrón de 50cm - Pan Integral",
+      "description": "¡El reto de Monterrey! 50cm de pura sabrosura con doble salchicha, chorizo, queso asadero, guacamole, frijoles charros y todas las salsas.",
+      "images": [
+        {
+          "url": "/images/mega-perron-integral.jpg",
+          "alt": "Mega Perrón de 50cm con pan integral",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
+      "reviewsCount": 203,
+      "tags": ["reto", "50cm", "challenge", "mega", "compartir", "integral"],
+      "featured": true,
+      "prepTime": { "min": 15, "max": 20 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": true,
+      "templateVariant": {
+        "name": "tamano",
+        "label": "Tamaño",
+        "options": [
+          {
+            "id": "size_mediano",
+            "name": "Mediano",
+            "label": "Mediano",
+            "price": { "basePrice": 95.00, "discount": null, "finalPrice": 95.00 },
+            "sku": "MEGA-PER-INT-MD",
+            "prepTime": { "min": 12, "max": 17 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_jumbo",
+            "name": "Jumbo",
+            "label": "Jumbo",
+            "price": { "basePrice": 125.00, "discount": null, "finalPrice": 125.00 },
+            "sku": "MEGA-PER-INT-JB",
+            "prepTime": { "min": 15, "max": 20 },
+            "isDefault": true,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": {
+        "id": "hotdog_standard",
+        "name": "Hot Dog Standard",
+        "features": [
+          {
+            "type": "check",
+            "name": "addtionalIngredients",
+            "label": "Ingredientes Adicionales",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 3,
+            "options": [
+              { "name": "Queso cheddar", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Tocino Crujiente", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Cebolla Caramelizada", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Jalapeños", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Aguacate", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Champiñones", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          },
+          {
+            "type": "options",
+            "name": "salsas",
+            "label": "Salsas",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 1,
+            "options": [
+              { "name": "Ketchup", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": true },
+              { "name": "Mayonesa", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Mostaza", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Salsa BBQ", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Sriracha", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Chipotle", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "prod_006_blanco",
+      "name": "Mega Perrón de 50cm - Pan Blanco",
+      "description": "¡El reto de Monterrey! 50cm de pura sabrosura con doble salchicha, chorizo, queso asadero, guacamole, frijoles charros y todas las salsas.",
+      "images": [
+        {
+          "url": "/images/mega-perron-blanco.jpg",
+          "alt": "Mega Perrón de 50cm con pan blanco",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
+      "reviewsCount": 203,
+      "tags": ["reto", "50cm", "challenge", "mega", "compartir", "blanco"],
+      "featured": true,
+      "prepTime": { "min": 15, "max": 20 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": true,
+      "templateVariant": {
+        "name": "tamano",
+        "label": "Tamaño",
+        "options": [
+          {
+            "id": "size_mediano",
+            "name": "Mediano",
+            "label": "Mediano",
+            "price": { "basePrice": 95.00, "discount": null, "finalPrice": 95.00 },
+            "sku": "MEGA-PER-BLA-MD",
+            "prepTime": { "min": 12, "max": 17 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_jumbo",
+            "name": "Jumbo",
+            "label": "Jumbo",
+            "price": { "basePrice": 125.00, "discount": null, "finalPrice": 125.00 },
+            "sku": "MEGA-PER-BLA-JB",
+            "prepTime": { "min": 15, "max": 20 },
+            "isDefault": true,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": {
+        "id": "hotdog_standard",
+        "name": "Hot Dog Standard",
+        "features": [
+          {
+            "type": "check",
+            "name": "addtionalIngredients",
+            "label": "Ingredientes Adicionales",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 3,
+            "options": [
+              { "name": "Queso cheddar", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Tocino Crujiente", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Cebolla Caramelizada", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Jalapeños", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Aguacate", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Champiñones", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          },
+          {
+            "type": "options",
+            "name": "salsas",
+            "label": "Salsas",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 1,
+            "options": [
+              { "name": "Ketchup", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": true },
+              { "name": "Mayonesa", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Mostaza", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Salsa BBQ", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Sriracha", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Chipotle", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "prod_007",
+      "name": "Papas Gajo con Chile",
+      "description": "Papas gajo crujientes con chile piquín, limón, queso rallado y salsa valentina. El acompañamiento perfecto estilo mexicano.",
+      "images": [
+        {
+          "url": "/images/papas-gajo-chile.jpg",
+          "alt": "Papas gajo crujientes con chile piquín",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [{"id": "cat_002", "name": "Acompañamientos", "slug": "acompanamientos", "displayOrder": 2}],
+      "reviewsCount": 34,
+      "tags": ["acompañamiento", "chile piquín", "crujiente", "mexicano"],
+      "featured": false,
+      "prepTime": { "min": 5, "max": 8 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": false,
+      "templateVariant": {
+        "name": "tamano",
+        "label": "Tamaño",
+        "options": [
+          {
+            "id": "size_chicas",
+            "name": "Chicas",
+            "label": "Chicas",
+            "price": { "basePrice": 25.00, "discount": null, "finalPrice": 25.00 },
+            "sku": "PAPAS-GAJ-CHI",
+            "prepTime": { "min": 3, "max": 6 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_grandes",
+            "name": "Grandes",
+            "label": "Grandes",
+            "price": { "basePrice": 35.00, "discount": null, "finalPrice": 35.00 },
+            "sku": "PAPAS-GAJ-GRA",
+            "prepTime": { "min": 5, "max": 8 },
+            "isDefault": true,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": null
+    },
+    {
+      "id": "prod_008",
+      "name": "Elotes Preparados",
+      "description": "Elotes desgranados con mayonesa, queso cotija, chile piquín, limón y chile en polvo. Tradición mexicana en cada bocado.",
+      "images": [
+        {
+          "url": "/images/elotes-preparados.jpg",
+          "alt": "Elotes preparados estilo mexicano",
+          "default": true
+        }
+      ],
+      "price": {
+        "basePrice": 30.00,
+        "discount": null,
+        "finalPrice": 30.00
+      },
+      "categories": [{"id": "cat_002", "name": "Acompañamientos", "slug": "acompanamientos", "displayOrder": 2}],
+      "reviewsCount": 41,
+      "tags": ["tradicional", "cotija", "chile", "antojito"],
+      "featured": false,
+      "prepTime": { "min": 3, "max": 5 },
+      "vertical": "restaurant",
+      "hasVariants": false,
+      "isCustomizable": true,
+      "customizationTemplate": {
+        "id": "elotes_standard",
+        "name": "Elotes Standard",
+        "features": [
+          {
+            "type": "check",
+            "name": "ingredientesAdicionales",
+            "label": "Ingredientes Adicionales",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 2,
+            "options": [
+              { "name": "Queso extra", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Chile extra", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Limón extra", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Mayonesa extra", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Chamoy", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Tajín", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          },
+          {
+            "type": "options",
+            "name": "nivelPicante",
+            "label": "Nivel de Picante",
+            "isActive": true,
+            "required": false,
+            "maxSelectable": 1,
+            "options": [
+              { "name": "Sin picante", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Suave", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": true },
+              { "name": "Medio", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Picante", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false },
+              { "name": "Extra picante", "modifiesPrice": false, "affectPrice": 0, "isActive": true, "isSelected": false }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "prod_009",
+      "name": "Coca-Cola Mexicana",
+      "images": [
+        {
+          "url": "/images/coca-cola-mexicana.jpg",
+          "alt": "Coca-Cola mexicana de vidrio retornable",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [
+        {
+          "id": "cat_003",
+          "name": "Bebidas",
+          "slug": "bebidas",
+          "displayOrder": 3
+        }
+      ],
+      "reviewsCount": 15,
+      "tags": [
+        "refresco",
+        "vidrio",
+        "retornable",
+        "azúcar de caña"
+      ],
+      "featured": false,
+      "prepTime": { "min": 1, "max": 2 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": false,
+      "templateVariant": {
+        "name": "tamano",
+        "label": "Tamaño",
+        "options": [
+          {
+            "id": "size_500ml",
+            "name": "500ml",
+            "label": "500ml",
+            "price": { "basePrice": 25.00, "discount": null, "finalPrice": 25.00 },
+            "sku": "COCA-COLA-500",
+            "prepTime": { "min": 1, "max": 2 },
+            "isDefault": true,
+            "isActive": true
+          },
+          {
+            "id": "size_1lt",
+            "name": "1Lt",
+            "label": "1Lt",
+            "price": { "basePrice": 35.00, "discount": null, "finalPrice": 35.00 },
+            "sku": "COCA-COLA-1LT",
+            "prepTime": { "min": 1, "max": 2 },
+            "isDefault": false,
+            "isActive": true
+          },
+          {
+            "id": "size_2_25lt",
+            "name": "2.25Lt",
+            "label": "2.25Lt",
+            "price": { "basePrice": 55.00, "discount": null, "finalPrice": 55.00 },
+            "sku": "COCA-COLA-2.25LT",
+            "prepTime": { "min": 1, "max": 2 },
+            "isDefault": false,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": null,
+      "description": "Coca-Cola mexicana de vidrio retornable, hecha con azúcar de caña. El sabor auténtico que acompaña tu comida."
+    },
+    {
+      "id": "prod_010",
+      "name": "Agua de Horchata",
+      "images": [
+        {
+          "url": "/images/agua-horchata.jpg",
+          "alt": "Agua de horchata natural artesanal",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [
+        {
+          "id": "cat_003",
+          "name": "Bebidas",
+          "slug": "bebidas",
+          "displayOrder": 3
+        }
+      ],
+      "reviewsCount": 67,
+      "tags": [
+        "agua fresca",
+        "artesanal",
+        "canela",
+        "refrescante"
+      ],
+      "featured": true,
+      "prepTime": { "min": 3, "max": 5 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": false,
+      "templateVariant": {
+        "name": "tamano",
+        "label": "Tamaño",
+        "options": [
+          {
+            "id": "size_chico",
+            "name": "Chico",
+            "label": "Chico",
+            "price": { "basePrice": 25.00, "discount": null, "finalPrice": 25.00 },
+            "sku": "HORCHATA-CHI",
+            "prepTime": { "min": 3, "max": 5 },
+            "isDefault": true,
+            "isActive": true
+          },
+          {
+            "id": "size_grande",
+            "name": "Grande",
+            "label": "Grande",
+            "price": { "basePrice": 35.00, "discount": null, "finalPrice": 35.00 },
+            "sku": "HORCHATA-GRA",
+            "prepTime": { "min": 3, "max": 5 },
+            "isDefault": false,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": null,
+      "description": "Agua fresca de horchata natural con arroz, canela, vainilla y leche condensada. Refrescante y tradicional, perfecta para el calor de Monterrey."
+    },
+    {
+      "id": "prod_011",
+      "name": "Nachos Clásicos",
+      "description": "Nachos crujientes con queso cheddar derretido, frijoles refritos, guacamole fresco, crema ácida y jalapeños en escabeche. Perfectos para compartir.",
+      "images": [
+        {
+          "url": "/images/nachos-clasicos.jpg",
+          "alt": "Nachos clásicos con queso y guacamole",
+          "default": true
+        }
+      ],
+      "price": {
+        "basePrice": 45.00,
+        "discount": null,
+        "finalPrice": 45.00
+      },
+      "categories": [
+        {
+          "id": "cat_002",
+          "name": "Acompañamientos",
+          "slug": "acompanamientos",
+          "displayOrder": 2
+        }
+      ],
+      "reviewsCount": 89,
+      "tags": [
+        "nachos",
+        "queso cheddar",
+        "guacamole",
+        "frijoles",
+        "compartir"
+      ],
+      "featured": false,
+      "prepTime": { "min": 8, "max": 12 },
+      "vertical": "restaurant",
+      "hasVariants": false,
+      "isCustomizable": false,
+      "customizationTemplate": null
+    },
+    {
+      "id": "prod_012",
+      "name": "Empanadas",
+      "description": "Deliciosas empanadas rellenas de carne molida con cebolla, especias y hierbas aromáticas. Masa dorada y crujiente, perfectas para cualquier momento del día.",
+      "images": [
+        {
+          "url": "/images/empanadas.jpg",
+          "alt": "Empanadas doradas y crujientes",
+          "default": true
+        }
+      ],
+      "price": null,
+      "categories": [
+        {
+          "id": "cat_002",
+          "name": "Acompañamientos",
+          "slug": "acompanamientos",
+          "displayOrder": 2
+        }
+      ],
+      "reviewsCount": 67,
+      "tags": [
+        "empanadas",
+        "carne molida",
+        "masa",
+        "crujiente",
+        "tradicional"
+      ],
+      "featured": false,
+      "prepTime": { "min": 10, "max": 15 },
+      "vertical": "restaurant",
+      "hasVariants": true,
+      "isCustomizable": false,
+      "templateVariant": {
+        "name": "tipoMasa",
+        "label": "Tipo de Masa",
+        "options": [
+          {
+            "id": "masa_hojaldre",
+            "name": "Hojaldre",
+            "label": "Hojaldre",
+            "price": { "basePrice": 35.00, "discount": null, "finalPrice": 35.00 },
+            "sku": "EMPANADA-HOJ",
+            "prepTime": { "min": 10, "max": 15 },
+            "isDefault": true,
+            "isActive": true
+          },
+          {
+            "id": "masa_criolla",
+            "name": "Criolla",
+            "label": "Criolla",
+            "price": { "basePrice": 30.00, "discount": null, "finalPrice": 30.00 },
+            "sku": "EMPANADA-CRI",
+            "prepTime": { "min": 8, "max": 12 },
+            "isDefault": false,
+            "isActive": true
+          }
+        ]
+      },
+      "customizationTemplate": null
+    }
+  ],
+  "verticals": {
+    "restaurant": {
+      "templateConfig": {
+        "requiredFields": [],
+        "additionalComponents": []
+      },
+      "products": [],
+      "customizationRules": {
+        "global": {
+          "maxCustomizationValue": 300,
+          "freeItemsLimit": 3,
+          "validationEngine": "template-master-v2"
+        }
+      }
+    }
+  },
+  "analytics": {
+    "customizationTracking": {
+      "popularCombinations": {
+        "storage": "aggregated",
+        "sampleRate": 0.8,
+        "retentionDays": 30
+      }
+    }
+  },
+  "templateExtensions": {
+    "services": {
+      "requiredFields": [
+        "serviceDuration",
+        "serviceType"
+      ],
+      "additionalComponents": [
+        "serviceCalendar"
+      ]
+    },
+    "creative": {
+      "requiredFields": [
+        "projectTimeline",
+        "deliverables"
+      ],
+      "additionalComponents": [
+        "portfolioGallery"
+      ]
+    }
+  }
+}
