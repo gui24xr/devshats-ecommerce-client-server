@@ -1,4 +1,4 @@
-import { Portrait, SocialProofs } from "@/components";
+import { Portrait, SocialProofs, ProductsContainer } from "@/components";
 
 export default function Home() {
   return (
@@ -6,6 +6,9 @@ export default function Home() {
       <section>
         <Portrait />
       </section>
+      <section>
+        <ProductsContainer />
+      </section>  
       <section>
         <SocialProofs />
       </section>

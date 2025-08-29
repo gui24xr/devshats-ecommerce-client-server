@@ -23,6 +23,7 @@ const useProductsStore = create((set, get) => ({
         set({ loading: true, error: null });
         try {
             const { data } = await axios.get(`${baseUrl}/api/products`);
+            console.log('Data: ', data)
             set({
                 loading: false,
                 loaded: true,

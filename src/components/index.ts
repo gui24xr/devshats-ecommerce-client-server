@@ -1,3 +1,4 @@
+import ClientWrapper from "./layout/ClientWrapper";
 import Navbar from "./layout/NavBar";
 import Footer from "./layout/Footer";
 import LayoutModal from "./layout/LayoutModal";
@@ -13,12 +14,15 @@ import ProductFilters from "./ProductFilters";
 import ProductCard from "./ProductCard";
 import ProductGrid from "./ProductGrid";
 import ProductCustomizer from "./ProductCustomizer";
+import ProductCardBody from "./ProductCardBody";
+import StarRating from "./StartRating";
 
 import CartContainer from "./layout/CartContainer";
 import FloatingCartWidget from "./FloatingCardWidget";  
 import CartDetails from "./CartDetail";
 
 export { 
+    ClientWrapper,
     Navbar,
     Footer,
     LayoutModal,
@@ -33,5 +37,7 @@ export {
     ProductCustomizer,
     CartContainer,
     FloatingCartWidget,
-    CartDetails
+    CartDetails,
+    ProductCardBody,
+    StarRating
 };

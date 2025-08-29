@@ -1,9 +1,13 @@
 'use client'
 import { useEffect, useMemo, useState } from "react";
 import { LayoutModal, ProductFilters, ProductCard,  } from "../index";
-import { useCartStore, useProductsStore } from "@/stores";
+import { useCartStore, useProductsStore, useStoreTemplateConfig } from "@/stores";
 
 export default function ProductsContainer() {
+
+
+    const backgroundProductContainerColor = useStoreTemplateConfig(state => state.backgroundProductContainerColor)
+    const defaultProductImage = useStoreTemplateConfig(state => state.defaultProductImage)
 
     const getProducts = useProductsStore(state => state.getProducts)
     const categories = useProductsStore(state => state.categories)
@@ -32,13 +36,13 @@ export default function ProductsContainer() {
     }, [categories])
 
 
-    
+
     if (loading) return <div className=" text-black text-center text-gray-500 py-4">Cargando...</div>
     if (error) return <div className=" text-black text-center text-gray-500 py-4">Error: {error.message}</div>
 
     return (
         <>
-            <div className="w-full min-h-screen bg-gradient-to-br from-orange-500 to-red-500">
+            <div className={`w-full min-h-screen ${backgroundProductContainerColor}`}>
                 <div className="container mx-auto py-16">
                     <ProductFilters
                         categories={categoriesWithUI}
@@ -56,6 +60,7 @@ export default function ProductsContainer() {
                                     key={product.id}
                                     product={product}
                                     onAddItemToCart={addToCart}
+                                    defaultProductImage={defaultProductImage}
                                 />
                             ))}
                         </div>}
@@ -96,11 +101,11 @@ function getCategoryUIData(category: any): any {
         case SPECIAL_CATEGORIES.RECENT:
             return { label: 'Recientes', emoji: '🕒' }
         case 'cat_001':
-            return { label: 'Hot Dogs', emoji: '🌭' }
+            return { label: capitalize(category.name), emoji: '🌭' }
         case 'cat_002':
-            return { label: 'Acompañamientos', emoji: '🍟' }
+            return { label: capitalize(category.name), emoji: '🍟' }
         case 'cat_003':
-            return { label: 'Bebidas', emoji: '🥤' }
+            return { label: capitalize(category.name), emoji: '🥤' }
         default:
             return { label: category.name, emoji: '🍽️' }
     }
@@ -114,3 +119,7 @@ export const SPECIAL_CATEGORIES = {
 } as const;
 
 
+const capitalize = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+  

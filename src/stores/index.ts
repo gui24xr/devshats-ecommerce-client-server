@@ -1,5 +1,6 @@
 import useCartStore from "./useCartStore";
 import useProductsStore from "./useProductsStore";
+import useStoreTemplateConfig from "./useStoreTemplateConfig";
 
 
-export { useCartStore, useProductsStore };
+export { useCartStore, useProductsStore, useStoreTemplateConfig };

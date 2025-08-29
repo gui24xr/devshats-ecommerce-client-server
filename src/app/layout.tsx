@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { CartContainer } from "@/components";	
+import { CartContainer, ClientWrapper } from "@/components";	
 
 import { Navbar, Footer } from "@/components";
 
@@ -30,12 +30,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <CartContainer />
-        <Navbar />
-        <div className="min-h-screen bg-gray-100 text-black">
-          {children}
-        </div>
-        <Footer />
+        <ClientWrapper>
+          <CartContainer />
+          <Navbar />
+          <div className="min-h-screen bg-gray-100 text-black">
+            {children}
+          </div>
+          <Footer />
+        </ClientWrapper>
       </body>
     </html>
   );

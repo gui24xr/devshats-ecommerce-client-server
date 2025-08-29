@@ -1,16 +1,22 @@
 "use client"
 import { useEffect, useMemo, useState } from "react";
 import { LayoutModal, FloatingCartWidget, CartDetails } from '../index'
-import { useCartStore } from "@/stores";
+import { useCartStore, useStoreTemplateConfig } from "@/stores";
 
 export default function CartContainer(){
 
+
+    const clientConfig = useStoreTemplateConfig(state => state.clientConfig)
     const cartItems = useCartStore(state => state.items)
     const itemsCount = useCartStore(state => state.itemsCount)
 
     const [cartModalIsOpen, setCartModalIsOpen] = useState(false)
 
     const {PartA,PartB} = MyComponent()
+
+    if(clientConfig.plan === "plan_small"){
+        return null
+    }
 
     return(
         <>

@@ -56,6 +56,20 @@
         "realTimePreview": true,
         "nutritionalCalculation": true,
         "allergenTracking": true
+      },
+      "productsContainerRenderConfig": {
+        "backgroundProductContainerColor": "bg-gradient-to-br from-orange-500 to-red-500",
+        "defaultProductImage": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI="
+      },
+      "portrait": {
+        "name": "Hotdog Paradise",
+        "slogan": "El mejor sabor en cada bocado",
+        "subtitle": "Personaliza tu experiencia gastronómica perfecta.",
+        "logoIcon": "🌭",
+        "backgroundColor": "bg-gradient-to-br from-orange-500 to-red-500"
+      },
+      "clientConfig": {
+        "plan": "plan_medium"
       }
     }
   },
@@ -89,7 +103,7 @@
       "description": "El clásico de Monterrey con salchicha de res, bacon, queso asadero derretido, frijoles charros, aguacate, jitomate y salsa verde de la casa.",
       "images": [
         {
-          "url": "/images/dogo-regiomontano-pretzel.jpg",
+          "url": "/images/hotdog.png",
           "alt": "Dogo Regiomontano con pan pretzel",
           "default": true
         }
@@ -97,10 +111,15 @@
       "price": null,
       "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
       "reviewsCount": 127,
+      "rating": 4.6,
       "tags": ["clásico", "monterrey", "bacon", "queso asadero", "pretzel"],
       "featured": true,
       "prepTime": { "min": 8, "max": 12 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": false,
+        "isPopular": true
+      },
       "hasVariants": true,
       "isCustomizable": true,
       "templateVariant": {
@@ -184,7 +203,7 @@
       "description": "El clásico de Monterrey con salchicha de res, bacon, queso asadero derretido, frijoles charros, aguacate, jitomate y salsa verde de la casa.",
       "images": [
         {
-          "url": "/images/dogo-regiomontano-integral.jpg",
+          "url": "/images/hotdogs1.jpg",
           "alt": "Dogo Regiomontano con pan integral",
           "default": true
         }
@@ -192,10 +211,15 @@
       "price": null,
       "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
       "reviewsCount": 127,
+      "rating": 4.6,
       "tags": ["clásico", "monterrey", "bacon", "queso asadero", "integral"],
       "featured": true,
       "prepTime": { "min": 8, "max": 12 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": false,
+        "isPopular": false
+      },
       "hasVariants": true,
       "isCustomizable": true,
       "templateVariant": {
@@ -277,23 +301,28 @@
       "id": "prod_001_blanco",
       "name": "Dogo Regiomontano - Pan Blanco",
       "description": "El clásico de Monterrey con salchicha de res, bacon, queso asadero derretido, frijoles charros, aguacate, jitomate y salsa verde de la casa.",
-      "images": [
+            "images": [
         {
-          "url": "/images/dogo-regiomontano-blanco.jpg",
-            "alt": "Dogo Regiomontano con pan blanco",
-            "default": true
-          }
-        ],
+          "url": "/images/hotdog.png",
+          "alt": "Dogo Regiomontano con pan blanco",
+          "default": true
+        }
+      ],
         "price": null,
         "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
         "reviewsCount": 127,
-        "tags": ["clásico", "monterrey", "bacon", "queso asadero", "blanco"],
-        "featured": true,
-        "prepTime": { "min": 8, "max": 12 },
-        "vertical": "restaurant",
-        "hasVariants": true,
-        "isCustomizable": true,
-        "templateVariant": {
+      "rating": 4.6,
+      "tags": ["clásico", "monterrey", "bacon", "queso asadero", "blanco"],
+      "featured": true,
+      "prepTime": { "min": 8, "max": 12 },
+      "vertical": "restaurant",
+      "features": {
+        "isNew": true,
+        "isPopular": false
+      },
+      "hasVariants": true,
+      "isCustomizable": true,
+      "templateVariant": {
           "name": "tamano",
           "label": "Tamaño",
           "options": [
@@ -329,10 +358,10 @@
             }
           ]
         },
-        "customizationTemplate": {
-          "id": "hotdog_standard",
-          "name": "Hot Dog Standard",
-          "features": [
+      "customizationTemplate": {
+        "id": "hotdog_standard",
+        "name": "Hot Dog Standard",
+        "features": [
             {
               "type": "check",
               "name": "addtionalIngredients",
@@ -374,7 +403,7 @@
       "description": "Jumbo de 30cm con arrachera asada, queso Oaxaca, guacamole, pico de gallo, chile toreado y salsa chipotle. Un clásico del norte mexicano.",
       "images": [
         {
-          "url": "/images/perra-nortena-pretzel.jpg",
+          "url": "/images/hotdogs1.jpg",
           "alt": "Perra Norteña con pan pretzel",
           "default": true
         }
@@ -382,10 +411,15 @@
       "price": null,
       "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
       "reviewsCount": 89,
+      "rating": 4.3,
       "tags": ["premium", "arrachera", "jumbo", "30cm", "pretzel"],
       "featured": true,
       "prepTime": { "min": 10, "max": 15 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": false,
+        "isPopular": true
+      },
       "hasVariants": true,
       "isCustomizable": true,
       "templateVariant": {
@@ -469,7 +503,7 @@
       "description": "Jumbo de 30cm con arrachera asada, queso Oaxaca, guacamole, pico de gallo, chile toreado y salsa chipotle. Un clásico del norte mexicano.",
       "images": [
         {
-          "url": "/images/perra-nortena-integral.jpg",
+          "url": "/images/hotdog.png",
           "alt": "Perra Norteña con pan integral",
           "default": true
         }
@@ -477,10 +511,15 @@
       "price": null,
       "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
       "reviewsCount": 89,
+      "rating": 4.3,
       "tags": ["premium", "arrachera", "jumbo", "30cm", "integral"],
       "featured": true,
       "prepTime": { "min": 10, "max": 15 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": true,
+        "isPopular": false
+      },
       "hasVariants": true,
       "isCustomizable": true,
       "templateVariant": {
@@ -564,7 +603,7 @@
       "description": "Jumbo de 30cm con arrachera asada, queso Oaxaca, guacamole, pico de gallo, chile toreado y salsa chipotle. Un clásico del norte mexicano.",
       "images": [
         {
-          "url": "/images/perra-nortena-blanco.jpg",
+          "url": "/images/hotdogs1.jpg",
           "alt": "Perra Norteña con pan blanco",
           "default": true
         }
@@ -572,10 +611,15 @@
       "price": null,
       "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
       "reviewsCount": 89,
+      "rating": 4.3,
       "tags": ["premium", "arrachera", "jumbo", "30cm", "blanco"],
       "featured": true,
       "prepTime": { "min": 10, "max": 15 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": false,
+        "isPopular": true
+      },
       "hasVariants": true,
       "isCustomizable": true,
       "templateVariant": {
@@ -659,7 +703,7 @@
       "description": "Hot dog con carne de pastor auténtica, piña asada, cebolla morada, cilantro, salsa de pastor y un toque de limón. Sabor 100% mexicano.",
       "images": [
         {
-          "url": "/images/perro-pastor-pretzel.jpg",
+          "url": "/images/hotdog.png",
           "alt": "Perro Pastor con pan pretzel",
           "default": true
         }
@@ -667,10 +711,15 @@
       "price": null,
       "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
       "reviewsCount": 64,
+      "rating": 4.1,
       "tags": ["pastor", "piña", "mexicano", "trompo", "pretzel"],
       "featured": false,
       "prepTime": { "min": 7, "max": 10 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": true,
+        "isPopular": false
+      },
       "hasVariants": true,
       "isCustomizable": true,
       "templateVariant": {
@@ -754,7 +803,7 @@
       "description": "Hot dog con carne de pastor auténtica, piña asada, cebolla morada, cilantro, salsa de pastor y un toque de limón. Sabor 100% mexicano.",
       "images": [
         {
-          "url": "/images/perro-pastor-integral.jpg",
+          "url": "/images/hotdogs1.jpg",
           "alt": "Perro Pastor con pan integral",
           "default": true
         }
@@ -762,10 +811,15 @@
       "price": null,
       "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
       "reviewsCount": 64,
+      "rating": 4.1,
       "tags": ["pastor", "piña", "mexicano", "trompo", "integral"],
       "featured": false,
       "prepTime": { "min": 7, "max": 10 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": false,
+        "isPopular": true
+      },
       "hasVariants": true,
       "isCustomizable": true,
       "templateVariant": {
@@ -849,7 +903,7 @@
       "description": "Hot dog con carne de pastor auténtica, piña asada, cebolla morada, cilantro, salsa de pastor y un toque de limón. Sabor 100% mexicano.",
       "images": [
         {
-          "url": "/images/perro-pastor-blanco.jpg",
+          "url": "/images/hotdog.png",
           "alt": "Perro Pastor con pan blanco",
           "default": true
         }
@@ -857,10 +911,15 @@
       "price": null,
       "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
       "reviewsCount": 64,
+      "rating": 4.1,
       "tags": ["pastor", "piña", "mexicano", "trompo", "blanco"],
       "featured": false,
       "prepTime": { "min": 7, "max": 10 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": true,
+        "isPopular": false
+      },
       "hasVariants": true,
       "isCustomizable": true,
       "templateVariant": {
@@ -944,7 +1003,7 @@
       "description": "Especialidad yucateca en Monterrey: cochinita pibil desmenuzada, cebolla morada encurtida, habanero, aguacate y salsa de achiote.",
       "images": [
         {
-          "url": "/images/perra-cochina-pretzel.jpg",
+          "url": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI=",
           "alt": "Perra Cochina con pan pretzel",
           "default": true
         }
@@ -952,10 +1011,15 @@
       "price": null,
       "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
       "reviewsCount": 52,
+      "rating": 4.4,
       "tags": ["yucateco", "cochinita pibil", "habanero", "especialidad", "pretzel"],
       "featured": false,
       "prepTime": { "min": 12, "max": 18 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": false,
+        "isPopular": true
+      },
       "hasVariants": true,
       "isCustomizable": true,
       "templateVariant": {
@@ -1039,7 +1103,7 @@
       "description": "Especialidad yucateca en Monterrey: cochinita pibil desmenuzada, cebolla morada encurtida, habanero, aguacate y salsa de achiote.",
       "images": [
         {
-          "url": "/images/perra-cochina-integral.jpg",
+          "url": "/images/hotdog.png",
           "alt": "Perra Cochina con pan integral",
           "default": true
         }
@@ -1047,10 +1111,15 @@
       "price": null,
       "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
       "reviewsCount": 52,
+      "rating": 4.4,
       "tags": ["yucateco", "cochinita pibil", "habanero", "especialidad", "integral"],
       "featured": false,
       "prepTime": { "min": 12, "max": 18 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": true,
+        "isPopular": false
+      },
       "hasVariants": true,
       "isCustomizable": true,
       "templateVariant": {
@@ -1134,7 +1203,7 @@
       "description": "Especialidad yucateca en Monterrey: cochinita pibil desmenuzada, cebolla morada encurtida, habanero, aguacate y salsa de achiote.",
       "images": [
         {
-          "url": "/images/perra-cochina-blanco.jpg",
+          "url": "/images/hotdogs1.jpg",
           "alt": "Perra Cochina con pan blanco",
           "default": true
         }
@@ -1142,10 +1211,15 @@
       "price": null,
       "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
       "reviewsCount": 52,
+      "rating": 4.4,
       "tags": ["yucateco", "cochinita pibil", "habanero", "especialidad", "blanco"],
       "featured": false,
       "prepTime": { "min": 12, "max": 18 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": false,
+        "isPopular": true
+      },
       "hasVariants": true,
       "isCustomizable": true,
       "templateVariant": {
@@ -1229,7 +1303,7 @@
       "description": "Estilo Sonora con salchicha envuelta en tocino, frijoles bayos, jitomate, cebolla, jalapeños, aguacate, mayonesa y salsa de chile güero.",
       "images": [
         {
-          "url": "/images/dogo-sonorense-pretzel.jpg",
+          "url": "/images/hotdog.png",
           "alt": "Dogo Sonorense con pan pretzel",
           "default": true
         }
@@ -1237,10 +1311,15 @@
       "price": null,
       "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
       "reviewsCount": 78,
+      "rating": 4.7,
       "tags": ["sonora", "tocino", "frijoles", "regional", "pretzel"],
       "featured": false,
       "prepTime": { "min": 8, "max": 12 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": true,
+        "isPopular": false
+      },
       "hasVariants": true,
       "isCustomizable": true,
       "templateVariant": {
@@ -1324,7 +1403,7 @@
       "description": "Estilo Sonora con salchicha envuelta en tocino, frijoles bayos, jitomate, cebolla, jalapeños, aguacate, mayonesa y salsa de chile güero.",
       "images": [
         {
-          "url": "/images/dogo-sonorense-integral.jpg",
+          "url": "/images/hotdogs1.jpg",
           "alt": "Dogo Sonorense con pan integral",
           "default": true
         }
@@ -1332,10 +1411,15 @@
       "price": null,
       "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
       "reviewsCount": 78,
+      "rating": 4.7,
       "tags": ["sonora", "tocino", "frijoles", "regional", "integral"],
       "featured": false,
       "prepTime": { "min": 8, "max": 12 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": false,
+        "isPopular": true
+      },
       "hasVariants": true,
       "isCustomizable": true,
       "templateVariant": {
@@ -1419,7 +1503,7 @@
       "description": "Estilo Sonora con salchicha envuelta en tocino, frijoles bayos, jitomate, cebolla, jalapeños, aguacate, mayonesa y salsa de chile güero.",
       "images": [
         {
-          "url": "/images/dogo-sonorense-blanco.jpg",
+          "url": "/images/hotdog.png",
           "alt": "Dogo Sonorense con pan blanco",
           "default": true
         }
@@ -1427,10 +1511,15 @@
       "price": null,
       "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
       "reviewsCount": 78,
+      "rating": 4.7,
       "tags": ["sonora", "tocino", "frijoles", "regional", "blanco"],
       "featured": false,
       "prepTime": { "min": 8, "max": 12 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": true,
+        "isPopular": false
+      },
       "hasVariants": true,
       "isCustomizable": true,
       "templateVariant": {
@@ -1514,7 +1603,7 @@
       "description": "¡El reto de Monterrey! 50cm de pura sabrosura con doble salchicha, chorizo, queso asadero, guacamole, frijoles charros y todas las salsas.",
       "images": [
         {
-          "url": "/images/mega-perron-pretzel.jpg",
+          "url": "/images/hotdogs1.jpg",
           "alt": "Mega Perrón de 50cm con pan pretzel",
           "default": true
         }
@@ -1522,10 +1611,15 @@
       "price": null,
       "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
       "reviewsCount": 203,
+      "rating": 4.8,
       "tags": ["reto", "50cm", "challenge", "mega", "compartir", "pretzel"],
       "featured": true,
       "prepTime": { "min": 15, "max": 20 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": false,
+        "isPopular": true
+      },
       "hasVariants": true,
       "isCustomizable": true,
       "templateVariant": {
@@ -1599,7 +1693,7 @@
       "description": "¡El reto de Monterrey! 50cm de pura sabrosura con doble salchicha, chorizo, queso asadero, guacamole, frijoles charros y todas las salsas.",
       "images": [
         {
-          "url": "/images/mega-perron-integral.jpg",
+          "url": "/images/hotdog.png",
           "alt": "Mega Perrón de 50cm con pan integral",
           "default": true
         }
@@ -1607,10 +1701,15 @@
       "price": null,
       "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
       "reviewsCount": 203,
+      "rating": 4.8,
       "tags": ["reto", "50cm", "challenge", "mega", "compartir", "integral"],
       "featured": true,
       "prepTime": { "min": 15, "max": 20 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": true,
+        "isPopular": false
+      },
       "hasVariants": true,
       "isCustomizable": true,
       "templateVariant": {
@@ -1684,7 +1783,7 @@
       "description": "¡El reto de Monterrey! 50cm de pura sabrosura con doble salchicha, chorizo, queso asadero, guacamole, frijoles charros y todas las salsas.",
       "images": [
         {
-          "url": "/images/mega-perron-blanco.jpg",
+          "url": "/images/hotdogs1.jpg",
           "alt": "Mega Perrón de 50cm con pan blanco",
           "default": true
         }
@@ -1692,10 +1791,15 @@
       "price": null,
       "categories": [{"id": "cat_001", "name": "Hot Dogs", "slug": "hot-dogs", "displayOrder": 1}],
       "reviewsCount": 203,
+      "rating": 4.8,
       "tags": ["reto", "50cm", "challenge", "mega", "compartir", "blanco"],
       "featured": true,
       "prepTime": { "min": 15, "max": 20 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": false,
+        "isPopular": true
+      },
       "hasVariants": true,
       "isCustomizable": true,
       "templateVariant": {
@@ -1769,7 +1873,7 @@
       "description": "Papas gajo crujientes con chile piquín, limón, queso rallado y salsa valentina. El acompañamiento perfecto estilo mexicano.",
       "images": [
         {
-          "url": "/images/papas-gajo-chile.jpg",
+          "url": "/images/papagajo.jpg",
           "alt": "Papas gajo crujientes con chile piquín",
           "default": true
         }
@@ -1777,10 +1881,15 @@
       "price": null,
       "categories": [{"id": "cat_002", "name": "Acompañamientos", "slug": "acompanamientos", "displayOrder": 2}],
       "reviewsCount": 34,
+      "rating": 4.2,
       "tags": ["acompañamiento", "chile piquín", "crujiente", "mexicano"],
       "featured": false,
       "prepTime": { "min": 5, "max": 8 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": false,
+        "isPopular": true
+      },
       "hasVariants": true,
       "isCustomizable": false,
       "templateVariant": {
@@ -1817,7 +1926,7 @@
       "description": "Elotes desgranados con mayonesa, queso cotija, chile piquín, limón y chile en polvo. Tradición mexicana en cada bocado.",
       "images": [
         {
-          "url": "/images/elotes-preparados.jpg",
+          "url": "/images/papagajo.jpg",
           "alt": "Elotes preparados estilo mexicano",
           "default": true
         }
@@ -1829,10 +1938,15 @@
       },
       "categories": [{"id": "cat_002", "name": "Acompañamientos", "slug": "acompanamientos", "displayOrder": 2}],
       "reviewsCount": 41,
+      "rating": 4.0,
       "tags": ["tradicional", "cotija", "chile", "antojito"],
       "featured": false,
       "prepTime": { "min": 3, "max": 5 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": true,
+        "isPopular": false
+      },
       "hasVariants": false,
       "isCustomizable": true,
       "customizationTemplate": {
@@ -1878,7 +1992,7 @@
       "name": "Coca-Cola Mexicana",
       "images": [
         {
-          "url": "/images/coca-cola-mexicana.jpg",
+          "url": "/images/cocacola.png",
           "alt": "Coca-Cola mexicana de vidrio retornable",
           "default": true
         }
@@ -1893,6 +2007,7 @@
         }
       ],
       "reviewsCount": 15,
+      "rating": 3.8,
       "tags": [
         "refresco",
         "vidrio",
@@ -1902,6 +2017,10 @@
       "featured": false,
       "prepTime": { "min": 1, "max": 2 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": false,
+        "isPopular": true
+      },
       "hasVariants": true,
       "isCustomizable": false,
       "templateVariant": {
@@ -1948,7 +2067,7 @@
       "name": "Agua de Horchata",
       "images": [
         {
-          "url": "/images/agua-horchata.jpg",
+          "url": "/images/horchata.jpg",
           "alt": "Agua de horchata natural artesanal",
           "default": true
         }
@@ -1972,6 +2091,10 @@
       "featured": true,
       "prepTime": { "min": 3, "max": 5 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": true,
+        "isPopular": false
+      },
       "hasVariants": true,
       "isCustomizable": false,
       "templateVariant": {
@@ -2009,7 +2132,7 @@
       "description": "Nachos crujientes con queso cheddar derretido, frijoles refritos, guacamole fresco, crema ácida y jalapeños en escabeche. Perfectos para compartir.",
       "images": [
         {
-          "url": "/images/nachos-clasicos.jpg",
+          "url": "/images/nachos.jpg",
           "alt": "Nachos clásicos con queso y guacamole",
           "default": true
         }
@@ -2028,6 +2151,7 @@
         }
       ],
       "reviewsCount": 89,
+      "rating": 4.1,
       "tags": [
         "nachos",
         "queso cheddar",
@@ -2038,6 +2162,10 @@
       "featured": false,
       "prepTime": { "min": 8, "max": 12 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": false,
+        "isPopular": true
+      },
       "hasVariants": false,
       "isCustomizable": false,
       "customizationTemplate": null
@@ -2048,7 +2176,7 @@
       "description": "Deliciosas empanadas rellenas de carne molida con cebolla, especias y hierbas aromáticas. Masa dorada y crujiente, perfectas para cualquier momento del día.",
       "images": [
         {
-          "url": "/images/empanadas.jpg",
+          "url": "/images/empanada.jpg",
           "alt": "Empanadas doradas y crujientes",
           "default": true
         }
@@ -2063,6 +2191,7 @@
         }
       ],
       "reviewsCount": 67,
+      "rating": 4.0,
       "tags": [
         "empanadas",
         "carne molida",
@@ -2073,6 +2202,10 @@
       "featured": false,
       "prepTime": { "min": 10, "max": 15 },
       "vertical": "restaurant",
+      "features": {
+        "isNew": true,
+        "isPopular": false
+      },
       "hasVariants": true,
       "isCustomizable": false,
       "templateVariant": {

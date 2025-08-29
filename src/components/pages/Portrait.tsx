@@ -1,13 +1,18 @@
+'use client'
 import Link from "next/link";
+import { useStoreTemplateConfig } from "@/stores";
 
 
 
 
 
 export default function Portrait() {
+
+  const  portrait  = useStoreTemplateConfig(state => state.portrait)
+  
   return (
 
-    <div className="relative w-full bg-gradient-to-br from-orange-600 via-orange-500 to-red-500">
+    <div className={`relative w-full ${portrait.backgroundColor}`}>
       <div className="absolute inset-0 bg-black/10"></div>
     
       <div className="max-w-5xl mx-auto p-4">
@@ -27,15 +32,15 @@ export default function Portrait() {
             <div className="mx-auto flex flex-col space-y-12">
               <div>
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                  🌭{" "}
+                  {portrait.logoIcon} {" "}
                   <span className="bg-gradient-to-r from-yellow-200 to-orange-100 bg-clip-text text-transparent">
-                    HotDogs Paradise
+                    {portrait.name}
                   </span>
                 </h1>
                 <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed text-orange-50">
-                  Los mejores hot dogs artesanales con ingredientes frescos y sabores únicos.
+                  {portrait.slogan}
                   <br className="hidden md:block" />
-                  <span className="font-semibold text-yellow-200">Personaliza tu experiencia gastronómica perfecta.</span>
+                  <span className="font-semibold text-yellow-200">{portrait.subtitle}</span>
                 </p>
               </div>
 
