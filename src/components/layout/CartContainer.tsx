@@ -6,7 +6,7 @@ import { useCartStore, useStoreTemplateConfig } from "@/stores";
 export default function CartContainer(){
 
 
-    const clientConfig = useStoreTemplateConfig(state => state.clientConfig)
+    const planSettings = useStoreTemplateConfig(state => state.planSettings)
     const cartItems = useCartStore(state => state.items)
     const itemsCount = useCartStore(state => state.itemsCount)
 
@@ -14,7 +14,7 @@ export default function CartContainer(){
 
     const {PartA,PartB} = MyComponent()
 
-    if(clientConfig.plan === "plan_small"){
+    if(planSettings.type === "plan_small"){
         return null
     }
 

@@ -10,6 +10,7 @@ const useProductsStore = create((set, get) => ({
     error: null,
     loaded: false,
     products: [],
+    productsOrderByCategories: [],
     productsLoaded: false,
     categories: [],
     productsStats: {
@@ -23,23 +24,17 @@ const useProductsStore = create((set, get) => ({
         set({ loading: true, error: null });
         try {
             const { data } = await axios.get(`${baseUrl}/api/products`);
-            console.log('Data: ', data)
+            console.log('data: ', data)
             set({
                 loading: false,
                 loaded: true,
                 products: data.products,
-                categories: [...data.categories, {
-                    id: SPECIAL_CATEGORIES.ALL_CATEGORIES,
-                    name: 'Todos',
-                    itemsCount: data.products.length,
-                    slug: 'todos',
-                    displayOrder: 0,
-                }].sort((a: any, b: any) => a.displayOrder - b.displayOrder),
+                categories:data.categories,
                 productsStats: data.stats,
                 filteredProducts: data.products,
-                
+                productsOrderByCategories: getProductsOrderByCategories(data.categories, data.products)
             });
-            console.log(data)
+     
             
         } catch (error) {
             set({ error: error });
@@ -49,17 +44,16 @@ const useProductsStore = create((set, get) => ({
     },
 
     filterProductsByCategories: (categoryId: string ) => {
-        console.log('Se activo la funcion filterProducts del store, vino la categoria: ', categoryId)
-        if (categoryId === SPECIAL_CATEGORIES.ALL_CATEGORIES) {
+        
+        if (categoryId === 'all_categories') {
             set({
                 filteredProducts: get().products,
-                selectedCategory: get().categories.find((category: any) => category.id === SPECIAL_CATEGORIES.ALL_CATEGORIES)
+                selectedCategory: get().categories.find((category: any) => category.id === 'all_categories')
             });
-            console.log('filteredProducts: ', get().filteredProducts, 'selectedCategory: ', get().selectedCategory)
             return;
         }
         const filteredProducts = get().products.filter((product: any) => product.categories.some((category: any) => category.id === categoryId));
-        console.log('filteredProducts: ', filteredProducts)
+       
         set({
             filteredProducts: filteredProducts,
             selectedCategory: get().categories.find((category: any) => category.id === categoryId)
@@ -81,9 +75,24 @@ export default useProductsStore;
 
 
 
-export const SPECIAL_CATEGORIES = {
-    ALL_CATEGORIES: 'all_categories',
-    FAVORITES: 'favorites',
-    RECENT: 'recent'
 
-  } as const;
+
+//---------------------- esto mas adelante venndra del server
+function getProductsOrderByCategories(categories: any, products: any) {
+  
+    const productsOrderByCategories = categories.map((category: any) => ({
+      ...category,
+      products: products
+        .filter((product: any) => product.categories.some((c: any) => c.id === category.id))
+        .sort((a: any, b: any) => a.displayOrder - b.displayOrder)
+        .map((product: any) => ({
+          ...product,
+          renderId: `${category.id}-${product.id}`
+        }))
+    }));
+
+    //COmo muestro x categorias borro la categoria todas.
+    delete productsOrderByCategories[0]
+    console.log('productsOrderByCategories: ', productsOrderByCategories)
+    return productsOrderByCategories
+  };

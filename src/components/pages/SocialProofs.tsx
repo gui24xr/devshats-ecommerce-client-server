@@ -1,4 +1,9 @@
-export default function SocialProofs() {
+import DataService from "@/lib/DataService";
+
+export default async function SocialProofs() {
+
+  const { customizationTemplateSettings } = await DataService.getStoreDataAndConfigs()
+  const { whyChooseUs, bussinessContent } = customizationTemplateSettings
     return (
         <div>
          {/* Features Section - Más visual y atractivo */}
@@ -6,35 +11,34 @@ export default function SocialProofs() {
           <div className="px-12 py-24">
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">¿Por qué elegirnos?</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{whyChooseUs.title}</h2>
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  Descubre lo que nos hace únicos en el mundo de los hot dogs artesanales
+                 
                 </p>
               </div>
 
               <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
                 <div className="group text-center p-8 rounded-2xl bg-gradient-to-br from-orange-50 to-orange-100/50 hover:from-orange-100 hover:to-orange-200/50 transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                  <div className="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🥩</div>
-                  <h3 className="text-xl font-bold mb-4 text-gray-900">Ingredientes Premium</h3>
+                  <div className="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">{whyChooseUs.features[0].icon}</div>
+                  <h3 className="text-xl font-bold mb-4 text-gray-900">{whyChooseUs.features[0].title}</h3>
                   <p className="text-gray-700 leading-relaxed">
-                    Carnes selectas y ingredientes frescos de la más alta calidad para una experiencia gastronómica
-                    excepcional
+                    {whyChooseUs.features[0].description}
                   </p>
                 </div>
 
                 <div className="group text-center p-8 rounded-2xl bg-gradient-to-br from-orange-50 to-orange-100/50 hover:from-orange-100 hover:to-orange-200/50 transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                  <div className="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">⚡</div>
-                  <h3 className="text-xl font-bold mb-4 text-gray-900">Entrega Rápida</h3>
+                  <div className="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">{whyChooseUs.features[1].icon}</div>
+                  <h3 className="text-xl font-bold mb-4 text-gray-900">{whyChooseUs.features[1].title}</h3>
                   <p className="text-gray-700 leading-relaxed">
-                    Preparación rápida sin comprometer el sabor y la calidad. Tu pedido listo en 20-30 minutos
+                    {whyChooseUs.features[1].description}
                   </p>
                 </div>
 
                 <div className="group text-center p-8 rounded-2xl bg-gradient-to-br from-orange-50 to-orange-100/50 hover:from-orange-100 hover:to-orange-200/50 transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                  <div className="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🎨</div>
-                  <h3 className="text-xl font-bold mb-4 text-gray-900">100% Personalizable</h3>
+                  <div className="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">{whyChooseUs.features[2].icon}</div>
+                  <h3 className="text-xl font-bold mb-4 text-gray-900">{whyChooseUs.features[2].title}</h3>
                   <p className="text-gray-700 leading-relaxed">
-                    Crea tu hot dog perfecto con nuestras opciones de personalización ilimitadas
+                    {whyChooseUs.features[2].description}
                   </p>
                 </div>
               </div>

@@ -9,6 +9,8 @@ import Portrait from "./pages/Portrait";
 import ProductsPortrait from "./pages/ProductsPortrait";
 import ProductsPortraitContainer from "./pages/ProductsPortraitContainer";
 import ProductsContainer from "./pages/ProductsContainer";
+import ProductsByCategoriesCatalog from "./ProductsByCategoriesCatalog";
+import FloatingRapidCatalogWidget from "./FloatingRapidCatalogWidget";
 
 import ProductFilters from "./ProductFilters";
 import ProductCard from "./ProductCard";
@@ -39,5 +41,7 @@ export {
     FloatingCartWidget,
     CartDetails,
     ProductCardBody,
-    StarRating
+    StarRating,
+    ProductsByCategoriesCatalog,
+    FloatingRapidCatalogWidget
 };

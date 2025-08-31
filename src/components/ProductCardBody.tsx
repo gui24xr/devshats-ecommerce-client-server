@@ -22,14 +22,13 @@ export default function ProductCardBody({ product, getProductPrice, selectedVari
       <div className="flex flex-col flex-grow border-b border-gray-100">
 
         {/* Header */}
-        <div className="mb-4">
-          <h3 className={`${roboto.className} text-xl font-bold text-gray-900 group-hover:text-orange-600 transition-colors duration-300 mb-2`}>
+        <div className="flex flex-col gap-1 mb-8">
+          <h3 className={`${roboto.className} text-xl font-bold text-gray-900 group-hover:text-orange-600 transition-colors duration-300`}>
             {product.name}
           </h3>
           {/* Description */}
-          <p className="text-gray-600 text-sm leading-relaxed line-clamp-2">
-            {product.description ||
-              "Delicioso hot dog artesanal preparado con ingredientes frescos y de la más alta calidad."}
+          <p className="text-gray-600 text-sm text-justify">
+            {product.description || "Producto sin descripción"}
           </p>
         </div>
 
@@ -47,7 +46,7 @@ export default function ProductCardBody({ product, getProductPrice, selectedVari
           </div>
 
           <div className="text-end">
-            <p className="flex flex-row gap-1">
+            <div className="flex flex-row gap-1">
               {getProductPrice().discount && (
                 <div className="flex flex-col gap-0">
                   <span className="text-sm text-gray-400 text-green-500 font-semibold">${`-${getProductPrice().discount.toFixed(0)}%`}</span>
@@ -55,7 +54,7 @@ export default function ProductCardBody({ product, getProductPrice, selectedVari
                 </div>
               )}
               <span className={`${archivo_black.className} text-4xl font-bold text-gray-700 text-shadow-md`}>${getProductPrice().finalPrice.toFixed(0)}</span>
-            </p>
+            </div>
           </div>
         </div>
 
@@ -84,7 +83,7 @@ export default function ProductCardBody({ product, getProductPrice, selectedVari
 
 
 
-      
+
 
       </div>
     </>

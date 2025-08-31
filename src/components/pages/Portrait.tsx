@@ -1,20 +1,19 @@
-'use client'
+
 import Link from "next/link";
-import { useStoreTemplateConfig } from "@/stores";
+import DataService from "@/lib/DataService";
+
+const getRandom = (arr:any) => arr[Math.floor(Math.random() * arr.length)];
 
 
+export default async function Portrait() {
 
-
-
-export default function Portrait() {
-
-  const  portrait  = useStoreTemplateConfig(state => state.portrait)
-  
+  const { customizationTemplateSettings } = await DataService.getStoreDataAndConfigs()
+  const { portrait, bussinessContent } = customizationTemplateSettings
   return (
 
     <div className={`relative w-full ${portrait.backgroundColor}`}>
       <div className="absolute inset-0 bg-black/10"></div>
-    
+
       <div className="max-w-5xl mx-auto p-4">
 
 
@@ -24,23 +23,27 @@ export default function Portrait() {
 
 
           {/* Floating Elements */}
-          <div className="absolute top-20 left-10 text-6xl opacity-20 animate-bounce">🌭</div>
-          <div className="absolute top-32 right-16 text-4xl opacity-30 animate-pulse">🍟</div>
-          <div className="absolute bottom-20 left-20 text-5xl opacity-25 animate-bounce delay-1000">🥤</div>
+          {portrait.floatingIcons && (
+            <>
+              <div className="absolute top-20 left-10 text-6xl opacity-20 animate-bounce">{getRandom(portrait.floatingIcons)}</div>
+              <div className="absolute top-32 right-16 text-4xl opacity-30 animate-pulse">{getRandom(portrait.floatingIcons)}</div>
+              <div className="absolute bottom-20 left-20 text-5xl opacity-25 animate-bounce delay-1000">{getRandom(portrait.floatingIcons)}</div>
+            </>
+          )}
 
           <div className="relative z-10 mx-auto px-4 text-center">
             <div className="mx-auto flex flex-col space-y-12">
               <div>
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                  {portrait.logoIcon} {" "}
+                  {portrait.titleLogoIcon} {" "}
                   <span className="bg-gradient-to-r from-yellow-200 to-orange-100 bg-clip-text text-transparent">
-                    {portrait.name}
+                    {bussinessContent.general.name}
                   </span>
                 </h1>
                 <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed text-orange-50">
-                  {portrait.slogan}
+                  {bussinessContent.general.tagline}
                   <br className="hidden md:block" />
-                  <span className="font-semibold text-yellow-200">{portrait.subtitle}</span>
+                  <span className="font-semibold text-yellow-200">{bussinessContent.general.subTagline}</span>
                 </p>
               </div>
 
@@ -61,10 +64,17 @@ export default function Portrait() {
 
 
               <div className="mt-12 text-orange-100 grid grid-cols-1 md:grid-cols-3 gap-4">
-                <span className="">💳 Pago fácil por WhatsApp</span>
-                <span className="">🚚 Entrega gratis en pedidos +$200</span>
-                <span className="">🕐 Lun-Dom 11:00 AM - 10:00 PM</span>
+                {portrait.showBusinessFeatures.contact.whatsappNumber && (
+                  <span className="">💳 {bussinessContent.contact.whatsappNumber}</span>
+                )}
+                {portrait.showBusinessFeatures.delivery.tagline && (
+                  <span className="">🚚 {bussinessContent.delivery.tagline}</span>
+                )}
+                {portrait.showBusinessFeatures.contact.workingHours && (
+                  <span className="">{bussinessContent.contact.workingHours}</span>
+                )}
               </div>
+
             </div>
           </div>
         </div>

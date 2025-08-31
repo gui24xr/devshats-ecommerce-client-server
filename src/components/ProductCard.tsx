@@ -6,9 +6,6 @@ import { LayoutModal, ProductCustomizer, ProductCardBody } from "./index"
 
 export default function ProductCard({ product, onAddItemToCart, defaultProductImage }: any) {
 
-  useEffect(() => {
-    console.log('LLego producto a ProductsCard', product)
-  }, [])
 
   const [isCustomizerOpen, setIsCustomizerOpen] = useState(false)
   const [selectedVariant, setSelectedVariant] = useState(product.hasVariants ? product.templateVariant.options.find((option: any) => option.isDefault) : null)
@@ -135,8 +132,8 @@ export default function ProductCard({ product, onAddItemToCart, defaultProductIm
         <LayoutModal
           isOpen={isCustomizerOpen}
           onClose={setIsCustomizerOpen}
-          title="Customizar producto"
-          description="Customiza tu..."
+          title="Personaliza tu producto"
+          description={product.name}
           minWidth="w-1/2"
           maxWidth="max-w-2xl"
           content={<ProductCustomizer product={product} selectedVariant={selectedVariant} />}

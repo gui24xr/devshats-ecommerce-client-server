@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { SPECIAL_CATEGORIES } from './pages/ProductsContainer'
+
 
 
 
@@ -9,7 +9,7 @@ export default function ProductFilters({ categories, selectedCategory, foundedPr
 
     useEffect(() => {
         'Al iniciar el componente se seleccionan por default todas las categorias...'
-        filterProductsByCategories(SPECIAL_CATEGORIES.ALL_CATEGORIES)   
+        filterProductsByCategories('all_categories')   
     }, [])
 
     /*--------------------------------------------------------------------------------*/

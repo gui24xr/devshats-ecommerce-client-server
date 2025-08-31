@@ -1,8 +1,8 @@
 "use client"
 import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 import { X } from 'lucide-react'
-
+import { useStoreTemplateConfig } from '@/stores'
 
 export default function LayoutModal({
     isOpen = false,
@@ -15,8 +15,10 @@ export default function LayoutModal({
     footer=<DefaultFooter/>
 }) {
 
+        const  portrait  = useStoreTemplateConfig(state => state.portrait)
+        const loading = useStoreTemplateConfig(state => state.loading)
 
-
+        if(loading) return <div className="text-center text-gray-500 py-4">Cargando...</div>
   return (
     <>     
       {/* El Modal con transiciones */}
@@ -37,8 +39,8 @@ export default function LayoutModal({
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-hidden">
-            <div className="absolute inset-0 overflow-hidden">
-              <div className={`pointer-events-none fixed inset-y-0 right-0 flex ${minWidth} ${maxWidth} pl-0`}>
+            <div className="absolute inset-0 overflow-hidden ">
+            <div className={`pointer-events-none fixed inset-y-0 right-0 flex w-full xl:w-1/2`}>
                 
                 {/* Panel del modal deslizándose desde la derecha */}
                 <Transition.Child
@@ -54,12 +56,12 @@ export default function LayoutModal({
                     <div className="h-full w-full flex flex-col bg-white shadow-2xl">
                       
                       {/* Header */}
-                      <div className="bg-gradient-to-r from-blue-600 to-purple-500 w-full flex items-center justify-between px-4 py-3 text-white flex-shrink-0">
+                      <div className={`${portrait.backgroundColor || "bg-gradient-to-br from-green-500 to-blue-500"} w-full flex items-center justify-between px-4 py-3 text-white flex-shrink-0`}>
                         <div>
-                          <Dialog.Title className="font-bold text-lg">
-                            {title}
+                          <Dialog.Title className="font-bold text-md">
+                            {portrait.titleLogoIcon} {title}
                           </Dialog.Title>
-                          <p className="text-blue-100 text-sm">
+                          <p className="text-orange-100 text-sm">
                             {description}
                           </p>
                         </div>
@@ -72,14 +74,15 @@ export default function LayoutModal({
                       </div>
 
                       {/* Contenido scrolleable */}
-                      <div className="flex-1 overflow-y-auto p-6">
+                      <div className="flex-1 overflow-y-auto px-16 py-6">
                         {content}
                       </div>
 
-                      {/* Footer */}
+                      {/* Footer 
                       <div className="bg-gray-500 p-4 flex-shrink-0 bg-black">
                         {footer}
                       </div>
+                      */}
 
                     </div>
                   </Dialog.Panel>
