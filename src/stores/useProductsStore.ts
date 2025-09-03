@@ -3,7 +3,15 @@ import axios from "axios";
 
 
 
-const baseUrl = 'http://localhost:3000';
+// URL base dinámica que funciona tanto en localhost como en ngrok
+const getBaseUrl = () => {
+    if (typeof window !== 'undefined') {
+        // En el cliente, usar la URL actual
+        return window.location.origin;
+    }
+    // En el servidor, usar localhost por defecto
+    return 'http://localhost:3000';
+};
 
 const useProductsStore = create((set, get) => ({
     loading: true,
@@ -20,9 +28,13 @@ const useProductsStore = create((set, get) => ({
     selectedCategory: null,
 
 
-    getProducts: async () => {
+    fetchProducts: async () => {
         set({ loading: true, error: null });
         try {
+
+            const baseUrl = getBaseUrl();
+            console.log('Fetching from:', baseUrl);
+            
             const { data } = await axios.get(`${baseUrl}/api/products`);
             console.log('data: ', data)
             set({

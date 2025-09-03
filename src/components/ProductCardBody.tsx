@@ -23,11 +23,11 @@ export default function ProductCardBody({ product, getProductPrice, selectedVari
 
         {/* Header */}
         <div className="flex flex-col gap-1 mb-8">
-          <h3 className={`${roboto.className} text-xl font-bold text-gray-900 group-hover:text-orange-600 transition-colors duration-300`}>
+          <h3 className={`text-xl font-bold text-gray-900 line-clamp- group-hover:text-orange-600 transition-colors duration-300`}>
             {product.name}
           </h3>
           {/* Description */}
-          <p className="text-gray-600 text-sm text-justify">
+          <p className="text-gray-600 text-sm text-justify line-clamp-3 leading-relaxed">
             {product.description || "Producto sin descripción"}
           </p>
         </div>
@@ -53,7 +53,7 @@ export default function ProductCardBody({ product, getProductPrice, selectedVari
                   <span className="text-sm text-gray-400 line-through">${getProductPrice().basePrice.toFixed(0)}</span>
                 </div>
               )}
-              <span className={`${archivo_black.className} text-4xl font-bold text-gray-700 text-shadow-md`}>${getProductPrice().finalPrice.toFixed(0)}</span>
+              <span className={`text-4xl font-bold text-gray-700 text-shadow-md`}>${getProductPrice().finalPrice.toFixed(0)}</span>
             </div>
           </div>
         </div>

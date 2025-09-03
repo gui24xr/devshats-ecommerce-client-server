@@ -4,12 +4,12 @@ import { useState, useEffect } from 'react'
 
 
 
-export default function ProductFilters({ categories, selectedCategory, foundedProductsQuantity, filterProductsByCategories,  }: any) {
+export default function ProductFilters({ categories, selectedCategory, foundedProductsQuantity, filterProductsByCategories, }: any) {
     const [isExpanded, setIsExpanded] = useState(false)
 
     useEffect(() => {
         'Al iniciar el componente se seleccionan por default todas las categorias...'
-        filterProductsByCategories('all_categories')   
+        filterProductsByCategories('all_categories')
     }, [])
 
     /*--------------------------------------------------------------------------------*/
@@ -19,29 +19,31 @@ export default function ProductFilters({ categories, selectedCategory, foundedPr
     }
     /****************************************************************************************/
     return (
-        <div className="bg-white rounded-2xl shadow-lg border-0 overflow-hidden mb-4 md:mb-6">
+        <div className="bg-white rounded-2xl shadow-lg border-0 overflow-hidden  md:mb-6">
             <div className="p-6 grid grid-cols-1">
                 {/* Compact Header - Always Visible on ALL devices */}
-                <div className="flex flex-col gap-4 mb-6">
+                <div className="flex flex-col gap-4 ">
                     {/* Header */}
                     <CompactHeader foundedProductsQuantity={foundedProductsQuantity} setIsExpanded={setIsExpanded} isExpanded={isExpanded} />
                     <ShowSelectedCategory categories={categories} selectedCategory={selectedCategory} onCategoryChange={onCategoryChange} />
                 </div>
 
                 {/* Expanded Filters Content - Hidden by DEFAULT on ALL devices */}
-                   <div className={`transition-all duration-150 overflow-hidden ${isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                        <div className="flex flex-col gap-4">
-                            <CategoriesSelector categories={categories} selectedCategory={selectedCategory} onCategoryChange={onCategoryChange} />
-                        </div>
-                        <div className="flex flex-col gap-4">
-                            <AdditionalFiltersSection />
-                        </div>
-                        <div className="flex flex-col gap-4">
-                            <QuickActionsSection />
-                        </div>
-
+                <div className={`transition-all duration-150 overflow-hidden ${isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+<div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-2">
+                        <CategoriesSelector categories={categories} selectedCategory={selectedCategory} onCategoryChange={onCategoryChange} />
                     </div>
-                
+                    <div className="flex flex-col gap-4">
+                        <AdditionalFiltersSection />
+                    </div>
+                    <div className="flex flex-col gap-4">
+                        <QuickActionsSection />
+                    </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     )
@@ -105,7 +107,7 @@ function ShowSelectedCategory({ categories, selectedCategory, onCategoryChange }
 function CategoriesSelector({ categories, selectedCategory, onCategoryChange }: any) {
     return (
         <div>
-            <span className="text-sm font-semibold text-gray-800 mb-4 flex items-center gap-2 pt-6 border-t border-gray-100">
+            <span className="text-sm font-semibold text-gray-800 mb-4 flex items-center gap-2 pt-12 border-t border-gray-100">
                 <span className="text-lg">🏷️</span>
                 Todas las Categorías
             </span>

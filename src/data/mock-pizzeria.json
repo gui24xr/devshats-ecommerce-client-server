@@ -40,6 +40,13 @@
           "privacy": "Tus datos están seguros con nosotros"
         }
       },
+      "navBarConfig": {
+        "backgroundColor": "bg-transparent",
+        "title": "Pizza Loca",
+        "titleLogoIcon": "🍕",
+        "titleColor": "text-white",
+        "linksColor": "text-white"
+      },
       "portrait": {
         "titleLogoIcon": "🍕",
         "floatingIcons": [
@@ -47,7 +54,11 @@
           "🥟",
           "🥤"
         ],
-        "backgroundColor": "bg-gradient-to-br from-yellow-400 to-orange-500",
+        "background":{
+          "color": "bg-gradient-to-br from-yellow-400 to-orange-500",
+          "imageUrl": "https://media.istockphoto.com/id/899907172/photo/baked-tasty-margerita-pizza-near-oven.jpg?s=2048x2048&w=is&k=20&c=Cdue4TgIbH4rEdXAcOS-y-gxiD4ukgOIriURn03dBoc=",
+          "showImage": true       
+        },
         "showBusinessFeatures": {
           "contact": {
             "whatsappNumber": true,
@@ -84,22 +95,22 @@
       },
       "whyChooseUs": {
         "title": "¿Por qué elegirnos?",
-        "subtitle": "Descubre lo que nos hace únicos en el mundo de los hot dogs artesanales",
+        "subtitle": "Descubre lo que nos hace únicos en el mundo de las pizzas y empanadas artesanales",
         "features": [
           {
-            "icon": "🥩",
-            "title": "Ingredientes Premium",
-            "description": "Carnes selectas y ingredientes frescos de la más alta calidad para una experiencia gastronómica excepcional"
+            "icon": "🍕",
+            "title": "Sabores Auténticos",
+            "description": "Recetas tradicionales y combinaciones únicas que te transportarán a Italia en cada bocado."
           },
           {
-            "icon": "⚡",
-            "title": "Entrega Rápida",
-            "description": "Preparación rápida sin comprometer el sabor y la calidad. Tu pedido listo en 20-30 minutos"
+            "icon": "🥟",
+            "title": "Empanadas al Horno",
+            "description": "Nuestras empanadas son cocidas a la perfección, con un relleno jugoso y masa dorada y crujiente."
           },
           {
-            "icon": "🎨",
-            "title": "100% Personalizable",
-            "description": "Crea tu hot dog perfecto con nuestras opciones de personalización ilimitadas"
+            "icon": "🛵",
+            "title": "Entrega Caliente",
+            "description": "Tu pedido llega a tu puerta recién salido del horno, garantizando el máximo sabor y calidad."
           }
         ]
       }

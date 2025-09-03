@@ -13,7 +13,7 @@ export default async function Home() {
           <Portrait />
         </Suspense>
       </section>
-      <section>
+      <section id="products-section">
         <Suspense fallback={<div>Loading...</div>}>
           <ProductsContainer planSettings={planSettings} renderConfig={customizationTemplateSettings.productsContainerRenderConfig} />
         </Suspense>

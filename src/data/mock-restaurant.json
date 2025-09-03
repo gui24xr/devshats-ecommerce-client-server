@@ -40,6 +40,13 @@
           "privacy": "Tus datos están seguros con nosotros"
         }
       },
+      "navBarConfig": {
+          "backgroundColor": "bg-white",
+          "title": "HotDogs Paradise",
+          "titleLogoIcon": "🌭",
+          "titleColor": "text-orange-500",
+          "linksColor": "text-gray-700"
+        },
       "portrait": {
         "titleLogoIcon": "🌭",
         "floatingIcons": [
@@ -47,7 +54,11 @@
           "🍟",
           "🥤"
         ],
-        "backgroundColor": "bg-gradient-to-br from-orange-500 to-red-500",
+        "background":{
+          "color": "bg-gradient-to-br from-orange-50 via-white to-orange-50",
+          "imageUrl": "https://media.istockphoto.com/id/2158482520/photo/freshly-grilled-chili-hot-dog.jpg?s=2048x2048&w=is&k=20&c=nsL-L-OY09ng4uE3zxS6tdz5NsnAn-0rUpmqGrKgewE=",
+          "showImage": false       
+        },
         "showBusinessFeatures": {
           "contact": {
             "whatsappNumber": true,
@@ -177,7 +188,7 @@
         "isCustomizable": true,
         "templateVariant": {
           "name": "tamano",
-          "label": "Tamaño",
+          "label": "Tamaño de tu hotdog.",
           "options": [
             {
               "id": "size_chico",

@@ -40,6 +40,13 @@
           "privacy": "Tu privacidad es nuestra prioridad"
         }
       },
+      "navBarConfig": {
+        "backgroundColor": "bg-transparent",
+        "title": "Threndy Threads",
+        "titleLogoIcon": "👗",
+        "titleColor": "text-white",
+        "linksColor": "text-white"
+      },
       "portrait": {
         "titleLogoIcon": "👕",
         "floatingIcons": [
@@ -47,7 +54,11 @@
           "👗",
           "👟"
         ],
-        "backgroundColor": "bg-gradient-to-br from-purple-400 to-pink-500",
+        "background":{
+          "color": "bg-gradient-to-br from-purple-400 to-pink-500",
+          "imageUrl": "https://images.pexels.com/photos/135620/pexels-photo-135620.jpeg",
+          "showImage": false       
+        },
         "showBusinessFeatures": {
           "contact": {
             "whatsappNumber": true,

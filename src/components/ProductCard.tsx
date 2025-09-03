@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { LayoutModal, ProductCustomizer, ProductCardBody } from "./index"
 
 
@@ -136,7 +136,7 @@ export default function ProductCard({ product, onAddItemToCart, defaultProductIm
           description={product.name}
           minWidth="w-1/2"
           maxWidth="max-w-2xl"
-          content={<ProductCustomizer product={product} selectedVariant={selectedVariant} />}
+          content={<button />}
           footer={<div>
             <h1>Footer</h1>
           </div>}
@@ -146,6 +146,7 @@ export default function ProductCard({ product, onAddItemToCart, defaultProductIm
   )
 }
 
+//content={<ProductCustomizer product={product} selectedVariant={selectedVariant} />}
 
 
 // QuantitySelector component remains the same
