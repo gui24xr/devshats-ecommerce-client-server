@@ -41,12 +41,12 @@
         }
       },
       "navBarConfig": {
-          "backgroundColor": "bg-white",
-          "title": "HotDogs Paradise",
-          "titleLogoIcon": "🌭",
-          "titleColor": "text-orange-500",
-          "linksColor": "text-gray-700"
-        },
+        "backgroundColor": "bg-white",
+        "title": "HotDogs Paradise",
+        "titleLogoIcon": "🌭",
+        "titleColor": "text-orange-500",
+        "linksColor": "text-gray-700"
+      },
       "portrait": {
         "titleLogoIcon": "🌭",
         "floatingIcons": [
@@ -54,10 +54,10 @@
           "🍟",
           "🥤"
         ],
-        "background":{
+        "background": {
           "color": "bg-gradient-to-br from-orange-50 via-white to-orange-50",
           "imageUrl": "https://media.istockphoto.com/id/2158482520/photo/freshly-grilled-chili-hot-dog.jpg?s=2048x2048&w=is&k=20&c=nsL-L-OY09ng4uE3zxS6tdz5NsnAn-0rUpmqGrKgewE=",
-          "showImage": false       
+          "showImage": false
         },
         "showBusinessFeatures": {
           "contact": {
@@ -212,9 +212,9 @@
               "name": "Mediano",
               "label": "Mediano",
               "price": {
-                "basePrice": 55.00,
+                "basePrice": 55,
                 "discount": null,
-                "finalPrice": 55.00
+                "finalPrice": 55
               },
               "sku": "DOGO-REG-PRET-MD",
               "prepTime": {
@@ -229,9 +229,9 @@
               "name": "Jumbo",
               "label": "Jumbo",
               "price": {
-                "basePrice": 65.00,
+                "basePrice": 65,
                 "discount": null,
-                "finalPrice": 65.00
+                "finalPrice": 65
               },
               "sku": "DOGO-REG-PRET-JB",
               "prepTime": {
@@ -260,44 +260,63 @@
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_001",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Tocino Crujiente",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_002",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Cebolla Caramelizada",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_003",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Jalapeños",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_004",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Aguacate",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_005",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Champiñones",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_006",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_001"
             },
             {
               "type": "options",
@@ -305,51 +324,70 @@
               "label": "Salsas",
               "isActive": true,
               "required": false,
-              "maxSelectable": 1,
+              "maxSelectable": 3,
               "options": [
                 {
                   "name": "Ketchup",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": true
+                  "isSelected": true,
+                  "id": "option_007",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mayonesa",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_008",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mostaza",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_009",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Salsa BBQ",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_010",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Sriracha",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_011",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Chipotle",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_012",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_002"
             }
           ]
         }
@@ -404,9 +442,9 @@
               "name": "Chico",
               "label": "Chico",
               "price": {
-                "basePrice": 45.00,
+                "basePrice": 45,
                 "discount": null,
-                "finalPrice": 45.00
+                "finalPrice": 45
               },
               "sku": "DOGO-REG-INT-CH",
               "prepTime": {
@@ -421,9 +459,9 @@
               "name": "Mediano",
               "label": "Mediano",
               "price": {
-                "basePrice": 55.00,
+                "basePrice": 55,
                 "discount": null,
-                "finalPrice": 55.00
+                "finalPrice": 55
               },
               "sku": "DOGO-REG-INT-MD",
               "prepTime": {
@@ -438,9 +476,9 @@
               "name": "Jumbo",
               "label": "Jumbo",
               "price": {
-                "basePrice": 65.00,
+                "basePrice": 65,
                 "discount": null,
-                "finalPrice": 65.00
+                "finalPrice": 65
               },
               "sku": "DOGO-REG-INT-JB",
               "prepTime": {
@@ -469,44 +507,63 @@
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_013",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Tocino Crujiente",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_014",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Cebolla Caramelizada",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_015",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Jalapeños",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_016",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Aguacate",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_017",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Champiñones",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_018",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_003"
             },
             {
               "type": "options",
@@ -514,51 +571,70 @@
               "label": "Salsas",
               "isActive": true,
               "required": false,
-              "maxSelectable": 1,
+              "maxSelectable": 3,
               "options": [
                 {
                   "name": "Ketchup",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": true
+                  "isSelected": true,
+                  "id": "option_019",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mayonesa",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_020",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mostaza",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_021",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Salsa BBQ",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_022",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Sriracha",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_023",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Chipotle",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_024",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_004"
             }
           ]
         }
@@ -613,9 +689,9 @@
               "name": "Chico",
               "label": "Chico",
               "price": {
-                "basePrice": 45.00,
+                "basePrice": 45,
                 "discount": null,
-                "finalPrice": 45.00
+                "finalPrice": 45
               },
               "sku": "DOGO-REG-BLA-CH",
               "prepTime": {
@@ -630,9 +706,9 @@
               "name": "Mediano",
               "label": "Mediano",
               "price": {
-                "basePrice": 55.00,
+                "basePrice": 55,
                 "discount": null,
-                "finalPrice": 55.00
+                "finalPrice": 55
               },
               "sku": "DOGO-REG-BLA-MD",
               "prepTime": {
@@ -647,9 +723,9 @@
               "name": "Jumbo",
               "label": "Jumbo",
               "price": {
-                "basePrice": 65.00,
+                "basePrice": 65,
                 "discount": null,
-                "finalPrice": 65.00
+                "finalPrice": 65
               },
               "sku": "DOGO-REG-BLA-JB",
               "prepTime": {
@@ -678,44 +754,63 @@
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_025",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Tocino Crujiente",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_026",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Cebolla Caramelizada",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_027",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Jalapeños",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_028",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Aguacate",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_029",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Champiñones",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_030",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_005"
             },
             {
               "type": "options",
@@ -723,51 +818,70 @@
               "label": "Salsas",
               "isActive": true,
               "required": false,
-              "maxSelectable": 1,
+              "maxSelectable": 3,
               "options": [
                 {
                   "name": "Ketchup",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": true
+                  "isSelected": true,
+                  "id": "option_031",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mayonesa",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_032",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mostaza",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_033",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Salsa BBQ",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_034",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Sriracha",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_035",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Chipotle",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_036",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_006"
             }
           ]
         }
@@ -822,9 +936,9 @@
               "name": "Chico",
               "label": "Chico",
               "price": {
-                "basePrice": 65.00,
+                "basePrice": 65,
                 "discount": null,
-                "finalPrice": 65.00
+                "finalPrice": 65
               },
               "sku": "PERRA-NOR-PRET-CH",
               "prepTime": {
@@ -839,9 +953,9 @@
               "name": "Mediano",
               "label": "Mediano",
               "price": {
-                "basePrice": 75.00,
+                "basePrice": 75,
                 "discount": null,
-                "finalPrice": 75.00
+                "finalPrice": 75
               },
               "sku": "PERRA-NOR-PRET-MD",
               "prepTime": {
@@ -856,9 +970,9 @@
               "name": "Jumbo",
               "label": "Jumbo",
               "price": {
-                "basePrice": 85.00,
+                "basePrice": 85,
                 "discount": null,
-                "finalPrice": 85.00
+                "finalPrice": 85
               },
               "sku": "PERRA-NOR-PRET-JB",
               "prepTime": {
@@ -887,44 +1001,63 @@
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_037",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Tocino Crujiente",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_038",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Cebolla Caramelizada",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_039",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Jalapeños",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_040",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Aguacate",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_041",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Champiñones",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_042",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_007"
             },
             {
               "type": "options",
@@ -932,51 +1065,70 @@
               "label": "Salsas",
               "isActive": true,
               "required": false,
-              "maxSelectable": 1,
+              "maxSelectable": 3,
               "options": [
                 {
                   "name": "Ketchup",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": true
+                  "isSelected": true,
+                  "id": "option_043",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mayonesa",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_044",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mostaza",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_045",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Salsa BBQ",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_046",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Sriracha",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_047",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Chipotle",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_048",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_008"
             }
           ]
         }
@@ -1031,9 +1183,9 @@
               "name": "Chico",
               "label": "Chico",
               "price": {
-                "basePrice": 65.00,
+                "basePrice": 65,
                 "discount": null,
-                "finalPrice": 65.00
+                "finalPrice": 65
               },
               "sku": "PERRA-NOR-INT-CH",
               "prepTime": {
@@ -1048,9 +1200,9 @@
               "name": "Mediano",
               "label": "Mediano",
               "price": {
-                "basePrice": 75.00,
+                "basePrice": 75,
                 "discount": null,
-                "finalPrice": 75.00
+                "finalPrice": 75
               },
               "sku": "PERRA-NOR-INT-MD",
               "prepTime": {
@@ -1065,9 +1217,9 @@
               "name": "Jumbo",
               "label": "Jumbo",
               "price": {
-                "basePrice": 85.00,
+                "basePrice": 85,
                 "discount": null,
-                "finalPrice": 85.00
+                "finalPrice": 85
               },
               "sku": "PERRA-NOR-INT-JB",
               "prepTime": {
@@ -1096,44 +1248,63 @@
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_049",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Tocino Crujiente",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_050",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Cebolla Caramelizada",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_051",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Jalapeños",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_052",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Aguacate",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_053",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Champiñones",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_054",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_009"
             },
             {
               "type": "options",
@@ -1141,51 +1312,70 @@
               "label": "Salsas",
               "isActive": true,
               "required": false,
-              "maxSelectable": 1,
+              "maxSelectable": 3,
               "options": [
                 {
                   "name": "Ketchup",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": true
+                  "isSelected": true,
+                  "id": "option_055",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mayonesa",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_056",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mostaza",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_057",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Salsa BBQ",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_058",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Sriracha",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_059",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Chipotle",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_060",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_010"
             }
           ]
         }
@@ -1240,9 +1430,9 @@
               "name": "Chico",
               "label": "Chico",
               "price": {
-                "basePrice": 65.00,
+                "basePrice": 65,
                 "discount": null,
-                "finalPrice": 65.00
+                "finalPrice": 65
               },
               "sku": "PERRA-NOR-BLA-CH",
               "prepTime": {
@@ -1257,9 +1447,9 @@
               "name": "Mediano",
               "label": "Mediano",
               "price": {
-                "basePrice": 75.00,
+                "basePrice": 75,
                 "discount": null,
-                "finalPrice": 75.00
+                "finalPrice": 75
               },
               "sku": "PERRA-NOR-BLA-MD",
               "prepTime": {
@@ -1274,9 +1464,9 @@
               "name": "Jumbo",
               "label": "Jumbo",
               "price": {
-                "basePrice": 85.00,
+                "basePrice": 85,
                 "discount": null,
-                "finalPrice": 85.00
+                "finalPrice": 85
               },
               "sku": "PERRA-NOR-BLA-JB",
               "prepTime": {
@@ -1305,44 +1495,63 @@
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_061",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Tocino Crujiente",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_062",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Cebolla Caramelizada",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_063",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Jalapeños",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_064",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Aguacate",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_065",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Champiñones",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_066",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_011"
             },
             {
               "type": "options",
@@ -1350,51 +1559,70 @@
               "label": "Salsas",
               "isActive": true,
               "required": false,
-              "maxSelectable": 1,
+              "maxSelectable": 3,
               "options": [
                 {
                   "name": "Ketchup",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": true
+                  "isSelected": true,
+                  "id": "option_067",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mayonesa",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_068",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mostaza",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_069",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Salsa BBQ",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_070",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Sriracha",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_071",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Chipotle",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_072",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_012"
             }
           ]
         }
@@ -1449,9 +1677,9 @@
               "name": "Chico",
               "label": "Chico",
               "price": {
-                "basePrice": 65.00,
+                "basePrice": 65,
                 "discount": null,
-                "finalPrice": 65.00
+                "finalPrice": 65
               },
               "sku": "PERRO-PAS-PRET-CH",
               "prepTime": {
@@ -1466,9 +1694,9 @@
               "name": "Mediano",
               "label": "Mediano",
               "price": {
-                "basePrice": 80.00,
+                "basePrice": 80,
                 "discount": null,
-                "finalPrice": 80.00
+                "finalPrice": 80
               },
               "sku": "PERRO-PAS-PRET-MD",
               "prepTime": {
@@ -1483,9 +1711,9 @@
               "name": "Jumbo",
               "label": "Jumbo",
               "price": {
-                "basePrice": 95.00,
+                "basePrice": 95,
                 "discount": null,
-                "finalPrice": 95.00
+                "finalPrice": 95
               },
               "sku": "PERRO-PAS-PRET-JB",
               "prepTime": {
@@ -1514,44 +1742,63 @@
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_073",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Tocino Crujiente",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_074",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Cebolla Caramelizada",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_075",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Jalapeños",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_076",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Aguacate",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_077",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Champiñones",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_078",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_013"
             },
             {
               "type": "options",
@@ -1559,51 +1806,70 @@
               "label": "Salsas",
               "isActive": true,
               "required": false,
-              "maxSelectable": 1,
+              "maxSelectable": 3,
               "options": [
                 {
                   "name": "Ketchup",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": true
+                  "isSelected": true,
+                  "id": "option_079",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mayonesa",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_080",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mostaza",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_081",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Salsa BBQ",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_082",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Sriracha",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_083",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Chipotle",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_084",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_014"
             }
           ]
         }
@@ -1658,9 +1924,9 @@
               "name": "Chico",
               "label": "Chico",
               "price": {
-                "basePrice": 65.00,
+                "basePrice": 65,
                 "discount": null,
-                "finalPrice": 65.00
+                "finalPrice": 65
               },
               "sku": "PERRO-PAS-INT-CH",
               "prepTime": {
@@ -1675,9 +1941,9 @@
               "name": "Mediano",
               "label": "Mediano",
               "price": {
-                "basePrice": 80.00,
+                "basePrice": 80,
                 "discount": null,
-                "finalPrice": 80.00
+                "finalPrice": 80
               },
               "sku": "PERRO-PAS-INT-MD",
               "prepTime": {
@@ -1692,9 +1958,9 @@
               "name": "Jumbo",
               "label": "Jumbo",
               "price": {
-                "basePrice": 95.00,
+                "basePrice": 95,
                 "discount": null,
-                "finalPrice": 95.00
+                "finalPrice": 95
               },
               "sku": "PERRO-PAS-INT-JB",
               "prepTime": {
@@ -1723,44 +1989,63 @@
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_085",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Tocino Crujiente",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_086",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Cebolla Caramelizada",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_087",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Jalapeños",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_088",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Aguacate",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_089",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Champiñones",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_090",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_015"
             },
             {
               "type": "options",
@@ -1768,51 +2053,70 @@
               "label": "Salsas",
               "isActive": true,
               "required": false,
-              "maxSelectable": 1,
+              "maxSelectable": 3,
               "options": [
                 {
                   "name": "Ketchup",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": true
+                  "isSelected": true,
+                  "id": "option_091",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mayonesa",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_092",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mostaza",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_093",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Salsa BBQ",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_094",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Sriracha",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_095",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Chipotle",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_096",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_016"
             }
           ]
         }
@@ -1867,9 +2171,9 @@
               "name": "Chico",
               "label": "Chico",
               "price": {
-                "basePrice": 65.00,
+                "basePrice": 65,
                 "discount": null,
-                "finalPrice": 65.00
+                "finalPrice": 65
               },
               "sku": "PERRO-PAS-BLA-CH",
               "prepTime": {
@@ -1884,9 +2188,9 @@
               "name": "Mediano",
               "label": "Mediano",
               "price": {
-                "basePrice": 80.00,
+                "basePrice": 80,
                 "discount": null,
-                "finalPrice": 80.00
+                "finalPrice": 80
               },
               "sku": "PERRO-PAS-BLA-MD",
               "prepTime": {
@@ -1901,9 +2205,9 @@
               "name": "Jumbo",
               "label": "Jumbo",
               "price": {
-                "basePrice": 95.00,
+                "basePrice": 95,
                 "discount": null,
-                "finalPrice": 95.00
+                "finalPrice": 95
               },
               "sku": "PERRO-PAS-BLA-JB",
               "prepTime": {
@@ -1932,44 +2236,63 @@
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_097",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Tocino Crujiente",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_098",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Cebolla Caramelizada",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_099",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Jalapeños",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_100",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Aguacate",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_101",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Champiñones",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_102",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_017"
             },
             {
               "type": "options",
@@ -1977,51 +2300,70 @@
               "label": "Salsas",
               "isActive": true,
               "required": false,
-              "maxSelectable": 1,
+              "maxSelectable": 3,
               "options": [
                 {
                   "name": "Ketchup",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": true
+                  "isSelected": true,
+                  "id": "option_103",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mayonesa",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_104",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mostaza",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_105",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Salsa BBQ",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_106",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Sriracha",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_107",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Chipotle",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_108",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_018"
             }
           ]
         }
@@ -2076,9 +2418,9 @@
               "name": "Chico",
               "label": "Chico",
               "price": {
-                "basePrice": 65.00,
+                "basePrice": 65,
                 "discount": null,
-                "finalPrice": 65.00
+                "finalPrice": 65
               },
               "sku": "PERRA-COC-PRET-CH",
               "prepTime": {
@@ -2093,9 +2435,9 @@
               "name": "Mediano",
               "label": "Mediano",
               "price": {
-                "basePrice": 75.00,
+                "basePrice": 75,
                 "discount": null,
-                "finalPrice": 75.00
+                "finalPrice": 75
               },
               "sku": "PERRA-COC-PRET-MD",
               "prepTime": {
@@ -2110,9 +2452,9 @@
               "name": "Jumbo",
               "label": "Jumbo",
               "price": {
-                "basePrice": 85.00,
+                "basePrice": 85,
                 "discount": null,
-                "finalPrice": 85.00
+                "finalPrice": 85
               },
               "sku": "PERRA-COC-PRET-JB",
               "prepTime": {
@@ -2141,44 +2483,63 @@
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_109",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Tocino Crujiente",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_110",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Cebolla Caramelizada",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_111",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Jalapeños",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_112",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Aguacate",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_113",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Champiñones",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_114",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_019"
             },
             {
               "type": "options",
@@ -2186,51 +2547,70 @@
               "label": "Salsas",
               "isActive": true,
               "required": false,
-              "maxSelectable": 1,
+              "maxSelectable": 3,
               "options": [
                 {
                   "name": "Ketchup",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": true
+                  "isSelected": true,
+                  "id": "option_115",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mayonesa",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_116",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mostaza",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_117",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Salsa BBQ",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_118",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Sriracha",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_119",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Chipotle",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_120",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_020"
             }
           ]
         }
@@ -2285,9 +2665,9 @@
               "name": "Chico",
               "label": "Chico",
               "price": {
-                "basePrice": 65.00,
+                "basePrice": 65,
                 "discount": null,
-                "finalPrice": 65.00
+                "finalPrice": 65
               },
               "sku": "PERRA-COC-INT-CH",
               "prepTime": {
@@ -2302,9 +2682,9 @@
               "name": "Mediano",
               "label": "Mediano",
               "price": {
-                "basePrice": 75.00,
+                "basePrice": 75,
                 "discount": null,
-                "finalPrice": 75.00
+                "finalPrice": 75
               },
               "sku": "PERRA-COC-INT-MD",
               "prepTime": {
@@ -2319,9 +2699,9 @@
               "name": "Jumbo",
               "label": "Jumbo",
               "price": {
-                "basePrice": 85.00,
+                "basePrice": 85,
                 "discount": null,
-                "finalPrice": 85.00
+                "finalPrice": 85
               },
               "sku": "PERRA-COC-INT-JB",
               "prepTime": {
@@ -2350,44 +2730,63 @@
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_121",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Tocino Crujiente",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_122",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Cebolla Caramelizada",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_123",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Jalapeños",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_124",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Aguacate",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_125",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Champiñones",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_126",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_021"
             },
             {
               "type": "options",
@@ -2395,51 +2794,70 @@
               "label": "Salsas",
               "isActive": true,
               "required": false,
-              "maxSelectable": 1,
+              "maxSelectable": 3,
               "options": [
                 {
                   "name": "Ketchup",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": true
+                  "isSelected": true,
+                  "id": "option_127",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mayonesa",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_128",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mostaza",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_129",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Salsa BBQ",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_130",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Sriracha",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_131",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Chipotle",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_132",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_022"
             }
           ]
         }
@@ -2494,9 +2912,9 @@
               "name": "Chico",
               "label": "Chico",
               "price": {
-                "basePrice": 65.00,
+                "basePrice": 65,
                 "discount": null,
-                "finalPrice": 65.00
+                "finalPrice": 65
               },
               "sku": "PERRA-COC-BLA-CH",
               "prepTime": {
@@ -2511,9 +2929,9 @@
               "name": "Mediano",
               "label": "Mediano",
               "price": {
-                "basePrice": 75.00,
+                "basePrice": 75,
                 "discount": null,
-                "finalPrice": 75.00
+                "finalPrice": 75
               },
               "sku": "PERRA-COC-BLA-MD",
               "prepTime": {
@@ -2528,9 +2946,9 @@
               "name": "Jumbo",
               "label": "Jumbo",
               "price": {
-                "basePrice": 85.00,
+                "basePrice": 85,
                 "discount": null,
-                "finalPrice": 85.00
+                "finalPrice": 85
               },
               "sku": "PERRA-COC-BLA-JB",
               "prepTime": {
@@ -2559,44 +2977,63 @@
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_133",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Tocino Crujiente",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_134",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Cebolla Caramelizada",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_135",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Jalapeños",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_136",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Aguacate",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_137",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Champiñones",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_138",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_023"
             },
             {
               "type": "options",
@@ -2604,51 +3041,70 @@
               "label": "Salsas",
               "isActive": true,
               "required": false,
-              "maxSelectable": 1,
+              "maxSelectable": 3,
               "options": [
                 {
                   "name": "Ketchup",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": true
+                  "isSelected": true,
+                  "id": "option_139",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mayonesa",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_140",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mostaza",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_141",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Salsa BBQ",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_142",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Sriracha",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_143",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Chipotle",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_144",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_024"
             }
           ]
         }
@@ -2703,9 +3159,9 @@
               "name": "Chico",
               "label": "Chico",
               "price": {
-                "basePrice": 55.00,
+                "basePrice": 55,
                 "discount": null,
-                "finalPrice": 55.00
+                "finalPrice": 55
               },
               "sku": "DOGO-SON-PRET-CH",
               "prepTime": {
@@ -2720,9 +3176,9 @@
               "name": "Mediano",
               "label": "Mediano",
               "price": {
-                "basePrice": 65.00,
+                "basePrice": 65,
                 "discount": null,
-                "finalPrice": 65.00
+                "finalPrice": 65
               },
               "sku": "DOGO-SON-PRET-MD",
               "prepTime": {
@@ -2737,9 +3193,9 @@
               "name": "Jumbo",
               "label": "Jumbo",
               "price": {
-                "basePrice": 75.00,
+                "basePrice": 75,
                 "discount": null,
-                "finalPrice": 75.00
+                "finalPrice": 75
               },
               "sku": "DOGO-SON-PRET-JB",
               "prepTime": {
@@ -2768,44 +3224,63 @@
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_145",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Tocino Crujiente",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_146",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Cebolla Caramelizada",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_147",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Jalapeños",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_148",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Aguacate",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_149",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Champiñones",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_150",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_025"
             },
             {
               "type": "options",
@@ -2813,51 +3288,70 @@
               "label": "Salsas",
               "isActive": true,
               "required": false,
-              "maxSelectable": 1,
+              "maxSelectable": 3,
               "options": [
                 {
                   "name": "Ketchup",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": true
+                  "isSelected": true,
+                  "id": "option_151",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mayonesa",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_152",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mostaza",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_153",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Salsa BBQ",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_154",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Sriracha",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_155",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Chipotle",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_156",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_026"
             }
           ]
         }
@@ -2912,9 +3406,9 @@
               "name": "Chico",
               "label": "Chico",
               "price": {
-                "basePrice": 55.00,
+                "basePrice": 55,
                 "discount": null,
-                "finalPrice": 55.00
+                "finalPrice": 55
               },
               "sku": "DOGO-SON-INT-CH",
               "prepTime": {
@@ -2929,9 +3423,9 @@
               "name": "Mediano",
               "label": "Mediano",
               "price": {
-                "basePrice": 65.00,
+                "basePrice": 65,
                 "discount": null,
-                "finalPrice": 65.00
+                "finalPrice": 65
               },
               "sku": "DOGO-SON-INT-MD",
               "prepTime": {
@@ -2946,9 +3440,9 @@
               "name": "Jumbo",
               "label": "Jumbo",
               "price": {
-                "basePrice": 75.00,
+                "basePrice": 75,
                 "discount": null,
-                "finalPrice": 75.00
+                "finalPrice": 75
               },
               "sku": "DOGO-SON-INT-JB",
               "prepTime": {
@@ -2977,44 +3471,63 @@
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_157",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Tocino Crujiente",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_158",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Cebolla Caramelizada",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_159",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Jalapeños",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_160",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Aguacate",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_161",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Champiñones",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_162",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_027"
             },
             {
               "type": "options",
@@ -3022,51 +3535,70 @@
               "label": "Salsas",
               "isActive": true,
               "required": false,
-              "maxSelectable": 1,
+              "maxSelectable": 3,
               "options": [
                 {
                   "name": "Ketchup",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": true
+                  "isSelected": true,
+                  "id": "option_163",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mayonesa",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_164",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mostaza",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_165",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Salsa BBQ",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_166",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Sriracha",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_167",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Chipotle",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_168",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_028"
             }
           ]
         }
@@ -3121,9 +3653,9 @@
               "name": "Chico",
               "label": "Chico",
               "price": {
-                "basePrice": 55.00,
+                "basePrice": 55,
                 "discount": null,
-                "finalPrice": 55.00
+                "finalPrice": 55
               },
               "sku": "DOGO-SON-BLA-CH",
               "prepTime": {
@@ -3138,9 +3670,9 @@
               "name": "Mediano",
               "label": "Mediano",
               "price": {
-                "basePrice": 65.00,
+                "basePrice": 65,
                 "discount": null,
-                "finalPrice": 65.00
+                "finalPrice": 65
               },
               "sku": "DOGO-SON-BLA-MD",
               "prepTime": {
@@ -3155,9 +3687,9 @@
               "name": "Jumbo",
               "label": "Jumbo",
               "price": {
-                "basePrice": 75.00,
+                "basePrice": 75,
                 "discount": null,
-                "finalPrice": 75.00
+                "finalPrice": 75
               },
               "sku": "DOGO-SON-BLA-JB",
               "prepTime": {
@@ -3186,44 +3718,63 @@
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_169",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Tocino Crujiente",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_170",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Cebolla Caramelizada",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_171",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Jalapeños",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_172",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Aguacate",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_173",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Champiñones",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_174",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_029"
             },
             {
               "type": "options",
@@ -3231,51 +3782,70 @@
               "label": "Salsas",
               "isActive": true,
               "required": false,
-              "maxSelectable": 1,
+              "maxSelectable": 3,
               "options": [
                 {
                   "name": "Ketchup",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": true
+                  "isSelected": true,
+                  "id": "option_175",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mayonesa",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_176",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mostaza",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_177",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Salsa BBQ",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_178",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Sriracha",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_179",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Chipotle",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_180",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_030"
             }
           ]
         }
@@ -3331,9 +3901,9 @@
               "name": "Mediano",
               "label": "Mediano",
               "price": {
-                "basePrice": 95.00,
+                "basePrice": 95,
                 "discount": null,
-                "finalPrice": 95.00
+                "finalPrice": 95
               },
               "sku": "MEGA-PER-PRET-MD",
               "prepTime": {
@@ -3348,9 +3918,9 @@
               "name": "Jumbo",
               "label": "Jumbo",
               "price": {
-                "basePrice": 125.00,
+                "basePrice": 125,
                 "discount": null,
-                "finalPrice": 125.00
+                "finalPrice": 125
               },
               "sku": "MEGA-PER-PRET-JB",
               "prepTime": {
@@ -3379,44 +3949,63 @@
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_181",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Tocino Crujiente",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_182",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Cebolla Caramelizada",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_183",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Jalapeños",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_184",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Aguacate",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_185",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Champiñones",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_186",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_031"
             },
             {
               "type": "options",
@@ -3424,51 +4013,70 @@
               "label": "Salsas",
               "isActive": true,
               "required": false,
-              "maxSelectable": 1,
+              "maxSelectable": 3,
               "options": [
                 {
                   "name": "Ketchup",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": true
+                  "isSelected": true,
+                  "id": "option_187",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mayonesa",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_188",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mostaza",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_189",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Salsa BBQ",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_190",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Sriracha",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_191",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Chipotle",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_192",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_032"
             }
           ]
         }
@@ -3524,9 +4132,9 @@
               "name": "Mediano",
               "label": "Mediano",
               "price": {
-                "basePrice": 95.00,
+                "basePrice": 95,
                 "discount": null,
-                "finalPrice": 95.00
+                "finalPrice": 95
               },
               "sku": "MEGA-PER-INT-MD",
               "prepTime": {
@@ -3541,9 +4149,9 @@
               "name": "Jumbo",
               "label": "Jumbo",
               "price": {
-                "basePrice": 125.00,
+                "basePrice": 125,
                 "discount": null,
-                "finalPrice": 125.00
+                "finalPrice": 125
               },
               "sku": "MEGA-PER-INT-JB",
               "prepTime": {
@@ -3572,44 +4180,63 @@
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_193",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Tocino Crujiente",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_194",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Cebolla Caramelizada",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_195",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Jalapeños",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_196",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Aguacate",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_197",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Champiñones",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_198",
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_033"
             },
             {
               "type": "options",
@@ -3617,51 +4244,70 @@
               "label": "Salsas",
               "isActive": true,
               "required": false,
-              "maxSelectable": 1,
+              "maxSelectable": 3,
               "options": [
                 {
                   "name": "Ketchup",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": true
+                  "isSelected": true,
+                  "id": "option_199",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mayonesa",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_200",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mostaza",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_201",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Salsa BBQ",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_202",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Sriracha",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_203",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Chipotle",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_204",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_034"
             }
           ]
         }
@@ -3717,9 +4363,9 @@
               "name": "Mediano",
               "label": "Mediano",
               "price": {
-                "basePrice": 95.00,
+                "basePrice": 95,
                 "discount": null,
-                "finalPrice": 95.00
+                "finalPrice": 95
               },
               "sku": "MEGA-PER-BLA-MD",
               "prepTime": {
@@ -3734,9 +4380,9 @@
               "name": "Jumbo",
               "label": "Jumbo",
               "price": {
-                "basePrice": 125.00,
+                "basePrice": 125,
                 "discount": null,
-                "finalPrice": 125.00
+                "finalPrice": 125
               },
               "sku": "MEGA-PER-BLA-JB",
               "prepTime": {
@@ -3753,6 +4399,7 @@
           "name": "Hot Dog Standard",
           "features": [
             {
+              "id": "feature_035",
               "type": "check",
               "name": "addtionalIngredients",
               "label": "Ingredientes Adicionales",
@@ -3761,98 +4408,135 @@
               "maxSelectable": 3,
               "options": [
                 {
+                  "id": "option_205",
                   "name": "Queso cheddar",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
+                  "id": "option_206",
                   "name": "Tocino Crujiente",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
+                  "id": "option_207",
                   "name": "Cebolla Caramelizada",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
+                  "id": "option_208",
                   "name": "Jalapeños",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
+                  "id": "option_209",
                   "name": "Aguacate",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 },
                 {
+                  "id": "option_210",
                   "name": "Champiñones",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0
                 }
               ]
             },
             {
+              "id": "feature_036",
               "type": "options",
               "name": "salsas",
               "label": "Salsas",
               "isActive": true,
               "required": false,
-              "maxSelectable": 1,
+              "maxSelectable": 3,
               "options": [
                 {
+                  "id": "option_211",
                   "name": "Ketchup",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": true
+                  "isSelected": true,
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
+                  "id": "option_212",
                   "name": "Mayonesa",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
+                  "id": "option_213",
                   "name": "Mostaza",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
+                  "id": "option_214",
                   "name": "Salsa BBQ",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
+                  "id": "option_215",
                   "name": "Sriracha",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
+                  "id": "option_216",
                   "name": "Chipotle",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 }
               ]
             }
@@ -3908,9 +4592,9 @@
               "name": "Chicas",
               "label": "Chicas",
               "price": {
-                "basePrice": 25.00,
+                "basePrice": 25,
                 "discount": null,
-                "finalPrice": 25.00
+                "finalPrice": 25
               },
               "sku": "PAPAS-GAJ-CHI",
               "prepTime": {
@@ -3925,9 +4609,9 @@
               "name": "Grandes",
               "label": "Grandes",
               "price": {
-                "basePrice": 35.00,
+                "basePrice": 35,
                 "discount": null,
-                "finalPrice": 35.00
+                "finalPrice": 35
               },
               "sku": "PAPAS-GAJ-GRA",
               "prepTime": {
@@ -3953,9 +4637,9 @@
           }
         ],
         "price": {
-          "basePrice": 30.00,
+          "basePrice": 30,
           "discount": null,
-          "finalPrice": 30.00
+          "finalPrice": 30
         },
         "categories": [
           {
@@ -3966,7 +4650,7 @@
           }
         ],
         "reviewsCount": 41,
-        "rating": 4.0,
+        "rating": 4,
         "tags": [
           "tradicional",
           "cotija",
@@ -4002,44 +4686,63 @@
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_217",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Chile extra",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_218",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Limón extra",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_219",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Mayonesa extra",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_220",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Chamoy",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_221",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Tajín",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_222",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_037"
             },
             {
               "type": "options",
@@ -4054,37 +4757,53 @@
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_223",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Suave",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": true
+                  "isSelected": true,
+                  "id": "option_224",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Medio",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_225",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Picante",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_226",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 },
                 {
                   "name": "Extra picante",
                   "modifiesPrice": false,
                   "affectPrice": 0,
                   "isActive": true,
-                  "isSelected": false
+                  "isSelected": false,
+                  "id": "option_227",
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0
                 }
-              ]
+              ],
+              "id": "feature_038"
             }
           ]
         }
@@ -4137,9 +4856,9 @@
               "name": "500ml",
               "label": "500ml",
               "price": {
-                "basePrice": 25.00,
+                "basePrice": 25,
                 "discount": null,
-                "finalPrice": 25.00
+                "finalPrice": 25
               },
               "sku": "COCA-COLA-500",
               "prepTime": {
@@ -4154,9 +4873,9 @@
               "name": "1Lt",
               "label": "1Lt",
               "price": {
-                "basePrice": 35.00,
+                "basePrice": 35,
                 "discount": null,
-                "finalPrice": 35.00
+                "finalPrice": 35
               },
               "sku": "COCA-COLA-1LT",
               "prepTime": {
@@ -4171,9 +4890,9 @@
               "name": "2.25Lt",
               "label": "2.25Lt",
               "price": {
-                "basePrice": 55.00,
+                "basePrice": 55,
                 "discount": null,
-                "finalPrice": 55.00
+                "finalPrice": 55
               },
               "sku": "COCA-COLA-2.25LT",
               "prepTime": {
@@ -4235,9 +4954,9 @@
               "name": "Chico",
               "label": "Chico",
               "price": {
-                "basePrice": 25.00,
+                "basePrice": 25,
                 "discount": null,
-                "finalPrice": 25.00
+                "finalPrice": 25
               },
               "sku": "HORCHATA-CHI",
               "prepTime": {
@@ -4252,9 +4971,9 @@
               "name": "Grande",
               "label": "Grande",
               "price": {
-                "basePrice": 35.00,
+                "basePrice": 35,
                 "discount": null,
-                "finalPrice": 35.00
+                "finalPrice": 35
               },
               "sku": "HORCHATA-GRA",
               "prepTime": {
@@ -4281,9 +5000,9 @@
           }
         ],
         "price": {
-          "basePrice": 45.00,
+          "basePrice": 45,
           "discount": null,
-          "finalPrice": 45.00
+          "finalPrice": 45
         },
         "categories": [
           {
@@ -4337,7 +5056,7 @@
           }
         ],
         "reviewsCount": 67,
-        "rating": 4.0,
+        "rating": 4,
         "tags": [
           "empanadas",
           "carne molida",
@@ -4366,9 +5085,9 @@
               "name": "Hojaldre",
               "label": "Hojaldre",
               "price": {
-                "basePrice": 35.00,
+                "basePrice": 35,
                 "discount": null,
-                "finalPrice": 35.00
+                "finalPrice": 35
               },
               "sku": "EMPANADA-HOJ",
               "prepTime": {
@@ -4383,9 +5102,9 @@
               "name": "Criolla",
               "label": "Criolla",
               "price": {
-                "basePrice": 30.00,
+                "basePrice": 30,
                 "discount": null,
-                "finalPrice": 30.00
+                "finalPrice": 30
               },
               "sku": "EMPANADA-CRI",
               "prepTime": {

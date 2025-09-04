@@ -1,36 +1,64 @@
 'use client'
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { LayoutModal, ProductCustomizer, ProductCardBody } from "./index"
 
 
 export default function ProductCard({ product, onAddItemToCart, defaultProductImage }: any) {
 
-
+  const [currentProduct, setCurrentProduct] = useState(null)
   const [isCustomizerOpen, setIsCustomizerOpen] = useState(false)
-  const [selectedVariant, setSelectedVariant] = useState(product.hasVariants ? product.templateVariant.options.find((option: any) => option.isDefault) : null)
   const [isAdding, setIsAdding] = useState(false)
   const [imageError, setImageError] = useState(false)
 
-  const onChangeVariant = (variant: any) => {
-    setSelectedVariant(variant)
+
+  useEffect(() => {
+    if (product) {
+      if (product.hasVariants) {
+        const productWithSelectedVariantes = {
+          ...product, templateVariant: {
+            ...product.templateVariant,
+            options: product.templateVariant.options.map((item) => ({ ...item, isSelected: item.isDefault }))
+          }
+        }
+        return setCurrentProduct(productWithSelectedVariantes)
+      }
+      return setCurrentProduct(product)
+
+    }
+  }, [product])
+
+
+
+  const onChangeVariant = (selectedVariantId: any) => {
+    //Modifico el current product cambiando el is selected, pero primero le quito el isSelected y luego lo coloco en otro   
+    const productWithSelectedVariantes = {
+      ...product, templateVariant: {
+        ...product.templateVariant,
+        options: product.templateVariant.options.map((item) => ({ ...item, isSelected: (item.id == selectedVariantId) ? true : false }))
+      }
+    }
+    return setCurrentProduct(productWithSelectedVariantes)
+
   }
 
   //Este helper da el precio delproducto/variante a renerizar ya que si tiene variantes se debe tomar el precio de la variuante x default, si no el tiene se debe tomar del campo base price
   const getProductPrice = () => {
-    if (product.hasVariants) {
+    if (currentProduct?.hasVariants) {
+      const selectedVariant = currentProduct?.templateVariant.options.find(item => item.isSelected == true)
+      console.log('Selected: ', selectedVariant)
       return selectedVariant.price
     }
-    return product.price
+    return currentProduct?.price
   }
 
   const handleAddProductToCart = async () => {
     setIsAdding(true)
     try {
-      if (product.isCustomizable || product.hasVariants) {
+      if (currentProduct.isCustomizable || currentProduct.hasVariants) {
         setIsCustomizerOpen(true)
       } else {
-        onAddItemToCart(product.id, 1)
+        onAddItemToCart(currentProduct, 1)
       }
       setTimeout(() => setIsAdding(false), 1000)
     } catch (error) {
@@ -39,6 +67,8 @@ export default function ProductCard({ product, onAddItemToCart, defaultProductIm
     }
   }
 
+
+  if (!currentProduct) return ("No hay nada")
   return (
     <>
       <div className="group cursor-pointer bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-0 overflow-hidden h-full flex flex-col">
@@ -46,8 +76,8 @@ export default function ProductCard({ product, onAddItemToCart, defaultProductIm
         {/* Image Container - Altura fija */}
         <div className="relative overflow-hidden h-56">
           <img
-            src={imageError ? defaultProductImage : (product.images[0].url || defaultProductImage)}
-            alt={product.name}
+            src={imageError ? defaultProductImage : (currentProduct?.images[0].url || defaultProductImage)}
+            alt={currentProduct?.name}
             className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
             onError={() => setImageError(true)}
           />
@@ -57,7 +87,7 @@ export default function ProductCard({ product, onAddItemToCart, defaultProductIm
 
 
           {/* Badge Cintilla Diagonal - Superior Derecha */}
-          {product.features?.isNew && (
+          {currentProduct?.features?.isNew && (
             <div className="absolute top-1 -right-2 z-10">
               <div className="bg-gradient-to-r from-red-500 to-red-600 text-white px-16  transform rotate-12 shadow-lg">
                 <span className="text-xs font-bold">NUEVO</span>
@@ -65,7 +95,7 @@ export default function ProductCard({ product, onAddItemToCart, defaultProductIm
             </div>
           )}
           {/* Popular Badge */}
-          {product.features?.isPopular && (
+          {currentProduct?.features?.isPopular && (
             <div className="absolute top-4 left-4">
               <div className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
                 🔥 Popular
@@ -87,14 +117,12 @@ export default function ProductCard({ product, onAddItemToCart, defaultProductIm
           )}
         </div>
 
-          {/* Body del card y button */}
+        {/* Body del card y button */}
         <div className="flex flex-col flex-grow p-6">
           <ProductCardBody
-            product={product}
+            product={currentProduct}
             getProductPrice={getProductPrice}
-            setSelectedVariant={(variant: any) => setSelectedVariant(variant)}
             handleAddProductToCart={handleAddProductToCart}
-            selectedVariant={selectedVariant}
             onChangeVariant={onChangeVariant}
           />
 
@@ -104,8 +132,8 @@ export default function ProductCard({ product, onAddItemToCart, defaultProductIm
             {/* Quick Info */}
             <div className="flex flex-col gap-4 mt-4">
               <div className="w-full flex justify-between items-center text-xs text-gray-500 ">
-                {product.prepTime && (
-                  <span className="flex items-center gap-1">⏱️ {product.prepTime?.min}-{product.prepTime.max} min</span>
+                {currentProduct?.prepTime && (
+                  <span className="flex items-center gap-1">⏱️ {currentProduct?.prepTime?.min}-{currentProduct?.prepTime?.max} min</span>
                 )}
                 <span className="flex items-center gap-1">🚚 Delivery gratis</span>
                 <span className="flex items-center gap-1">🔥 Más pedido</span>
@@ -128,15 +156,15 @@ export default function ProductCard({ product, onAddItemToCart, defaultProductIm
       </div>
 
       {/* Modal productCustomizer */}
-      {((product.isCustomizable || product.hasVariants) && isCustomizerOpen) && (
+      {((currentProduct.isCustomizable || currentProduct.hasVariants) && isCustomizerOpen) && (
         <LayoutModal
           isOpen={isCustomizerOpen}
           onClose={setIsCustomizerOpen}
           title="Personaliza tu producto"
-          description={product.name}
+          description={currentProduct.name}
           minWidth="w-1/2"
           maxWidth="max-w-2xl"
-          content={<button />}
+          content={<ProductCustomizer productToCustomize={currentProduct} />}
           footer={<div>
             <h1>Footer</h1>
           </div>}

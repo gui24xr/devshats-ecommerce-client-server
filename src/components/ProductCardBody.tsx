@@ -14,7 +14,7 @@ const roboto = Roboto({
   weight: ['400'],
   variable: '--font-roboto'
 })
-export default function ProductCardBody({ product, getProductPrice, selectedVariant, onChangeVariant }: any) {
+export default function ProductCardBody({ product, getProductPrice,  onChangeVariant }: any) {
   return (
     <>
 
@@ -67,8 +67,8 @@ export default function ProductCardBody({ product, getProductPrice, selectedVari
                 {product.templateVariant.options.map((option: any) => (
                   <button
                     key={option.id}
-                    onClick={() => onChangeVariant(option)}
-                    className={`flex-1 py-0 px-3 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm ${(option.id === selectedVariant.id)
+                    onClick={() => onChangeVariant(option.id)}
+                    className={`flex-1 py-0 px-3 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm ${(option.isSelected)
                       ? 'bg-green-500 hover:bg-green-600 text-white'
                       : 'border border-gray-300 text-gray-400 hover:border-gray-400'
                       }`}
