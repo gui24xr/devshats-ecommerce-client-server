@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { LayoutModal, ProductFilters, ProductGrid, ProductsByCategoriesCatalog, FloatingRapidCatalogWidget } from "../index";
 import { useCartStore, useProductsStore } from "@/stores";
 
@@ -26,7 +26,6 @@ export default function ProductsContainer({ planSettings, renderConfig }: { plan
     return (
         <>
             <div className={`w-full min-h-screen ${backgroundProductContainerColor}`}>
-
                 <div className="container mx-auto py-16">
                     {(planSettings.type === "plan_medium" || planSettings.type === "plan_large") && (
                         <>
@@ -45,26 +44,26 @@ export default function ProductsContainer({ planSettings, renderConfig }: { plan
                     )}
 
                     {planSettings.type === "plan_small" && (
-                         <ProductsByCategoriesCatalog productsOrderByCategories={productsOrderByCategories} />
+                        <ProductsByCategoriesCatalog productsOrderByCategories={productsOrderByCategories} />
                     )}
                 </div>
             </div>
 
             {(planSettings.type === "plan_medium" || planSettings.type === "plan_large") && (
-            <>
-            <FloatingRapidCatalogWidget productsQuantity={filteredProductsCount} showRapidCatalogDetail={setRapidCatalogModalIsOpen} />
+                <>
+                    <FloatingRapidCatalogWidget productsQuantity={filteredProductsCount} showRapidCatalogDetail={setRapidCatalogModalIsOpen} />
 
-            <LayoutModal
-                isOpen={rapidCatalogModalIsOpen}
-                onClose={setRapidCatalogModalIsOpen}
-                title="Catálogo"
-                description="Catálogo de productos."
-                minWidth="w-1/2"
-                maxWidth="max-w-2xl"
-                content={<ProductsByCategoriesCatalog productsOrderByCategories={productsOrderByCategories} />}
-                footer={<div></div>}
-            />
-            </>
+                    <LayoutModal
+                        isOpen={rapidCatalogModalIsOpen}
+                        onClose={setRapidCatalogModalIsOpen}
+                        title="Catálogo"
+                        description="Catálogo de productos."
+                        minWidth="w-1/2"
+                        maxWidth="max-w-2xl"
+                        content={<ProductsByCategoriesCatalog productsOrderByCategories={productsOrderByCategories} />}
+                        footer={<div></div>}
+                    />
+                </>
             )}
         </>
     )

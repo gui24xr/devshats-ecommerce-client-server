@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import {  Check } from 'lucide-react'
 
 
-export default function ProductCustomizer({ productToCustomize, onAddToCart, setIsCustomizerOpen }: any) {
+export default function ProductCustomizer({ productToCustomize, onAddToCart }: any) {
 
     //Vopy a meter al state el json del producto y en est estado lo voy a modificar para enviarle al carro una copia del json original pero modificao con lo customizado
     const [currentProduct, setCurrentProduct] = useState(null)
@@ -232,8 +232,7 @@ export default function ProductCustomizer({ productToCustomize, onAddToCart, set
                 onClick={() => {
                     // Validar requisitos mínimos antes de agregar al carrito
                     if (validateMinimumRequired(currentProduct)) {
-                        onAddToCart({product: currentProduct, quantity: 1})
-                        setIsCustomizerOpen(false)
+                        onAddToCart(currentProduct, 1)
                     }
                 }}
             >

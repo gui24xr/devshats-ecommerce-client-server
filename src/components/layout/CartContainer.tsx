@@ -30,7 +30,7 @@ export default function CartContainer(){
               description="Detalle de carrito."
               minWidth="w-1/2"
               maxWidth="max-w-2xl"
-              content={<PartA/>}
+              content={<CartDetails itemsList={cartItems} />}
               footer={<PartB/>}
             />
         </>

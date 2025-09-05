@@ -1,15 +1,21 @@
 "use client"
-import { LayoutModal } from "@/components"
+import { useEffect } from "react"
 
-export default function CartDetails({itemsList, isOpen, onClose}){
+export default function CartDetails({itemsList}: any){
+
+    useEffect(() => {
+        console.log(itemsList)
+    }, [itemsList])
+
     return (
-        <LayoutModal
-            isOpen={isOpen}
-            onClose={onClose}
-            title="Mi Carrito"
-            description="Detalle de carrito."
-            minWidth="50%"
-            maxWidth="50%"
-        />
+      <div>
+        <h1>Cart Details</h1>
+       {itemsList.map((item: any) => (
+        <div key={item.itemCartId}>
+          <h2>{item.product.name}</h2>
+          <p>{item.quantity}</p>
+        </div>
+       ))}
+      </div>
     )
 }

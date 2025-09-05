@@ -1,6 +1,6 @@
 //import data from "@/data/mock-tiendaropa.json";
-//import data from "@/data/mock-restaurant.json";
-import data from "@/data/mock-pizzeria.json";
+import data from "@/data/mock-restaurant.json";
+//import data from "@/data/mock-pizzeria.json";
 
 const DataService = {
     getProducts: async () => {
