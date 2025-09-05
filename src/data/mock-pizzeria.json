@@ -5,7 +5,7 @@
       "name": "Pizza Loca"
     },
     "planSettings": {
-      "type": "plan_small"
+      "type": "plan_medium"
     },
     "customizationTemplateSettings": {
       "bussinessContent": {
@@ -448,7 +448,7 @@
         "description": "Empanadas al horno con carne picada, huevo y especias.",
         "images": [
           {
-            "url": "https://cdn.pixabay.com/photo/2017/05/05/16/42/session-2287671_960_720.jpg",
+            "url": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
             "alt": "Empanadas de Carne",
             "default": true
           }
@@ -530,7 +530,7 @@
         "description": "Empanadas fritas rellenas de jamón cocido y mozzarella.",
         "images": [
           {
-            "url": "https://cdn.pixabay.com/photo/2017/05/05/16/42/session-2287671_960_720.jpg",
+            "url": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
             "alt": "Empanadas de Jamón y Queso",
             "default": true
           }
@@ -611,7 +611,7 @@
         "description": "Empanadas al horno con pollo desmenuzado, cebolla y especias suaves.",
         "images": [
           {
-            "url": "https://cdn.pixabay.com/photo/2017/05/05/16/42/session-2287671_960_720.jpg",
+            "url": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
             "alt": "Empanadas de Pollo",
             "default": true
           }
@@ -1865,6 +1865,148 @@
           ]
         },
         "customizationTemplate": null
+      },
+      {
+        "id": "prod_019_empanadas_dozen",
+        "name": "Docena de empanadas",
+        "description": "Selecciona 12 empanadas de tu elección. Combina diferentes sabores y preparaciones para crear tu docena perfecta.",
+        "price": {
+          "basePrice": 120,
+          "discount": 20,
+          "finalPrice": 100
+        },
+
+        "images": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+            "alt": "Docena de empanadas",
+            "default": true
+          }
+        ],
+        "categories": [
+          {
+            "id": "cat_002",
+            "name": "Empanadas",
+            "slug": "empanadas",
+            "displayOrder": 2
+          }
+        ],
+        "isActive": true,
+        "isCustomizable": true,
+        "hasVariants": false,
+        "reviewsCount": 203,
+        "rating": 4.8,
+        "tags": [
+          "reto",
+          "50cm",
+          "challenge",
+          "mega",
+          "compartir",
+          "pretzel"
+        ],
+        "featured": true,
+        "prepTime": {
+          "min": 15,
+          "max": 20
+        },
+        "features": {
+          "isNew": false,
+          "isPopular": true
+        },
+        "customizationTemplate": {
+          "features": [
+            {
+              "id": "feature_empanadas_001",
+              "label": "Selecciona tus 12 empanadas",
+              "type": "check",
+              "maxSelectable": 12,
+              "minSelectedRequired": 12,
+              "isActive": true,
+              "required": true,
+              "emoji": "🥟",
+              "options": [
+                {
+                  "id": "option_empanada_001",
+                  "name": "Empanada de Carne al Horno",
+                  "modifiesPrice": false,
+                  "affectPrice": 0,
+                  "isActive": true,
+                  "isSelected": false,
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥟"
+                },
+                {
+                  "id": "option_empanada_002",
+                  "name": "Empanada de Carne Frita",
+                  "modifiesPrice": false,
+                  "affectPrice": 0,
+                  "isActive": true,
+                  "isSelected": false,
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥟"
+                },
+                {
+                  "id": "option_empanada_003",
+                  "name": "Empanada de Pollo al Horno",
+                  "modifiesPrice": false,
+                  "affectPrice": 0,
+                  "isActive": true,
+                  "isSelected": false,
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥟"
+                },
+                {
+                  "id": "option_empanada_004",
+                  "name": "Empanada de Pollo Frita",
+                  "modifiesPrice": false,
+                  "affectPrice": 0,
+                  "isActive": true,
+                  "isSelected": false,
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥟"
+                },
+                {
+                  "id": "option_empanada_005",
+                  "name": "Empanada de Jamón y Queso al Horno",
+                  "modifiesPrice": false,
+                  "affectPrice": 0,
+                  "isActive": true,
+                  "isSelected": false,
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥟"
+                },
+                {
+                  "id": "option_empanada_006",
+                  "name": "Empanada de Jamón y Queso Frita",
+                  "modifiesPrice": false,
+                  "affectPrice": 0,
+                  "isActive": true,
+                  "isSelected": false,
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥟"
+                }
+              ]
+            }
+          ]
+        }
       }
     ]
   }

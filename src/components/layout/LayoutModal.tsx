@@ -74,7 +74,8 @@ export default function LayoutModal({
                       </div>
 
                       {/* Contenido scrolleable */}
-                      <div className="flex-1 overflow-y-auto px-16 py-6">
+                      <div className="flex-1 overflow-y-auto px-2
+                       py-6">
                         {content}
                       </div>
 

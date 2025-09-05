@@ -9,6 +9,7 @@ export default async function Portrait() {
   const { customizationTemplateSettings } = await DataService.getStoreDataAndConfigs()
   const { portrait, bussinessContent, navBarConfig } = customizationTemplateSettings
 
+  console.log('portrat', portrait)
   return (
     <div className="relative w-full overflow-hidden">
       
@@ -29,7 +30,7 @@ export default async function Portrait() {
         <>
           <div className={`absolute inset-0 w-full ${portrait.background.color} z-0`}></div>
           <div className="absolute inset-0 bg-black/10 z-20"></div>
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-500 via-orange-500 to-red-500 z-10"></div>
+          
           
         </>
       )}

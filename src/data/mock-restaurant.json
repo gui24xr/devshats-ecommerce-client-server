@@ -55,7 +55,7 @@
           "🥤"
         ],
         "background": {
-          "color": "bg-gradient-to-br from-orange-50 via-white to-orange-50",
+          "color": "absolute inset-0 bg-gradient-to-br from-orange-500 via-orange-500 to-red-500",
           "imageUrl": "https://media.istockphoto.com/id/2158482520/photo/freshly-grilled-chili-hot-dog.jpg?s=2048x2048&w=is&k=20&c=nsL-L-OY09ng4uE3zxS6tdz5NsnAn-0rUpmqGrKgewE=",
           "showImage": false
         },
@@ -121,7 +121,7 @@
         "name": "Hot Dogs",
         "displayOrder": 1,
         "slug": "hot-dogs",
-        "itemsCount": 18,
+        "itemsCount": 19,
         "label": "Hot Dogs",
         "emoji": "🌭"
       },
@@ -257,66 +257,86 @@
               "options": [
                 {
                   "name": "Queso cheddar",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.85,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_001",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧀"
                 },
                 {
                   "name": "Tocino Crujiente",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.95,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_002",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥓"
                 },
                 {
                   "name": "Cebolla Caramelizada",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.64,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_003",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧅"
                 },
                 {
                   "name": "Jalapeños",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.26,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_004",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌶️"
                 },
                 {
                   "name": "Aguacate",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.74,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_005",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥑"
                 },
                 {
                   "name": "Champiñones",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.69,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_006",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_001"
+              "id": "feature_001",
+              "emoji": "🧀",
+              "minSelectedRequired": 0
             },
             {
               "type": "options",
@@ -333,8 +353,11 @@
                   "isActive": true,
                   "isSelected": true,
                   "id": "option_007",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🍅"
                 },
                 {
                   "name": "Mayonesa",
@@ -343,8 +366,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_008",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "⚪"
                 },
                 {
                   "name": "Mostaza",
@@ -353,8 +379,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_009",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🟡"
                 },
                 {
                   "name": "Salsa BBQ",
@@ -363,8 +392,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_010",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Sriracha",
@@ -373,8 +405,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_011",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Chipotle",
@@ -383,11 +418,16 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_012",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_002"
+              "id": "feature_002",
+              "emoji": "🥫",
+              "minSelectedRequired": 0
             }
           ]
         }
@@ -504,66 +544,86 @@
               "options": [
                 {
                   "name": "Queso cheddar",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.05,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_013",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧀"
                 },
                 {
                   "name": "Tocino Crujiente",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.92,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_014",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥓"
                 },
                 {
                   "name": "Cebolla Caramelizada",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.12,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_015",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧅"
                 },
                 {
                   "name": "Jalapeños",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.24,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_016",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌶️"
                 },
                 {
                   "name": "Aguacate",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.3,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_017",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥑"
                 },
                 {
                   "name": "Champiñones",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.48,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_018",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_003"
+              "id": "feature_003",
+              "emoji": "🧀",
+              "minSelectedRequired": 0
             },
             {
               "type": "options",
@@ -580,8 +640,11 @@
                   "isActive": true,
                   "isSelected": true,
                   "id": "option_019",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🍅"
                 },
                 {
                   "name": "Mayonesa",
@@ -590,8 +653,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_020",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "⚪"
                 },
                 {
                   "name": "Mostaza",
@@ -600,8 +666,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_021",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🟡"
                 },
                 {
                   "name": "Salsa BBQ",
@@ -610,8 +679,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_022",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Sriracha",
@@ -620,8 +692,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_023",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Chipotle",
@@ -630,11 +705,16 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_024",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_004"
+              "id": "feature_004",
+              "emoji": "🥫",
+              "minSelectedRequired": 0
             }
           ]
         }
@@ -751,66 +831,86 @@
               "options": [
                 {
                   "name": "Queso cheddar",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.55,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_025",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧀"
                 },
                 {
                   "name": "Tocino Crujiente",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.48,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_026",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥓"
                 },
                 {
                   "name": "Cebolla Caramelizada",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.73,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_027",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧅"
                 },
                 {
                   "name": "Jalapeños",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.12,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_028",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌶️"
                 },
                 {
                   "name": "Aguacate",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.17,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_029",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥑"
                 },
                 {
                   "name": "Champiñones",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.38,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_030",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_005"
+              "id": "feature_005",
+              "emoji": "🧀",
+              "minSelectedRequired": 0
             },
             {
               "type": "options",
@@ -827,8 +927,11 @@
                   "isActive": true,
                   "isSelected": true,
                   "id": "option_031",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🍅"
                 },
                 {
                   "name": "Mayonesa",
@@ -837,8 +940,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_032",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "⚪"
                 },
                 {
                   "name": "Mostaza",
@@ -847,8 +953,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_033",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🟡"
                 },
                 {
                   "name": "Salsa BBQ",
@@ -857,8 +966,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_034",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Sriracha",
@@ -867,8 +979,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_035",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Chipotle",
@@ -877,11 +992,16 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_036",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_006"
+              "id": "feature_006",
+              "emoji": "🥫",
+              "minSelectedRequired": 0
             }
           ]
         }
@@ -998,66 +1118,86 @@
               "options": [
                 {
                   "name": "Queso cheddar",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.79,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_037",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧀"
                 },
                 {
                   "name": "Tocino Crujiente",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.86,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_038",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥓"
                 },
                 {
                   "name": "Cebolla Caramelizada",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.66,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_039",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧅"
                 },
                 {
                   "name": "Jalapeños",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.9,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_040",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌶️"
                 },
                 {
                   "name": "Aguacate",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.22,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_041",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥑"
                 },
                 {
                   "name": "Champiñones",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.39,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_042",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_007"
+              "id": "feature_007",
+              "emoji": "🧀",
+              "minSelectedRequired": 0
             },
             {
               "type": "options",
@@ -1074,8 +1214,11 @@
                   "isActive": true,
                   "isSelected": true,
                   "id": "option_043",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🍅"
                 },
                 {
                   "name": "Mayonesa",
@@ -1084,8 +1227,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_044",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "⚪"
                 },
                 {
                   "name": "Mostaza",
@@ -1094,8 +1240,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_045",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🟡"
                 },
                 {
                   "name": "Salsa BBQ",
@@ -1104,8 +1253,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_046",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Sriracha",
@@ -1114,8 +1266,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_047",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Chipotle",
@@ -1124,11 +1279,16 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_048",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_008"
+              "id": "feature_008",
+              "emoji": "🥫",
+              "minSelectedRequired": 0
             }
           ]
         }
@@ -1245,66 +1405,86 @@
               "options": [
                 {
                   "name": "Queso cheddar",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.91,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_049",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧀"
                 },
                 {
                   "name": "Tocino Crujiente",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.52,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_050",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥓"
                 },
                 {
                   "name": "Cebolla Caramelizada",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.69,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_051",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧅"
                 },
                 {
                   "name": "Jalapeños",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.99,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_052",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌶️"
                 },
                 {
                   "name": "Aguacate",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.09,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_053",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥑"
                 },
                 {
                   "name": "Champiñones",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.33,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_054",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_009"
+              "id": "feature_009",
+              "emoji": "🧀",
+              "minSelectedRequired": 0
             },
             {
               "type": "options",
@@ -1321,8 +1501,11 @@
                   "isActive": true,
                   "isSelected": true,
                   "id": "option_055",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🍅"
                 },
                 {
                   "name": "Mayonesa",
@@ -1331,8 +1514,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_056",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "⚪"
                 },
                 {
                   "name": "Mostaza",
@@ -1341,8 +1527,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_057",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🟡"
                 },
                 {
                   "name": "Salsa BBQ",
@@ -1351,8 +1540,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_058",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Sriracha",
@@ -1361,8 +1553,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_059",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Chipotle",
@@ -1371,11 +1566,16 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_060",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_010"
+              "id": "feature_010",
+              "emoji": "🥫",
+              "minSelectedRequired": 0
             }
           ]
         }
@@ -1492,66 +1692,86 @@
               "options": [
                 {
                   "name": "Queso cheddar",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.66,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_061",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧀"
                 },
                 {
                   "name": "Tocino Crujiente",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.95,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_062",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥓"
                 },
                 {
                   "name": "Cebolla Caramelizada",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.11,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_063",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧅"
                 },
                 {
                   "name": "Jalapeños",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.21,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_064",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌶️"
                 },
                 {
                   "name": "Aguacate",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.82,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_065",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥑"
                 },
                 {
                   "name": "Champiñones",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.57,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_066",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_011"
+              "id": "feature_011",
+              "emoji": "🧀",
+              "minSelectedRequired": 0
             },
             {
               "type": "options",
@@ -1568,8 +1788,11 @@
                   "isActive": true,
                   "isSelected": true,
                   "id": "option_067",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🍅"
                 },
                 {
                   "name": "Mayonesa",
@@ -1578,8 +1801,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_068",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "⚪"
                 },
                 {
                   "name": "Mostaza",
@@ -1588,8 +1814,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_069",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🟡"
                 },
                 {
                   "name": "Salsa BBQ",
@@ -1598,8 +1827,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_070",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Sriracha",
@@ -1608,8 +1840,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_071",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Chipotle",
@@ -1618,11 +1853,16 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_072",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_012"
+              "id": "feature_012",
+              "emoji": "🥫",
+              "minSelectedRequired": 0
             }
           ]
         }
@@ -1739,66 +1979,86 @@
               "options": [
                 {
                   "name": "Queso cheddar",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.73,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_073",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧀"
                 },
                 {
                   "name": "Tocino Crujiente",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.86,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_074",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥓"
                 },
                 {
                   "name": "Cebolla Caramelizada",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.19,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_075",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧅"
                 },
                 {
                   "name": "Jalapeños",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.6,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_076",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌶️"
                 },
                 {
                   "name": "Aguacate",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.37,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_077",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥑"
                 },
                 {
                   "name": "Champiñones",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.32,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_078",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_013"
+              "id": "feature_013",
+              "emoji": "🧀",
+              "minSelectedRequired": 0
             },
             {
               "type": "options",
@@ -1815,8 +2075,11 @@
                   "isActive": true,
                   "isSelected": true,
                   "id": "option_079",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🍅"
                 },
                 {
                   "name": "Mayonesa",
@@ -1825,8 +2088,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_080",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "⚪"
                 },
                 {
                   "name": "Mostaza",
@@ -1835,8 +2101,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_081",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🟡"
                 },
                 {
                   "name": "Salsa BBQ",
@@ -1845,8 +2114,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_082",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Sriracha",
@@ -1855,8 +2127,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_083",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Chipotle",
@@ -1865,11 +2140,16 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_084",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_014"
+              "id": "feature_014",
+              "emoji": "🥫",
+              "minSelectedRequired": 0
             }
           ]
         }
@@ -1986,66 +2266,86 @@
               "options": [
                 {
                   "name": "Queso cheddar",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.33,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_085",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧀"
                 },
                 {
                   "name": "Tocino Crujiente",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.78,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_086",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥓"
                 },
                 {
                   "name": "Cebolla Caramelizada",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.06,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_087",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧅"
                 },
                 {
                   "name": "Jalapeños",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.41,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_088",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌶️"
                 },
                 {
                   "name": "Aguacate",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.21,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_089",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥑"
                 },
                 {
                   "name": "Champiñones",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.95,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_090",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_015"
+              "id": "feature_015",
+              "emoji": "🧀",
+              "minSelectedRequired": 0
             },
             {
               "type": "options",
@@ -2062,8 +2362,11 @@
                   "isActive": true,
                   "isSelected": true,
                   "id": "option_091",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🍅"
                 },
                 {
                   "name": "Mayonesa",
@@ -2072,8 +2375,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_092",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "⚪"
                 },
                 {
                   "name": "Mostaza",
@@ -2082,8 +2388,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_093",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🟡"
                 },
                 {
                   "name": "Salsa BBQ",
@@ -2092,8 +2401,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_094",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Sriracha",
@@ -2102,8 +2414,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_095",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Chipotle",
@@ -2112,11 +2427,16 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_096",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_016"
+              "id": "feature_016",
+              "emoji": "🥫",
+              "minSelectedRequired": 0
             }
           ]
         }
@@ -2233,66 +2553,86 @@
               "options": [
                 {
                   "name": "Queso cheddar",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.15,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_097",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧀"
                 },
                 {
                   "name": "Tocino Crujiente",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.61,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_098",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥓"
                 },
                 {
                   "name": "Cebolla Caramelizada",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.14,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_099",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧅"
                 },
                 {
                   "name": "Jalapeños",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.8,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_100",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌶️"
                 },
                 {
                   "name": "Aguacate",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.8,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_101",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥑"
                 },
                 {
                   "name": "Champiñones",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.2,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_102",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_017"
+              "id": "feature_017",
+              "emoji": "🧀",
+              "minSelectedRequired": 0
             },
             {
               "type": "options",
@@ -2309,8 +2649,11 @@
                   "isActive": true,
                   "isSelected": true,
                   "id": "option_103",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🍅"
                 },
                 {
                   "name": "Mayonesa",
@@ -2319,8 +2662,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_104",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "⚪"
                 },
                 {
                   "name": "Mostaza",
@@ -2329,8 +2675,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_105",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🟡"
                 },
                 {
                   "name": "Salsa BBQ",
@@ -2339,8 +2688,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_106",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Sriracha",
@@ -2349,8 +2701,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_107",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Chipotle",
@@ -2359,11 +2714,16 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_108",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_018"
+              "id": "feature_018",
+              "emoji": "🥫",
+              "minSelectedRequired": 0
             }
           ]
         }
@@ -2480,66 +2840,86 @@
               "options": [
                 {
                   "name": "Queso cheddar",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.44,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_109",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧀"
                 },
                 {
                   "name": "Tocino Crujiente",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.43,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_110",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥓"
                 },
                 {
                   "name": "Cebolla Caramelizada",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.62,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_111",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧅"
                 },
                 {
                   "name": "Jalapeños",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.52,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_112",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌶️"
                 },
                 {
                   "name": "Aguacate",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.16,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_113",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥑"
                 },
                 {
                   "name": "Champiñones",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.8,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_114",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_019"
+              "id": "feature_019",
+              "emoji": "🧀",
+              "minSelectedRequired": 0
             },
             {
               "type": "options",
@@ -2556,8 +2936,11 @@
                   "isActive": true,
                   "isSelected": true,
                   "id": "option_115",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🍅"
                 },
                 {
                   "name": "Mayonesa",
@@ -2566,8 +2949,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_116",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "⚪"
                 },
                 {
                   "name": "Mostaza",
@@ -2576,8 +2962,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_117",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🟡"
                 },
                 {
                   "name": "Salsa BBQ",
@@ -2586,8 +2975,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_118",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Sriracha",
@@ -2596,8 +2988,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_119",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Chipotle",
@@ -2606,11 +3001,16 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_120",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_020"
+              "id": "feature_020",
+              "emoji": "🥫",
+              "minSelectedRequired": 0
             }
           ]
         }
@@ -2727,66 +3127,86 @@
               "options": [
                 {
                   "name": "Queso cheddar",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.86,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_121",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧀"
                 },
                 {
                   "name": "Tocino Crujiente",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.53,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_122",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥓"
                 },
                 {
                   "name": "Cebolla Caramelizada",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.38,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_123",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧅"
                 },
                 {
                   "name": "Jalapeños",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.3,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_124",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌶️"
                 },
                 {
                   "name": "Aguacate",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.9,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_125",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥑"
                 },
                 {
                   "name": "Champiñones",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.56,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_126",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_021"
+              "id": "feature_021",
+              "emoji": "🧀",
+              "minSelectedRequired": 0
             },
             {
               "type": "options",
@@ -2803,8 +3223,11 @@
                   "isActive": true,
                   "isSelected": true,
                   "id": "option_127",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🍅"
                 },
                 {
                   "name": "Mayonesa",
@@ -2813,8 +3236,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_128",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "⚪"
                 },
                 {
                   "name": "Mostaza",
@@ -2823,8 +3249,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_129",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🟡"
                 },
                 {
                   "name": "Salsa BBQ",
@@ -2833,8 +3262,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_130",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Sriracha",
@@ -2843,8 +3275,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_131",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Chipotle",
@@ -2853,11 +3288,16 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_132",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_022"
+              "id": "feature_022",
+              "emoji": "🥫",
+              "minSelectedRequired": 0
             }
           ]
         }
@@ -2974,66 +3414,86 @@
               "options": [
                 {
                   "name": "Queso cheddar",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.01,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_133",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧀"
                 },
                 {
                   "name": "Tocino Crujiente",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.42,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_134",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥓"
                 },
                 {
                   "name": "Cebolla Caramelizada",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.51,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_135",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧅"
                 },
                 {
                   "name": "Jalapeños",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.01,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_136",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌶️"
                 },
                 {
                   "name": "Aguacate",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.13,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_137",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥑"
                 },
                 {
                   "name": "Champiñones",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.57,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_138",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_023"
+              "id": "feature_023",
+              "emoji": "🧀",
+              "minSelectedRequired": 0
             },
             {
               "type": "options",
@@ -3050,8 +3510,11 @@
                   "isActive": true,
                   "isSelected": true,
                   "id": "option_139",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🍅"
                 },
                 {
                   "name": "Mayonesa",
@@ -3060,8 +3523,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_140",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "⚪"
                 },
                 {
                   "name": "Mostaza",
@@ -3070,8 +3536,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_141",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🟡"
                 },
                 {
                   "name": "Salsa BBQ",
@@ -3080,8 +3549,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_142",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Sriracha",
@@ -3090,8 +3562,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_143",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Chipotle",
@@ -3100,11 +3575,16 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_144",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_024"
+              "id": "feature_024",
+              "emoji": "🥫",
+              "minSelectedRequired": 0
             }
           ]
         }
@@ -3221,66 +3701,86 @@
               "options": [
                 {
                   "name": "Queso cheddar",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.35,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_145",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧀"
                 },
                 {
                   "name": "Tocino Crujiente",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.05,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_146",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥓"
                 },
                 {
                   "name": "Cebolla Caramelizada",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.01,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_147",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧅"
                 },
                 {
                   "name": "Jalapeños",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.43,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_148",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌶️"
                 },
                 {
                   "name": "Aguacate",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.5,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_149",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥑"
                 },
                 {
                   "name": "Champiñones",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.5,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_150",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_025"
+              "id": "feature_025",
+              "emoji": "🧀",
+              "minSelectedRequired": 0
             },
             {
               "type": "options",
@@ -3297,8 +3797,11 @@
                   "isActive": true,
                   "isSelected": true,
                   "id": "option_151",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🍅"
                 },
                 {
                   "name": "Mayonesa",
@@ -3307,8 +3810,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_152",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "⚪"
                 },
                 {
                   "name": "Mostaza",
@@ -3317,8 +3823,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_153",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🟡"
                 },
                 {
                   "name": "Salsa BBQ",
@@ -3327,8 +3836,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_154",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Sriracha",
@@ -3337,8 +3849,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_155",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Chipotle",
@@ -3347,11 +3862,16 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_156",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_026"
+              "id": "feature_026",
+              "emoji": "🥫",
+              "minSelectedRequired": 0
             }
           ]
         }
@@ -3468,66 +3988,86 @@
               "options": [
                 {
                   "name": "Queso cheddar",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.42,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_157",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧀"
                 },
                 {
                   "name": "Tocino Crujiente",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.9,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_158",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥓"
                 },
                 {
                   "name": "Cebolla Caramelizada",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.56,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_159",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧅"
                 },
                 {
                   "name": "Jalapeños",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.95,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_160",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌶️"
                 },
                 {
                   "name": "Aguacate",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.07,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_161",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥑"
                 },
                 {
                   "name": "Champiñones",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.3,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_162",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_027"
+              "id": "feature_027",
+              "emoji": "🧀",
+              "minSelectedRequired": 0
             },
             {
               "type": "options",
@@ -3544,8 +4084,11 @@
                   "isActive": true,
                   "isSelected": true,
                   "id": "option_163",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🍅"
                 },
                 {
                   "name": "Mayonesa",
@@ -3554,8 +4097,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_164",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "⚪"
                 },
                 {
                   "name": "Mostaza",
@@ -3564,8 +4110,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_165",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🟡"
                 },
                 {
                   "name": "Salsa BBQ",
@@ -3574,8 +4123,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_166",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Sriracha",
@@ -3584,8 +4136,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_167",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Chipotle",
@@ -3594,11 +4149,16 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_168",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_028"
+              "id": "feature_028",
+              "emoji": "🥫",
+              "minSelectedRequired": 0
             }
           ]
         }
@@ -3715,66 +4275,86 @@
               "options": [
                 {
                   "name": "Queso cheddar",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.1,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_169",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧀"
                 },
                 {
                   "name": "Tocino Crujiente",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.54,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_170",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥓"
                 },
                 {
                   "name": "Cebolla Caramelizada",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.02,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_171",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧅"
                 },
                 {
                   "name": "Jalapeños",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.38,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_172",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌶️"
                 },
                 {
                   "name": "Aguacate",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.83,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_173",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥑"
                 },
                 {
                   "name": "Champiñones",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.48,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_174",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_029"
+              "id": "feature_029",
+              "emoji": "🧀",
+              "minSelectedRequired": 0
             },
             {
               "type": "options",
@@ -3791,8 +4371,11 @@
                   "isActive": true,
                   "isSelected": true,
                   "id": "option_175",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🍅"
                 },
                 {
                   "name": "Mayonesa",
@@ -3801,8 +4384,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_176",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "⚪"
                 },
                 {
                   "name": "Mostaza",
@@ -3811,8 +4397,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_177",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🟡"
                 },
                 {
                   "name": "Salsa BBQ",
@@ -3821,8 +4410,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_178",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Sriracha",
@@ -3831,8 +4423,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_179",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Chipotle",
@@ -3841,11 +4436,16 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_180",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_030"
+              "id": "feature_030",
+              "emoji": "🥫",
+              "minSelectedRequired": 0
             }
           ]
         }
@@ -3885,7 +4485,7 @@
           "min": 15,
           "max": 20
         },
-        "vertical": "restaurant",
+     
         "features": {
           "isNew": false,
           "isPopular": true
@@ -3946,66 +4546,86 @@
               "options": [
                 {
                   "name": "Queso cheddar",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.24,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_181",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧀"
                 },
                 {
                   "name": "Tocino Crujiente",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.55,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_182",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥓"
                 },
                 {
                   "name": "Cebolla Caramelizada",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.39,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_183",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧅"
                 },
                 {
                   "name": "Jalapeños",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.05,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_184",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌶️"
                 },
                 {
                   "name": "Aguacate",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.71,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_185",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥑"
                 },
                 {
                   "name": "Champiñones",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.46,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_186",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_031"
+              "id": "feature_031",
+              "emoji": "🧀",
+              "minSelectedRequired": 0
             },
             {
               "type": "options",
@@ -4022,8 +4642,11 @@
                   "isActive": true,
                   "isSelected": true,
                   "id": "option_187",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🍅"
                 },
                 {
                   "name": "Mayonesa",
@@ -4032,8 +4655,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_188",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "⚪"
                 },
                 {
                   "name": "Mostaza",
@@ -4042,8 +4668,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_189",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🟡"
                 },
                 {
                   "name": "Salsa BBQ",
@@ -4052,8 +4681,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_190",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Sriracha",
@@ -4062,8 +4694,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_191",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Chipotle",
@@ -4072,11 +4707,16 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_192",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_032"
+              "id": "feature_032",
+              "emoji": "🥫",
+              "minSelectedRequired": 0
             }
           ]
         }
@@ -4177,66 +4817,86 @@
               "options": [
                 {
                   "name": "Queso cheddar",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.67,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_193",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧀"
                 },
                 {
                   "name": "Tocino Crujiente",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.5,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_194",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥓"
                 },
                 {
                   "name": "Cebolla Caramelizada",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.33,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_195",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧅"
                 },
                 {
                   "name": "Jalapeños",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.22,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_196",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌶️"
                 },
                 {
                   "name": "Aguacate",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.13,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_197",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥑"
                 },
                 {
                   "name": "Champiñones",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.33,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_198",
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_033"
+              "id": "feature_033",
+              "emoji": "🧀",
+              "minSelectedRequired": 0
             },
             {
               "type": "options",
@@ -4253,8 +4913,11 @@
                   "isActive": true,
                   "isSelected": true,
                   "id": "option_199",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🍅"
                 },
                 {
                   "name": "Mayonesa",
@@ -4263,8 +4926,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_200",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "⚪"
                 },
                 {
                   "name": "Mostaza",
@@ -4273,8 +4939,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_201",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🟡"
                 },
                 {
                   "name": "Salsa BBQ",
@@ -4283,8 +4952,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_202",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Sriracha",
@@ -4293,8 +4965,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_203",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Chipotle",
@@ -4303,11 +4978,16 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_204",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_034"
+              "id": "feature_034",
+              "emoji": "🥫",
+              "minSelectedRequired": 0
             }
           ]
         }
@@ -4410,64 +5090,84 @@
                 {
                   "id": "option_205",
                   "name": "Queso cheddar",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.19,
                   "isActive": true,
                   "isSelected": false,
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧀"
                 },
                 {
                   "id": "option_206",
                   "name": "Tocino Crujiente",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.85,
                   "isActive": true,
                   "isSelected": false,
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥓"
                 },
                 {
                   "id": "option_207",
                   "name": "Cebolla Caramelizada",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.93,
                   "isActive": true,
                   "isSelected": false,
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧅"
                 },
                 {
                   "id": "option_208",
                   "name": "Jalapeños",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 3.23,
                   "isActive": true,
                   "isSelected": false,
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌶️"
                 },
                 {
                   "id": "option_209",
                   "name": "Aguacate",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.88,
                   "isActive": true,
                   "isSelected": false,
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🥑"
                 },
                 {
                   "id": "option_210",
                   "name": "Champiñones",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.87,
                   "isActive": true,
                   "isSelected": false,
-                  "allowSelectQuantity": false,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": true,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
-              ]
+              ],
+              "emoji": "🧀",
+              "minSelectedRequired": 0
             },
             {
               "id": "feature_036",
@@ -4485,8 +5185,11 @@
                   "affectPrice": 0,
                   "isActive": true,
                   "isSelected": true,
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🍅"
                 },
                 {
                   "id": "option_212",
@@ -4495,8 +5198,11 @@
                   "affectPrice": 0,
                   "isActive": true,
                   "isSelected": false,
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "⚪"
                 },
                 {
                   "id": "option_213",
@@ -4505,8 +5211,11 @@
                   "affectPrice": 0,
                   "isActive": true,
                   "isSelected": false,
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🟡"
                 },
                 {
                   "id": "option_214",
@@ -4515,8 +5224,11 @@
                   "affectPrice": 0,
                   "isActive": true,
                   "isSelected": false,
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "id": "option_215",
@@ -4525,8 +5237,11 @@
                   "affectPrice": 0,
                   "isActive": true,
                   "isSelected": false,
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "id": "option_216",
@@ -4535,10 +5250,15 @@
                   "affectPrice": 0,
                   "isActive": true,
                   "isSelected": false,
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
-              ]
+              ],
+              "emoji": "🥫",
+              "minSelectedRequired": 0
             }
           ]
         }
@@ -4683,66 +5403,86 @@
               "options": [
                 {
                   "name": "Queso extra",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 1.27,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_217",
                   "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🧀"
                 },
                 {
                   "name": "Chile extra",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.41,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_218",
                   "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Limón extra",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.09,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_219",
                   "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Mayonesa extra",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.45,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_220",
                   "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "⚪"
                 },
                 {
                   "name": "Chamoy",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 2.67,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_221",
                   "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 },
                 {
                   "name": "Tajín",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
+                  "modifiesPrice": true,
+                  "affectPrice": 0.57,
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_222",
                   "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌭"
                 }
               ],
-              "id": "feature_037"
+              "id": "feature_037",
+              "emoji": "🧀",
+              "minSelectedRequired": 0
             },
             {
               "type": "options",
@@ -4759,8 +5499,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_223",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "😌"
                 },
                 {
                   "name": "Suave",
@@ -4769,8 +5512,11 @@
                   "isActive": true,
                   "isSelected": true,
                   "id": "option_224",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "😊"
                 },
                 {
                   "name": "Medio",
@@ -4779,8 +5525,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_225",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "😐"
                 },
                 {
                   "name": "Picante",
@@ -4789,8 +5538,11 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_226",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌶️"
                 },
                 {
                   "name": "Extra picante",
@@ -4799,11 +5551,16 @@
                   "isActive": true,
                   "isSelected": false,
                   "id": "option_227",
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0
+                  "allowSelectQuantity": false,
+                  "selectedQuantity": 0,
+                  "icon": null,
+                  "imgUrl": null,
+                  "emoji": "🌶️"
                 }
               ],
-              "id": "feature_038"
+              "id": "feature_038",
+              "emoji": "🌶️",
+              "minSelectedRequired": 0
             }
           ]
         }
@@ -5118,6 +5875,7 @@
         },
         "customizationTemplate": null
       }
+      
     ]
   }
 }

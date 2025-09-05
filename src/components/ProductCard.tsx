@@ -55,7 +55,7 @@ export default function ProductCard({ product, onAddItemToCart, defaultProductIm
   const handleAddProductToCart = async () => {
     setIsAdding(true)
     try {
-      if (currentProduct.isCustomizable || currentProduct.hasVariants) {
+      if (currentProduct.isCustomizable) {
         setIsCustomizerOpen(true)
       } else {
         onAddItemToCart(currentProduct, 1)
@@ -156,7 +156,7 @@ export default function ProductCard({ product, onAddItemToCart, defaultProductIm
       </div>
 
       {/* Modal productCustomizer */}
-      {((currentProduct.isCustomizable || currentProduct.hasVariants) && isCustomizerOpen) && (
+      {((currentProduct.isCustomizable) && isCustomizerOpen) && (
         <LayoutModal
           isOpen={isCustomizerOpen}
           onClose={setIsCustomizerOpen}
@@ -164,7 +164,7 @@ export default function ProductCard({ product, onAddItemToCart, defaultProductIm
           description={currentProduct.name}
           minWidth="w-1/2"
           maxWidth="max-w-2xl"
-          content={<ProductCustomizer productToCustomize={currentProduct} />}
+          content={<ProductCustomizer productToCustomize={currentProduct} onAddToCart={onAddItemToCart} />}
           footer={<div>
             <h1>Footer</h1>
           </div>}
