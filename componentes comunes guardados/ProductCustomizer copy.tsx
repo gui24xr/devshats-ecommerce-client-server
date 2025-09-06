@@ -1,30 +1,35 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Check } from 'lucide-react'
-import { useProductBuilderStore } from "@/stores"
+import {  Check } from 'lucide-react'
+
 
 export default function ProductCustomizer({ productToCustomize, onAddToCart, setIsCustomizerOpen }: any) {
 
     //Vopy a meter al state el json del producto y en est estado lo voy a modificar para enviarle al carro una copia del json original pero modificao con lo customizado
     const [currentProduct, setCurrentProduct] = useState(null)
-    const productInCustomizationData = useProductBuilderStore(state => state.productInCustomizationData)
-    const selectedVariant = useProductBuilderStore(state => state.selectedVariant)
-    const customization = useProductBuilderStore(state => state.customization)
-    const setSelectedVariant = useProductBuilderStore(state => state.setSelectedVariant)
 
 
     useEffect(() => {
         console.log('PP: ', productToCustomize)
-        if (productInCustomizationData) setCurrentProduct(productInCustomizationData)
-    }, [productInCustomizationData])
+        if (productToCustomize) setCurrentProduct(productToCustomize)
+    }, [productToCustomize])
 
     useEffect(() => {
         console.log('Customizer: ', currentProduct)
     }, [currentProduct])
 
     const onChangeSelectedVariant = (selectedVariantId: any) => {
-        setSelectedVariant(selectedVariantId)
+        setCurrentProduct(prevProduct => ({
+            ...prevProduct,
+            templateVariant: {
+                ...prevProduct.templateVariant,
+                options: prevProduct.templateVariant.options.map(item => ({
+                    ...item,
+                    isSelected: item.id === selectedVariantId
+                }))
+            }
+        }))
     }
 
     const onChangeCustomizationOptionState = (featureId, customizationOptionId) => {
@@ -112,7 +117,7 @@ export default function ProductCustomizer({ productToCustomize, onAddToCart, set
         if (!product || !product.customizationTemplate) return true
 
         const errors = []
-
+        
         product.customizationTemplate.features.forEach(feature => {
             if (feature.minSelectedRequired > 0) {
                 const currentTotalQuantity = feature.options.reduce((total, option) => {
@@ -160,8 +165,8 @@ export default function ProductCustomizer({ productToCustomize, onAddToCart, set
             ...featureToModified,
             options: featureToModified.options.map(item =>
                 item.id === optionId
-                    ? {
-                        ...item,
+                    ? { 
+                        ...item, 
                         selectedQuantity: newQuantity,
                         // Seleccionar automáticamente si se aumenta cantidad de 0
                         isSelected: shouldSelect ? true : (shouldDeselect ? false : item.isSelected)
@@ -185,58 +190,57 @@ export default function ProductCustomizer({ productToCustomize, onAddToCart, set
     return (
         <div className="h-[25vh]">
 
-
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2   ">
-
-
-
-                <div className="flex flex-col gap-8 overflow-y-auto px-4 overflow-y-auto lg:h-[89vh]">
-                    <div className="flex flex-wrap">
-                        {(productInCustomizationData?.hasVariants) && (
-                            <ProductVariantSelector
-                                templateVariant={productInCustomizationData.templateVariant}
-                                onChangeSelectedVariant={onChangeSelectedVariant}
-                                selectedVariant={selectedVariant}
-                            />
-                        )}
-                    </div>
-                    <div className="flex flex-col gap-8">
+       
+<div className="grid grid-cols-1 gap-4 md:grid-cols-2   ">
+            
 
 
-                        {(currentProduct?.isCustomizable) && (
-                            currentProduct.customizationTemplate?.features.map(item =>
-                                <ProductFeaturesSelector
-                                    feature={{ ...item }}
-                                    onChangeCustomizationOptionState={onChangeCustomizationOptionState}
-                                    onChangeQuantity={onChangeQuantity}
-                                />
-                            )
-                        )}
-
-
-                    </div>
+            <div className="flex flex-col gap-8 overflow-y-auto px-4 overflow-y-auto lg:h-[89vh]">
+                <div className="flex flex-wrap">
+            {(currentProduct?.hasVariants) && (
+                <ProductVariantSelector
+                    templateVariant={currentProduct.templateVariant}
+                    onChangeSelectedVariant={onChangeSelectedVariant}
+                />
+            )}
                 </div>
-                <div className="overflow-y-auto px-4">
-                    {(currentProduct && <ProductCustomizationPreview product={currentProduct} />)}
+                <div className="flex flex-col gap-8">
+
+
+            {(currentProduct?.isCustomizable) && (
+                currentProduct.customizationTemplate?.features.map(item =>
+                    <ProductFeaturesSelector
+                        feature={{ ...item }}
+                                onChangeCustomizationOptionState={onChangeCustomizationOptionState}
+                                onChangeQuantity={onChangeQuantity}
+                    />
+                )
+            )}
+
+                   
                 </div>
             </div>
-
-            {/* Botón flotante Agregar al carrito */}
-            <div className="fixed bottom-4 left-4 right-4 z-50 lg:left-auto lg:right-4 lg:max-w-md">
-                <button
-                    className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
-                    onClick={() => {
-                        // Validar requisitos mínimos antes de agregar al carrito
-                        if (validateMinimumRequired(currentProduct)) {
-                            onAddToCart({ product: currentProduct, quantity: 1 })
-                            setIsCustomizerOpen(false)
-                        }
-                    }}
-                >
-                    <span className="text-xl">🛒</span>
-                    <span>Agregar al carrito</span>
-                </button>
+            <div className="overflow-y-auto px-4">
+            {(currentProduct && <ProductCustomizationPreview product={currentProduct} />)}
             </div>
+        </div>
+
+        {/* Botón flotante Agregar al carrito */}
+        <div className="fixed bottom-4 left-4 right-4 z-50 lg:left-auto lg:right-4 lg:max-w-md">
+            <button 
+                className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
+                onClick={() => {
+                    // Validar requisitos mínimos antes de agregar al carrito
+                    if (validateMinimumRequired(currentProduct)) {
+                        onAddToCart({product: currentProduct, quantity: 1})
+                        setIsCustomizerOpen(false)
+                    }
+                }}
+            >
+                <span className="text-xl">🛒</span>
+                <span>Agregar al carrito</span>
+            </button>
+        </div>
         </div>
     )
 }
@@ -250,16 +254,16 @@ function ProductCustomizationPreview({ product }) {
     }
 
     // Obtener variante seleccionada si existe
-    const selectedVariant = product.hasVariants && product.templateVariant
+    const selectedVariant = product.hasVariants && product.templateVariant 
         ? product.templateVariant.options.find(option => option.isSelected)
         : null
 
     // Recopilar información de features
     const featuresInfo = []
-
+    
     product.customizationTemplate.features.forEach(feature => {
         const selectedOptions = feature.options.filter(option => option.isSelected)
-
+        
         if (selectedOptions.length > 0) {
             featuresInfo.push({
                 featureName: feature.label,
@@ -365,19 +369,19 @@ function ProductFeaturesSelector({ feature, onChangeCustomizationOptionState, on
                                     )}
                                 </div>
                                 <div className="flex flex-col gap-1">
-                                    <div className="flex items-center gap-2">
-                                        <span className="text-lg">
-                                            {optionFeatureItem.emoji || '🌭'}
-                                        </span>
-                                        <span className="text-sm font-semibold">{optionFeatureItem.name}</span>
-                                    </div>
+                                <div className="flex items-center gap-2">
+                                    <span className="text-lg">
+                                        {optionFeatureItem.emoji || '🌭'}
+                                    </span>
+                                    <span className="text-sm font-semibold">{optionFeatureItem.name}</span>
+                                </div>
                                     {optionFeatureItem.affectPrice > 0 && (
                                         <span className="text-xs text-green-600 font-medium ml-7">
                                             +${optionFeatureItem.affectPrice}/unid
                                         </span>
                                     )}
-                                </div>
-                            </button>
+                            </div>
+                        </button>
 
                             {/* Selector de cantidad - se muestra siempre si allowSelectQuantity es true */}
                             {optionFeatureItem.allowSelectQuantity && (
@@ -398,7 +402,7 @@ function ProductFeaturesSelector({ feature, onChangeCustomizationOptionState, on
 
 //--------------------------------------------------------------------------------------------------
 
-function ProductVariantSelector({ templateVariant, onChangeSelectedVariant, selectedVariant }: any): any {
+function ProductVariantSelector({ templateVariant, onChangeSelectedVariant }: any): any {
     return (
         <div className="space-y-3">
             <h5 className="text-base font-semibold text-gray-800 flex items-center gap-2">
@@ -407,7 +411,7 @@ function ProductVariantSelector({ templateVariant, onChangeSelectedVariant, sele
             </h5>
             <div className="flex flex-wrap gap-2">
                 {templateVariant.options.map((optionVariant: any) => {
-                    const isSelected = optionVariant.id === selectedVariant.id
+                    const isSelected = optionVariant.isSelected
                     return (
                         <button
                             key={optionVariant.id}
@@ -428,11 +432,11 @@ function ProductVariantSelector({ templateVariant, onChangeSelectedVariant, sele
                                     )}
                                 </div>
                                 <div className="flex flex-col gap-1">
-                                    <div className="flex items-center gap-2">
-                                        <span className="text-lg">
-                                            {optionVariant.emoji || '🌭'}
-                                        </span>
-                                        <span className="text-sm font-semibold">{optionVariant.label}</span>
+                                <div className="flex items-center gap-2">
+                                    <span className="text-lg">
+                                        {optionVariant.emoji || '🌭'}
+                                    </span>
+                                    <span className="text-sm font-semibold">{optionVariant.label}</span>
                                     </div>
                                     {optionVariant.affectPrice > 0 && (
                                         <span className="text-xs text-green-600 font-medium ml-7">

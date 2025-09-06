@@ -1,20 +1,7 @@
 import { StarRating } from "@/components";
-import { Archivo_Black } from "next/font/google"
-import { Roboto } from "next/font/google"
 
 
-const archivo_black = Archivo_Black({
-  subsets: ['latin'],
-  weight: ['400'],
-  variable: '--font-archivo-black'
-})
-
-const roboto = Roboto({
-  subsets: ['latin'],
-  weight: ['400'],
-  variable: '--font-roboto'
-})
-export default function ProductCardBody({ product, getProductPrice,  onChangeVariant }: any) {
+export default function ProductCardBody({ product, productPrice,  onChangeVariant, selectedVariantId }: any) {
   return (
     <>
 
@@ -47,13 +34,13 @@ export default function ProductCardBody({ product, getProductPrice,  onChangeVar
 
           <div className="text-end">
             <div className="flex flex-row gap-1">
-              {getProductPrice().discount && (
+              {productPrice?.discount && (
                 <div className="flex flex-col gap-0">
-                  <span className="text-sm text-gray-400 text-green-500 font-semibold">${`-${getProductPrice().discount.toFixed(0)}%`}</span>
-                  <span className="text-sm text-gray-400 line-through">${getProductPrice().basePrice.toFixed(0)}</span>
+                  <span className="text-sm text-gray-400 text-green-500 font-semibold">${`-${productPrice.discount.toFixed(0)}%`}</span>
+                  <span className="text-sm text-gray-400 line-through">${productPrice.basePrice.toFixed(0)}</span>
                 </div>
               )}
-              <span className={`text-4xl font-bold text-gray-700 text-shadow-md`}>${getProductPrice().finalPrice.toFixed(0)}</span>
+              <span className={`text-4xl font-bold text-gray-700 text-shadow-md`}>${productPrice.finalPrice?.toFixed(0)}</span>
             </div>
           </div>
         </div>
@@ -61,6 +48,7 @@ export default function ProductCardBody({ product, getProductPrice,  onChangeVar
         {/* Variants Section - Altura fija siempre */}
         <div className="h-12 mb-4">
           {product.hasVariants && (
+            
             <>
               <h4 className="text-xs font-medium text-gray-500 mb-2">Seleccionar una variante</h4>
               <div className="flex gap-2">
@@ -68,7 +56,7 @@ export default function ProductCardBody({ product, getProductPrice,  onChangeVar
                   <button
                     key={option.id}
                     onClick={() => onChangeVariant(option.id)}
-                    className={`flex-1 py-0 px-3 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm ${(option.isSelected)
+                    className={`flex-1 py-0 px-3 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm ${(selectedVariantId == option.id)
                       ? 'bg-green-500 hover:bg-green-600 text-white'
                       : 'border border-gray-300 text-gray-400 hover:border-gray-400'
                       }`}
