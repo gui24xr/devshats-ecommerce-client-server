@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react"
-import { LayoutModal, ProductCustomizer, ProductCardBody } from "./index"
+import { ProductCardBody } from "./index"
 import { useProductBuilderStore } from "@/stores"
 
 
@@ -145,26 +145,7 @@ export default function ProductCard({ product, onAddItemToCart, defaultProductIm
         </div>
       </div>
 
-      {/* Modal productCustomizer */}
-      {((product.isCustomizable)) && (
-        <LayoutModal
-          isOpen={customizerIsOpen}
-          onClose={closeCustomizer}
-          title="Personaliza tu producto"
-          description={product.name}
-          minWidth="w-1/2"
-          maxWidth="max-w-2xl"
-          content={<ProductCustomizer 
-            productToCustomize={productInCustomization} 
-            onAddToCart={handleAddProductToCart} 
-            setIsCustomizerOpen={closeCustomizer} 
-            selectedVariantId={selectedVariantId}
-            />}
-          footer={<div>
-            <h1>Footer</h1>
-          </div>}
-        />
-      )}
+     
     </>
   )
 }

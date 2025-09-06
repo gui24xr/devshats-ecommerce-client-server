@@ -4,24 +4,22 @@ import { useState, useEffect } from "react"
 import { Check } from 'lucide-react'
 import { useProductBuilderStore } from "@/stores"
 
-export default function ProductCustomizer({ productToCustomize, onAddToCart, setIsCustomizerOpen }: any) {
-
-    //Vopy a meter al state el json del producto y en est estado lo voy a modificar para enviarle al carro una copia del json original pero modificao con lo customizado
+export default function ProductCustomizer({ onAddToCart, onClose }: any) {
+    // Estado local solo para la copia de trabajo del producto
     const [currentProduct, setCurrentProduct] = useState(null)
+    
+    // Todo el estado global viene del store
     const productInCustomizationData = useProductBuilderStore(state => state.productInCustomizationData)
     const selectedVariant = useProductBuilderStore(state => state.selectedVariant)
     const customization = useProductBuilderStore(state => state.customization)
     const setSelectedVariant = useProductBuilderStore(state => state.setSelectedVariant)
 
-
+    // Inicializar el producto de trabajo cuando cambie el producto en customización
     useEffect(() => {
-        console.log('PP: ', productToCustomize)
-        if (productInCustomizationData) setCurrentProduct(productInCustomizationData)
+        if (productInCustomizationData) {
+            setCurrentProduct({ ...productInCustomizationData })
+        }
     }, [productInCustomizationData])
-
-    useEffect(() => {
-        console.log('Customizer: ', currentProduct)
-    }, [currentProduct])
 
     const onChangeSelectedVariant = (selectedVariantId: any) => {
         setSelectedVariant(selectedVariantId)
@@ -229,7 +227,6 @@ export default function ProductCustomizer({ productToCustomize, onAddToCart, set
                         // Validar requisitos mínimos antes de agregar al carrito
                         if (validateMinimumRequired(currentProduct)) {
                             onAddToCart({ product: currentProduct, quantity: 1 })
-                            setIsCustomizerOpen(false)
                         }
                     }}
                 >

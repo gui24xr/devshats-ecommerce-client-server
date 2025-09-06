@@ -16,6 +16,7 @@ import ProductFilters from "./ProductFilters";
 import ProductCard from "./ProductCard";
 import ProductGrid from "./ProductGrid";
 import ProductCustomizer from "./ProductCustomizer";
+import ProductCustomizerContainer from "./ProductCustomizerContainer";
 import ProductCardBody from "./ProductCardBody";
 import StarRating from "./StartRating";
 
@@ -37,6 +38,7 @@ export {
     ProductCard,
     ProductGrid,
     ProductCustomizer,
+    ProductCustomizerContainer,
     CartContainer,
     FloatingCartWidget,
     CartDetails,
