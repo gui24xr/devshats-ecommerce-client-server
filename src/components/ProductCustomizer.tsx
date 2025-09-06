@@ -5,21 +5,18 @@ import { Check } from 'lucide-react'
 import { useProductBuilderStore } from "@/stores"
 
 export default function ProductCustomizer({ onAddToCart, onClose }: any) {
-    // Estado local solo para la copia de trabajo del producto
-    const [currentProduct, setCurrentProduct] = useState(null)
+    
     
     // Todo el estado global viene del store
     const productInCustomizationData = useProductBuilderStore(state => state.productInCustomizationData)
+ 
+
     const selectedVariant = useProductBuilderStore(state => state.selectedVariant)
-    const customization = useProductBuilderStore(state => state.customization)
     const setSelectedVariant = useProductBuilderStore(state => state.setSelectedVariant)
+    const customization = useProductBuilderStore(state => state.customization)
 
     // Inicializar el producto de trabajo cuando cambie el producto en customización
-    useEffect(() => {
-        if (productInCustomizationData) {
-            setCurrentProduct({ ...productInCustomizationData })
-        }
-    }, [productInCustomizationData])
+
 
     const onChangeSelectedVariant = (selectedVariantId: any) => {
         setSelectedVariant(selectedVariantId)
@@ -178,31 +175,26 @@ export default function ProductCustomizer({ onAddToCart, onClose }: any) {
 
 
 
-    if (!currentProduct) return ("No hay nada")
+    if (!productInCustomizationData) return ("No hay nada")
 
     return (
         <div className="h-[25vh]">
-
-
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2   ">
-
-
-
                 <div className="flex flex-col gap-8 overflow-y-auto px-4 overflow-y-auto lg:h-[89vh]">
                     <div className="flex flex-wrap">
                         {(productInCustomizationData?.hasVariants) && (
                             <ProductVariantSelector
                                 templateVariant={productInCustomizationData.templateVariant}
-                                onChangeSelectedVariant={onChangeSelectedVariant}
                                 selectedVariant={selectedVariant}
+                                onChangeSelectedVariant={onChangeSelectedVariant}
                             />
                         )}
                     </div>
-                    <div className="flex flex-col gap-8">
 
-
-                        {(currentProduct?.isCustomizable) && (
-                            currentProduct.customizationTemplate?.features.map(item =>
+                    {
+                    <div className="flex flex-col gap-8">            
+                        {(productInCustomizationData?.isCustomizable) && (
+                            productInCustomizationData.customizationTemplate?.features.map(item =>
                                 <ProductFeaturesSelector
                                     feature={{ ...item }}
                                     onChangeCustomizationOptionState={onChangeCustomizationOptionState}
@@ -210,16 +202,18 @@ export default function ProductCustomizer({ onAddToCart, onClose }: any) {
                                 />
                             )
                         )}
-
-
                     </div>
+                    }
                 </div>
+                {/*}
                 <div className="overflow-y-auto px-4">
                     {(currentProduct && <ProductCustomizationPreview product={currentProduct} />)}
                 </div>
+                */}
             </div>
 
             {/* Botón flotante Agregar al carrito */}
+            {/*
             <div className="fixed bottom-4 left-4 right-4 z-50 lg:left-auto lg:right-4 lg:max-w-md">
                 <button
                     className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
@@ -234,6 +228,7 @@ export default function ProductCustomizer({ onAddToCart, onClose }: any) {
                     <span>Agregar al carrito</span>
                 </button>
             </div>
+            */}
         </div>
     )
 }
@@ -395,7 +390,8 @@ function ProductFeaturesSelector({ feature, onChangeCustomizationOptionState, on
 
 //--------------------------------------------------------------------------------------------------
 
-function ProductVariantSelector({ templateVariant, onChangeSelectedVariant, selectedVariant }: any): any {
+function ProductVariantSelector({ templateVariant,selectedVariant, onChangeSelectedVariant }: any): any {
+    console.log('Selected Variant en ProductVariantSelector: ', selectedVariant)
     return (
         <div className="space-y-3">
             <h5 className="text-base font-semibold text-gray-800 flex items-center gap-2">

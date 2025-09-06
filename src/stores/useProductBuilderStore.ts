@@ -3,6 +3,7 @@ import { useCartStore } from "@/stores";
 
 const useProductBuilderStore = create((set, get) => ({
     productInCustomizationData: null,
+    
     selectedVariant: null,
     customization: null,
 
@@ -15,7 +16,7 @@ const useProductBuilderStore = create((set, get) => ({
     },
 
    handlerProductToAddToCart: ({ product, selectedVariantId, quantity = 1, onSuccess, onError }: any) => {
-     console.log('Product En handler add to cart: ', product, selectedVariantId, quantity)
+     
     if (!product.isCustomizable) {
         
         if(!product.hasVariants){
@@ -30,41 +31,35 @@ const useProductBuilderStore = create((set, get) => ({
      }
 
      if(product.isCustomizable){
-        console.log('Product In Customization  en caso 2: ', get().customizerIsOpen)
-        if(!product.hasVariants){
-            const itemToCustomize = getCartItemForProductsVariantFalseAndCustomizableTrue({ product, quantity })
-            set({productInCustomizationData: itemToCustomize.product, quantity: itemToCustomize.quantity, selectedVariant: itemToCustomize.selectedVariant, customization: itemToCustomize.customization, customizerIsOpen: true})
-           
+        //El producto si es customizable pero es otro producto para personalizar reseteamos los valores de customizacion
+        if (
+            (get().productInCustomizationData?.id !== product.id) || (!get().productInCustomizationData)){
+            set({
+                productInCustomizationData: product, 
+                quantity: quantity, 
+                selectedVariant: product.hasVariants ? product.templateVariant.options.find(item => item.id === selectedVariantId) : null, 
+                customization: null, 
+                customizerIsOpen: true})
+            }
+            else {
+                set({customizerIsOpen: true})
+            }
         }
-        else {
-            const itemToCustomize = getCartItemForProductsVariantTrueAndCustomizableTrue({ product, quantity, selectedVariantId })
-            set({productInCustomizationData: itemToCustomize.product, quantity: itemToCustomize.quantity, selectedVariant: itemToCustomize.selectedVariant, customization: itemToCustomize.customization, customizerIsOpen: true})
-        }
-     }
-        
-        
 
-       
+        if(selectedVariantId && (selectedVariantId !== get().selectedVariant?.id)){
+            set({selectedVariant: product.hasVariants ? product.templateVariant.options.find((item: any) => item.id === selectedVariantId) : null})
+        }
     },
-
-
-
-    setSelectedVariant: (selectedVariantId: any) => {
-        if(selectedVariantId && (get().productInCustomizationData.hasVariants)){
-            const selectedVariant = get().productInCustomizationData.templateVariant.options.find(item => item.id === selectedVariantId)
+       
+       
+        setSelectedVariant: (selectedVariantId: any) => {
+            if(!selectedVariantId) throw new Error('No se ha seleccionado ninguna variante')
+            if(!get().productInCustomizationData.hasVariants) throw new Error('El producto no tiene variantes')
+            const selectedVariant = get().productInCustomizationData.templateVariant.options.find((item: any) => item.id === selectedVariantId)
             if(!selectedVariant) throw new Error('La variante seleccionada no existe')
             set({selectedVariant: selectedVariant})
-            console.log('Selected Variant: ', selectedVariantId)
-            console.log('Selected Variant: ', get().selectedVariant)
-        }
-        else {
-            throw new Error('La variante seleccionada no existe')
-        }
+        console.log('Selected Variant en store: ', selectedVariant)
     },
- 
-
-
-
 }))
 
 
@@ -92,27 +87,8 @@ function getCartItemForProductsVariantTrueAndCustomizableFalse({ product, quanti
     }
 }
 
-function getCartItemForProductsVariantFalseAndCustomizableTrue({ product, quantity }: any) {
-    return {
-        product: product,
-        quantity: quantity,
-        selectedVariant: null,
-        customizations: []
-    }
-}
 
-function getCartItemForProductsVariantTrueAndCustomizableTrue({ product, quantity, selectedVariantId }: any) {
-    if (!selectedVariantId) throw new Error('No se ha seleccionado ninguna variante')
-    const variantExists = product.templateVariant.options.find(item => item.id === selectedVariantId)
-    if (!variantExists) throw new Error('La variante seleccionada no existe')
 
-    return {
-        product: product,
-        quantity: quantity,
-        selectedVariant: variantExists,
-        customizations: []
-    }
-}
 
 
 
