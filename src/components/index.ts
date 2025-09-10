@@ -23,6 +23,7 @@ import StarRating from "./StartRating";
 import CartContainer from "./layout/CartContainer";
 import FloatingCartWidget from "./FloatingCardWidget";  
 import CartDetails from "./CartDetail";
+import QuantitySelector from "./QuantitySelector";
 
 export { 
     ClientWrapper,
@@ -45,5 +46,6 @@ export {
     ProductCardBody,
     StarRating,
     ProductsByCategoriesCatalog,
-    FloatingRapidCatalogWidget
+    FloatingRapidCatalogWidget,
+    QuantitySelector
 };

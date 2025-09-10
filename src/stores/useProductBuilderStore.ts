@@ -3,14 +3,14 @@ import { useCartStore } from "@/stores";
 
 const useProductBuilderStore = create((set, get) => ({
     productInCustomizationData: null,
-
     selectedVariant: null,
     customization: null,
+    quantity: null,
 
     customizerIsOpen: false,
     customizationError: null,
-    quantity: null,
-
+  
+    
     closeCustomizer: () => {
         set({ customizerIsOpen: false })
     },
@@ -21,39 +21,22 @@ const useProductBuilderStore = create((set, get) => ({
 
     handlerProductToAddToCart: ({ product, selectedVariantId, quantity = 1, onSuccess, onError }: any) => {
 
-        if (!product.isCustomizable) {
-
-            if (!product.hasVariants) {
-                const itemToAdd = getCartItemForProductsVariantFalseAndCustomizableFalse({ product, quantity })
-                useCartStore.getState().addToCart(itemToAdd)
-            }
-            else {
-                const itemToAdd = getCartItemForProductsVariantTrueAndCustomizableFalse({ product, quantity, selectedVariantId })
-                useCartStore.getState().addToCart(itemToAdd)
-
-            }
+        //Sea customizable o no, si el producto es diferente al producto en customizacion hay que resetear los valores de customizacion
+        if (
+            (product.id !== get().productInCustomizationData?.id || !get().productInCustomizationData) ||
+            ((product.hasVariants) && (selectedVariantId !== get().selectedVariant?.id))) {
+            set({
+                customization: product.isCustomizable ? product.customizationTemplate.features.map((item: any) => ({ ...item, options: [] })) : null,
+                selectedVariant: product.hasVariants ? product.templateVariant.options.find((item: any) => item.id === selectedVariantId) : null,
+                quantity: quantity,
+                productInCustomizationData: product,
+                customizerIsOpen: true
+            })
         }
 
-        if (product.isCustomizable) {
-            //El producto si es customizable pero es otro producto para personalizar reseteamos los valores de customizacion
-            if (
-                (get().productInCustomizationData?.id !== product.id) || (!get().productInCustomizationData)) {
-                set({
-                    productInCustomizationData: product,
-                    quantity: quantity,
-                    selectedVariant: product.hasVariants ? product.templateVariant.options.find(item => item.id === selectedVariantId) : null,
-                    customization: product.customizationTemplate.features.map((item) => ({ ...item, options: [] })),
-                    customizerIsOpen: true
-                })
-            }
-            else {
-                set({ customizerIsOpen: true })
-            }
-        }
-
-        if (selectedVariantId && (selectedVariantId !== get().selectedVariant?.id)) {
-            set({ selectedVariant: product.hasVariants ? product.templateVariant.options.find((item: any) => item.id === selectedVariantId) : null })
-        }
+        //Si es customizble abro el customizer, si no, agrego al carro si se cumple la validacion de variante
+        
+                
     },
 
 
@@ -72,7 +55,7 @@ const useProductBuilderStore = create((set, get) => ({
         if (featureToModifyIndex < 0) throw new Error('La feature no existe')
         set({ customization: get().customization.map((item: any, index: any) => index === featureToModifyIndex ? { ...item, options: newOptionsStateArray } : item) })
         console.log('customization modfied: ', get().customization)
-    
+
     }
 
 

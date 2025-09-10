@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Check } from 'lucide-react'
 import { useProductBuilderStore } from "@/stores"
+import { QuantitySelector } from "@/components"
 
 export default function ProductCustomizer({ onAddToCart, onClose }: any) {
 
@@ -342,9 +343,7 @@ function ProductCustomizationPreview({ productInCustomizationData, customization
     console.log('customization en preview: ', customization)
     console.log('selectedVariant en preview: ', selectedVariant)
 
-    if (!productInCustomizationData || !productInCustomizationData.customizationTemplate) {
-        return <div className="text-gray-500 text-sm">No hay customización disponible</div>
-    }
+  
 
     return (
         <div className="bg-gray-50 rounded-lg p-4 space-y-3">
@@ -367,9 +366,9 @@ function ProductCustomizationPreview({ productInCustomizationData, customization
                     </div>
                 </div>
             )}
-            {customization.length > 0 && (
+            {customization?.length > 0 && (
                 <div className="space-y-3">
-                    {customization.map((feature, featureIndex) => (
+                    {customization?.map((feature, featureIndex) => (
                         <div className="bg-white rounded-lg p-3 border border-gray-200">
                             <div className="flex items-center justify-between">
                                 <div className="flex flex-col gap-2">
@@ -464,49 +463,6 @@ function ProductVariantSelector({ templateVariant, selectedVariant, onChangeSele
     )
 }
 
-
-//------------------------------------------------------------------------------------------------------------
-
-function QuantitySelector({ quantity, onChange }: any) {
-    const handleIncrement = (e: any) => {
-        e.stopPropagation() // Evitar que se active el click del botón padre
-
-        onChange(quantity + 1)
-
-    }
-
-    const handleDecrement = (e: any) => {
-        e.stopPropagation() // Evitar que se active el click del botón padre
-        onChange(quantity - 1)
-
-    }
-
-    return (
-        <div className="flex items-center space-x-1 bg-gray-50 rounded-md border border-gray-200 px-1 py-0.5">
-            <button
-                type="button"
-                onClick={handleDecrement}
-                disabled={quantity <= 0}
-                className={`w-4 h-4 rounded-sm flex items-center justify-center text-xs font-bold transition-colors ${quantity <= 0
-                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                    : 'bg-orange-100 text-orange-600 hover:bg-orange-200'
-                    }`}
-            >
-                −
-            </button>
-            <span className="text-xs font-medium text-gray-700 min-w-[12px] text-center">
-                {quantity}
-            </span>
-            <button
-                type="button"
-                onClick={handleIncrement}
-                className="w-4 h-4 rounded-sm flex items-center justify-center text-xs font-bold bg-orange-100 text-orange-600 hover:bg-orange-200 transition-colors"
-            >
-                +
-            </button>
-        </div>
-    )
-}
 
 
 
