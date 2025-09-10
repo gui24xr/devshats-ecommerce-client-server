@@ -1,0 +1,270 @@
+[
+  {
+    "id": "ingredientes_adicionales",
+    "name": "Ingredientes Adicionales",
+    "description": "Personaliza tu hotdog con ingredientes extra",
+    "type": "combo",
+    "emoji": "🧀",
+    "icon": "🥓",
+    "imgUrl": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI=",
+    "constraints": {
+      "minTotal": 0,
+      "maxTotal": 6,
+      "minPerOption": 0,
+      "maxPerOption": 3,
+      "exactTotal": false,
+      "required": false
+    },
+    "options": [
+      {
+        "id": "queso_cheddar",
+        "name": "Queso Cheddar",
+        "description": "Queso cheddar derretido",
+        "priceModifier": 0,
+        "available": true,
+        "minQuantity": 0,
+        "maxQuantity": 3,
+        "sortOrder": 1,
+        "category": "quesos",
+        "emoji": "🧀",
+        "icon": "🧀",
+        "imgUrl": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI="
+      },
+      {
+        "id": "tocino_crujiente",
+        "name": "Tocino Crujiente",
+        "description": "Tocino frito crujiente",
+        "priceModifier": 0,
+        "available": true,
+        "minQuantity": 0,
+        "maxQuantity": 3,
+        "sortOrder": 2,
+        "category": "carnes",
+        "emoji": "🥓",
+        "icon": "🥓",
+        "imgUrl": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI="
+      },
+      {
+        "id": "cebolla_caramelizada",
+        "name": "Cebolla Caramelizada",
+        "description": "Cebolla cocida con azúcar",
+        "priceModifier": 0,
+        "available": true,
+        "minQuantity": 0,
+        "maxQuantity": 3,
+        "sortOrder": 3,
+        "category": "vegetales",
+        "emoji": "🧅",
+        "icon": "🧅",
+        "imgUrl": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI="
+      },
+      {
+        "id": "jalapenos",
+        "name": "Jalapeños",
+        "description": "Chiles jalapeños picantes",
+        "priceModifier": 0,
+        "available": true,
+        "minQuantity": 0,
+        "maxQuantity": 3,
+        "sortOrder": 4,
+        "category": "picantes",
+        "emoji": "🌶️",
+        "icon": "🌶️",
+        "imgUrl": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI="
+      },
+      {
+        "id": "aguacate",
+        "name": "Aguacate",
+        "description": "Aguacate fresco en rodajas",
+        "priceModifier": 0,
+        "available": true,
+        "minQuantity": 0,
+        "maxQuantity": 3,
+        "sortOrder": 5,
+        "category": "vegetales",
+        "emoji": "🥑",
+        "icon": "🥑",
+        "imgUrl": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI="
+      },
+      {
+        "id": "champinones",
+        "name": "Champiñones",
+        "description": "Champiñones salteados",
+        "priceModifier": 0,
+        "available": true,
+        "minQuantity": 0,
+        "maxQuantity": 3,
+        "sortOrder": 6,
+        "category": "vegetales",
+        "emoji": "🍄",
+        "icon": "🍄",
+        "imgUrl": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI="
+      }
+    ]
+  },
+  {
+    "id": "salsas",
+    "name": "Salsas",
+    "description": "Elige las salsas que deseas para tu hotdog",
+    "type": "check",
+    "emoji": "🥫",
+    "icon": "🥫",
+    "imgUrl": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI=",
+    "constraints": {
+      "minSelection": 1,
+      "maxSelection": 3,
+      "required": true
+    },
+    "options": [
+      {
+        "id": "ketchup",
+        "name": "Ketchup",
+        "description": "Salsa de tomate clásica",
+        "priceModifier": 0,
+        "available": true,
+        "default": true,
+        "sortOrder": 1,
+        "emoji": "🍅",
+        "icon": "🍅",
+        "imgUrl": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI="
+      },
+      {
+        "id": "mayonesa",
+        "name": "Mayonesa",
+        "description": "Mayonesa cremosa",
+        "priceModifier": 0,
+        "available": true,
+        "default": false,
+        "sortOrder": 2,
+        "emoji": "⚪",
+        "icon": "⚪",
+        "imgUrl": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI="
+      },
+      {
+        "id": "mostaza",
+        "name": "Mostaza",
+        "description": "Mostaza amarilla tradicional",
+        "priceModifier": 0,
+        "available": true,
+        "default": false,
+        "sortOrder": 3,
+        "emoji": "🟡",
+        "icon": "🟡",
+        "imgUrl": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI="
+      },
+      {
+        "id": "salsa_bbq",
+        "name": "Salsa BBQ",
+        "description": "Salsa barbacoa ahumada",
+        "priceModifier": 0,
+        "available": true,
+        "default": false,
+        "sortOrder": 4,
+        "emoji": "🍖",
+        "icon": "🍖",
+        "imgUrl": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI="
+      },
+      {
+        "id": "sriracha",
+        "name": "Sriracha",
+        "description": "Salsa picante tailandesa",
+        "priceModifier": 0,
+        "available": true,
+        "default": false,
+        "sortOrder": 5,
+        "emoji": "🌶️",
+        "icon": "🌶️",
+        "imgUrl": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI="
+      },
+      {
+        "id": "chipotle",
+        "name": "Salsa Chipotle",
+        "description": "Salsa picante ahumada",
+        "priceModifier": 0.50,
+        "available": true,
+        "default": false,
+        "sortOrder": 6,
+        "emoji": "🌶️",
+        "icon": "🌶️",
+        "imgUrl": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI="
+      }
+    ]
+  },
+  {
+    "id": "nivel_picante",
+    "name": "Nivel de Picante",
+    "description": "Elige qué tan picante quieres tu hotdog",
+    "type": "variant",
+    "emoji": "🌶️",
+    "icon": "🌶️",
+    "imgUrl": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI=",
+    "constraints": {
+      "required": true,
+      "allowMultiple": false,
+      "hasDefault": true
+    },
+    "options": [
+      {
+        "id": "sin_picante",
+        "name": "Sin Picante",
+        "description": "Para paladares sensibles",
+        "priceModifier": 0,
+        "available": true,
+        "default": true,
+        "sortOrder": 1,
+        "emoji": "😌",
+        "icon": "😌",
+        "imgUrl": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI="
+      },
+      {
+        "id": "suave",
+        "name": "Suave",
+        "description": "Un toque ligero de picante",
+        "priceModifier": 0,
+        "available": true,
+        "default": false,
+        "sortOrder": 2,
+        "emoji": "😊",
+        "icon": "😊",
+        "imgUrl": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI="
+      },
+      {
+        "id": "medio",
+        "name": "Medio",
+        "description": "Picante moderado, ideal para la mayoría",
+        "priceModifier": 0,
+        "available": true,
+        "default": false,
+        "sortOrder": 3,
+        "emoji": "😐",
+        "icon": "😐",
+        "imgUrl": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI="
+      },
+      {
+        "id": "picante",
+        "name": "Picante",
+        "description": "Para los amantes del chile",
+        "priceModifier": 0.25,
+        "available": true,
+        "default": false,
+        "sortOrder": 4,
+        "emoji": "😅",
+        "icon": "😅",
+        "imgUrl": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI="
+      },
+      {
+        "id": "extra_picante",
+        "name": "Extra Picante",
+        "description": "¡Solo para valientes! Muy picante",
+        "priceModifier": 0.50,
+        "available": true,
+        "default": false,
+        "sortOrder": 5,
+        "emoji": "🔥",
+        "icon": "🔥",
+        "imgUrl": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI="
+      }
+    ]
+  }
+]
+
