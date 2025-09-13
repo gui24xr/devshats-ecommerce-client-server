@@ -23,8 +23,8 @@ import StarRating from "./StartRating";
 import CartContainer from "./layout/CartContainer";
 import FloatingCartWidget from "./FloatingCardWidget";  
 import CartDetails from "./CartDetail";
-import QuantitySelector from "./QuantitySelector";
-
+import QuantitySelectorSmall from "./QuantitySelectorSmall";
+import QuantitySelectorBig from "./QuantitySelectorBig";
 export { 
     ClientWrapper,
     Navbar,
@@ -47,5 +47,6 @@ export {
     StarRating,
     ProductsByCategoriesCatalog,
     FloatingRapidCatalogWidget,
-    QuantitySelector
+    QuantitySelectorSmall,
+    QuantitySelectorBig
 };

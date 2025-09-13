@@ -1,4 +1,4 @@
-export default function QuantitySelector({ quantity, onChange }: any) {
+export default function QuantitySelectorSmall({ quantity, onChange }: any) {
     const handleIncrement = (e: any) => {
         e.stopPropagation() // Evitar que se active el click del botón padre
 
@@ -14,6 +14,7 @@ export default function QuantitySelector({ quantity, onChange }: any) {
 
     return (
         <div className="flex items-center space-x-1 bg-gray-50 rounded-md border border-gray-200 px-1 py-0.5">
+            <span>Cantidad</span>
             <button
                 type="button"
                 onClick={handleDecrement}
@@ -25,7 +26,7 @@ export default function QuantitySelector({ quantity, onChange }: any) {
             >
                 −
             </button>
-            <span className="text-xs font-medium text-gray-700 min-w-[12px] text-center">
+            <span className="text-sm font-medium text-gray-700 min-w-[12px] text-center">
                 {quantity}
             </span>
             <button

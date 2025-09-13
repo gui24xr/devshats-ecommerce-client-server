@@ -56,9 +56,9 @@ export default function LayoutModal({
                     <div className="h-full w-full flex flex-col bg-white shadow-2xl">
 
                       {/* Header */}
-                      <div className={`${portrait.backgroundColor || "bg-gradient-to-br from-green-500 to-blue-500"} w-full flex items-center justify-between px-4 py-3 text-white flex-shrink-0`}>
+                      <div className={`${portrait.backgroundColor || "bg-gradient-to-br from-green-500 to-blue-500"} w-full flex items-center justify-between px-4 py-2 text-white flex-shrink-0`}>
                         <div>
-                          <Dialog.Title className="font-bold text-md">
+                          <Dialog.Title className="font-bold text-sm">
                             {portrait.titleLogoIcon} {title}
                           </Dialog.Title>
                           <p className="text-orange-100 text-sm">
@@ -74,8 +74,8 @@ export default function LayoutModal({
                       </div>
 
                       {/* Contenido scrolleable */}
-                      <div className="flex-1 overflow-y-auto px-2
-                       py-6">
+                      <div className="flex-1 overflow-y-auto
+                       ">
                         {content}
                       </div>
 
