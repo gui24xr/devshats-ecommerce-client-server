@@ -9,7 +9,7 @@ export default function CartContainer(){
     const planSettings = useStoreTemplateConfig(state => state.planSettings)
     const cartItems = useCartStore(state => state.items)
     const itemsCount = useCartStore(state => state.itemsCount)
-
+    const setQuantity = useCartStore(state => state.setQuantity)
     const [cartModalIsOpen, setCartModalIsOpen] = useState(false)
 
     const {PartA,PartB} = MyComponent()
@@ -28,9 +28,9 @@ export default function CartContainer(){
               onClose={setCartModalIsOpen}
               title="Mi Carrito"
               description="Detalle de carrito."
-              minWidth="w-1/2"
-              maxWidth="max-w-2xl"
-              content={<CartDetails itemsList={cartItems} />}
+              minWidth="w-full"
+              maxWidth="max-w-full"
+              content={<CartDetails itemsList={cartItems} setQuantity={setQuantity} />}
               footer={<PartB/>}
             />
         </>

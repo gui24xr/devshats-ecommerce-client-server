@@ -5,14 +5,14 @@ const useCartStore = create((set, get) => ({
     items: [],
     itemsCount: 0,
 
-    addToCart: ({ product, quantity, selectedVariant, customization, onSuccess, onError }: any) => {
+    addToCart: ({ product, quantity, selectedVariant, customization, priceData, onSuccess, onError }: any) => {
         try {
-           
             const currentItemsList = get().items
             const newItemData = {
                 product,
                 selectedVariant,
-                customization
+                customization,
+                priceData
             }
             //Existe un item en la lista que sea un producto exactamente igual customizado y con variantes?? Los junto en uno solo
             const itemExists = currentItemsList.findIndex((itemInList: any) => objetosIguales(itemInList.data, newItemData))
@@ -37,6 +37,13 @@ const useCartStore = create((set, get) => ({
         }
     },
 
+    setQuantity: (itemId: any, quantity: any) => {
+        const currentItemsList = get().items
+        const itemIndex = currentItemsList.findIndex((item: any) => item.id === itemId)
+        if (itemIndex !== -1) {
+            currentItemsList[itemIndex].quantity = quantity
+        }
+    },
 
     removeFromCart: null,
 

@@ -74,7 +74,22 @@ const useProductBuilderStore = create((set, get) => ({
         console.log('customization modfied: ', get().customization)
         get().setPriceData()
 
+    },
+    
+
+    addProductToCart: () => {
+        useCartStore.getState().addToCart({
+            product: get().productData,
+            quantity: get().quantity,
+            selectedVariant: get().selectedVariant,
+            customization: get().customization,
+            priceData: get().priceData,
+        })
+
+        get().closeCustomizer()
     }
+
+
 
 }))
 

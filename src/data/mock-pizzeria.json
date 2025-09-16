@@ -116,15 +116,7 @@
       }
     },
     "categories": [
-      {
-        "id": "all_categories",
-        "name": "Todos",
-        "displayOrder": 0,
-        "slug": "todos",
-        "itemsCount": 20, 
-        "label": "Todos",
-        "emoji": "🍕"
-      },
+      
       {
         "id": "cat_001",
         "name": "Pizzas",
@@ -1915,97 +1907,286 @@
         },
         "customizationTemplate": {
           "features": [
-            {
-              "id": "feature_empanadas_001",
-              "label": "Selecciona tus 12 empanadas",
-              "type": "check",
-              "maxSelectable": 12,
-              "minSelectedRequired": 12,
-              "isActive": true,
-              "required": true,
-              "emoji": "🥟",
-              "options": [
-                {
-                  "id": "option_empanada_001",
-                  "name": "Empanada de Carne al Horno",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
-                  "isActive": true,
-                  "isSelected": false,
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0,
-                  "icon": null,
-                  "imgUrl": null,
-                  "emoji": "🥟"
-                },
-                {
-                  "id": "option_empanada_002",
-                  "name": "Empanada de Carne Frita",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
-                  "isActive": true,
-                  "isSelected": false,
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0,
-                  "icon": null,
-                  "imgUrl": null,
-                  "emoji": "🥟"
-                },
-                {
-                  "id": "option_empanada_003",
-                  "name": "Empanada de Pollo al Horno",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
-                  "isActive": true,
-                  "isSelected": false,
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0,
-                  "icon": null,
-                  "imgUrl": null,
-                  "emoji": "🥟"
-                },
-                {
-                  "id": "option_empanada_004",
-                  "name": "Empanada de Pollo Frita",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
-                  "isActive": true,
-                  "isSelected": false,
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0,
-                  "icon": null,
-                  "imgUrl": null,
-                  "emoji": "🥟"
-                },
-                {
-                  "id": "option_empanada_005",
-                  "name": "Empanada de Jamón y Queso al Horno",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
-                  "isActive": true,
-                  "isSelected": false,
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0,
-                  "icon": null,
-                  "imgUrl": null,
-                  "emoji": "🥟"
-                },
-                {
-                  "id": "option_empanada_006",
-                  "name": "Empanada de Jamón y Queso Frita",
-                  "modifiesPrice": false,
-                  "affectPrice": 0,
-                  "isActive": true,
-                  "isSelected": false,
-                  "allowSelectQuantity": true,
-                  "selectedQuantity": 0,
-                  "icon": null,
-                  "imgUrl": null,
-                  "emoji": "🥟"
-                }
-              ]
-            }
-          ]
+    {
+      "id": "gustos_empanadas",
+      "name": "Gustos de Empanadas",
+      "description": "Selecciona los gustos que deseas para tu pedido",
+      "type": "combo",
+      "emoji": "🥟",
+      "icon": "🥟",
+      "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+      "constraints": {
+        "minTotal": 1,
+        "maxTotal": 12,
+        "minPerOption": 0,
+        "maxPerOption": 6,
+        "exactTotal": false,
+        "required": true
+      },
+      "options": [
+        {
+          "id": "carne",
+          "name": "Carne",
+          "description": "Empanada rellena de carne picada condimentada",
+          "priceModifier": 0,
+          "available": true,
+          "minQuantity": 0,
+          "maxQuantity": 6,
+          "sortOrder": 1,
+          "category": "clasicas",
+          "emoji": "🥩",
+          "icon": "🥩",
+          "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+        },
+        {
+          "id": "pollo",
+          "name": "Pollo",
+          "description": "Empanada de pollo desmenuzado con especias",
+          "priceModifier": 0,
+          "available": true,
+          "minQuantity": 0,
+          "maxQuantity": 6,
+          "sortOrder": 2,
+          "category": "clasicas",
+          "emoji": "🐔",
+          "icon": "🐔",
+          "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+        },
+        {
+          "id": "jamón_queso",
+          "name": "Jamón y Queso",
+          "description": "Empanada clásica de jamón cocido y queso",
+          "priceModifier": 0,
+          "available": true,
+          "minQuantity": 0,
+          "maxQuantity": 6,
+          "sortOrder": 3,
+          "category": "clasicas",
+          "emoji": "🧀",
+          "icon": "🧀",
+          "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+        },
+        {
+          "id": "humita",
+          "name": "Humita",
+          "description": "Empanada dulce de choclo con cebolla blanca",
+          "priceModifier": 0,
+          "available": true,
+          "minQuantity": 0,
+          "maxQuantity": 6,
+          "sortOrder": 4,
+          "category": "vegetarianas",
+          "emoji": "🌽",
+          "icon": "🌽",
+          "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+        },
+        {
+          "id": "caprese",
+          "name": "Caprese",
+          "description": "Empanada de tomate, mozzarella y albahaca",
+          "priceModifier": 0.5,
+          "available": true,
+          "minQuantity": 0,
+          "maxQuantity": 6,
+          "sortOrder": 5,
+          "category": "vegetarianas",
+          "emoji": "🍅",
+          "icon": "🍅",
+          "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+        },
+        {
+          "id": "carne_picante",
+          "name": "Carne Picante",
+          "description": "Empanada de carne con ají molido y locoto",
+          "priceModifier": 0.25,
+          "available": true,
+          "minQuantity": 0,
+          "maxQuantity": 6,
+          "sortOrder": 6,
+          "category": "picantes",
+          "emoji": "🌶️",
+          "icon": "🌶️",
+          "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+        },
+        {
+          "id": "roquefort",
+          "name": "Roquefort",
+          "description": "Empanada de queso roquefort con nueces",
+          "priceModifier": 1.0,
+          "available": true,
+          "minQuantity": 0,
+          "maxQuantity": 6,
+          "sortOrder": 7,
+          "category": "gourmet",
+          "emoji": "🧄",
+          "icon": "🧄",
+          "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+        },
+        {
+          "id": "verdura",
+          "name": "Verdura",
+          "description": "Empanada de acelga, cebolla y huevo",
+          "priceModifier": 0,
+          "available": true,
+          "minQuantity": 0,
+          "maxQuantity": 6,
+          "sortOrder": 8,
+          "category": "vegetarianas",
+          "emoji": "🥬",
+          "icon": "🥬",
+          "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+        },
+        {
+          "id": "atun",
+          "name": "Atún",
+          "description": "Empanada de atún con cebolla y aceitunas",
+          "priceModifier": 0.75,
+          "available": true,
+          "minQuantity": 0,
+          "maxQuantity": 6,
+          "sortOrder": 9,
+          "category": "pescado",
+          "emoji": "🐟",
+          "icon": "🐟",
+          "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+        },
+        {
+          "id": "dulce_membrillo",
+          "name": "Dulce de Membrillo",
+          "description": "Empanada dulce rellena de membrillo",
+          "priceModifier": 0,
+          "available": true,
+          "minQuantity": 0,
+          "maxQuantity": 6,
+          "sortOrder": 10,
+          "category": "dulces",
+          "emoji": "🍯",
+          "icon": "🍯",
+          "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+        },
+        {
+          "id": "dulce_batata",
+          "name": "Dulce de Batata",
+          "description": "Empanada dulce rellena de batata",
+          "priceModifier": 0,
+          "available": true,
+          "minQuantity": 0,
+          "maxQuantity": 6,
+          "sortOrder": 11,
+          "category": "dulces",
+          "emoji": "🍠",
+          "icon": "🍠",
+          "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+        },
+        {
+          "id": "cebolla_queso",
+          "name": "Cebolla y Queso",
+          "description": "Empanada de cebolla caramelizada con queso",
+          "priceModifier": 0.25,
+          "available": true,
+          "minQuantity": 0,
+          "maxQuantity": 6,
+          "sortOrder": 12,
+          "category": "vegetarianas",
+          "emoji": "🧅",
+          "icon": "🧅",
+          "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+        }
+      ]
+    },
+    {
+      "id": "tipo_masa",
+      "name": "Tipo de Masa",
+      "description": "Elige el tipo de masa para tus empanadas",
+      "type": "variant",
+      "emoji": "🥟",
+      "icon": "🥟",
+      "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+      "constraints": {
+        "required": true,
+        "allowMultiple": false,
+        "hasDefault": true
+      },
+      "options": [
+        {
+          "id": "horno",
+          "name": "Al Horno",
+          "description": "Masa tradicional horneada, más liviana",
+          "priceModifier": 0,
+          "available": true,
+          "default": true,
+          "sortOrder": 1,
+          "emoji": "🔥",
+          "icon": "🔥",
+          "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+        },
+        {
+          "id": "frita",
+          "name": "Frita",
+          "description": "Masa dorada y crocante, frita en aceite",
+          "priceModifier": 0.5,
+          "available": true,
+          "default": false,
+          "sortOrder": 2,
+          "emoji": "🍳",
+          "icon": "🍳",
+          "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+        }
+      ]
+    },
+    {
+      "id": "coccion",
+      "name": "Punto de Cocción",
+      "description": "Elige qué tan doraditas quieres tus empanadas",
+      "type": "variant",
+      "emoji": "🌡️",
+      "icon": "🌡️",
+      "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+      "constraints": {
+        "required": true,
+        "allowMultiple": false,
+        "hasDefault": true
+      },
+      "options": [
+        {
+          "id": "dorado_suave",
+          "name": "Dorado Suave",
+          "description": "Cocción ligera, masa más blanda",
+          "priceModifier": 0,
+          "available": true,
+          "default": false,
+          "sortOrder": 1,
+          "emoji": "🟡",
+          "icon": "🟡",
+          "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+        },
+        {
+          "id": "dorado_medio",
+          "name": "Dorado Medio",
+          "description": "Cocción perfecta, equilibrio ideal",
+          "priceModifier": 0,
+          "available": true,
+          "default": true,
+          "sortOrder": 2,
+          "emoji": "🟠",
+          "icon": "🟠",
+          "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+        },
+        {
+          "id": "bien_dorado",
+          "name": "Bien Dorado",
+          "description": "Cocción intensa, masa bien crocante",
+          "priceModifier": 0,
+          "available": true,
+          "default": false,
+          "sortOrder": 3,
+          "emoji": "🟤",
+          "icon": "🟤",
+          "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+        }
+      ]
+    }
+  ]
         }
       }
     ]

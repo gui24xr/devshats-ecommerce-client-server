@@ -16,6 +16,7 @@ export default function ProductCustomizer({ onAddToCart, onClose }: any) {
     const quantity = useProductBuilderStore(state => state.quantity)
     const setQuantity = useProductBuilderStore(state => state.setQuantity)
     const priceData = useProductBuilderStore(state => state.priceData)
+    const addProductToCart = useProductBuilderStore(state => state.addProductToCart)
     // Inicializar el producto de trabajo cuando cambie el producto en customización
 
 
@@ -102,7 +103,7 @@ export default function ProductCustomizer({ onAddToCart, onClose }: any) {
                     </div>
 
                     {/* Sección flotante Agregar al carrito */}
-                    <AddToCartSection onAddToCart={onAddToCart} quantity={quantity} onQuantityChange={setQuantity} />
+                    <AddToCartSection onAddToCart={addProductToCart} />
                 </div>
             </div>
 
@@ -111,16 +112,14 @@ export default function ProductCustomizer({ onAddToCart, onClose }: any) {
     )
 }
 
-function AddToCartSection({ onAddToCart, quantity, onQuantityChange }: any) {
+function AddToCartSection({ onAddToCart }: any) {
 
 
-    const handleQuantityChange = (quantity: number) => {
-        onQuantityChange(quantity);
-    };
+ 
 
     const handleAddToCart = () => {
         // Validar requisitos mínimos antes de agregar al carrito
-        onAddToCart(quantity);
+        onAddToCart();
     };
 
     return (

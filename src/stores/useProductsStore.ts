@@ -41,7 +41,7 @@ const useProductsStore = create((set, get) => ({
                 loading: false,
                 loaded: true,
                 products: data.products,
-                categories:data.categories,
+                categories:[CATEGORY_ALL,...data.categories],
                 productsStats: data.stats,
                 filteredProducts: data.products,
                 productsOrderByCategories: getProductsOrderByCategories(data.categories, data.products)
@@ -53,6 +53,10 @@ const useProductsStore = create((set, get) => ({
         } finally {
             set({ loading: false });
         }
+    },
+
+    mapProductsCategories:(products: any) => {
+
     },
 
     filterProductsByCategories: (categoryId: string ) => {
@@ -108,3 +112,14 @@ function getProductsOrderByCategories(categories: any, products: any) {
     console.log('productsOrderByCategories: ', productsOrderByCategories)
     return productsOrderByCategories
   };
+
+
+  const CATEGORY_ALL =   {
+    id: "all_categories",
+    name: "Todos",
+    displayOrder: 0,
+    slug: "todos",
+    itemsCount: 19,
+    label: "Todos",
+    emoji: "⚡ "
+  }
