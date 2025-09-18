@@ -25,6 +25,14 @@ import FloatingCartWidget from "./FloatingCardWidget";
 import CartDetails from "./CartDetail";
 import QuantitySelectorSmall from "./QuantitySelectorSmall";
 import QuantitySelectorBig from "./QuantitySelectorBig";
+import CartCheckout from "./CartCheckout";
+import CartCheckoutContainer from "./pages/CartCheckoutContainer";
+import CartCheckoutHeader from "./CartCheckoutHeader";
+import CheckoutForm from "./CheckoutForm";
+import CheckoutOrderResume from "./CheckoutOrderResume";
+import PremiumTrustIndicators from "./PremiumTrustIndicators";
+import CartCheckoutActionButtons from "./CartCheckoutActionButtons";
+import CartEmpty from "./CartEmpty";
 export { 
     ClientWrapper,
     Navbar,
@@ -48,5 +56,13 @@ export {
     ProductsByCategoriesCatalog,
     FloatingRapidCatalogWidget,
     QuantitySelectorSmall,
-    QuantitySelectorBig
+    QuantitySelectorBig,
+    CartCheckout,
+    CartCheckoutContainer,
+    CartCheckoutHeader,
+    CheckoutForm,
+    CheckoutOrderResume,
+    PremiumTrustIndicators,
+    CartCheckoutActionButtons,
+    CartEmpty
 };

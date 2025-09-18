@@ -4,6 +4,9 @@ import { create } from "zustand";
 const useCartStore = create((set, get) => ({
     items: [],
     itemsCount: 0,
+    ticket: {
+        totalPrice: 0,
+    },
 
     addToCart: ({ product, quantity, selectedVariant, customization, priceData, onSuccess, onError }: any) => {
         try {
@@ -24,13 +27,9 @@ const useCartStore = create((set, get) => ({
                 currentItemsList.push({ id: generateItemCartId(), data: newItemData, quantity })
             }
 
-            set((state: any) => {
-                const updatedItemsList = [...currentItemsList]
-                return {
-                    items: updatedItemsList,
-                    itemsCount: state.itemsCount + quantity
-                }
-            })
+            set({items: currentItemsList})
+            get().calculateItemsCount()
+            get().calculateTotalPrice()
             if (onSuccess) onSuccess()
         } catch (error) {
             if (onError) onError(error)
@@ -39,32 +38,55 @@ const useCartStore = create((set, get) => ({
 
     setQuantity: (itemId: any, quantity: any) => {
         const currentItemsList = get().items
-        const itemIndex = currentItemsList.findIndex((item: any) => item.id === itemId)
-        if (itemIndex !== -1) {
-            currentItemsList[itemIndex].quantity = quantity
+        const searchedItemIndex = currentItemsList.findIndex((item: any) => item.id === itemId)
+        if (searchedItemIndex !== -1) {
+            currentItemsList[searchedItemIndex].quantity = quantity
+            set({items: currentItemsList})
+            get().calculateItemsCount()
+            get().calculateTotalPrice()
+        }
+       
+    },
+    
+
+    clearCart: () => {
+        set({items: []})
+        get().calculateItemsCount()
+        get().calculateTotalPrice()
+    },
+
+    removeFromCart: (itemId: any) => {
+        const currentItemsList = get().items
+        const searchedItemIndex = currentItemsList.findIndex((item: any) => item.id === itemId)
+        if (searchedItemIndex !== -1) {
+            currentItemsList.splice(searchedItemIndex, 1)
+            set({items: currentItemsList})
+            get().calculateItemsCount()
+            get().calculateTotalPrice()
         }
     },
 
-    removeFromCart: null,
-
-    addToCartProductWithoutVariantAndWithoutCustomizable: () => {
-
+    calculateItemsCount: () => {
+        const currentItemsList = get().items
+        const itemsCount = currentItemsList.reduce((total: any, item: any) => total + item.quantity, 0)
+        set({itemsCount: itemsCount})
     },
 
-    addToCartProductWithVariantAndWithoutCustomizable: () => {
-
+    calculateTotalPrice: () => {
+        const currentItemsList = get().items
+        const totalPrice = currentItemsList.reduce((total: any, item: any) => total + item.data.priceData.totalPrice, 0)
+        set({ticket: {totalPrice: totalPrice}})
     },
 
-    addToCartProductWithoutVariantAndWithCustomizable: () => {
-
-    },
-
-    addToCartProductWithVariantAndCustomizable: () => {
-
-    },
+   
 }));
 
 export default useCartStore;
+
+
+
+
+
 
 function generateItemCartId() {
     return Date.now() + Math.random().toString(36)
