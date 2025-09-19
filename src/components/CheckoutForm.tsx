@@ -2,6 +2,8 @@
 import { useState } from "react"
 import PhoneInput from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
+import { useStoreCheckout } from "@/stores"
+import { AddressMapSelector } from "@/components"
 
 // Estilos personalizados para react-phone-number-input
 const phoneInputStyles = `
@@ -46,11 +48,41 @@ const phoneInputStyles = `
   }
 `
 
-export default function CheckoutForm({ formData, handleInputChange, errors }: { formData: any, handleInputChange: (name: string, value: string) => void, errors: any }) {
+export default function CheckoutForm({ ordersInitialData, formData, handleInputChange, errors }: { ordersInitialData: any, formData: any, handleInputChange: (name: string, value: string) => void, errors: any }) {
 
     // Estado para el país del teléfono
-    const [selectedPhoneCountry, setSelectedPhoneCountry] = useState('MX')
+    const deliveryMethods = useStoreCheckout(state => state.deliveryMethods)
 
+    const [deliveryAmount, setDeliveryAmount] = useState(0)
+    
+    const [selectedPhoneCountry, setSelectedPhoneCountry] = useState('MX')
+    const [selectedDeliveryMethodType, setSelectedDeliveryMethodType] = useState('')
+    const [customerAddress, setCustomerAddress] = useState('')
+    const [showDeliveryAddressAndRadioForm, setShowDeliveryAddressAndRadioForm] = useState(false)
+
+
+    const onChangeDeliveryMethodType = (deliveryMethodType: string) => {
+        alert(deliveryMethodType)
+        setSelectedDeliveryMethodType(deliveryMethodType)
+        //Aca marcar ien bien luego al tipar el tipo de envio moto delivery o mcomo se vaya a llamar
+        setShowDeliveryAddressAndRadioForm(deliveryMethodType === 'motoDelivery' ? true : false)
+    }
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const formData = new FormData(event.target)
+        const formValues = Object.fromEntries(formData)
+        console.log('formValues : ', formValues)
+    }
+
+    const [selectedAddress, setSelectedAddress] = useState(null);
+
+
+
+    const onChangeCustomerAddress = (addressData) => {
+        console.log('Dirección seleccionada customer address:', addressData);
+        alert('Valido si la direccion esta en el radio de delivery y obtengo el valor de ese envio luego seteo esto en los estados')
+        setCustomerAddress(addressData.address)
+    };
 
 
     return (
@@ -58,8 +90,24 @@ export default function CheckoutForm({ formData, handleInputChange, errors }: { 
 
 
             {/* Premium Form */}
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
                 {/* Nombre */}
+
+                <div className="flex flex-col gap-2">
+                    {/*Inputs hidden*/}
+                    <p>Form provisorio para ver datos</p>
+                    <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">Monto delivery</label>
+                    <input type="text" name="deliveryAmount" value={deliveryAmount} className="px-4 py-3 border-2" />
+                    <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">Tipo de envio</label>
+                    <input type="text" name="deliveryMethodType" value={selectedDeliveryMethodType} className="px-4 py-3 border-2" />
+                    <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">ID de sucursal</label>
+                    <input type="hidden" name="branchId" />
+                    <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">Direccion de entrega</label>
+                    <input type="text" name="customerAddress" value={customerAddress} className="px-4 py-3 border-2" />
+                    <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">Enviar</label>
+                    <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors " >Enviar</button>
+
+                </div>
                 <div>
                     <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
                         <span>👤</span>
@@ -67,6 +115,8 @@ export default function CheckoutForm({ formData, handleInputChange, errors }: { 
                     </label>
                     <input
                         type="text"
+                        name="customerName"
+                        required
                         value={formData.customerName}
                         onChange={(e) => handleInputChange('customerName', e.target.value)}
                         className={`w-full px-4 py-3 border-2 rounded-2xl focus:ring-4 focus:ring-orange-200 focus:border-orange-500 transition-all duration-300 bg-white text-gray-900 placeholder-gray-500 ${errors.customerName ? 'border-red-500 bg-red-50' : 'border-gray-300 hover:border-orange-300'
@@ -77,6 +127,31 @@ export default function CheckoutForm({ formData, handleInputChange, errors }: { 
                         {errors.customerName && (
                             <p className="text-red-500 text-sm mt-2 flex items-center gap-1">
                                 <span>⚠️</span>{errors.customerName}
+                            </p>
+                        )}
+                    </div>
+                </div>
+
+                {/* Nombre Email*/}
+                <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
+                        <span>📧</span>
+                        Email *
+                    </label>
+                    <input
+                        type="email"
+                        required
+                        name="customerEmail"
+                        value={formData.customerEmail}
+                        onChange={(e) => handleInputChange('customerEmail', e.target.value)}
+                        className={`w-full px-4 py-3 border-2 rounded-2xl focus:ring-4 focus:ring-orange-200 focus:border-orange-500 transition-all duration-300 bg-white text-gray-900 placeholder-gray-500 ${errors.customerName ? 'border-red-500 bg-red-50' : 'border-gray-300 hover:border-orange-300'
+                            }`}
+                        placeholder="Tu email"
+                    />
+                    <div className="flex flex-col gap-2 px-2">
+                        {errors.customerEmail && (
+                            <p className="text-red-500 text-sm mt-2 flex items-center gap-1">
+                                <span>⚠️</span>{errors.customerEmail}
                             </p>
                         )}
                     </div>
@@ -93,6 +168,8 @@ export default function CheckoutForm({ formData, handleInputChange, errors }: { 
                         className="w-full px-4 py-3 border-2 rounded-2xl focus:ring-4 focus:ring-orange-200 focus:border-orange-500 transition-all duration-300 bg-white text-gray-900 placeholder-gray-500"
                         international={false}
                         defaultCountry="MX"
+                        required
+                        name="customerPhone"
                         value={formData.customerPhone}
                         onChange={(value) => handleInputChange('customerPhone', value || '')}
                         onCountryChange={(country) => setSelectedPhoneCountry(country || 'MX')}
@@ -132,39 +209,14 @@ export default function CheckoutForm({ formData, handleInputChange, errors }: { 
                     </div>
                 </div>
 
-                {/* Premium Order Type Toggle */}
-                <div className="flex flex-col gap-2">
-                    <label className="block text-sm font-bold text-gray-700  flex items-center gap-2">
-                        <span>🚀</span>
-                        Forma de entrega *
-                    </label>
-                    <div className="grid grid-cols-2 gap-3 p-2">
-                        <button
-                            type="button"
-                            onClick={() => handleInputChange('orderType', 'pickup')}
-                            className={`group p-3 border-2 rounded-xl text-center transition-all duration-300 transform hover:scale-105 ${formData.orderType === 'pickup'
-                                ? 'border-orange-500 bg-gradient-to-br from-orange-50 to-red-50 shadow-lg'
-                                : 'border-gray-300 hover:border-orange-300 hover:shadow-md'
-                                }`}
-                        >
-                            <div className="text-xl mb-2 group-hover:scale-110 transition-transform duration-300">🏪</div>
-                            <div className="text-sm font-bold text-gray-900 mb-1">Recoger en tienda</div>
-                            <div className="text-xs text-gray-600">Sin costo adicional</div>
-                        </button>
-                        <button
-                            type="button"
-                            onClick={() => handleInputChange('orderType', 'delivery')}
-                            className={`group p-3 border-2 rounded-xl text-center transition-all duration-300 transform hover:scale-105 ${formData.orderType === 'delivery'
-                                ? 'border-orange-500 bg-gradient-to-br from-orange-50 to-red-50 shadow-lg'
-                                : 'border-gray-300 hover:border-orange-300 hover:shadow-md'
-                                }`}
-                        >
-                            <div className="text-xl mb-2 group-hover:scale-110 transition-transform duration-300">🚚</div>
-                            <div className="text-sm font-bold text-gray-900 mb-1">Envío</div>
-                            <div className="text-xs text-gray-600">$35 (Gratis {'>'} $200)</div>
-                        </button>
-                    </div>
-                </div>
+                <DeliveryMethods deliveryMethodsList={deliveryMethods || []} onChangeDeliveryMethodType={onChangeDeliveryMethodType} />
+                {/* Address and Radio Form */}
+                {showDeliveryAddressAndRadioForm && (
+                    <AddressMapSelector onAddressSelect={onChangeCustomerAddress} />
+                )}
+
+
+
 
                 {/* Método de Pago */}
                 <div className="flex flex-col gap-2">
@@ -250,6 +302,7 @@ export default function CheckoutForm({ formData, handleInputChange, errors }: { 
                     </label>
                     <textarea
                         value={formData.notes}
+                        name="notes"
                         onChange={(e) => handleInputChange('notes', e.target.value)}
                         className="w-full px-4 py-3 border-2 border-gray-300 rounded-2xl focus:ring-4 focus:ring-orange-200 focus:border-orange-500 hover:border-orange-300 transition-all duration-300 bg-white text-gray-900 placeholder-gray-500"
                         placeholder="Instrucciones especiales, alergias, etc..."
@@ -338,4 +391,89 @@ const getPhonePlaceholder = (countryCode: string) => {
     }
 
     return placeholders[countryCode] || 'Ej: Ingresa tu número'
+}
+
+
+
+function DeliveryMethods({ deliveryMethodsList, onChangeDeliveryMethodType }: { deliveryMethodsList: any[], onChangeDeliveryMethodType: (deliveryMethodType: string) => void }) {
+
+
+
+    const [isSelected, setIsSelected] = useState('')
+    const handleClick = (deliveryMethodType: string) => {
+        setIsSelected(deliveryMethodType)
+        onChangeDeliveryMethodType(deliveryMethodType)
+    }
+    return (
+        <div className="flex flex-col gap-2">
+            <label className="block text-sm font-bold text-gray-700  flex items-center gap-2">
+                <span>🚀</span>
+                Forma de entrega *
+            </label>
+            <div className="grid grid-cols-2 gap-3 p-2">
+                {deliveryMethodsList.map((deliveryMethod: any) => (
+                    <button
+                        type="button"
+                        onClick={() => handleClick(deliveryMethod.type)}
+                        className={`group p-3 border-2 rounded-xl text-center transition-all duration-300 transform hover:scale-105 ${isSelected === deliveryMethod.type
+                            ? 'border-orange-500 bg-gradient-to-br from-orange-50 to-red-50 shadow-lg'
+                            : 'border-gray-300 hover:border-orange-300 hover:shadow-md'
+                            }`}
+                    >
+                        <div className="text-xl mb-2 group-hover:scale-110 transition-transform duration-300">{deliveryMethod.uiData?.emoji}</div>
+                        <div className="text-sm font-bold text-gray-900 mb-1">{deliveryMethod.uiData?.label}</div>
+                        <div className="text-xs text-gray-600">{deliveryMethod.uiData?.estimatedTime}</div>
+                    </button>
+                )
+                )}
+            </div>
+
+
+        </div>
+
+    )
+}
+
+
+function AddressMapForm() {
+    const setCustomerAddress = useStoreCheckout(state => state.setCustomerAddress)
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault(); // Esto previene el comportamiento por defecto
+        console.log('Formulario enviado!');
+        console.log('event.target.value : ', event.target.value)
+        const formData = new FormData(event.target)
+        const address = formData.get('address')
+        setCustomerAddress(address)
+
+    }
+
+    return (
+        <div>
+            <div className="flex flex-col gap-4">
+                <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
+                        <span>👤</span>
+                        Direccion de entrega *
+                    </label>
+                    <input
+                        type="text"
+                        name="address"
+                        className="w-full px-4 py-3 border-2 rounded-2xl focus:ring-4 focus:ring-orange-200 focus:border-orange-500 transition-all duration-300 bg-white text-gray-900 placeholder-gray-500"
+                        placeholder="Tu direccion de entrega"
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                                handleSubmit(e);
+                            }
+                        }}
+                    />
+                </div>
+                <button
+                    onClick={handleSubmit}
+                    className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors"
+                >
+                    Validar direccion
+                </button>
+            </div>
+        </div>
+    );
 }

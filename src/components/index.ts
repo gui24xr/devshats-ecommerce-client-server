@@ -33,6 +33,9 @@ import CheckoutOrderResume from "./CheckoutOrderResume";
 import PremiumTrustIndicators from "./PremiumTrustIndicators";
 import CartCheckoutActionButtons from "./CartCheckoutActionButtons";
 import CartEmpty from "./CartEmpty";
+import AddressMapSelector  from "./GoogleMapsAddressSelector";
+
+
 export { 
     ClientWrapper,
     Navbar,
@@ -64,5 +67,6 @@ export {
     CheckoutOrderResume,
     PremiumTrustIndicators,
     CartCheckoutActionButtons,
-    CartEmpty
+    CartEmpty,
+    AddressMapSelector,
 };

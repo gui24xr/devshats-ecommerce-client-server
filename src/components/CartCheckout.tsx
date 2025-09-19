@@ -1,15 +1,27 @@
 "use client"
+import { useEffect } from "react"
 import { CartCheckoutActionButtons, CheckoutForm, CheckoutOrderResume, PremiumTrustIndicators, CartEmpty } from "@/components"
-import { useCartStore } from "@/stores"
+import { useCartStore, useStoreCheckout } from "@/stores"
 
 
 export default function CartCheckout() {
 
     const itemsCount = useCartStore(state => state.itemsCount)
+    const ticket = useCartStore(state => state.ticket)
 
     if (itemsCount === 0) {
         return <CartEmpty onClose={() => { }} />
     }
+
+    const orderInitialData = {
+        itemsCount: itemsCount,
+        ticket: ticket,
+    }
+    const initializeCheckout = useStoreCheckout(state => state.initializeCheckout)
+
+    useEffect(() => {
+        initializeCheckout()
+    }, [])
 
     return (
         <div className="max-w-7xl mx-auto p-3 sm:p-12 lg:p-12 bg-gradient-to-b from-orange-50/50 to-white">
@@ -39,7 +51,7 @@ export default function CartCheckout() {
                 <div className="order-2 lg:order-2 px-2 sm:px-4 lg:px-8 flex flex-col gap-4">
                     <CheckoutOrderResume cartCount={0} subtotal={0} tax={0} deliveryFee={0} total={0} />
                     <PremiumTrustIndicators />
-                    <CartCheckoutActionButtons handleSubmit={() => { }} isSubmitting={false} onClose={() => { }} />
+                    <CartCheckoutActionButtons ordersInitialData={orderInitialData} handleSubmit={() => { }} isSubmitting={false} onClose={() => { }} />
                 </div>
 
             </div>
