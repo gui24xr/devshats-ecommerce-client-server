@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <div>
       <section>
-        <Suspense fallback={<div>Loading...</div>}> 
+        <Suspense fallback={<div>Loading...</div>}>
           <Portrait />
         </Suspense>
       </section>
@@ -17,7 +17,7 @@ export default async function Home() {
         <Suspense fallback={<div>Loading...</div>}>
           <ProductsContainer planSettings={planSettings} renderConfig={customizationTemplateSettings.productsContainerRenderConfig} />
         </Suspense>
-      </section>  
+      </section>
       <section>
         <Suspense fallback={<div>Loading...</div>}>
           <SocialProofs />

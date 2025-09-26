@@ -11,21 +11,14 @@ export default function ClientWrapper({ children }) {
     const initializeBranchConfig = useBranchesStore(state => state.initializeBranchConfig)
     
   useEffect(() => {
-
     async function initializeApp(){
       setTemplateConfig()
       await fetchBranches()
       initializeBranchConfig()
       fetchProducts()
     }
-
    initializeApp()
-   
   }, [])
-
-  useEffect(()=>{
-
-  },[])
 
   return (
     <div>

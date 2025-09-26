@@ -78,6 +78,22 @@ const useCartStore = create((set, get) => ({
         set({ticket: {totalPrice: totalPrice}})
     },
 
+    getCartData: () => {
+        const currentItemsList = get().items
+        return {
+            itemsCount: get().itemsCount,
+            totalPrice: get().ticket.totalPrice,
+            items: currentItemsList.map((item: any) => ({
+                productId: item.data.product.id,
+                variantId: item.data.selectedVariant ? item.data.selectedVariant.id : null,
+                customization: item.data.customization,
+                quantity: item.quantity,
+                unitPrice: item.data.priceData.unitPrice,
+                totalPrice: item.data.priceData.totalPrice,
+            }))
+        }
+    }
+
    
 }));
 

@@ -25,7 +25,6 @@ import FloatingCartWidget from "./FloatingCardWidget";
 import CartDetails from "./CartDetail";
 import QuantitySelectorSmall from "./QuantitySelectorSmall";
 import QuantitySelectorBig from "./QuantitySelectorBig";
-import CartCheckout from "./CartCheckout";
 import CartCheckoutContainer from "./pages/CartCheckoutContainer";
 import CartCheckoutHeader from "./CartCheckoutHeader";
 import CheckoutForm from "./CheckoutForm";
@@ -60,7 +59,6 @@ export {
     FloatingRapidCatalogWidget,
     QuantitySelectorSmall,
     QuantitySelectorBig,
-    CartCheckout,
     CartCheckoutContainer,
     CartCheckoutHeader,
     CheckoutForm,

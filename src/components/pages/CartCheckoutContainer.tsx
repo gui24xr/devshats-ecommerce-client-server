@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import { CartCheckout, CartCheckoutHeader } from '@/components'
+import { CheckoutForm, CartCheckoutHeader } from '@/components'
 import { useRouter } from 'next/navigation'
 
 export default async function CartCheckoutContainer() {
@@ -15,7 +15,7 @@ export default async function CartCheckoutContainer() {
     <div className="min-h-screen bg-gray-50">
         
         <CartCheckoutHeader onClose={handleClose} />
-        <CartCheckout />
+        <CheckoutForm />
     </div>
   )
 }

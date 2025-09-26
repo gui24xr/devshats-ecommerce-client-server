@@ -34,7 +34,7 @@ const useProductsStore = create((set, get) => ({
 
             const baseUrl = getBaseUrl();
             console.log('Fetching from:', baseUrl);
-            
+
             const { data } = await axios.get(`${baseUrl}/api/products`);
             console.log('data: ', data)
             set({
@@ -46,15 +46,15 @@ const useProductsStore = create((set, get) => ({
                 filteredProducts: data.products,
                 productsOrderByCategories: getProductsOrderByCategories(data.categories, data.products)
             });
-     
-            
+
+
+
         } catch (error) {
             set({ error: error });
         } finally {
             set({ loading: false });
         }
     },
-
     mapProductsCategories:(products: any) => {
 
     },

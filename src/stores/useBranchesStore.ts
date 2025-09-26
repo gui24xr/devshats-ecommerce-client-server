@@ -32,9 +32,28 @@ const useBranchesStore = create((set, get) => ({
             set({ loading: false });
         }
     },
-    initializeBranchConfig: () =>{
+    initializeBranchConfig: () => {
         set({ selectedBranch: get().branches[0] })
         console.log('selectedBranch : ', get().selectedBranch)
+    },
+    changeSelectedBranch: (branchId: any) => {
+        const branch = get().branches.find((branch: any) => branch.id === branchId)
+        if (!branch) {
+            alert('Branch not found')
+            return;
+        }
+        set({
+            selectedBranch: {
+                id: branch.id,
+                name: branch.name,
+                address: branch.address,
+                coordinates: branch.coordinates,
+                phones: branch.phones,
+                waMessagePhone: branch.waMessagePhone,
+                workingHours: branch.workingHours,
+                deliveryMethods: branch.deliveryMethods,
+            }
+        })
     }
 }));
 

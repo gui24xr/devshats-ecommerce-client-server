@@ -120,17 +120,62 @@
         "id": "sucursal_centro",
         "name": "Sucursal Centro",
         "active": true,
-        "address": "Av. Principal 123, Centro",
-        "coordinates": {
-          "lat": -34.6037,
-          "lng": -58.3816
+        "addressData": {
+          "textAddress": "Av. Principal 123",
+          "city": "Ciudad",
+          "state": "Provincia",
+          "zip": "1000",
+          "country": "País",
+          "formattedAddress": "Av. Principal 123, Centro, Ciudad, Provincia, 1000, País",
+          "referencwes": "Frente al parque central",
+          "coordinates": {
+            "lat": -34.6037,
+            "lng": -58.3816
+          }
         },
-        "phone": "+54 11 1234-5678",
-        "waMessagePhone": "+5491112345678",
+        "contactData": {
+          "phones": [
+            "+54 11 1234-5678",
+            "+5491112345678"
+          ],
+          "emails": [
+            "info@hotdogsparadise.com"
+          ]
+        },
+        "workingHours": {
+          "monday": {
+            "open": "09:00",
+            "close": "18:00"
+          },
+          "tuesday": {
+            "open": "09:00",
+            "close": "18:00"
+          },
+          "wednesday": {
+            "open": "09:00",
+            "close": "18:00"
+          },
+          "thursday": {
+            "open": "09:00",
+            "close": "18:00"
+          },
+          "friday": {
+            "open": "09:00",
+            "close": "18:00"
+          },
+          "saturday": {
+            "open": "10:00",
+            "close": "14:00"
+          },
+          "sunday": {
+            "closed": true
+          }
+        },
         "allowedDeliveryMethodsTypes": [
           "moto_delivery",
           "pickup"
         ],
+        "waMessagePhone": " +5491112345678",
         "deliveryMethods": [
           {
             "type": "motoDelivery",
@@ -145,8 +190,12 @@
               "showAvailableHours": true,
               "showMaxRadius": true
             },
-            "config": {
+            "constraints": {
               "maxDistanceInKms": 6,
+              "originCoordinates": {
+                "lat": -34.6037,
+                "lng": -58.3816
+              },
               "availableHours": {
                 "start": "10:00",
                 "end": "20:00"
@@ -154,7 +203,7 @@
               "pricing": {
                 "basePrice": 0,
                 "currency": "USD",
-                "distance_pricing": [
+                "distancePricing": [
                   {
                     "from": 0,
                     "to": 2,
@@ -185,9 +234,15 @@
               "showEstimatedTime": true,
               "showSchedule": true
             },
-            "config": {
+            "constraints": {
               "preparationTimeInMinutes": 30,
-              "schedule": {
+              "pickupInstructions": "Pasa por la sucursal y menciona tu nombre.",
+              "pickupPointCompleteAddress": "Sucursal Centro - Av. Principal 123",
+              "pickupCoordinates": {
+                "lat": -34.6037,
+                "lng": -58.3816
+              },
+              "workingHours": {
                 "monday": {
                   "open": "09:00",
                   "close": "18:00"
@@ -215,12 +270,50 @@
                 "sunday": {
                   "closed": true
                 }
-              },
-              "pricing": {
-                "basePrice": 0,
-                "currency": "USD"
               }
             }
+          }
+        ],
+        "allowedPaymentMethodsTypes": [
+          "moto_delivery",
+          "pickup"
+        ],
+        "paymentMethods": [
+          {
+            "type": "CASH_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Efectivo",
+              "emoji": "💶",
+              "icon": "💶",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          },
+          {
+            "type": "CREDIT_CARD_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Tarjeta de Crédito",
+              "emoji": "💳",
+              "icon": "💳",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          },
+          {
+            "type": "BANK_TRANSFER_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Transferencia Bancaria",
+              "emoji": "🏦",
+              "icon": "🏦",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
           }
         ]
       }
