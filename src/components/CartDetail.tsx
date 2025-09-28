@@ -1,18 +1,15 @@
 "use client"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Table } from 'antd'
 import { QuantitySelectorSmall, } from "@/components"
 import { Trash2,  ShoppingCart } from 'lucide-react';
-import { redirect } from "next/navigation";
+
 
 
 export default function CartDetails({ itemsList, setQuantity, removeFromCart, clearCart, totalPrice, itemsCount, onClose }: any) {
 
-
-
   if (!itemsList) return <div>No hay items en el carrito</div>
 
- 
   const columns = [
     {
       title: () => {
@@ -47,7 +44,7 @@ function ItemDetail({ item, setQuantity, removeFromCart }) {
     const [quantity, setQuantityState] = useState(item.quantity)
 
     const handleQuantityChange = (quantity: any) => {
-        console.log('handleQuantityChange: ', quantity)
+        console.log('handleQuantityChangeddd: ', quantity)
         setQuantityState(quantity)
         setQuantity(item.id, quantity)
     }

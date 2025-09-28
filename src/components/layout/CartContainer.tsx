@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useMemo, useState } from "react";
+import {  useState } from "react";
 import { LayoutModal, FloatingCartWidget, CartDetails } from '../index'
 import { useCartStore, useStoreTemplateConfig } from "@/stores";
 import { redirect } from "next/navigation";
