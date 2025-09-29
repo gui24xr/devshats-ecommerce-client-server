@@ -31,7 +31,7 @@ import CheckoutForm from "./CheckoutForm";
 import CheckoutOrderResume from "./CheckoutOrderResume";
 import PremiumTrustIndicators from "./PremiumTrustIndicators";
 import CartCheckoutActionButtons from "./CartCheckoutActionButtons";
-import CartEmpty from "./CartEmpty";
+
 import AddressMapSelector  from "./GoogleMapsAddressSelector";
 
 
@@ -65,6 +65,5 @@ export {
     CheckoutOrderResume,
     PremiumTrustIndicators,
     CartCheckoutActionButtons,
-    CartEmpty,
     AddressMapSelector,
 };

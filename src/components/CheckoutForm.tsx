@@ -2,7 +2,7 @@
 import { useState, useEffect, use } from "react";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { useStoreCheckout } from "@/stores";
+import { useStoreCheckout, useBranchesStore } from "@/stores";
 import { useRouter } from "next/navigation";
 import {
   LayoutModal,
@@ -312,6 +312,7 @@ const getPhonePlaceholder = (countryCode: string) => {
 
 function DeliveryMethodsSelector() {
   const selectedBranchData = useStoreCheckout((state) => state.selectedBranchData)
+  //const selectedBranchData = useBranchesStore((state) => state.selectedBranch);
   
   const selectDeliveryMethod = useStoreCheckout(
     (state) => state.selectDeliveryMethod

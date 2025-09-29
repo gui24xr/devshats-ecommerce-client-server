@@ -1,43 +1,30 @@
-export default function QuantitySelectorSmall({ quantity, onChange }: any) {
-    const handleIncrement = (e: any) => {
-        e.stopPropagation() // Evitar que se active el click del botón padre
+export default function QuantitySelectorSmall({ quantity, onChange, min = 1, max = 10 }: any) {
+    const handleChange = (e: any) => {
+        const newQuantity = parseInt(e.target.value, 10);
+        onChange(newQuantity);
+    };
 
-        onChange(quantity + 1)
-
-    }
-
-    const handleDecrement = (e: any) => {
-        e.stopPropagation() // Evitar que se active el click del botón padre
-        onChange(quantity - 1)
-
+    const options = [];
+    for (let i = min; i <= max; i++) {
+        options.push(
+            <option key={i} value={i}>
+                {i}
+            </option>
+        );
     }
 
     return (
-        <div className="flex items-center space-x-1 bg-gray-50 rounded-md border border-gray-200 px-1 py-0.5">
-            <span>Cantidad</span>
-            <button
-                type="button"
-                onClick={handleDecrement}
-                disabled={quantity <= 0}
-                className={`w-4 h-4 rounded-sm flex items-center justify-center text-xs font-bold transition-colors ${quantity <= 0
-                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                    : 'bg-orange-100 text-orange-600 hover:bg-orange-200'
-                    }`}
+        <div >
+            
+            <select
+                value={quantity}
+                onChange={handleChange}
+                className="border border-orange-300 rounded-md px-3 py-1 text-sm bg-white text-black font-medium focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all duration-200 hover:bg-orange-50"
             >
-                −
-            </button>
-            <span className="text-sm font-medium text-gray-700 min-w-[12px] text-center">
-                {quantity}
-            </span>
-            <button
-                type="button"
-                onClick={handleIncrement}
-                className="w-4 h-4 rounded-sm flex items-center justify-center text-xs font-bold bg-orange-100 text-orange-600 hover:bg-orange-200 transition-colors"
-            >
-                +
-            </button>
+                {options}
+            </select>
         </div>
-    )
+    );
 }
 
 

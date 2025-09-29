@@ -1,155 +1,158 @@
-"use client"
-import { useState } from "react"
-import { Table } from 'antd'
-import { QuantitySelectorSmall, } from "@/components"
-import { Trash2,  ShoppingCart } from 'lucide-react';
+"use client";
+import { useState } from "react";
+import { Trash2, ShoppingCart } from "lucide-react";
+import { useCartStore } from "@/stores";
 
-
-
-export default function CartDetails({ itemsList, setQuantity, removeFromCart, clearCart, totalPrice, itemsCount, onClose }: any) {
-
-  if (!itemsList) return <div>No hay items en el carrito</div>
-
-  const columns = [
-    {
-      title: () => {
-        return <div className="flex flex-row justify-between bg-orange-500 font-semibold text-white rounded-md px-2 py-1">
-          <div className="flex flex-row items-center justify-center gap-2">
-            <span>Mi Carrito</span>
-            <ShoppingCart className="w-4 h-4" />
-          </div>
-          <button className="flex flex-row gap-2 bg-purple-500 text-white rounded-md px-2 py-1" onClick={() => clearCart()} >
-            <span> Vaciar carrito </span>
-            <Trash2 className="self-center w-4 h-4" />
-          </button>
-        </div>
-      },
-      dataIndex: 'product',
-      key: 'name',
-      render: (text, record: any) => <ItemDetail item={record} setQuantity={setQuantity} removeFromCart={removeFromCart} />,
-    },
-
-  ]
+export default function CartDetails({ onCheckout, onClose }: any) {
+  const itemsList = useCartStore((state) => state.items);
+  const itemsCount = useCartStore((state) => state.itemsCount);
+  const setQuantity = useCartStore((state) => state.setQuantity);
+  const totalPrice = useCartStore((state) => state.ticket.totalPrice);
+  const removeFromCart = useCartStore((state) => state.removeFromCart);
+  const clearCart = useCartStore((state) => state.clearCart);
 
   return (
     <div className="p-4 mb-20">
-      <Table dataSource={itemsList} columns={columns} />
-      <AddToCartSection totalPrice={totalPrice} itemsCount={itemsCount} onClick={onClose} />
+      {itemsList.length > 0 ? (
+        <>
+          <CartDetailHeader onClearCart={clearCart} />
+
+          <div className="grid grid-cols-1 gap-2 p-2">
+            {itemsList.map((item) => (
+              <CartItemDetail
+                item={item}
+                setQuantity={setQuantity}
+                removeFromCart={removeFromCart}
+              />
+            ))}
+          </div>
+        </>
+      ) : (
+        <CartEmpty onFollowShopping={onClose} />
+      )}
+      {itemsCount > 0 && (
+        <AddToCartSection
+          totalPrice={totalPrice}
+          itemsCount={itemsCount}
+          onClick={onCheckout}
+        />
+      )}
     </div>
-  )
+  );
 }
 
-
-function ItemDetail({ item, setQuantity, removeFromCart }) {
-    const [quantity, setQuantityState] = useState(item.quantity)
-
-    const handleQuantityChange = (quantity: any) => {
-        console.log('handleQuantityChangeddd: ', quantity)
-        setQuantityState(quantity)
-        setQuantity(item.id, quantity)
-    }
+function CartItemDetail({ item, setQuantity, removeFromCart }) {
+  const onChangeQuantity = (quantity) => {
+    setQuantity(item.id, quantity);
+  };
 
   return (
-    <div className="w-full bg-gray-50 rounded-lg flex flex-col items-start gap-1">
-      <div className="w-full flex justify-between bg-blue-500 px-1.5 ">
-        <h4 className="text-lg text-white font-semibold text-gray-800 ">
-          {item.data.product.name}
-        </h4>
-        <button className="text-sm font-semibold text-gray-800 underline decoration-solid"> <Trash2 onClick={() => removeFromCart(item.id)} className="w-4 h-4 text-white" /></button>
-      </div>
-      <div className="w-full flex flex-row  mt-4">
-        <div className="w-3/4 flex flex-col ">
+    <div className="w-full bg-gray-50 rounded-lg flex flex-col items-start px-4 pt-6  pb-2">
+      
 
-          {item.data.selectedVariant && (
+      <div className="w-full flex flex-col">
+        <div className="flex flex-row gap-4 border-t border-blue-200 pt-2 ">
+          <div className="min-w-[80px] flex flex-col">
+            <img
+              src={item.data.product.images[0].url}
+              alt={item.data.product.name}
+              className="w-24 h-24 object-cover"
+            />
+          </div>
+          <div className="flex flex-col">
+            <div className="flex flex-row justify-between">
+              <h4 className="text-sm font-bold text-black ">
+                {item.data.product.name}
+              </h4>
+            </div>
 
-            <div className="flex flex-wrap items-start gap-2">
-              <div className="flex flex-wrap gap-2">
-
-                <span className="text-sm font-semibold text-gray-800 underline decoration-solid">
-                  {item.data.product.templateVariant.label + ':'}
-                </span>
-                <span className="text-sm font-medium text-gray-800">
-                  {item.data.selectedVariant.label}
-                </span>
+            {item.data.selectedVariant && (
+              <div className="flex flex-wrap items-start gap-2">
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-sm text-gray-800 ">
+                    {item.data.product.templateVariant.label + ":"}
+                  </span>
+                  <span className="text-sm  text-gray-800">
+                    {item.data.selectedVariant.label}
+                  </span>
+                </div>
               </div>
-            </div>
-
-          )}
-          {item.data.customization?.length > 0 && (
-            <div className="w-full flex flex-col  gap-1">
-              {item.data.customization?.map((feature, featureIndex) => (
-                feature.options.length > 0 && (
-
-                  <div className="w-full flex ">
-                    <div className="flex flex-wrap gap-2 ">
-
-
-                      <div className="flex flex-wrap gap-2 items-center">
-                        <span className="text-sm font-semibold text-gray-800 underline decoration-solid self-center">
-                          {feature.name + ':'}
-                        </span>
-                        {feature.options.map((option, optionIndex) => (
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm font-medium text-gray-800">{option.optionLabel} {option.priceModifier ? <span className="text-xs text-green-600 font-medium">
-                              (+${option.priceModifier})
-                            </span> : null} </span>
-                            {option.selectedQuantity > 0 && (
-                              <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full font-medium">
-                                x{option.selectedQuantity}
-                              </span>
-                            )}
+            )}
+            {item.data.customization?.length > 0 && (
+              <div className="w-full flex flex-col gap-0.5">
+                {item.data.customization?.map(
+                  (feature, featureIndex) =>
+                    feature.options.length > 0 && (
+                      <div className="w-full flex ">
+                        <div className="flex flex-wrap ">
+                          <div className="flex flex-wrap ">
+                            <span className="text-sm  text-gray-800 ">
+                              {feature.name + ":"}
+                            </span>
+                            {feature.options.map((option, optionIndex) => (
+                              <div className="flex">
+                                <span className="text-sm text-gray-800">
+                                  {option.optionLabel}{" "}
+                                  {option.priceModifier ? (
+                                    <span className="text-xs text-green-600 font-medium">
+                                      (+${option.priceModifier})
+                                    </span>
+                                  ) : null}{" "}
+                                </span>
+                                {option.selectedQuantity > 0 && (
+                                  <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full font-medium">
+                                    x{option.selectedQuantity}
+                                  </span>
+                                )}
+                              </div>
+                            ))}
                           </div>
-                        ))}
+                        </div>
                       </div>
-
-                    </div>
-                  </div>
-
-                )
-              ))}
-            </div>
-          )}
+                    )
+                )}
+              </div>
+            )}
+            <span className="text-sm font-semibold text-green-600 capitalize">
+              Precio: ${item.data.priceData.unitPrice}
+            </span>
+          </div>
         </div>
-        <div className="flex flex-col">
-
-          <QuantitySelectorSmall quantity={quantity} onChange={handleQuantityChange} />
-          <span className="text-sm font-semibold text-gray-800 uppercase">
-            Precio Unitario:  ${item.data.priceData.unitPrice}
-          </span>
-
-
-
-
-
-
-
-
-
-          <span className="text-sm font-semibold text-gray-800 uppercase">
-            Subtotal: ${item.data.priceData.totalPrice}
-          </span>
-
-
+        <div className="flex items-end justify-end border-t border-blue-200 mt-2 p-1.5">
+          <div className="w-full flex flex-col self-end text-right">
+            {" "}
+            <div className="flex items-center justify-end gap-2">
+              {" "}
+              {/* justify-end para alinear a la derecha */}
+              <span className="text-sm font-semibold text-blue-500 capitalize">
+                Cantidad:
+              </span>
+              <ItemDetailQuantitySelector
+                quantity={item.quantity}
+                onChange={onChangeQuantity}
+                min={1}
+                max={10}
+              />
+            </div>
+            <span className="text-sm font-semibold text-gray-800 capitalize">
+              Subtotal: ${item.data.priceData.totalPrice}
+            </span>
+            <button
+              onClick={() => removeFromCart(item.id)}
+              className="text-right text-sm font-semibold text-red-600 capitalize"
+            >
+              Eliminar
+            </button>
+          </div>
         </div>
       </div>
-
-
     </div>
-  )
+  );
 
   // Obtener variante seleccionada si existe
-
 }
 
-
-
-
-
 function AddToCartSection({ totalPrice, itemsCount, onClick }: any) {
-
-
-
-
   const handleCheckoutButton = () => {
     // Validar requisitos mínimos antes de agregar al carrito
     onClick();
@@ -159,8 +162,12 @@ function AddToCartSection({ totalPrice, itemsCount, onClick }: any) {
     <div className="fixed bottom-4 left-4 right-4 z-50 lg:left-auto lg:right-4 lg:max-w-lg">
       <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-5">
         <div className="flex flex-col items-center justify-between gap-2 ">
-          <span className="text-sm font-semibold text-gray-800 uppercase">Cantidad de items: {itemsCount}</span>
-          <span className="text-sm font-semibold text-gray-800 uppercase">Total: ${totalPrice}</span>
+          <span className="text-sm font-semibold text-gray-800 uppercase">
+            Cantidad de items: {itemsCount}
+          </span>
+          <span className="text-sm font-semibold text-gray-800 uppercase">
+            Total: ${totalPrice}
+          </span>
           <button
             className="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
             onClick={handleCheckoutButton}
@@ -171,5 +178,81 @@ function AddToCartSection({ totalPrice, itemsCount, onClick }: any) {
         </div>
       </div>
     </div>
-  )
+  );
+}
+
+function CartDetailHeader({ onClearCart }: any) {
+  return (
+    <div className="flex flex-row justify-between bg-orange-500 font-semibold text-white rounded-md px-2 py-1">
+      <div className="flex flex-row items-center justify-center gap-2">
+        <span>Mi Carrito</span>
+        <ShoppingCart className="w-4 h-4" />
+      </div>
+      <button
+        className="flex flex-row gap-2 bg-purple-500 text-white rounded-md px-2 py-1"
+        onClick={() => onClearCart && onClearCart()}
+      >
+        <span> Vaciar carrito </span>
+        <Trash2 className="self-center w-4 h-4" />
+      </button>
+    </div>
+  );
+}
+
+function CartEmpty({ onFollowShopping }: any) {
+  const handleClick = () => {
+    onFollowShopping && onFollowShopping();
+  };
+  return (
+    <div className="text-center py-16 px-6">
+      <div className="bg-gradient-to-br from-orange-100 to-red-100 w-32 h-32 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-lg">
+        <span className="text-6xl">🛒</span>
+      </div>
+      <h3 className="text-2xl font-bold text-gray-900 mb-4">
+        Tu carrito está vacío
+      </h3>
+      <p className="text-gray-600 mb-8 max-w-sm mx-auto leading-relaxed">
+        Agrega algunos deliciosos hot dogs antes de hacer el pedido
+      </p>
+      <button
+        onClick={handleClick}
+        className="bg-gradient-to-r from-orange-600 to-red-500 hover:from-orange-700 hover:to-red-600 text-white font-bold py-3 px-8 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+      >
+        🚀 Seguir comprando
+      </button>
+    </div>
+  );
+}
+
+function ItemDetailQuantitySelector({
+  quantity,
+  onChange,
+  min = 1,
+  max = 10,
+}: any) {
+  const handleChange = (e: any) => {
+    const newQuantity = parseInt(e.target.value, 10);
+    onChange(newQuantity);
+  };
+
+  const options = [];
+  for (let i = min; i <= max; i++) {
+    options.push(
+      <option key={i} value={i}>
+        {i}
+      </option>
+    );
+  }
+
+  return (
+    <div>
+      <select
+        value={quantity}
+        onChange={handleChange}
+        className="text-black text-sm"
+      >
+        {options}
+      </select>
+    </div>
+  );
 }
