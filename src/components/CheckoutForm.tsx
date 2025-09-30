@@ -15,9 +15,6 @@ import {
 export default function CheckoutForm({}) {
   const router = useRouter();
 
-  const initializeCheckout = useStoreCheckout(
-    (state) => state.initializeCheckout
-  );
 
   const showDeliveryAddressAndRadioForm = useStoreCheckout(
     (state) => state.showDeliveryAddressAndRadioForm
@@ -27,6 +24,10 @@ export default function CheckoutForm({}) {
   );
   const setShowDeliveryAddressAndRadioForm = useStoreCheckout(
     (state) => state.setShowDeliveryAddressAndRadioForm
+  );
+
+  const selectedDeliveryMethodType = useStoreCheckout(
+    (state) => state.selectedDeliveryMethodType
   );
 
   const submitOrder = useStoreCheckout((state) => state.submitOrder);
@@ -40,9 +41,6 @@ export default function CheckoutForm({}) {
     });
   };
 
-  useEffect(() => {
-    initializeCheckout();
-  }, []);
 
   return (
     <>
@@ -57,12 +55,17 @@ export default function CheckoutForm({}) {
               <DeliveryMethodsSelector />
               <PaymentMethodSelector />
               <NotesInput />
+              <input
+                type="text"
+                name="deliveryMethodType"
+                value={selectedDeliveryMethodType}
+              />
             </div>
           </div>
           <div className="order-2 lg:order-2 px-2 sm:px-4 lg:px-8 flex flex-col gap-4">
             <CheckoutOrderResume />
             <PremiumTrustIndicators />
-            <OrderPreview /> 
+            <OrderPreview />
             <CartCheckoutActionButtons
               onSubmit={submitOrder}
               isSubmitting={isSubmitting}
@@ -311,21 +314,31 @@ const getPhonePlaceholder = (countryCode: string) => {
 };
 
 function DeliveryMethodsSelector() {
-  const selectedBranchData = useStoreCheckout((state) => state.selectedBranchData)
-  //const selectedBranchData = useBranchesStore((state) => state.selectedBranch);
-  
+
+  const setShowDeliveryAddressAndRadioForm = useStoreCheckout((state) => state.setShowDeliveryAddressAndRadioForm);
+
+  const distanceMotoDeliveryToCustomerAddressInKms = useStoreCheckout((state) => state.distanceMotoDeliveryToCustomerAddressInKms);
+
+  const deliveryMethods = useBranchesStore(
+    (state) => state.deliveryMethods || []
+  );
   const selectDeliveryMethod = useStoreCheckout(
     (state) => state.selectDeliveryMethod
   );
-  const selectedDeliveryMethod = useStoreCheckout(
-    (state) => state.selectedDeliveryMethod
+  const selectedDeliveryMethodType = useStoreCheckout(
+    (state) => state.selectedDeliveryMethodType
   );
 
-  const deliveryMethods = selectedBranchData?.deliveryMethods || [];
+  const customerCompleteAddress = useStoreCheckout(
+    (state) => state.currentCustomerAddress?.completeAddress
+  )
 
+    const pickupPointCompleteAddress = deliveryMethods.find((dm => dm.type === "pickup"))?.constraints?.pickupPointCompleteAddress;  
   const handleClick = (deliveryMethodType: string) => {
     selectDeliveryMethod(deliveryMethodType);
   };
+
+
 
   return (
     <div className="flex flex-col gap-2">
@@ -339,7 +352,7 @@ function DeliveryMethodsSelector() {
             type="button"
             onClick={() => handleClick(deliveryMethod.type)}
             className={`group p-3 border-2 rounded-xl text-center transition-all duration-300 transform hover:scale-105 ${
-              selectedDeliveryMethod?.type === deliveryMethod?.type
+              deliveryMethod?.type === selectedDeliveryMethodType
                 ? "border-orange-500 bg-gradient-to-br from-orange-50 to-red-50 shadow-lg"
                 : "border-gray-300 hover:border-orange-300 hover:shadow-md"
             }`}
@@ -356,22 +369,83 @@ function DeliveryMethodsSelector() {
           </button>
         ))}
       </div>
+      {selectedDeliveryMethodType === "motoDelivery" && (
+         <div className="p-4 flex flex-wrap gap-2">
+          <h3 className="text-sm font-semibold text-gray-700 flex items-center gap-2">
+            <span>🏠</span>
+            Entregar en:
+          </h3>
+        
+            <p className="text-sm text-gray-600">
+              {customerCompleteAddress  && customerCompleteAddress }
+            </p>
+                   
+          
+            <button
+              onClick={() => setShowDeliveryAddressAndRadioForm(true)}
+              className="text-sm text-blue-600 underline"
+              type="button">
+              {customerCompleteAddress ? "Cambiar direccion" : "Ingresar direccion"}
+            </button>
+          
+        </div>
+      )}
+      {selectedDeliveryMethodType === "pickup" && (
+         <div className="p-4 flex flex-wrap gap-2">
+          <h3 className="text-sm font-semibold text-gray-700 flex items-center gap-2">
+            <span>🏠</span>
+            Retirar en:
+          </h3>
+        
+            <p className="text-sm text-gray-600">
+              {pickupPointCompleteAddress  && pickupPointCompleteAddress }
+            </p>
+                           
+           
+          
+        </div>
+      )}
     </div>
   );
 }
 
 function OrderPreview() {
- 
   const customerName = useStoreCheckout((state) => state.customerName);
   const customerEmail = useStoreCheckout((state) => state.customerEmail);
   const customerPhone = useStoreCheckout((state) => state.customerPhone);
   const notes = useStoreCheckout((state) => state.notes);
-  const pickupPointCompleteAddress = useStoreCheckout((state) => state.selectedBranchData?.pickupPointCompleteAddress);
-  const customerCompleteAddress = useStoreCheckout((state) => state.currentCustomerAddress?.completeAddress);
+
+  const customerCompleteAddress = useStoreCheckout(
+    (state) => state.currentCustomerAddress?.completeAddress
+  );
+
+  const selectedDeliveryMethodType = useStoreCheckout(
+    (state) => state.selectedDeliveryMethodType
+  );
+  const selectedPaymentMethodType = useStoreCheckout(
+    (state) => state.selectedPaymentMethodType
+  );
+
+    const paymentMethods = useBranchesStore((state) => state.paymentMethods);
+  const deliveryMethods = useBranchesStore((state) => state.deliveryMethods);
+
+  const [selectedDeliveryMethodLabel, setSelectedDeliveryMethodLabel] = useState('');
+  const [selectedPaymentMethodLabel, setSelectedPaymentMethodLabel] = useState(''); 
   
 
-  const selectedDeliveryMethod = useStoreCheckout((state) => state.selectedDeliveryMethod);
-  const selectedPaymentMethod = useStoreCheckout((state) => state.selectedPaymentMethod);
+  useEffect(() => {
+    const deliveryMethod = deliveryMethods.find((method) => method.type === selectedDeliveryMethodType);
+    setSelectedDeliveryMethodLabel(deliveryMethod?.uiData?.label);    
+  }, [selectedDeliveryMethodType]);
+
+  useEffect(() => {
+    const paymentMethod = paymentMethods.find((method) => method.type === selectedPaymentMethodType);
+    setSelectedPaymentMethodLabel(paymentMethod?.uiData?.label);
+  }, [selectedPaymentMethodType]);
+  
+  
+  const pickupPointCompleteAddress = deliveryMethods.find((dm => dm.type === "pickup"))?.constraints?.pickupPointCompleteAddress;  
+    
 
 
   return (
@@ -412,9 +486,11 @@ function OrderPreview() {
           <span>🏠</span>
           Forma de retiro/entrega:
         </h3>
-        <p className="text-sm text-gray-600">{selectedDeliveryMethod?.uiData?.label || "Selecciona un método de entrega."}</p>
+        <p className="text-sm text-gray-600">
+           {selectedDeliveryMethodLabel || "Completa tu forma de entrega."}
+        </p>
       </div>
-      {selectedDeliveryMethod?.type === "motoDelivery" && (
+      {selectedDeliveryMethodType === "motoDelivery" && (
         <div className="flex flex-wrap gap-2">
           <h3 className="text-sm font-semibold text-gray-700 flex items-center gap-2">
             <span>🏠</span>
@@ -425,14 +501,14 @@ function OrderPreview() {
           </p>
         </div>
       )}
-      {selectedDeliveryMethod?.type === "pickup" && (
+      {selectedDeliveryMethodType === "pickup" && (
         <div className="flex flex-wrap gap-2">
           <h3 className="text-sm font-semibold text-gray-700 flex items-center gap-2">
             <span>🏠</span>
             Dirección de retiro:
           </h3>
           <p className="text-sm text-gray-600">
-            {pickupPointCompleteAddress || "Ver direccion de retiro."}
+            {pickupPointCompleteAddress || "Consulta la direccion de retiro."}
           </p>
         </div>
       )}
@@ -442,7 +518,8 @@ function OrderPreview() {
           Forma de pago:
         </h3>
         <p className="text-sm text-gray-600">
-          {selectedPaymentMethod?.uiData?.label || "Selecciona un método de pago."}
+      
+            { selectedPaymentMethodLabel || "Seleccione un método de pago."}
         </p>
       </div>
       <div className="flex flex-wrap gap-2">
@@ -459,15 +536,15 @@ function OrderPreview() {
 }
 
 function PaymentMethodSelector() {
-  const selectedBranchData = useStoreCheckout((state) => state.selectedBranchData);
+
   const selectPaymentMethod = useStoreCheckout(
     (state) => state.selectPaymentMethod
   );
-  const selectedPaymentMethod = useStoreCheckout(
-    (state) => state.selectedPaymentMethod
+  const selectedPaymentMethodType = useStoreCheckout(
+    (state) => state.selectedPaymentMethodType
   );
 
-  const paymentMethods = selectedBranchData?.paymentMethods || [];
+  const paymentMethods = useBranchesStore((state) => state.paymentMethods);
   const handleClick = (paymentMethodType: string) => {
     selectPaymentMethod(paymentMethodType);
   };
@@ -479,12 +556,12 @@ function PaymentMethodSelector() {
         Metodo de pago *
       </label>
       <div className="grid grid-cols-1 gap-3 p-2">
-        {paymentMethods.map((paymentMethod: any) => (
+        {paymentMethods?.map((paymentMethod: any) => (
           <button
             type="button"
             onClick={() => handleClick(paymentMethod.type)}
             className={`flex flex-row group p-3 border-2 rounded-xl text-center transition-all duration-300 transform hover:scale-105 ${
-              selectedPaymentMethod?.type === paymentMethod?.type
+              paymentMethod?.type === selectedPaymentMethodType
                 ? "border-orange-500 bg-gradient-to-br from-orange-50 to-red-50 shadow-lg"
                 : "border-gray-300 hover:border-orange-300 hover:shadow-md"
             }`}
@@ -506,8 +583,6 @@ function PaymentMethodSelector() {
     </div>
   );
 }
-
-
 
 function NotesInput() {
   const setNotes = useStoreCheckout((state) => state.setNotes);

@@ -19,6 +19,19 @@ const useBranchesStore = create((set, get) => ({
     error: null,
     loaded: false,
 
+    //---------------------------------
+    id: null,
+    name: null,
+    active: null,
+    addressData: null,
+    contactData: null,
+    workingHours: null,
+    waMessagePhone: null,
+    deliveryMethods: [],
+    paymentMethods: [],
+    
+    //--------------------------------
+
     fetchBranches: async () => {
         set({ loading: true, error: null });
         try {
@@ -26,6 +39,21 @@ const useBranchesStore = create((set, get) => ({
             const { data } = await axios.get(`${baseUrl}/api/branches`);
             console.log('data branches : ', data.branches)
             set({ branches: data.branches });
+
+            //--nuevo ------------------------------
+            set({
+                id: data.branches[0].id,
+                name: data.branches[0].name,
+                active: data.branches[0].active,
+                addressData: data.branches[0].addressData,
+                contactData: data.branches[0].contactData,
+                workingHours: data.branches[0].workingHours,
+                waMessagePhone: data.branches[0].waMessagePhone,
+                deliveryMethods: data.branches[0].deliveryMethods,
+                paymentMethods: data.branches[0].paymentMethods,
+            })
+
+            //------------------------------------------
         } catch (error) {
             set({ error: error });
         } finally {
@@ -33,7 +61,7 @@ const useBranchesStore = create((set, get) => ({
         }
     },
     initializeBranchConfig: () => {
-        set({ selectedBranch: get().branches[0] })
+        set({ selectedBranch: get().branches[0]})
         console.log('selectedBranch : ', get().selectedBranch)
     },
     changeSelectedBranch: (branchId: any) => {
