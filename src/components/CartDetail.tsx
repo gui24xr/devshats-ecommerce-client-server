@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import { Trash2, ShoppingCart } from "lucide-react";
 import { useCartStore } from "@/stores";
 

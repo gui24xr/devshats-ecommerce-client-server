@@ -18,7 +18,10 @@ const DataService = {
     },
     getBranches: async () => {
         return data.store.branches
-    }
+    },
+    getBranchById: async (id: string) => {
+        return data.store.branches.find((branch: any) => branch.id === id);
+    },
 }
 
 export default DataService;

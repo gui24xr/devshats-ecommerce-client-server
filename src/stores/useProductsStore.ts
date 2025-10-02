@@ -83,6 +83,10 @@ const useProductsStore = create((set, get) => ({
             filteredProducts: filteredProducts
         });
     },
+
+    getProductById: (productId: string) => {
+        return get().products.find((product: any) => product.id === productId);
+    },
     
 }))
 

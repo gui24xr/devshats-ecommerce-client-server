@@ -3,8 +3,21 @@ import { useBranchesStore, useCartStore } from "@/stores";
 import { checkoutOrder } from "@/actions";
 
 const useStoreCheckout = create((set, get) => ({
-  selectedDeliveryMethodType: null,
-  selectedPaymnentMethodType: null,
+  isSubmitting: false,
+  
+  branchId: null,
+  deliveryMethods: [],
+  paymentMethods: [],
+  motoDeliveryOriginCoordinates: null,
+  pickupPointCompleteAddress: null,
+  pickupPointCoordinates: null,
+  motoDeliveryMaxDistanceInKms: null,
+  motoDeliveryBasePrice:null,
+  motoDeliveryDistancePricing: null,
+  
+  
+  selectedDeliveryMethod: null,
+  selectedPaymentMethod: null,
   customerName: null,
   customerPhone: null,
   customerEmail: null,
@@ -34,6 +47,70 @@ const useStoreCheckout = create((set, get) => ({
     customerAddress: null,
     notes: null,
   },
+  /*
+  resumeObject:  {
+      orderData: [
+        {
+          id: 1,
+          label: "Nombre",
+          emoji: "👤",
+          value: get().customerName || "Completar nombre.",
+        },
+        {
+          id: 2,
+          label: "Teléfono",
+          emoji: "📞",
+          value: get().customerPhone || "Completar telefono.",
+        },
+        {
+          id: 3,
+          label: "Email",
+          emoji: "📧",
+          value: get().customerEmail || "Completar email.",
+        },
+        {
+          id: 4,
+          label: "Forma de retiro/entrega",
+          emoji: "🚚",
+          value:
+            getDeliveryMethodLabel(get().selectedDeliveryMethodType) ||
+            "Completar forma de retiro/entrega.",
+        },
+        {
+          id: 5,
+          label: "Forma de pago",
+          emoji: "💳",
+          value:
+            getPaymenthMethodLabel(get().selectedPaymentMethodType) ||
+            "Completar forma de pago.",
+        },
+        {
+          id: 6,
+          label:
+            get().selectedDeliveryMethodType === "motoDelivery"
+              ? "Dirección de entrega"
+              : get().selectedDeliveryMethodType === "pickup"
+              ? "Dirección de retiro"
+              : "Dirección de entrega/retiro",
+          emoji: "📍",
+          value:
+            get().selectedDeliveryMethodType === "motoDelivery"
+              ? get().currentCustomerAddress.completeAddress ||
+                "Completar dirección de entrega."
+              : get().selectedDeliveryMethodType === "pickup"
+              ? getPickupPointCompleteAddress() ||
+                "Consultar dirección de retiro."
+              : "Completar dirección de entrega/retiro.",
+        },
+        {
+          id: 7,
+          label: "Notas",
+          emoji: "📝",
+          value: get().notes || "Sin notas adicionales.",
+        },
+      ],
+    },
+  */
 
   setCustomerName: (customerName: string) => {
     set({ customerName: customerName });
@@ -49,8 +126,9 @@ const useStoreCheckout = create((set, get) => ({
 
   selectDeliveryMethod: (deliveryMethodType: string) => {
     try {
-      const foundDeliveryMethod =
-        getCurrentBranchDeliveryMethodsByType(deliveryMethodType);
+      const foundDeliveryMethod = get().deliveryMethods.find(
+        (deliveryMethod) => deliveryMethod.type === deliveryMethodType
+      );
       switch (foundDeliveryMethod.type) {
         case "pickup":
           get().onSelectPickupDeliveryMethod();
@@ -65,29 +143,31 @@ const useStoreCheckout = create((set, get) => ({
   },
 
   onSelectPickupDeliveryMethod: () => {
-
     set({
-      selectedDeliveryMethodType: "pickup",
-      
+      selectedDeliveryMethod: get().deliveryMethods.find(
+        (deliveryMethod) => deliveryMethod.type === "pickup"
+      ),
     });
 
-    get().calculateOrderAmount()
+    get().calculateOrderAmount();
   },
 
   onSelectMotoDeliveryDeliveryMethod: () => {
     set({
-      
-      selectedDeliveryMethodType: "motoDelivery",
+      selectedDeliveryMethod: get().deliveryMethods.find(
+        (deliveryMethod) => deliveryMethod.type === "motoDelivery"
+      ),
     });
-     get().calculateOrderAmount()
+    get().calculateOrderAmount();
   },
 
   selectPaymentMethod: (paymentMethodType: string) => {
     try {
-      const foundPaymentMethod =
-        getCurrentBranchPaymentMethodsByType(paymentMethodType);
+      const foundPaymentMethod = get().paymentMethods.find(
+        (paymentMethod) => paymentMethod.type === paymentMethodType
+      );
       set({
-        selectedPaymentMethodType: foundPaymentMethod.type,
+        selectedPaymentMethod: foundPaymentMethod,
       });
     } catch (error) {
       throw error;
@@ -108,7 +188,14 @@ const useStoreCheckout = create((set, get) => ({
       distancePickupPointToCustomerAddressInKms,
       allowMotoDeliveryToCustomerAddress,
       deliveryAmount,
-    } = getDeliveryStatics(customerCoordinates);
+    } = getDeliveryStatics({ 
+      customerCoordinates: customerCoordinates,
+      pickupPointCoordinates: get().pickupPointCoordinates,
+      motoDeliveryOriginCoordinates: get().motoDeliveryOriginCoordinates,
+      motoDeliveryMaxDistanceInKms: get().motoDeliveryMaxDistanceInKms,
+      motoDeliveryBasePrice: get().motoDeliveryBasePrice,
+      motoDeliveryDistancePricing: get().motoDeliveryDistancePricing
+  });
 
     console.log("Statics : ", {
       distanceMotoDeliveryToCustomerAddressInKms:
@@ -139,87 +226,99 @@ const useStoreCheckout = create((set, get) => ({
       orderDeliveryAmount: deliveryAmount,
     });
 
-      get().calculateOrderAmount()
+    get().calculateOrderAmount();
 
     //----------------------------------------------------------
   },
 
-  submitOrder: async () => {
-    console.log("estado", get());
+  onChangeCart({ cartItemsCount, cartTicketAmount, cartItems }) {
+    set({
+      cartItemsCount: cartItemsCount,
+      cartTicketAmount: cartTicketAmount,
+      cartItems: cartItems,
+    });
+    get().calculateOrderAmount();
+  },
 
+  submitOrder: async () => {
+    
+   
     const orderData = {
-      branchId: getSelectedBranchId(),
+      branchId: get().branchId,
       customerName: get().customerName,
       customerPhone: get().customerPhone,
       customerEmail: get().customerEmail,
       notes: get().notes,
-      deliveryMethodType: get().selectedDeliveryMethod?.type,
-      deliveryAmount: get().currentMotoDeliveryAmount,
-      paymentMethodType: get().selectedPaymentMethod?.type,
-      customerAddress: JSON.stringify(get().currentCustomerAddress),
-      orderAmount: get().orderFinalAmount,
-      orderTax: get().orderTax,
-      orderCurrency: get().orderCurrency,
-      cartCount: getCartCurrentData().cartCount,
-      cartTotalPrice: getCartCurrentData().cartTotalPrice,
-      cartItems: getCartCurrentData().cartItems,
-    };
-
-    const formData = new FormData();
-    Object.entries(orderData).forEach(([key, value]) => {
-      if (value !== null && value !== undefined) {
-        formData.append(key, value);
-      }
-    });
-
-    const response = await checkoutOrder(formData);
-    console.log("Resultado action: ", response);
-
-    if (response.success && response.waLink) {
-      window.open(response.waLink, "_blank");
-    } else {
-      alert("Error en el pedido... procesar error...");
+      selectedDeliveryMethodType: get().selectedDeliveryMethod?.type,
+      selectedPaymentMethodType: get().selectedPaymentMethod?.type,
+      customerCompleteAddress: get().currentCustomerAddress?.completeAddress,
+      customerCoordinates: get().currentCustomerAddress?.coordinates,
+      cartItems: get().cartItems,
     }
+
+   
+
+    const response = await checkoutOrder(orderData);
+    console.log("Resultado action: ", response);
+    console.log("Resultado action emonki: ", '📞');
+
+   if (response.success) {
+    const encodeMessage = encodeURIComponent(response.message)
+    const waLink = `https://wa.me/${response.phone}?text=${encodeMessage}`
+    window.open(waLink, "_blank")
+   }
+   else {
+    alert('Problemas')
+   }
   },
 
   calculateOrderAmount: () => {
-   
-    const currentCartTicketAmount = get().cartTicketAmount 
+    const currentCartTicketAmount = get().cartTicketAmount;
 
     const deliveryAmount =
-      get().selectedDeliveryMethodType === "motoDelivery"
+      get().selectedDeliveryMethod?.type === "motoDelivery"
         ? get().orderDeliveryAmount
-        : 0;  
-
-        console.log('DeliveryAmountJJJJ', deliveryAmount)
+        : 0;
 
     set({
-      orderFinalAmount: Number(currentCartTicketAmount) + Number(deliveryAmount),
-      
+      orderFinalAmount:
+        Number(currentCartTicketAmount) + Number(deliveryAmount),
     });
   },
-
-
 }));
 
+
 useCartStore.subscribe((state, prevState) => {
-  
-    console.log("El precio del carrito cambio", state.ticket.totalPrice);
-    useStoreCheckout.setState({
-      cartItemsCount: state.itemsCount,
-      cartTicketAmount: state.ticket.totalPrice,
-      cartItems: state.items,
-    });
+  console.log("El precio del carrito cambio", state.ticket.totalPrice);
+  useStoreCheckout.getState().onChangeCart({
+    cartItemsCount: state.itemsCount,
+    cartTicketAmount: state.ticket.totalPrice,
+    cartItems: state.items,
+  });
+});
 
-    useStoreCheckout.getState().calculateOrderAmount();
 
-  
-  
+useBranchesStore.subscribe((state, prevState) => {
+  useStoreCheckout.setState({
+    branchId: state.id,
+    deliveryMethods: state.deliveryMethods,
+    paymentMethods: state.paymentMethods,
+    motoDeliveryOriginCoordinates: state.deliveryMethods?.find(
+      (dm) => dm.type === "motoDelivery"
+    )?.constraints?.originCoordinates,
+    pickupPointCompleteAddress: state.deliveryMethods.find(
+      (dm) => dm.type === "pickup"
+    )?.constraints?.pickupPointCompleteAddress,
+    motoDeliveryMaxDistanceInKms : state.deliveryMethods.find(
+    (dm) => dm.type === "motoDelivery")?.constraints?.maxDistanceInKms,
+    motoDeliveryBasePrice : state.deliveryMethods.find((dm) => dm.type === "motoDelivery")?.constraints?.pricing?.basePrice,
+    motoDeliveryDistancePricing : state.deliveryMethods.find((dm) => dm.type === "motoDelivery")?.constraints?.pricing?.distancePricing
+  });
 });
 
 export default useStoreCheckout;
 
-//------------------------------------------UTILS----------------
+//Helpers ---------------------------------------------------------------
 
 const getDistanceInKm = (lat1, lng1, lat2, lng2) => {
   const R = 6371; // Radio de la Tierra en km
@@ -239,27 +338,15 @@ const getDistanceInKm = (lat1, lng1, lat2, lng2) => {
   return R * c;
 };
 
-//-------------------------------------------
-
-//helpers
-
-function getDeliveryStatics(customerCoordinates) {
-  const deliveryMethods = useBranchesStore.getState().deliveryMethods;
-  const pickupPointCoordinates = deliveryMethods.find(
-    (dm) => dm.type === "pickup"
-  )?.constraints?.pickupCoordinates;
-  const motoDeliveryOriginCoordinates = deliveryMethods.find(
-    (dm) => dm.type === "motoDelivery"
-  )?.constraints?.originCoordinates;
-  const motoDeliveryMaxDistanceInKms = deliveryMethods.find(
-    (dm) => dm.type === "motoDelivery"
-  )?.constraints?.maxDistanceInKms;
-  const motoDeliveryBasePrice = deliveryMethods.find(
-    (dm) => dm.type === "motoDelivery"
-  )?.constraints?.pricing?.basePrice;
-  const motoDeliveryDistancePricing = deliveryMethods.find(
-    (dm) => dm.type === "motoDelivery"
-  )?.constraints?.pricing?.distancePricing;
+//------------------------------------------------------------------------------------------------------------
+function getDeliveryStatics({
+  customerCoordinates,
+  pickupPointCoordinates,
+  motoDeliveryOriginCoordinates,
+  motoDeliveryMaxDistanceInKms,
+  motoDeliveryBasePrice,
+  motoDeliveryDistancePricing
+}) {
 
   let distancePickupPointToCustomerAddressInKms;
   let distanceMotoDeliveryToCustomerAddressInKms;
@@ -272,7 +359,7 @@ function getDeliveryStatics(customerCoordinates) {
       pickupPointCoordinates.lng,
       customerCoordinates.lat,
       customerCoordinates.lng
-    );
+    ).toFixed(1);
   }
 
   if (motoDeliveryOriginCoordinates) {
@@ -281,7 +368,7 @@ function getDeliveryStatics(customerCoordinates) {
       motoDeliveryOriginCoordinates.lng,
       customerCoordinates.lat,
       customerCoordinates.lng
-    );
+    ).toFixed(1);
 
     allowMotoDeliveryToCustomerAddress =
       distanceMotoDeliveryToCustomerAddressInKms <=
@@ -305,41 +392,4 @@ function getDeliveryStatics(customerCoordinates) {
     allowMotoDeliveryToCustomerAddress,
     deliveryAmount,
   };
-}
-
-function getCurrentBranchDeliveryMethodsByType(methodType) {
-  const foundDeliveryMethod = useBranchesStore
-    .getState()
-    .deliveryMethods?.find((dm) => dm.type === methodType);
-
-  if (!foundDeliveryMethod) throw new Error("Delivery method not found");
-  return {
-    type: foundDeliveryMethod.type,
-    enabled: foundDeliveryMethod.enabled,
-  };
-}
-
-function getCurrentBranchPaymentMethodsByType(methodType) {
-  const foundPaymentMethod = useBranchesStore
-    .getState()
-    .paymentMethods?.find((pm) => pm.type === methodType);
-
-  if (!foundPaymentMethod) throw new Error("Payment method not found");
-  return {
-    type: foundPaymentMethod.type,
-    enabled: foundPaymentMethod.enabled,
-  };
-}
-
-function getCartCurrentData() {
-  const cartItemsCount = useCartStore.getState().itemsCount;
-  const cartTotalPrice = useCartStore.getState().ticket.totalPrice;
-  const cartItems = useCartStore.getState().items;
-  return { cartItemsCount, cartTotalPrice, cartItems };
-}
-
-function getSelectedBranchId() {
-  const foundedBranch = useBranchesStore.getState().id;
-  if (!foundedBranch) throw new Error("Branch not found");
-  return foundedBranch;
 }

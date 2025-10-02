@@ -1,7 +1,7 @@
 export default function PremiumTrustIndicators() {
     return (
 
-        <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="text-center p-3 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl shadow-lg">
                 <div className="text-lg mb-1">🔒</div>
                 <div className="text-xs font-medium text-blue-800">Pago Seguro</div>

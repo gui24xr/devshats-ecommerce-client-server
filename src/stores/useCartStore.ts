@@ -30,14 +30,13 @@ const useCartStore = create((set, get) => ({
       );
       if (itemExists !== -1) {
         //Actualizo la cantidad
-        if (itemExists !== -1) {
+        
           currentItemsList[itemExists].quantity += quantity;
           // Recalcula el precio total
           currentItemsList[itemExists].data.priceData.totalPrice =
             currentItemsList[itemExists].data.priceData.unitPrice *
             currentItemsList[itemExists].quantity;
-        }
-        currentItemsList[itemExists].quantity += quantity;
+        
       } else {
         //Agrego el item a la lista
         currentItemsList.push({
@@ -57,7 +56,7 @@ const useCartStore = create((set, get) => ({
   },
 
   setQuantity: (itemId: any, quantity: Number) => {
-    if (!quantity>0) throw new Error("La cantidad debe ser mayor a 0");
+    if (!(quantity>0)) throw new Error("La cantidad debe ser mayor a 0");
     const currentItemsList = get().items;
     const searchedItemIndex = currentItemsList.findIndex(
       (item: any) => item.id === itemId

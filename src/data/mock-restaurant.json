@@ -171,11 +171,28 @@
             "closed": true
           }
         },
-        "allowedDeliveryMethodsTypes": [
-          "moto_delivery",
-          "pickup"
-        ],
-        "waMessagePhone": " +5491112345678",
+        "waMessageConfig":{
+          "waPhoneNumber": "+5491159149165",
+          "chatMessageConfig": {
+            "header": "HotDogs Paradise Sucursal Centro - Solicitud de pedido.",
+            "welcomeMessage": "Hola Hotdogs Paradise! Tengo un nuevo pedido para ti. Estos son los detalles:",
+            "contactData": {
+              "whatsappNumbers": ["+5491159149165"],
+              "phones": ["+541159149165"],
+              "emails": ["info@hotdogsparadise.com"]
+             
+            },
+            "ubicationText": "Av. Principal 123, Centro, Ciudad, Provincia, 1000, País",
+            "workingHoursText": "Lun a Dom 09:00 - 18:00",
+            "showConfirmButton": true,
+            "confirmButtonUrl": "https://hotdogsparadise.com/confirmacion",
+            "showCancelButton": true,
+            "cancelButtonUrl": "https://hotdogsparadise.com/cancelar",
+            "footerTitle": "Somos HotDogs Paradise",
+            "footerMessage": "¡Gracias por tu compra! Te esperamos pronto."
+            
+          }
+        },
         "deliveryMethods": [
           {
             "type": "motoDelivery",
@@ -193,8 +210,8 @@
             "constraints": {
               "maxDistanceInKms": 6,
               "originCoordinates": {
-                "lat": -34.6037,
-                "lng": -58.3816
+                 "lat": -34.98,
+                "lng": -58.37
               },
               "availableHours": {
                 "start": "10:00",
@@ -239,8 +256,8 @@
               "pickupInstructions": "Pasa por la sucursal y menciona tu nombre.",
               "pickupPointCompleteAddress": "Sucursal Centro - Av. Principal 123",
               "pickupCoordinates": {
-                "lat": -34.6037,
-                "lng": -58.3816
+                 "lat": -34.98,
+                "lng": -58.37
               },
               "workingHours": {
                 "monday": {
@@ -273,10 +290,6 @@
               }
             }
           }
-        ],
-        "allowedPaymentMethodsTypes": [
-          "moto_delivery",
-          "pickup"
         ],
         "paymentMethods": [
           {

@@ -1,9 +1,10 @@
 "use client";
-import { useState, useEffect, use } from "react";
+import { useState } from "react";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { useStoreCheckout, useBranchesStore } from "@/stores";
-import { useRouter } from "next/navigation";
+import { useStoreCheckout } from "@/stores";
+
+
 import {
   LayoutModal,
   AddressMapSelector,
@@ -12,35 +13,7 @@ import {
   CartCheckoutActionButtons,
 } from "@/components";
 
-export default function CheckoutForm({}) {
-  const router = useRouter();
-
-
-  const showDeliveryAddressAndRadioForm = useStoreCheckout(
-    (state) => state.showDeliveryAddressAndRadioForm
-  );
-  const setCustomerAddress = useStoreCheckout(
-    (state) => state.setCustomerAddress
-  );
-  const setShowDeliveryAddressAndRadioForm = useStoreCheckout(
-    (state) => state.setShowDeliveryAddressAndRadioForm
-  );
-
-  const selectedDeliveryMethodType = useStoreCheckout(
-    (state) => state.selectedDeliveryMethodType
-  );
-
-  const submitOrder = useStoreCheckout((state) => state.submitOrder);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const onChangeCustomerAddress = (addressData) => {
-    console.log("addressData selected:", addressData);
-    setCustomerAddress({
-      completeAddress: addressData.address,
-      customerCoordinates: addressData.coordinates,
-    });
-  };
-
+export default function CheckoutForm() {
 
   return (
     <>
@@ -52,48 +25,78 @@ export default function CheckoutForm({}) {
               <CustomerNameInput />
               <CustomerEmailInput />
               <CustomerPhoneInput />
+              <hr className="border-gray-300" />
               <DeliveryMethodsSelector />
+              <hr className="border-gray-300" />
               <PaymentMethodSelector />
+              <hr className="border-gray-300" />
               <NotesInput />
-              <input
-                type="text"
-                name="deliveryMethodType"
-                value={selectedDeliveryMethodType}
+            </div>
+          </div>
+          <div className="order-2 lg:order-2 px-2 sm:px-4 lg:px-8 flex flex-col gap-8">
+            <CheckoutOrderResume />
+            <PremiumTrustIndicators />
+            <div className="space-y-8 mt-8">
+              <OrderPreview />
+              <CartCheckoutActionButtons
               />
             </div>
           </div>
-          <div className="order-2 lg:order-2 px-2 sm:px-4 lg:px-8 flex flex-col gap-4">
-            <CheckoutOrderResume />
-            <PremiumTrustIndicators />
-            <OrderPreview />
-            <CartCheckoutActionButtons
-              onSubmit={submitOrder}
-              isSubmitting={isSubmitting}
-              onClose={() => router.push("/")}
-            />
-          </div>
         </div>
       </div>
-      <LayoutModal
-        isOpen={showDeliveryAddressAndRadioForm}
-        onClose={() => setShowDeliveryAddressAndRadioForm(false)}
-        title="Selecciona tu dirección"
-        content={
-          <AddressMapSelector onAddressSelect={onChangeCustomerAddress} />
-        }
-      />
+      <AddressMapSelectorModal />
     </>
   );
 }
 
 //------------------------------------------------------------------------------------------------------
 
+function AddressMapSelectorModal() {
+  const showDeliveryAddressAndRadioForm = useStoreCheckout(
+    (state) => state.showDeliveryAddressAndRadioForm
+  );
+  const setShowDeliveryAddressAndRadioForm = useStoreCheckout(
+    (state) => state.setShowDeliveryAddressAndRadioForm
+  );
+
+  const motoDeliveryOriginCoordinates = useStoreCheckout(
+    (state) => state.motoDeliveryOriginCoordinates
+  );
+
+  const setCustomerAddress = useStoreCheckout(
+    (state) => state.setCustomerAddress
+  );
+
+
+  const onChangeCustomerAddress = (addressData) => {
+    console.log("addressData selected:", addressData);
+    setCustomerAddress({
+      completeAddress: addressData.address,
+      customerCoordinates: addressData.coordinates,
+    });
+  };
+
+  return (
+    <LayoutModal
+      isOpen={showDeliveryAddressAndRadioForm}
+      onClose={() => setShowDeliveryAddressAndRadioForm(false)}
+      title="Selecciona tu dirección"
+      content={
+        <AddressMapSelector
+          onAddressSelect={onChangeCustomerAddress}
+          centerCoordinates={motoDeliveryOriginCoordinates}
+        />
+      }
+    />
+  )
+}
+
 function CheckoutFormHeader() {
   return (
     <div className="mb-6 sm:mb-8">
-      <div className="flex items-center gap-3 sm:gap-6">
+      <div className="flex items-end gap-3 sm:gap-6">
         {/* Emoji a la izquierda */}
-        <div className="bg-gradient-to-br from-orange-100 to-red-100 w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0">
+        <div className="bg-gradient-to-br from-orange-100 to-red-100 w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-end justify-center shadow-lg flex-shrink-0">
           <span className="text-lg sm:text-2xl">🌭</span>
         </div>
 
@@ -117,7 +120,7 @@ function CustomerNameInput() {
 
   return (
     <div>
-      <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
+      <label className="block text-sm font-bold text-gray-700 mb-2 flex items-end gap-2">
         <span>👤</span>
         Nombre completo *
       </label>
@@ -135,7 +138,7 @@ function CustomerNameInput() {
       />
       <div className="flex flex-col gap-2 px-2">
         {errors.customerName && (
-          <p className="text-red-500 text-sm mt-2 flex items-center gap-1">
+          <p className="text-red-500 text-sm mt-2 flex items-end gap-1">
             <span>⚠️</span>
             {errors.customerName}
           </p>
@@ -150,7 +153,7 @@ function CustomerEmailInput() {
   const errors = useStoreCheckout((state) => state.errors);
   return (
     <div>
-      <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
+      <label className="block text-sm font-bold text-gray-700 mb-2 flex items-end gap-2">
         <span>📧</span>
         Email *
       </label>
@@ -168,7 +171,7 @@ function CustomerEmailInput() {
       />
       <div className="flex flex-col gap-2 px-2">
         {errors.customerEmail && (
-          <p className="text-red-500 text-sm mt-2 flex items-center gap-1">
+          <p className="text-red-500 text-sm mt-2 flex items-end gap-1">
             <span>⚠️</span>
             {errors.customerEmail}
           </p>
@@ -184,7 +187,7 @@ function CustomerPhoneInput() {
   const [selectedPhoneCountry, setSelectedPhoneCountry] = useState("MX");
   return (
     <div>
-      <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
+      <label className="block text-sm font-bold text-gray-700 mb-2 flex items-end gap-2">
         <span>📞</span>
         Teléfono *
       </label>
@@ -215,18 +218,18 @@ function CustomerPhoneInput() {
 
       {/* Texto de ayuda */}
       <div className="flex flex-col gap-2 px-2">
-        <p className="text-gray-500 text-xs mt-2 flex items-center gap-1">
+        <p className="text-gray-500 text-xs mt-2 flex items-end gap-1">
           <span>💡</span>
           Formato: {getPhonePlaceholder(selectedPhoneCountry)} - Solo números,
           sin espacios ni guiones
         </p>
-        <p className="text-gray-500 text-xs flex items-center gap-1">
+        <p className="text-gray-500 text-xs flex items-end gap-1">
           <span>🌍</span>
           El código del país se selecciona automáticamente arriba
         </p>
 
         {errors.customerPhone && (
-          <p className="text-red-500 text-sm mt-2 flex items-center gap-1">
+          <p className="text-red-500 text-sm mt-2 flex items-end gap-1">
             <span>⚠️</span>
             {errors.customerPhone}
           </p>
@@ -243,7 +246,6 @@ const getPhonePlaceholder = (countryCode: string) => {
     MX: "Ej: 81 1234 5678",
     US: "Ej: 555 123 4567",
     CA: "Ej: 416 123 4567",
-
     // América Central
     GT: "Ej: 5123 4567",
     BZ: "Ej: 612 3456",
@@ -252,7 +254,6 @@ const getPhonePlaceholder = (countryCode: string) => {
     NI: "Ej: 8123 4567",
     CR: "Ej: 8888 8888",
     PA: "Ej: 6123 4567",
-
     // América del Sur
     AR: "Ej: 11 1234 5678",
     BR: "Ej: 11 99999 9999",
@@ -267,73 +268,41 @@ const getPhonePlaceholder = (countryCode: string) => {
     GY: "Ej: 612 3456",
     SR: "Ej: 612 3456",
     GF: "Ej: 612 3456",
-
-    // Caribe
-    CU: "Ej: 5 123 4567",
-    JM: "Ej: 876 123 4567",
-    HT: "Ej: 34 12 3456",
-    DO: "Ej: 809 123 4567",
-    PR: "Ej: 787 123 4567",
-    TT: "Ej: 868 123 4567",
-    BB: "Ej: 246 123 4567",
-    GD: "Ej: 473 123 4567",
-    LC: "Ej: 758 123 4567",
-    VC: "Ej: 784 123 4567",
-    AG: "Ej: 268 123 4567",
-    KN: "Ej: 869 123 4567",
-    DM: "Ej: 767 123 4567",
-
-    // Europa Occidental
-    ES: "Ej: 612 345 678",
-    PT: "Ej: 912 345 678",
-    FR: "Ej: 6 12 34 56 78",
-    DE: "Ej: 151 123 45678",
-    IT: "Ej: 312 123 4567",
-    NL: "Ej: 6 123 45678",
-    BE: "Ej: 470 123 456",
-    CH: "Ej: 76 123 45 67",
-    AT: "Ej: 660 123 456",
-    GB: "Ej: 7700 123 456",
-    IE: "Ej: 87 123 4567",
-
-    // Europa del Este
-    PL: "Ej: 512 123 456",
-    CZ: "Ej: 601 123 456",
-    SK: "Ej: 901 123 456",
-    HU: "Ej: 20 123 4567",
-    RO: "Ej: 712 123 456",
-    BG: "Ej: 88 123 4567",
-    HR: "Ej: 91 123 4567",
-    SI: "Ej: 31 123 456",
-    EE: "Ej: 5123 4567",
-    LV: "Ej: 2123 4567",
-    LT: "Ej: 6123 4567",
   };
 
   return placeholders[countryCode] || "Ej: Ingresa tu número";
 };
 
 function DeliveryMethodsSelector() {
+  const setShowDeliveryAddressAndRadioForm = useStoreCheckout(
+    (state) => state.setShowDeliveryAddressAndRadioForm
+  );
 
-  const setShowDeliveryAddressAndRadioForm = useStoreCheckout((state) => state.setShowDeliveryAddressAndRadioForm);
+  const distanceMotoDeliveryToCustomerAddressInKms = useStoreCheckout(
+    (state) => state.distanceMotoDeliveryToCustomerAddressInKms
+  );
 
-  const distanceMotoDeliveryToCustomerAddressInKms = useStoreCheckout((state) => state.distanceMotoDeliveryToCustomerAddressInKms);
+  const distancePickupPointToCustomerAddressInKms = useStoreCheckout(
+    (state) => state.distancePickupPointToCustomerAddressInKms
+  );
 
-  const deliveryMethods = useBranchesStore(
+  const deliveryMethods = useStoreCheckout(
     (state) => state.deliveryMethods || []
   );
   const selectDeliveryMethod = useStoreCheckout(
     (state) => state.selectDeliveryMethod
   );
-  const selectedDeliveryMethodType = useStoreCheckout(
-    (state) => state.selectedDeliveryMethodType
+  const selectedDeliveryMethod = useStoreCheckout(
+    (state) => state.selectedDeliveryMethod
   );
 
   const customerCompleteAddress = useStoreCheckout(
     (state) => state.currentCustomerAddress?.completeAddress
-  )
+  );
 
-    const pickupPointCompleteAddress = deliveryMethods.find((dm => dm.type === "pickup"))?.constraints?.pickupPointCompleteAddress;  
+  const pickupPointCompleteAddress = useStoreCheckout(
+    (state) => state.pickupPointCompleteAddress
+  )
   const handleClick = (deliveryMethodType: string) => {
     selectDeliveryMethod(deliveryMethodType);
   };
@@ -342,7 +311,7 @@ function DeliveryMethodsSelector() {
 
   return (
     <div className="flex flex-col gap-2">
-      <label className="block text-sm font-bold text-gray-700  flex items-center gap-2">
+      <label className="block text-sm font-bold text-gray-700  flex items-end gap-2">
         <span>🚀</span>
         Forma de entrega *
       </label>
@@ -352,7 +321,7 @@ function DeliveryMethodsSelector() {
             type="button"
             onClick={() => handleClick(deliveryMethod.type)}
             className={`group p-3 border-2 rounded-xl text-center transition-all duration-300 transform hover:scale-105 ${
-              deliveryMethod?.type === selectedDeliveryMethodType
+              deliveryMethod?.type === selectedDeliveryMethod?.type
                 ? "border-orange-500 bg-gradient-to-br from-orange-50 to-red-50 shadow-lg"
                 : "border-gray-300 hover:border-orange-300 hover:shadow-md"
             }`}
@@ -369,40 +338,54 @@ function DeliveryMethodsSelector() {
           </button>
         ))}
       </div>
-      {selectedDeliveryMethodType === "motoDelivery" && (
-         <div className="p-4 flex flex-wrap gap-2">
-          <h3 className="text-sm font-semibold text-gray-700 flex items-center gap-2">
+      {selectedDeliveryMethod?.type === "motoDelivery" && (
+        <div className="p-4 flex flex-wrap gap-1">
+          <h3 className="text-sm font-semibold text-gray-700 flex items-end gap-2">
             <span>🏠</span>
             Entregar en:
           </h3>
-        
+          <div className="flex space-between">
             <p className="text-sm text-gray-600">
-              {customerCompleteAddress  && customerCompleteAddress }
+              {(customerCompleteAddress &&
+                (`${customerCompleteAddress} (${distanceMotoDeliveryToCustomerAddressInKms} kms)` ||
+                  customerCompleteAddress)) ||
+                customerCompleteAddress}
             </p>
-                   
-          
+
             <button
               onClick={() => setShowDeliveryAddressAndRadioForm(true)}
               className="text-sm text-blue-600 underline"
-              type="button">
-              {customerCompleteAddress ? "Cambiar direccion" : "Ingresar direccion"}
+              type="button"
+            >
+              {customerCompleteAddress
+                ? "Cambiar direccion"
+                : "Ingresar direccion"}
             </button>
-          
+          </div>
         </div>
       )}
-      {selectedDeliveryMethodType === "pickup" && (
-         <div className="p-4 flex flex-wrap gap-2">
-          <h3 className="text-sm font-semibold text-gray-700 flex items-center gap-2">
+      {selectedDeliveryMethod?.type === "pickup" && (
+        <div className="p-4 flex flex-col gap-2">
+          <h3 className="text-sm font-semibold text-gray-700 flex items-end gap-2">
             <span>🏠</span>
             Retirar en:
           </h3>
-        
+          <div className="flex flex-col space-between">
             <p className="text-sm text-gray-600">
-              {pickupPointCompleteAddress  && pickupPointCompleteAddress }
+              {pickupPointCompleteAddress || "Consultar direccion de retiro para esta sucursal."}
+              {customerCompleteAddress && ` (${distancePickupPointToCustomerAddressInKms} kms)`}
             </p>
-                           
-           
-          
+
+            <button
+              onClick={() => setShowDeliveryAddressAndRadioForm(true)}
+              className="text-sm text-blue-600 underline text-right"
+              type="button"
+            >
+              {customerCompleteAddress
+                ? "Cambiar direccion para calcular distancia"
+                : "Ingresar direccion para calcular distancia."}
+            </button>
+          </div>
         </div>
       )}
     </div>
@@ -414,144 +397,138 @@ function OrderPreview() {
   const customerEmail = useStoreCheckout((state) => state.customerEmail);
   const customerPhone = useStoreCheckout((state) => state.customerPhone);
   const notes = useStoreCheckout((state) => state.notes);
+  const customerCompleteAddress = useStoreCheckout((state) => state.currentCustomerAddress?.completeAddress
+  );
+  const pickupPointCompleteAddress = useStoreCheckout((state) => state.pickupPointCompleteAddress);
 
-  const customerCompleteAddress = useStoreCheckout(
-    (state) => state.currentCustomerAddress?.completeAddress
+  const selectedDeliveryMethod = useStoreCheckout(
+    (state) => state.selectedDeliveryMethod
+  );
+  const selectedPaymentMethod = useStoreCheckout(
+    (state) => state.selectedPaymentMethod
   );
 
-  const selectedDeliveryMethodType = useStoreCheckout(
-    (state) => state.selectedDeliveryMethodType
-  );
-  const selectedPaymentMethodType = useStoreCheckout(
-    (state) => state.selectedPaymentMethodType
-  );
 
-    const paymentMethods = useBranchesStore((state) => state.paymentMethods);
-  const deliveryMethods = useBranchesStore((state) => state.deliveryMethods);
 
-  const [selectedDeliveryMethodLabel, setSelectedDeliveryMethodLabel] = useState('');
-  const [selectedPaymentMethodLabel, setSelectedPaymentMethodLabel] = useState(''); 
+  const deliveryMethods = useStoreCheckout((state) => state.deliveryMethods);
+
+  const [selectedDeliveryMethodLabel, setSelectedDeliveryMethodLabel] =
+    useState("");
+
+
+
   
 
-  useEffect(() => {
-    const deliveryMethod = deliveryMethods.find((method) => method.type === selectedDeliveryMethodType);
-    setSelectedDeliveryMethodLabel(deliveryMethod?.uiData?.label);    
-  }, [selectedDeliveryMethodType]);
-
-  useEffect(() => {
-    const paymentMethod = paymentMethods.find((method) => method.type === selectedPaymentMethodType);
-    setSelectedPaymentMethodLabel(paymentMethod?.uiData?.label);
-  }, [selectedPaymentMethodType]);
-  
-  
-  const pickupPointCompleteAddress = deliveryMethods.find((dm => dm.type === "pickup"))?.constraints?.pickupPointCompleteAddress;  
-    
 
 
   return (
+
     <div className="p-4 border border-gray-300 rounded-lg bg-white shadow-sm">
-      <h3 className="text-lg font-semibold text-gray-800 mb-2 flex items-center gap-2">
+
+      
+          <h3 className="text-lg font-semibold text-gray-800 mb-2 flex items-end gap-2">
         <span>🛒</span>
         Vista previa de tu pedido
       </h3>
-      <div className="flex flex-wrap gap-2">
-        <h3 className="text-sm font-semibold text-gray-700 flex items-center gap-2">
-          <span>🏠</span>
-          Nombre:
-        </h3>
-        <p className="text-sm text-gray-600">
-          {customerName || "Completa tu nombre."}
-        </p>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        <h3 className="text-sm font-semibold text-gray-700 flex items-center gap-2">
-          <span>🏠</span>
-          Email:
-        </h3>
-        <p className="text-sm text-gray-600">
-          {customerEmail || "Completa tu email."}
-        </p>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        <h3 className="text-sm font-semibold text-gray-700 flex items-center gap-2">
-          <span>🏠</span>
-          Telefono:
-        </h3>
-        <p className="text-sm text-gray-600">
-          {customerPhone || "Completa tu telefono."}
-        </p>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        <h3 className="text-sm font-semibold text-gray-700 flex items-center gap-2">
-          <span>🏠</span>
-          Forma de retiro/entrega:
-        </h3>
-        <p className="text-sm text-gray-600">
-           {selectedDeliveryMethodLabel || "Completa tu forma de entrega."}
-        </p>
-      </div>
-      {selectedDeliveryMethodType === "motoDelivery" && (
-        <div className="flex flex-wrap gap-2">
-          <h3 className="text-sm font-semibold text-gray-700 flex items-center gap-2">
-            <span>🏠</span>
-            Dirección de entrega:
-          </h3>
+      <hr className="my-2 border-gray-200" />
+      <div>
+        <div className="flex gap-2 items-start">
+          <span>👤</span>
           <p className="text-sm text-gray-600">
-            {customerCompleteAddress || "Completa tu dirección."}
+            <span className="text-sm font-semibold text-gray-700">
+              Nombre:{" "}
+            </span>
+            {customerName || "Completa tu nombre."}
           </p>
         </div>
-      )}
-      {selectedDeliveryMethodType === "pickup" && (
-        <div className="flex flex-wrap gap-2">
-          <h3 className="text-sm font-semibold text-gray-700 flex items-center gap-2">
-            <span>🏠</span>
-            Dirección de retiro:
-          </h3>
+        <div className="flex gap-1 items-start">
+          <span>📧</span>
           <p className="text-sm text-gray-600">
-            {pickupPointCompleteAddress || "Consulta la direccion de retiro."}
+            <span className="text-sm font-semibold text-gray-700">Email: </span>
+            {customerEmail || "Completa tu email."}
           </p>
         </div>
-      )}
-      <div className="flex flex-wrap gap-2">
-        <h3 className="text-sm font-semibold text-gray-700 flex items-center gap-2">
-          <span>🏠</span>
-          Forma de pago:
-        </h3>
-        <p className="text-sm text-gray-600">
-      
-            { selectedPaymentMethodLabel || "Seleccione un método de pago."}
-        </p>
+        <div className="flex gap-1 items-start">
+          <span>📞</span>
+          <p className="text-sm text-gray-600">
+            <span className="text-sm font-semibold text-gray-700">
+              Telefono:{" "}
+            </span>
+            {customerPhone || "Completa tu telefono."}
+          </p>
+        </div>
+        <div className="flex gap-1 items-start">
+          <span>🚀</span>
+          <p className="text-sm text-gray-600">
+            <span className="text-sm font-semibold text-gray-700">
+              Forma de retiro/entrega:{" "}
+            </span>
+            {selectedDeliveryMethod?.uiData?.label || "Completa tu forma de entrega."}
+          </p>
+        </div>
+        {selectedDeliveryMethod?.type === "motoDelivery" && (
+          <div className="flex gap-1 items-start">
+            <span>🏠</span>
+            <p className="text-sm text-gray-600">
+              <span className="text-sm font-semibold text-gray-700">
+                Dirección de entrega:{" "}
+              </span>
+              {customerCompleteAddress || "Completa tu dirección."}
+            </p>
+          </div>
+        )}
+        {selectedDeliveryMethod?.type === "pickup" && (
+          <div className="flex gap-1 items-start">
+            <span>🏠</span>
+            <p className="text-sm text-gray-600">
+              <span className="text-sm font-semibold text-gray-700">
+                Dirección de retiro:{" "}
+              </span>
+              {pickupPointCompleteAddress || "Consulta la direccion de retiro."}
+            </p>
+          </div>
+        )}
+        <div className="flex gap-1 items-start">
+          <span>💳</span>
+          <p className="text-sm text-gray-600">
+            <span className="text-sm font-semibold text-gray-700">
+              Forma de pago:{" "}
+            </span>
+            {selectedPaymentMethod?.uiData?.label || "Seleccione un método de pago."}
+          </p>
+        </div>
+        <div className="flex gap-1 items-start">
+          <span>💭</span>
+          <p className="text-sm text-gray-600">
+            <span className="text-sm font-semibold text-gray-700">Nota: </span>
+            {notes || "Sin notas adicionales."}
+          </p>
+        </div>
       </div>
-      <div className="flex flex-wrap gap-2">
-        <h3 className="text-sm font-semibold text-gray-700 flex items-center gap-2">
-          <span>🏠</span>
-          Nota:
-        </h3>
-        <p className="text-sm text-gray-600">
-          {notes || "Sin notas adicionales."}
-        </p>
+      <hr className="my-2 border-gray-200" />
+      <div>
+        <p>Aca va a ir el resumen del pedido</p>
       </div>
     </div>
   );
 }
 
 function PaymentMethodSelector() {
-
   const selectPaymentMethod = useStoreCheckout(
     (state) => state.selectPaymentMethod
   );
-  const selectedPaymentMethodType = useStoreCheckout(
-    (state) => state.selectedPaymentMethodType
+  const selectedPaymentMethod = useStoreCheckout(
+    (state) => state.selectedPaymentMethod
   );
 
-  const paymentMethods = useBranchesStore((state) => state.paymentMethods);
+  const paymentMethods = useStoreCheckout((state) => state.paymentMethods);
   const handleClick = (paymentMethodType: string) => {
     selectPaymentMethod(paymentMethodType);
   };
 
   return (
     <div className="flex flex-col gap-2">
-      <label className="block text-sm font-bold text-gray-700  flex items-center gap-2">
+      <label className="block text-sm font-bold text-gray-700  flex items-end gap-2">
         <span>🚀</span>
         Metodo de pago *
       </label>
@@ -561,7 +538,7 @@ function PaymentMethodSelector() {
             type="button"
             onClick={() => handleClick(paymentMethod.type)}
             className={`flex flex-row group p-3 border-2 rounded-xl text-center transition-all duration-300 transform hover:scale-105 ${
-              paymentMethod?.type === selectedPaymentMethodType
+              paymentMethod?.type === selectedPaymentMethod?.type
                 ? "border-orange-500 bg-gradient-to-br from-orange-50 to-red-50 shadow-lg"
                 : "border-gray-300 hover:border-orange-300 hover:shadow-md"
             }`}
@@ -588,7 +565,7 @@ function NotesInput() {
   const setNotes = useStoreCheckout((state) => state.setNotes);
   return (
     <div>
-      <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
+      <label className="block text-sm font-bold text-gray-700 mb-2 flex items-end gap-2">
         <span>💭</span>
         Notas adicionales
       </label>

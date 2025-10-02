@@ -1,5 +1,4 @@
 'use client'
-
 import { useState, useEffect } from "react"
 import { ProductCardBody } from "./index"
 import { useProductBuilderStore } from "@/stores"
@@ -31,9 +30,6 @@ export default function ProductCard({ product, onAddItemToCart, defaultProductIm
   const [priceData, setPriceData] = useState(getProductPrice(product, selectedVariantId))
 
   const handlerProductToAddToCart = useProductBuilderStore(state => state.handlerProductToAddToCart)
-  const customizerIsOpen = useProductBuilderStore(state => state.customizerIsOpen)
-  const productInCustomization = useProductBuilderStore(state => state.productInCustomization)
-  const closeCustomizer = useProductBuilderStore(state => state.closeCustomizer)
   
   useEffect(() => {
     setPriceData(getProductPrice(product, selectedVariantId))
@@ -45,7 +41,7 @@ export default function ProductCard({ product, onAddItemToCart, defaultProductIm
 
   const handleAddProductToCart = () => {
     handlerProductToAddToCart({ 
-      product, 
+      productId: product.id, 
       selectedVariantId, 
       quantity: 1,
       onSuccess: () => setIsAdding(false), 

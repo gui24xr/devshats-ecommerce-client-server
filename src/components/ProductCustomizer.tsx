@@ -1,5 +1,4 @@
 "use client"
-
 import { useState, useEffect } from "react"
 import { Check } from 'lucide-react'
 import { useProductBuilderStore } from "@/stores"
@@ -8,7 +7,7 @@ import { QuantitySelectorSmall, QuantitySelectorBig, StarRating } from "@/compon
 export default function ProductCustomizer({ onAddToCart, onClose }: any) {
 
     // Todo el estado global viene del store
-    const productInCustomizationData = useProductBuilderStore(state => state.productData)
+    const productInCustomizationData = useProductBuilderStore(state => state.currentProduct)
     const selectedVariant = useProductBuilderStore(state => state.selectedVariant)
     const setSelectedVariant = useProductBuilderStore(state => state.setSelectedVariant)
     const customization = useProductBuilderStore(state => state.customization)
@@ -25,7 +24,7 @@ export default function ProductCustomizer({ onAddToCart, onClose }: any) {
     }
 
     const onChangeSelectedVariant = (selectedVariantId: any) => {
-        setSelectedVariant(selectedVariantId)
+        setSelectedVariant({selectedVariantId})
     }
 
 
