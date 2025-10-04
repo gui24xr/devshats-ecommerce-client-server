@@ -3,43 +3,23 @@ import { useState, useEffect } from "react"
 import { Check } from 'lucide-react'
 import { useProductBuilderStore } from "@/stores"
 import { QuantitySelectorSmall, QuantitySelectorBig, StarRating } from "@/components"
+import { title } from "process"
 
-export default function ProductCustomizer({ onAddToCart, onClose }: any) {
+export default function ProductCustomizer() {
 
-    // Todo el estado global viene del store
-    const productInCustomizationData = useProductBuilderStore(state => state.currentProduct)
-    const selectedVariant = useProductBuilderStore(state => state.selectedVariant)
-    const setSelectedVariant = useProductBuilderStore(state => state.setSelectedVariant)
-    const customization = useProductBuilderStore(state => state.customization)
-    const setCustomizationOptionsFeature = useProductBuilderStore(state => state.setCustomizationOptionsFeature)
+    const currentProduct = useProductBuilderStore(state => state.currentProduct)
     const quantity = useProductBuilderStore(state => state.quantity)
     const setQuantity = useProductBuilderStore(state => state.setQuantity)
-    const priceData = useProductBuilderStore(state => state.priceData)
-    const addProductToCart = useProductBuilderStore(state => state.addProductToCart)
-    // Inicializar el producto de trabajo cuando cambie el producto en customización
-
-
-    const onChangeCustomizationOptionState = (featureId: any, newOptionsStateArray: any) => {
-        setCustomizationOptionsFeature(featureId, newOptionsStateArray)
-    }
-
-    const onChangeSelectedVariant = (selectedVariantId: any) => {
-        setSelectedVariant({selectedVariantId})
-    }
-
-
-
-
-
+    
+    
     return (
         <div className="h-[90vh] flex flex-col gap-8 bg-gray-50">
             <div>
-                <ProductDetail productInCustomizationData={productInCustomizationData} />
+                <ProductDetail />
             </div>
             <div>
                 <div className="flex items-center justify-center px-1 lg:px-4 pb-48">
-                    <div className={`w-full grid grid-cols-1 gap-4 md:${productInCustomizationData.isCustomizable ? 'grid-cols-1' : 'grid-cols-1'} h-full overflow-y-auto`}>
-
+                    <div className={`w-full grid grid-cols-1 gap-4 md:${currentProduct?.isCustomizable ? 'grid-cols-1' : 'grid-cols-1'} h-full overflow-y-auto`}>
                         <div className="flex flex-col  gap-4   lg:px-32 ">
                             <div className="flex flex-col items-center gap-3 border border-gray-200 rounded-lg p-4">
                                 <h5 className="text-base font-semibold text-gray-800 flex items-center gap-2">
@@ -53,91 +33,47 @@ export default function ProductCustomizer({ onAddToCart, onClose }: any) {
                                         maxQuantity={10}
                                     />
                                 </div>
-
                             </div>
-                            {/* variant selector */}
                             <div className="flex flex-wrap">
-                                {(productInCustomizationData?.hasVariants) && (
-                                    <ProductVariantSelector
-                                        templateVariant={productInCustomizationData.templateVariant}
-                                        selectedVariant={selectedVariant}
-                                        onChangeSelectedVariant={onChangeSelectedVariant}
-                                    />
-                                )}
+                                {(currentProduct?.hasVariants) && (<ProductVariantSelector/>)} 
                             </div>
-                            {/* features selectors */}
-
-                            {(productInCustomizationData?.isCustomizable) && (
-                                productInCustomizationData.customizationTemplate?.features.map(item => {
+                            {(currentProduct?.isCustomizable) && (
+                                currentProduct?.customizationTemplate?.features?.map(item => {
                                     return (
                                         <div className="flex flex-col px-4 mt-8">
-                                            {item.type === 'variant' && <ProductFeaturesSelectorTypeVariant feature={{ ...item }} onChangeCustomizationOptionState={onChangeCustomizationOptionState} />}
-                                            {item.type === 'check' && <ProductFeaturesSelectorTypeCheck feature={{ ...item }} onChangeCustomizationOptionState={onChangeCustomizationOptionState} />}
-                                            {item.type === 'combo' && <ProductFeaturesSelectorTypeCombo feature={{ ...item }} onChangeCustomizationOptionState={onChangeCustomizationOptionState} />}
+                                            {item.type === 'variant' && <ProductFeaturesSelectorTypeVariant feature={{ ...item }} />}
+                                            {item.type === 'check' && <ProductFeaturesSelectorTypeCheck feature={{ ...item }} />}
+                                            {item.type === 'combo' && <ProductFeaturesSelectorTypeCombo feature={{ ...item }}  />}
                                         </div>
                                     )
                                 })
                             )}
-
-
                             <div className="mt-16 mb-32 ">
-                                <ProductCustomizationPreview
-                                    productInCustomizationData={productInCustomizationData}
-                                    customization={customization}
-                                    selectedVariant={selectedVariant}
-                                    quantity={quantity}
-                                    priceData={priceData}
-                                />
-
+                                <ProductCustomizationPreview/>
                             </div>
-
-
                             <div>
                                 <textarea className="w-full h-24 p-2 border border-gray-200 rounded-lg" placeholder="Agregar un comentario" />
                             </div>
-
                         </div>
-
-
-                    </div>
-
+                        </div>
                     {/* Sección flotante Agregar al carrito */}
-                    <AddToCartSection onAddToCart={addProductToCart} />
+                    <AddToCartSection/>
                 </div>
             </div>
-
-
         </div>
     )
 }
 
-function AddToCartSection({ onAddToCart }: any) {
-
-
- 
-
+function AddToCartSection() {
+   const addProductToCart = useProductBuilderStore(state => state.addProductToCart)
     const handleAddToCart = () => {
-        // Validar requisitos mínimos antes de agregar al carrito
-        onAddToCart();
+        addProductToCart()
     };
 
     return (
         <div className="fixed bottom-4 left-4 right-4 z-50 lg:left-auto lg:right-4 lg:max-w-lg">
             <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-5">
                 <div className="flex items-center justify-between gap-6 ">
-                    {/* Selector de cantidad del producto */}
-                    {/*
-                    <div className="flex items-center gap-3">
-                        <span className="text-base font-medium text-gray-700">Cantidad:</span>
-                        <QuantitySelector
-                            quantity={quantity}
-                            onChange={handleQuantityChange}
-                            minQuantity={1}
-                            maxQuantity={10}
-                        />
-                    </div>
-
-                    {/* Botón agregar al carrito */}
                     <button
                         className="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
                         onClick={handleAddToCart}
@@ -155,13 +91,19 @@ function AddToCartSection({ onAddToCart }: any) {
 
 
 
-function OptionFeatureItemButton({ onClick, optionData, isSelected, onChangeQuantity }: any) {
-    const { id, optionLabel, priceModifier, showQuantitySelector, selectedQuantity, minQuantity, maxQuantity } = optionData
-
+function OptionFeatureItemButton({ onClick, optionData, showQuantitySelector, onChangeQuantity }: any) {
+    const { id, name, icon,  isSelected, selectedQuantity, priceModifier, minQuantity, maxQuantity } = optionData
 
     const handleChangeQuantity = (quantity: any) => {
-        onChangeQuantity(id, quantity)
+        onChangeQuantity && onChangeQuantity(id, quantity)
     }
+
+    
+    const handleClick = (id: any, quantity: any) => {
+        onClick && onClick(id, quantity)
+    }
+
+
     return (
         <div
             key={id}
@@ -171,14 +113,14 @@ function OptionFeatureItemButton({ onClick, optionData, isSelected, onChangeQuan
                 }`}>
             <button
                 type="button"
-                onClick={() => onClick(id, selectedQuantity || 0)}
+                onClick={() => handleClick(id, selectedQuantity || 0)}
                 className="flex items-center space-x-3 flex-1">
                 <div className={`flex items-center justify-center w-5 h-5 rounded-full border-2 transition-all duration-300 ${isSelected ? 'border-orange-500 bg-gradient-to-br from-orange-500 to-red-500 shadow-lg' : 'border-gray-300 group-hover:border-orange-400'}`}>
                     {isSelected && <Check className="w-6 h-6" />}
                 </div>
                 <div className="flex flex-row justify-between w-full">
                     <div className="self-start">
-                        <span className="text-sm font-semibold">{optionLabel} {priceModifier > 0 && (
+                        <span className="text-sm font-semibold">{icon + ' '} {name} {priceModifier > 0 && (
                             <span className="text-sm text-green-600 font-medium ">
                                 +${priceModifier}
                             </span>
@@ -188,15 +130,14 @@ function OptionFeatureItemButton({ onClick, optionData, isSelected, onChangeQuan
 
                     </div>
 
-                    {showQuantitySelector && (
-                        <QuantitySelectorSmall
+                    {showQuantitySelector &&
+                         <QuantitySelectorSmall
                             quantity={selectedQuantity}
                             onChange={handleChangeQuantity}
-                            minQuantity={minQuantity}
-                            maxQuantity={maxQuantity}
+                            minQuantity={0}
+                            maxQuantity={10}
                         />
-                    )}
-
+                    }
                 </div>
 
             </button>
@@ -204,41 +145,22 @@ function OptionFeatureItemButton({ onClick, optionData, isSelected, onChangeQuan
     )
 }
 
-const ProductFeaturesSelectorTypeVariant = ({ feature, onChangeCustomizationOptionState }: any) => {
+const ProductFeaturesSelectorTypeVariant = ({ feature }: any) => {
 
-    const [featureOptionsState, setFeatureOptionsState] = useState([])
-
-
-    useEffect(() => {
-        setFeatureOptionsState(feature.options.map(item => ({
-            id: item.id,
-            optionLabel: item.emoji + ' ' + item.name,
-            priceModifier: item.priceModifier,
-            isSelected: item.default ? true : false,
-            showQuantitySelector: item.allowSelectQuantity,
-            selectedQuantity: null,
-            onChangeQuantity: null
-        })))
-    }, [])
-
-    useEffect(() => {
-        onChangeCustomizationOptionState(feature.id, featureOptionsState.filter(item => item.isSelected))
-    }, [featureOptionsState])
-
-    const handleClick = (optionId: any) => {
-        //Como se puede elegir solo una mapeo y pongo todas es isSelected false excepto la que se eligio.
-        setFeatureOptionsState(featureOptionsState.map(item => ({ ...item, isSelected: item.id === optionId ? true : false })))
+    const setCustomizationFeatureTypeVariant = useProductBuilderStore(state => state.setCustomizationFeatureTypeVariant)
+    const handleClick = (optionId: string, quantity: number) => {
+        setCustomizationFeatureTypeVariant({ featureId: feature?.id, selectedOptionId: optionId, onError: () => { } })
     }
 
     return (
         <div className="flex flex-col gap-6">
             <h5 className="text-base font-semibold text-gray-800 self-center flex items-center gap-4">
-                {feature.emoji + ' ' + feature.name}
+                {feature?.emoji + ' ' + feature?.name}
             </h5>
             <div className="space-y-2">
-                {featureOptionsState.map((optionFeatureItem: any) => {
+                {feature?.options.map((optionFeatureItem: any) => {
                     return (
-                        <OptionFeatureItemButton onClick={handleClick} optionData={optionFeatureItem} isSelected={optionFeatureItem.isSelected} />
+                        <OptionFeatureItemButton onClick={handleClick} optionData={optionFeatureItem} />
                     )
                 })}
             </div>
@@ -246,77 +168,28 @@ const ProductFeaturesSelectorTypeVariant = ({ feature, onChangeCustomizationOpti
     )
 }
 
-const ProductFeaturesSelectorTypeCombo = ({ feature, onChangeCustomizationOptionState }: any) => {
-
-    const [featureOptionsState, setFeatureOptionsState] = useState([])
-
-    useEffect(() => {
-        setFeatureOptionsState(feature.options.map(item => ({
-            id: item.id,
-            optionLabel: item.emoji + ' ' + item.name,
-            priceModifier: item.priceModifier,
-            showQuantitySelector: true,
-            selectedQuantity: 0,
-            isSelected: item.defaultQuantity > 0 ? true : false,
-            minQuantity: item.minQuantity,
-            maxQuantity: item.maxQuantity
-        })))
-    }, [])
-
-    useEffect(() => {
-        console.log('featureOptionsState elegida deberia reflejarlo en el store: ', featureOptionsState)
-        onChangeCustomizationOptionState(feature.id, featureOptionsState.filter(item => item.selectedQuantity > 0))
-    }, [featureOptionsState])
-
-    const handleClick = (optionId: any) => {
-        // Cambiar el estado de la opción seleccionada
-        setFeatureOptionsState(featureOptionsState.map(item => {
-            if (item.id === optionId) {
-                // Si está seleccionada, deseleccionar y poner cantidad en 0
-                if (item.isSelected) {
-                    return {
-                        ...item,
-                        isSelected: false,
-                        selectedQuantity: 0
-                    }
-                } else {
-                    // Si no está seleccionada, seleccionar y poner cantidad en 1
-                    return {
-                        ...item,
-                        isSelected: true,
-                        selectedQuantity: 1
-                    }
-                }
-            }
-            return item
-        }))
-    }
-    const handleChangeQuantity = (optionId: any, quantity: any) => {
-
-        //1- Que opcion cambio? puede cambiar??
-
-        setFeatureOptionsState(featureOptionsState.map(item => ({
-            ...item,
-            selectedQuantity: item.id === optionId ? quantity : item.selectedQuantity,
-            isSelected: item.id === optionId ? (quantity > 0) : item.isSelected
-        })))
-
+const ProductFeaturesSelectorTypeCombo = ({ feature }: any) => {
+    
+    const setCustomizationFeatureTypeCombo = useProductBuilderStore(state => state.setCustomizationFeatureTypeCombo)
+   
+    const handleChangeQuantity = (optionId: string, quantity: number) => {
+        setCustomizationFeatureTypeCombo({ 
+            featureId: feature?.id, 
+            selectedOptionId: optionId, 
+            newSelectedQuantity: quantity, 
+            onError: () => {} 
+        })
     }
 
     return (
         <div className="flex flex-col gap-6">
             <h5 className="text-base font-semibold text-gray-800 self-center flex items-center gap-4">
-                {feature.emoji + ' ' + feature.name}
+                {feature?.emoji + ' ' + feature?.name}
             </h5>
             <div className="space-y-2">
-                {featureOptionsState.map((optionFeatureItem: any) => {
+                {feature?.options.map((optionFeatureItem: any) => {
                     return (
-                        <OptionFeatureItemButton
-                            isSelected={optionFeatureItem.isSelected}
-                            optionData={optionFeatureItem}
-                            onClick={handleClick}
-                            onChangeQuantity={handleChangeQuantity}
-                        />
+                        <OptionFeatureItemButton  optionData={optionFeatureItem} showQuantitySelector={true} onChangeQuantity={handleChangeQuantity}/>
                     )
                 })}
             </div>
@@ -324,49 +197,27 @@ const ProductFeaturesSelectorTypeCombo = ({ feature, onChangeCustomizationOption
     )
 }
 
-const ProductFeaturesSelectorTypeCheck = ({ feature, onChangeCustomizationOptionState }: any) => {
-    //Aca puede haber un grupo de opciones chequedas asique varias pueden ser defaultt
+const ProductFeaturesSelectorTypeCheck = ({ feature }: any) => {
 
-    const [featureOptionsState, setFeatureOptionsState] = useState([])
-
-    useEffect(() => {
-        setFeatureOptionsState(feature.options.map(item => ({
-            id: item.id,
-            optionLabel: item.emoji + ' ' + item.name,
-            priceModifier: item.priceModifier,
-            showQuantitySelector: item.allowSelectQuantity,
-            selectedQuantity: null,
-            isSelected: item.default ? true : false
-        })))
-    }, [])
-
-    useEffect(() => {
-        console.log('featureOptionsState elegida deberia reflejarlo en el store: ', featureOptionsState)
-        //Filtro solo las chequeadas y se las paso al store.
-        onChangeCustomizationOptionState(feature.id, featureOptionsState.filter(item => item.isSelected))
-    }, [featureOptionsState])
-
-    const handleClick = (optionId: any) => {
-        //En este caso debo cambiar el state de la opcion seleccionada pero antes ver las constraints
-
-        setFeatureOptionsState(featureOptionsState.map(item => ({ ...item, isSelected: item.id === optionId ? !item.isSelected : item.isSelected })))
+    const setCustomizationFeatureTypeCheck = useProductBuilderStore(state => state.setCustomizationFeatureTypeCheck)
+    const handleClick = (optionId: string, quantity: number) => {
+        setCustomizationFeatureTypeCheck({ 
+            featureId: feature?.id, 
+            selectedOptionId: 
+            optionId, 
+            onError: () => { } 
+        })
     }
-
-
 
     return (
         <div className="flex flex-col gap-6">
             <h5 className="text-base font-semibold text-gray-800 self-center flex items-center gap-4">
-                {feature.emoji + ' ' + feature.name}
+                {feature?.emoji + ' ' + feature?.name}
             </h5>
             <div className="space-y-2">
-                {featureOptionsState.map((optionFeatureItem: any) => {
+                {feature?.options.map((optionFeatureItem: any) => {
                     return (
-                        <OptionFeatureItemButton
-                            isSelected={optionFeatureItem.isSelected}
-                            optionData={optionFeatureItem}
-                            onClick={handleClick}
-                        />
+                        <OptionFeatureItemButton onClick={handleClick} optionData={optionFeatureItem} />
                     )
                 })}
             </div>
@@ -377,68 +228,71 @@ const ProductFeaturesSelectorTypeCheck = ({ feature, onChangeCustomizationOption
 
 
 //-----------------------------------------------------------
-function ProductCustomizationPreview({ productInCustomizationData, customization, selectedVariant, priceData, quantity }) {
+function ProductCustomizationPreview() {
+    const currentProduct = useProductBuilderStore(state => state.currentProduct)
+    const selectedVariant = useProductBuilderStore(state => state.selectedVariant)
+    const customization = useProductBuilderStore(state => state.customization)
+    const quantity = useProductBuilderStore(state => state.quantity)
+    const priceData = useProductBuilderStore(state => state.priceData)
 
-    console.log('productInCustomizationData en preview  : ', productInCustomizationData)
-    console.log('customization en preview: ', customization)
-    console.log('selectedVariant en preview: ', selectedVariant)
+    const productPreview = useProductBuilderStore(state => state.productPreview)
 
 
+ console.log('productPreview: ', productPreview)
+ 
+
+   
 
     return (
         <div className="w-full bg-gray-50 rounded-lg p-4 flex flex-col items-center gap-3">
             <h4 className="text-lg font-semibold text-gray-800 flex items-center gap-2 self-center">
-               {productInCustomizationData.name}
+               {productPreview?.title}
             </h4>
-            {selectedVariant && (
-                <div className="w-full flex items-center justify-center bg-white rounded-lg p-3 border border-gray-200">
+            {productPreview?.variant && (
+               
                     <div className="flex flex-col gap-2">
                         <div className="flex flex-wrap gap-2">
 
                             <span className="text-sm font-semibold text-gray-800 underline decoration-solid">
-                                {productInCustomizationData.templateVariant.label + ':'}
+                                {productPreview?.variant?.label + ':'}
                             </span>
                             <span className="text-sm font-medium text-gray-800">
-                                {selectedVariant.label}
+                                {productPreview?.variant?.selectedOption?.label}
                             </span>
                         </div>
                     </div>
-                </div>
+                
             )}
-            {customization?.length > 0 && (
-                <div className="w-full flex flex-col  gap-3">
-                    {customization?.map((feature, featureIndex) => (
-                        feature.options.length > 0 && (
-                            <div className="bg-white rounded-lg p-3 border border-gray-200">
-                                <div className="w-full flex items-center justify-center">
-                                    <div className="flex flex-wrap gap-2 ">
 
-
-                                        <div className="flex flex-wrap gap-2 items-center">
-                                            <span className="text-sm font-semibold text-gray-800 underline decoration-solid self-center">
-                                                {feature.name + ':'}
-                                            </span>
-                                            {feature.options.map((option, optionIndex) => (
-                                                <div className="flex items-center justify-between">
-                                                    <span className="text-sm font-medium text-gray-800">{option.optionLabel} {option.priceModifier ? <span className="text-xs text-green-600 font-medium">
-                                                        (+${option.priceModifier})
-                                                    </span> : null} </span>
-                                                    {option.selectedQuantity > 0 && (
-                                                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full font-medium">
-                                                            x{option.selectedQuantity}
-                                                        </span>
-                                                    )}
-                                                </div>
-                                            ))}
-                                        </div>
-
-                                    </div>
+            {
+                productPreview?.customizationFeatures?.map((item: any) => {
+                    return (
+                    
+                            <div className="flex flex-col gap-2">
+                                <div className="flex flex-wrap gap-2">
+                                    <span className="text-sm font-semibold text-gray-800 underline decoration-solid">
+                                        {item?.name + ':'}
+                                    </span>
+                                <ul>{
+                                        item?.options?.map((option: any) => {
+                                            return (
+                                                <li className="text-sm font-medium text-gray-800">
+                                                    {option?.name}
+                                                </li>
+                                            )
+                                        })
+                                    }
+                                </ul>
                                 </div>
                             </div>
-                        )
-                    ))}
-                </div>
-            )}
+                    )
+                })
+
+            }
+                    
+                
+           
+            
 
             <div className="w-full flex justify-between bg-white rounded-lg p-3 border border-gray-200">
                 <div className="flex flex-col gap-2">
@@ -446,7 +300,7 @@ function ProductCustomizationPreview({ productInCustomizationData, customization
                         Precio Unitario
                     </span>
                     <span className="text-xl text-center font-medium text-gray-800">
-                        ${priceData.unitPrice}
+                        ${priceData?.unitPrice}
                     </span>
                 </div>
                 <div className="flex flex-col gap-2">
@@ -462,46 +316,46 @@ function ProductCustomizationPreview({ productInCustomizationData, customization
                         Precio Total
                     </span>
                     <span className="text-xl text-center font-medium text-gray-800">
-                        ${priceData.totalPrice}
+                        ${priceData?.totalPrice}
                     </span>
                 </div>
             </div>
         </div>
     )
 
-    // Obtener variante seleccionada si existe
-
 }
 
 
 
+function ProductVariantSelector() {
+  
+    const templateVariant = useProductBuilderStore(state => state.currentProduct.templateVariant)
+    const setSelectedVariant = useProductBuilderStore(state => state.setSelectedVariant)
 
-
-
-
-//--------------------------------------------------------------------------------------------------
-
-function ProductVariantSelector({ templateVariant, selectedVariant, onChangeSelectedVariant }: any): any {
-
+    const handleClickVariant = (variantId: any) => {
+        setSelectedVariant({
+            selectedVariantId: variantId, 
+            onError: () => {}
+        })
+    }
     return (
         <div className="w-full flex flex-col items-center gap-3 border border-gray-200 rounded-lg p-4">
             <h5 className="text-base font-semibold text-gray-800 flex items-center gap-2 b">
                 <span className="text-lg">{templateVariant.emoji}</span>
-                {`Seleccionar ${templateVariant.label || 'una opcion...'}`}
+                {`Seleccionar ${templateVariant?.label || 'una opcion...'}`}
             </h5>
             <div className="grid grid-cols-2 gap-2">
-                {templateVariant.options.map((optionVariant: any) => {
-                    const isSelected = optionVariant.id === selectedVariant.id
+                {templateVariant?.options?.map((optionVariant: any) => {
+                    const isSelected = optionVariant?.isSelected
                     return (
                         <button
-                            key={optionVariant.id}
+                            key={optionVariant?.id}
                             type="button"
-                            onClick={() => onChangeSelectedVariant(optionVariant.id)}
+                            onClick={() => handleClickVariant(optionVariant.id)}
                             className={`group relative flex items-center justify-between px-2 py-1 rounded-xl border-2 transition-all duration-300 ${isSelected
                                 ? 'border-orange-500 bg-gradient-to-r from-orange-50 to-red-50 text-orange-900 shadow-lg ring-2 ring-orange-200/50'
                                 : 'border-gray-200 bg-white text-gray-900 hover:border-orange-300 hover:bg-gradient-to-r hover:from-orange-50/50 hover:to-red-50/50 shadow-md hover:shadow-lg'
-                                }`}
-                        >
+                                }`}>
                             <div className="flex items-center space-x-3">
                                 <div className={`flex items-center justify-center w-5 h-5 rounded-full border-2 transition-all duration-300 ${isSelected
                                     ? 'border-orange-500 bg-gradient-to-br from-orange-500 to-red-500 shadow-lg'
@@ -514,13 +368,13 @@ function ProductVariantSelector({ templateVariant, selectedVariant, onChangeSele
                                 <div className="flex flex-col gap-1">
                                     <div className="flex items-center gap-2">
                                         <span className="text-lg">
-                                            {optionVariant.emoji || '📌'}
+                                            {optionVariant?.emoji || '📌'}
                                         </span>
-                                        <span className="text-sm font-semibold">{optionVariant.label}</span>
+                                        <span className="text-sm font-semibold">{optionVariant?.label}</span>
                                     </div>
                                     {optionVariant.affectPrice > 0 && (
                                         <span className="text-xs text-green-600 font-medium ml-7">
-                                            +${optionVariant.affectPrice}/unid
+                                            +${optionVariant?.affectPrice}/unid
                                         </span>
                                     )}
                                 </div>
@@ -536,19 +390,17 @@ function ProductVariantSelector({ templateVariant, selectedVariant, onChangeSele
 
 
 
-function ProductDetail({ productInCustomizationData }) {
-
-    if (!productInCustomizationData) {
-        return <div className="text-gray-500 text-sm">No hay producto para mostrar</div>
-    }
-
+function ProductDetail() {
+    
+    const currentProduct = useProductBuilderStore(state => state.currentProduct)
+    
     return (
         <div className="bg-white shadow-lg border-0 overflow-hidden flex flex-row">
             {/* Image Container */}
             <div className="w-2/6 relative overflow-hidden h-56">
                 <img
-                    src={productInCustomizationData?.images?.[0]?.url || '/images/default-product.jpg'}
-                    alt={productInCustomizationData?.name}
+                    src={currentProduct?.images?.[0]?.url || '/images/default-product.jpg'}
+                    alt={currentProduct?.name}
                     className="w-full h-56 object-cover"
                 />
                 {/* Overlay Gradient */}
@@ -560,15 +412,12 @@ function ProductDetail({ productInCustomizationData }) {
                 {/* Header */}
                 <div className="flex flex-col gap-2 mb-4">
                     <h3 className="text-xl font-bold text-gray-900">
-                        {productInCustomizationData.name}
+                        {currentProduct?.name}
                     </h3>
                     <p className="text-gray-600 text-sm text-justify line-clamp-3 leading-relaxed">
-                        {productInCustomizationData.description || "Producto sin descripción"}
+                        {currentProduct?.description || "Producto sin descripción"}
                     </p>
                 </div>
-
-
-
             </div>
         </div>
     )

@@ -1,16 +1,16 @@
 import { create } from "zustand";
 import { useCartStore, useProductsStore } from "@/stores";
 
-
 interface ProductBuilderState {
   currentProduct: any;
-  selectedVariant: any;
-  customization: any;
   quantity: number;
-  priceData: any;
-  cartItem: any;
   customizerIsOpen: boolean;
   customizationError: string | null;
+  selectedVariant: any;
+  customization: any;
+  priceData: any;
+  cartItem: any;
+
 
   openCustomizer: () => void;
   closeCustomizer: () => void;
@@ -25,6 +25,9 @@ interface ProductBuilderState {
 
 const useProductBuilderStore = create<ProductBuilderState>((set, get) => ({
     currentProduct: null,
+    productPreview: null,
+
+
     selectedVariant: null,
     customization: null,
     quantity: 0,
@@ -69,13 +72,18 @@ const useProductBuilderStore = create<ProductBuilderState>((set, get) => ({
              const productToBuild = useProductsStore.getState().getProductById(productId)
              if (!productToBuild) throw new Error('El producto seleccionado no existe.')
              checkProductVariant({ product: productToBuild, selectedVariantId })
+           
              set({
-                    currentProduct: productToBuild,
+                    currentProduct: getProductBuilderTemplate(productToBuild),
                     quantity: quantity,
                     selectedVariant: productToBuild.hasVariants ? productToBuild.templateVariant.options.find((item: any) => item.id === selectedVariantId) : null,
                     customization: productToBuild.isCustomizable ? productToBuild.customizationTemplate.features.map((item: any) => ({ ...item, options: [] })) : null,
                 })
-            get().setPriceData()      
+            
+            get().setPriceData()    
+            get().setProductPreview()
+                
+            
         }
         catch(error: any){
             console.error('Error al resetear producto:', error.message)
@@ -84,6 +92,69 @@ const useProductBuilderStore = create<ProductBuilderState>((set, get) => ({
         }
     },
 
+    setProductPreview: () => {
+        alert('setProductPreview')
+        set({ productPreview: getCurrentProductPreview(get().currentProduct) })
+    },
+
+    
+
+    setSelectedVariant: ({selectedVariantId, onError}) => {
+        try{
+            if (!selectedVariantId) throw new Error('No se ha seleccionado ninguna variante')
+             const modifiedCurrentProduct = getProductBuilderTemplateWithVariantModified(get().currentProduct, selectedVariantId)
+             set({ currentProduct: modifiedCurrentProduct })   
+            get().setPriceData()
+            get().setProductPreview()
+        }catch(error: any){
+            get().setError(error.message)
+            onError?.(error.message)
+        }
+    },
+
+    setCustomizationFeatureTypeVariant: ({featureId, selectedOptionId, onError}: {featureId: string, selectedOptionId: string, onError: (errorMessage: string) => void}) => {
+        try{ 
+            if (!featureId || !selectedOptionId) throw new Error('No se ha seleccionado ninguna caracteristica o opcion para la variante.')
+             const modifiedCurrentProduct = getProductBuilderTemplateWithCustomizationTypeVariantModified(get().currentProduct, featureId, selectedOptionId)
+             set({ currentProduct: modifiedCurrentProduct })   
+            get().setPriceData()
+            get().setProductPreview()
+            
+        }catch(error: any){
+           
+            get().setError(error.message)
+            onError?.(error.message)
+        }
+    },
+
+    setCustomizationFeatureTypeCheck: ({featureId, selectedOptionId, onError}: {featureId: string, selectedOptionId: string, onError: (errorMessage: string) => void}) => {
+        try{ 
+            if (!featureId || !selectedOptionId) throw new Error('No se ha seleccionado ninguna caracteristica o opcion para la variante.')
+             const modifiedCurrentProduct = getProductBuilderTemplateWithCustomizationTypeCheckModified(get().currentProduct, featureId, selectedOptionId)
+             set({ currentProduct: modifiedCurrentProduct })   
+            get().setPriceData()
+            get().setProductPreview()
+        }catch(error: any){
+            get().setError(error.message)
+            onError?.(error.message)
+        }
+    },
+
+    setCustomizationFeatureTypeCombo: ({featureId, selectedOptionId, newSelectedQuantity, onError}: {featureId: string, selectedOptionId: string, newSelectedQuantity: number, onError: (errorMessage: string) => void}) => {
+        try{ 
+            if (!featureId || !selectedOptionId) throw new Error('No se ha seleccionado ninguna caracteristica o opcion para la variante.')
+             const modifiedCurrentProduct = getProductBuilderTemplateWithCustomizationTypeComboModified(get().currentProduct, featureId, selectedOptionId, newSelectedQuantity)
+             set({ currentProduct: modifiedCurrentProduct })   
+            get().setPriceData()
+            get().setProductPreview()
+        }catch(error: any){
+            get().setError(error.message)
+            onError?.(error.message)
+        }
+    },
+
+
+    
     //Revisar despuees.
     setPriceData: () => {
         set({
@@ -94,21 +165,8 @@ const useProductBuilderStore = create<ProductBuilderState>((set, get) => ({
             quantity: get().quantity
         })})
     },
-    
 
-    setSelectedVariant: ({selectedVariantId, onError}) => {
-        try{
-            if (!selectedVariantId) throw new Error('No se ha seleccionado ninguna variante')
-            const selectedVariant = getProductVariant({product: get().currentProduct, selectedVariantId: selectedVariantId})
-            set({ selectedVariant: selectedVariant })
-            get().setPriceData()
-        }catch(error: any){
-            get().setError(error.message)
-            onError?.(error.message)
-        }
-       
-    },
-
+    /*
     setCustomizationOptionsFeature: (featureId: string, newOptionsStateArray: any[]) => {
         //Busco la featureId si existe y si existe reemplazo las options por las nuevas
         const featureToModifyIndex = get().customization.findIndex((item: any) => item.id === featureId)
@@ -117,6 +175,7 @@ const useProductBuilderStore = create<ProductBuilderState>((set, get) => ({
         console.log('customization modfied: ', get().customization)
         get().setPriceData()
     },
+    */
     
 
     addProductToCart: () => {
@@ -195,3 +254,187 @@ function getProductVariant({product, selectedVariantId}: {product: any, selected
     }
   
 }
+
+
+function getProductBuilderTemplate(product: any): any {
+    try{
+
+        function getProductBuilderFeatureTemplate (feature: any){
+            if (feature.type == 'variant'){
+                return {
+                    ...feature,
+                    options: feature.options.map((item: any) => ({...item, isSelected: false}))
+                }
+            }
+        
+            if (feature.type == 'check'){
+                return {
+                    ...feature,
+                    options: feature.options.map((item: any) => ({...item, isSelected: false}))
+                }
+            }
+
+            if (feature.type == 'combo'){
+                return {
+                    ...feature,
+                    options: feature.options.map((item: any) => ({...item, isSelected: false, selectedQuantity: 0}))
+                }
+            }
+        }
+        
+
+
+        if (!product) throw new Error('El producto no existe.')
+        const productBuilderTemplate = {
+            ...product,
+            templateVariant: product.hasVariants ? {
+                ...product.templateVariant,
+                options: product.templateVariant.options.map((item: any) => ({...item, isSelected: false}))
+            } : null, 
+            customizationTemplate: product?.isCustomizable ? {
+                ...product?.customizationTemplate,
+                features:product?.customizationTemplate.features.map((item: any) => getProductBuilderFeatureTemplate(item)) 
+            }: null,
+        }
+
+    
+
+        return productBuilderTemplate
+    }catch(error: any){
+        throw error
+    }
+}
+
+
+function getProductBuilderTemplateWithVariantModified(product: any, selectedVariantId: any): any {
+    try{
+        if (!product) throw new Error('El producto no existe.')
+        if (!product.hasVariants) throw new Error('El producto no tiene variantes.')
+        const variantIndex = product.templateVariant.options.findIndex((item: any) => item.id === selectedVariantId)
+        if (variantIndex < 0) throw new Error('La variante seleccionada no existe.')
+        //Pongo todas en false excepecta la seleccionada
+        const newOptionsArray = product.templateVariant.options.map((item: any) => ({...item, isSelected: item.id == selectedVariantId ? true : false}))
+
+
+        return {
+            ...product,
+            templateVariant: {
+                ...product.templateVariant,
+                options: newOptionsArray
+            }
+        }
+    }catch(error: any){
+        throw error
+    }
+  
+}
+
+
+
+function getProductBuilderTemplateWithCustomizationTypeVariantModified(product: any, featureId: string, selectedOptionId: string): any {
+    try{
+        if (!product) throw new Error('El producto no existe.')
+        if (!product.isCustomizable) throw new Error('El producto no es configurable.')
+        const featureIndex = product?.customizationTemplate?.features?.findIndex((item: any) => item.id === featureId)
+        if (featureIndex < 0) throw new Error('La feature seleccionada no existe.')
+        //Pongo todas en false excepecta la seleccionada
+        const newOptionsArray = product.customizationTemplate.features[featureIndex].options.map((item: any) => ({...item, isSelected: item.id == selectedOptionId ? true : false}))
+        
+        
+        const customization = product.customizationTemplate.features.map((item: any, index: any) => index == featureIndex ? {...item, options: newOptionsArray} : item)
+        return {
+            ...product,
+            customizationTemplate: {
+                ...product.customizationTemplate,
+                features: customization
+            }
+        }
+    }catch(error: any){
+        throw error
+    }
+  
+}
+
+
+function getProductBuilderTemplateWithCustomizationTypeCheckModified(product: any, featureId: string, selectedOptionId: string): any {
+    try{
+        if (!product) throw new Error('El producto no existe.')
+        if (!product.isCustomizable) throw new Error('El producto no es configurable.')
+        const featureIndex = product?.customizationTemplate?.features?.findIndex((item: any) => item.id === featureId)
+        if (featureIndex < 0) throw new Error('La feature seleccionada no existe.')
+        
+        //SI esta desmarcada la desmarco y viceversa
+        const optionIndex = product.customizationTemplate.features[featureIndex].options.findIndex((item: any) => item.id === selectedOptionId)
+        if (optionIndex < 0) throw new Error('La option seleccionada no existe.')
+            
+        const newOptionsArray = product.customizationTemplate.features[featureIndex].options.map((item: any) => {
+            if (item.id == selectedOptionId) return {...item, isSelected: !item.isSelected}
+            return {...item}
+        })
+                
+        const customization = product.customizationTemplate.features.map((item: any, index: any) => index == featureIndex ? {...item, options: newOptionsArray} : item)
+        return {
+            ...product,
+            customizationTemplate: {
+                ...product.customizationTemplate,
+                features: customization
+            }
+        }
+    }catch(error: any){
+        throw error
+    }
+  
+}
+
+
+
+function getProductBuilderTemplateWithCustomizationTypeComboModified(product: any, featureId: string, selectedOptionId: string, newSelectedQuantity: number): any {
+    try{
+        if (!product) throw new Error('El producto no existe.')
+        if (!product.isCustomizable) throw new Error('El producto no es configurable.')
+        const featureIndex = product?.customizationTemplate?.features?.findIndex((item: any) => item.id === featureId)
+        if (featureIndex < 0) throw new Error('La feature seleccionada no existe.')
+        
+        //SI esta desmarcada la desmarco y viceversa
+        const optionIndex = product.customizationTemplate.features[featureIndex].options.findIndex((item: any) => item.id === selectedOptionId)
+        if (optionIndex < 0) throw new Error('La option seleccionada no existe.')
+            
+        const newOptionsArray = product.customizationTemplate.features[featureIndex].options.map((item: any) => {
+            if (item.id == selectedOptionId) 
+                return {...item, isSelected: newSelectedQuantity > 0  ? true: false,         selectedQuantity: newSelectedQuantity}
+            return {...item}
+        })
+                
+        const customization = product.customizationTemplate.features.map((item: any, index: any) => index == featureIndex ? {...item, options: newOptionsArray} : item)
+        return {
+            ...product,
+            customizationTemplate: {
+                ...product.customizationTemplate,
+                features: customization
+            }
+        }
+    }catch(error: any){
+        throw error
+    }
+
+    //Comportamientos esperados
+  
+}
+
+ const getCurrentProductPreview = (currentProduct: any) => {
+    return {
+       title: currentProduct?.name,
+       image: currentProduct?.images?.[0]?.url,
+       variant: {
+           label: currentProduct?.templateVariant?.label,
+           selectedOption: currentProduct?.templateVariant?.options?.find((option: any) => option?.isSelected),
+        },
+        customizationFeatures: currentProduct?.customizationTemplate?.features?.map((feature) => 
+            ({
+                ...feature,
+                options: feature?.options?.filter((option: any) => option?.isSelected)
+            })
+        )
+    }
+}
+
