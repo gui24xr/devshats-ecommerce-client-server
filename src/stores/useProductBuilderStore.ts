@@ -22,7 +22,7 @@ interface ProductBuilderState {
   setCustomizationFeatureTypeVariant: ({featureId, selectedOptionId, onError}: {featureId: string, selectedOptionId: string, onError: (errorMessage: string) => void}) => void;
   setCustomizationFeatureTypeCheck: ({featureId, selectedOptionId, onError}: {featureId: string, selectedOptionId: string, onError: (errorMessage: string) => void}) => void;
   setCustomizationFeatureTypeCombo: ({featureId, selectedOptionId, newSelectedQuantity, onError}: {featureId: string, selectedOptionId: string, newSelectedQuantity: number, onError: (errorMessage: string) => void}) => void;
-  addProductToCart: () => void;
+  addProductToCart: ({onError}: {onError?: (errorMessage: string) => void}) => void;
 }
 
 
@@ -45,7 +45,7 @@ const useProductBuilderStore = create<ProductBuilderState>((set, get) => ({
     },
 
     setError: (errorMessage: string) => {
-        console.error('Error al resetear producto:', error.message)
+        console.error('Error al resetear producto:', errorMessage)
         set({ customizationError: errorMessage })
     },
     handlerProductToAddToCart: ({ productId, selectedVariantId, quantity = 1, onError }) => {
@@ -134,19 +134,19 @@ const useProductBuilderStore = create<ProductBuilderState>((set, get) => ({
         }
     },
 
-    addProductToCart: () => {
-        /*
-        useCartStore.getState().addToCart({
-            product: get().currentProduct,
-            quantity: get().quantity,
-            selectedVariant: get().selectedVariant,
-            customization: get().customization,
-            priceData: get().priceData,
-        })
-            */
-        get().closeCustomizer()
+    addProductToCart: ({onError}) => {
+        try{
+            if (!get().totalForThisProduct) throw new Error('No se ha seleccionado ningun producto.')
+            useCartStore.getState().addToCart({
+            itemForCart: get().itemForCart,
+            quantity: get().quantity
+            })
+            get().closeCustomizer()
+        }catch(error: any){
+            get().setError(error.message)
+            onError?.(error.message)    
+        }
     }
-
 }))
 
 export default useProductBuilderStore;
@@ -367,7 +367,9 @@ function getProductBuilderTemplateWithCustomizationTypeComboModified(product: an
             id: selectedVariant?.id,
             name: selectedVariant?.name,
             label: selectedVariant?.label,
-            sku: selectedVariant?.sku
+            sku: selectedVariant?.sku,
+            priceData: selectedVariant?.price
+
         } : null
     }
  }

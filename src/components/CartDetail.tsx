@@ -5,9 +5,9 @@ import { useCartStore } from "@/stores";
 export default function CartDetails({ onCheckout, onClose }: any) {
   const itemsList = useCartStore((state) => state.items);
   const itemsCount = useCartStore((state) => state.itemsCount);
-  const setQuantity = useCartStore((state) => state.setQuantity);
+  const changeCartItemQuantity = useCartStore((state) => state.changeCartItemQuantity);
   const totalPrice = useCartStore((state) => state.ticket.totalPrice);
-  const removeFromCart = useCartStore((state) => state.removeFromCart);
+  const removeCartItemFromCart = useCartStore((state) => state.removeCartItemFromCart);
   const clearCart = useCartStore((state) => state.clearCart);
 
   return (
@@ -20,8 +20,8 @@ export default function CartDetails({ onCheckout, onClose }: any) {
             {itemsList.map((item) => (
               <CartItemDetail
                 item={item}
-                setQuantity={setQuantity}
-                removeFromCart={removeFromCart}
+                changeCartItemQuantity={changeCartItemQuantity}
+                removeCartItemFromCart={removeCartItemFromCart}
               />
             ))}
           </div>
@@ -40,9 +40,9 @@ export default function CartDetails({ onCheckout, onClose }: any) {
   );
 }
 
-function CartItemDetail({ item, setQuantity, removeFromCart }) {
+function CartItemDetail({ item, changeCartItemQuantity, removeCartItemFromCart }) {
   const onChangeQuantity = (quantity) => {
-    setQuantity(item.id, quantity);
+    changeCartItemQuantity(item.id, quantity);
   };
 
   return (
@@ -53,54 +53,52 @@ function CartItemDetail({ item, setQuantity, removeFromCart }) {
         <div className="flex flex-row gap-4 border-t border-blue-200 pt-2 ">
           <div className="min-w-[80px] flex flex-col">
             <img
-              src={item.data.product.images[0].url}
-              alt={item.data.product.name}
+              src={item?.productData?.image}
+              alt={item?.productData?.title}
               className="w-24 h-24 object-cover"
             />
           </div>
           <div className="flex flex-col">
             <div className="flex flex-row justify-between">
               <h4 className="text-sm font-bold text-black ">
-                {item.data.product.name}
+                {item.productData?.title}
               </h4>
             </div>
 
-            {item.data.selectedVariant && (
+            {item.productData?.variant && (
               <div className="flex flex-wrap items-start gap-2">
                 <div className="flex flex-wrap gap-2">
                   <span className="text-sm text-gray-800 ">
-                    {item.data.product.templateVariant.label + ":"}
+                    {item.productData?.variant?.label + ":"}
                   </span>
                   <span className="text-sm  text-gray-800">
-                    {item.data.selectedVariant.label}
+                    {item?.productData?.variant?.selectedOption?.label}
                   </span>
                 </div>
               </div>
             )}
-            {item.data.customization?.length > 0 && (
+            {item.productData?.customizationFeatures && (
               <div className="w-full flex flex-col gap-0.5">
-                {item.data.customization?.map(
-                  (feature, featureIndex) =>
-                    feature.options.length > 0 && (
+                {item.productData?.customizationFeatures?.map((feature) =>
                       <div className="w-full flex ">
                         <div className="flex flex-wrap ">
                           <div className="flex flex-wrap ">
                             <span className="text-sm  text-gray-800 ">
-                              {feature.name + ":"}
+                              {feature?.name + ":"}
                             </span>
-                            {feature.options.map((option, optionIndex) => (
+                            {feature?.selectedOptions?.map((selectedOption,) => (
                               <div className="flex">
                                 <span className="text-sm text-gray-800">
-                                  {option.optionLabel}{" "}
-                                  {option.priceModifier ? (
+                                  {selectedOption?.name}{" "}
+                                  {selectedOption?.priceModifier ? (
                                     <span className="text-xs text-green-600 font-medium">
-                                      (+${option.priceModifier})
+                                      (+${selectedOption?.priceModifier})
                                     </span>
                                   ) : null}{" "}
                                 </span>
-                                {option.selectedQuantity > 0 && (
+                                {selectedOption?.selectedQuantity > 0 && (
                                   <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full font-medium">
-                                    x{option.selectedQuantity}
+                                    x{selectedOption?.selectedQuantity}
                                   </span>
                                 )}
                               </div>
@@ -108,12 +106,12 @@ function CartItemDetail({ item, setQuantity, removeFromCart }) {
                           </div>
                         </div>
                       </div>
-                    )
+                    
                 )}
               </div>
             )}
             <span className="text-sm font-semibold text-green-600 capitalize">
-              Precio: ${item.data.priceData.unitPrice}
+              Precio: ${item?.unitPriceData?.finalPrice}
             </span>
           </div>
         </div>
@@ -134,10 +132,10 @@ function CartItemDetail({ item, setQuantity, removeFromCart }) {
               />
             </div>
             <span className="text-sm font-semibold text-gray-800 capitalize">
-              Subtotal: ${item.data.priceData.totalPrice}
+              subtotal: ${item?.subtotal}
             </span>
             <button
-              onClick={() => removeFromCart(item.id)}
+              onClick={() => removeCartItemFromCart(item.id)}
               className="text-right text-sm font-semibold text-red-600 capitalize"
             >
               Eliminar

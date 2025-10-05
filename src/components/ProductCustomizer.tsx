@@ -63,7 +63,7 @@ export default function ProductCustomizer() {
 function AddToCartSection() {
    const addProductToCart = useProductBuilderStore(state => state.addProductToCart)
     const handleAddToCart = () => {
-        addProductToCart()
+        addProductToCart({ onError: (errorMessage) => { alert(errorMessage)} })
     };
 
     return (
@@ -239,7 +239,7 @@ function ProductCustomizationPreview() {
                         <div className="flex flex-wrap gap-2">
 
                             <span className="text-sm font-semibold text-gray-800 underline decoration-solid">
-                                {itemForCart?.variant?.label + ':'}
+                                {itemForCart?.variant?.selectedOption ? (itemForCart?.variant?.label + ':') : 'Seleccionar una variante'} 
                             </span>
                             <span className="text-sm font-medium text-gray-800">
                                 {itemForCart?.variant?.selectedOption?.label}
@@ -278,7 +278,7 @@ function ProductCustomizationPreview() {
                         Precio Unitario
                     </span>
                     <span className="text-xl text-center font-medium text-gray-800">
-                        {('$' + itemForCart?.priceData?.finalPrice )|| 'Seleccionar variante.'}
+                        {itemForCart?.priceData?.finalPrice ?('$' + itemForCart?.priceData?.finalPrice ) : 'Seleccionar variante.'}
                     </span>
                 </div>
                 <div className="flex flex-col gap-2">
@@ -294,7 +294,7 @@ function ProductCustomizationPreview() {
                         Precio Total
                     </span>
                     <span className="text-xl text-center font-medium text-gray-800">
-                        {( '$' +totalForThisProduct ) || 'Seleccionar variante.'}
+                       {totalForThisProduct ? ('$' + totalForThisProduct) :  'Seleccionar variante.'}
                     </span>
                 </div>
             </div>

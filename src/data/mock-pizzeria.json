@@ -2344,7 +2344,8 @@
               }
             ]
           }
-        ]
+        ],
+        "vertical": "restaurant"
       }
     ]
   }
