@@ -90,7 +90,7 @@ export default function ProductsByCategoriesCatalog({ productsOrderByCategories 
 
 
                                         <div className="h-12 mb-4">
-                                            {product.hasVariants && (
+                                            {product.templateVariant && (
                                                 <>
                                                     <h4 className="text-xs font-medium text-gray-500 mb-2">Vriantes</h4>
                                                     <div className="flex gap-2">

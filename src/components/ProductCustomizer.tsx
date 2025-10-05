@@ -1,9 +1,7 @@
 "use client"
-import { useState, useEffect } from "react"
 import { Check } from 'lucide-react'
 import { useProductBuilderStore } from "@/stores"
-import { QuantitySelectorSmall, QuantitySelectorBig, StarRating } from "@/components"
-import { title } from "process"
+import { QuantitySelectorSmall, QuantitySelectorBig } from "@/components"
 
 export default function ProductCustomizer() {
 
@@ -19,7 +17,7 @@ export default function ProductCustomizer() {
             </div>
             <div>
                 <div className="flex items-center justify-center px-1 lg:px-4 pb-48">
-                    <div className={`w-full grid grid-cols-1 gap-4 md:${currentProduct?.isCustomizable ? 'grid-cols-1' : 'grid-cols-1'} h-full overflow-y-auto`}>
+                    <div className={`w-full grid grid-cols-1 gap-4 md:${currentProduct?.customizationFeaturesTemplate ? 'grid-cols-1' : 'grid-cols-1'} h-full overflow-y-auto`}>
                         <div className="flex flex-col  gap-4   lg:px-32 ">
                             <div className="flex flex-col items-center gap-3 border border-gray-200 rounded-lg p-4">
                                 <h5 className="text-base font-semibold text-gray-800 flex items-center gap-2">
@@ -35,10 +33,10 @@ export default function ProductCustomizer() {
                                 </div>
                             </div>
                             <div className="flex flex-wrap">
-                                {(currentProduct?.hasVariants) && (<ProductVariantSelector/>)} 
+                                {(currentProduct?.templateVariant) && (<ProductVariantSelector/>)} 
                             </div>
-                            {(currentProduct?.isCustomizable) && (
-                                currentProduct?.customizationTemplate?.features?.map(item => {
+                            {(currentProduct?.customizationFeaturesTemplate) && (
+                                currentProduct?.customizationFeaturesTemplate?.map(item => {
                                     return (
                                         <div className="flex flex-col px-4 mt-8">
                                             {item.type === 'variant' && <ProductFeaturesSelectorTypeVariant feature={{ ...item }} />}
@@ -51,9 +49,7 @@ export default function ProductCustomizer() {
                             <div className="mt-16 mb-32 ">
                                 <ProductCustomizationPreview/>
                             </div>
-                            <div>
-                                <textarea className="w-full h-24 p-2 border border-gray-200 rounded-lg" placeholder="Agregar un comentario" />
-                            </div>
+                            
                         </div>
                         </div>
                     {/* Sección flotante Agregar al carrito */}
@@ -158,7 +154,7 @@ const ProductFeaturesSelectorTypeVariant = ({ feature }: any) => {
                 {feature?.emoji + ' ' + feature?.name}
             </h5>
             <div className="space-y-2">
-                {feature?.options.map((optionFeatureItem: any) => {
+                {feature?.options?.map((optionFeatureItem: any) => {
                     return (
                         <OptionFeatureItemButton onClick={handleClick} optionData={optionFeatureItem} />
                     )
@@ -187,7 +183,7 @@ const ProductFeaturesSelectorTypeCombo = ({ feature }: any) => {
                 {feature?.emoji + ' ' + feature?.name}
             </h5>
             <div className="space-y-2">
-                {feature?.options.map((optionFeatureItem: any) => {
+                {feature?.options?.map((optionFeatureItem: any) => {
                     return (
                         <OptionFeatureItemButton  optionData={optionFeatureItem} showQuantitySelector={true} onChangeQuantity={handleChangeQuantity}/>
                     )
@@ -215,7 +211,7 @@ const ProductFeaturesSelectorTypeCheck = ({ feature }: any) => {
                 {feature?.emoji + ' ' + feature?.name}
             </h5>
             <div className="space-y-2">
-                {feature?.options.map((optionFeatureItem: any) => {
+                {feature?.options?.map((optionFeatureItem: any) => {
                     return (
                         <OptionFeatureItemButton onClick={handleClick} optionData={optionFeatureItem} />
                     )
@@ -229,43 +225,30 @@ const ProductFeaturesSelectorTypeCheck = ({ feature }: any) => {
 
 //-----------------------------------------------------------
 function ProductCustomizationPreview() {
-    const currentProduct = useProductBuilderStore(state => state.currentProduct)
-    const selectedVariant = useProductBuilderStore(state => state.selectedVariant)
-    const customization = useProductBuilderStore(state => state.customization)
     const quantity = useProductBuilderStore(state => state.quantity)
-    const priceData = useProductBuilderStore(state => state.priceData)
-
-    const productPreview = useProductBuilderStore(state => state.productPreview)
-
-
- console.log('productPreview: ', productPreview)
- 
-
-   
+    const itemForCart = useProductBuilderStore(state => state.itemForCart)
+    const totalForThisProduct = useProductBuilderStore(state => state.totalForThisProduct)
 
     return (
         <div className="w-full bg-gray-50 rounded-lg p-4 flex flex-col items-center gap-3">
             <h4 className="text-lg font-semibold text-gray-800 flex items-center gap-2 self-center">
-               {productPreview?.title}
+               {itemForCart?.title}
             </h4>
-            {productPreview?.variant && (
-               
+            {itemForCart?.variant && (
                     <div className="flex flex-col gap-2">
                         <div className="flex flex-wrap gap-2">
 
                             <span className="text-sm font-semibold text-gray-800 underline decoration-solid">
-                                {productPreview?.variant?.label + ':'}
+                                {itemForCart?.variant?.label + ':'}
                             </span>
                             <span className="text-sm font-medium text-gray-800">
-                                {productPreview?.variant?.selectedOption?.label}
+                                {itemForCart?.variant?.selectedOption?.label}
                             </span>
                         </div>
                     </div>
-                
             )}
-
             {
-                productPreview?.customizationFeatures?.map((item: any) => {
+                itemForCart?.customizationFeatures?.map((item: any) => {
                     return (
                     
                             <div className="flex flex-col gap-2">
@@ -274,7 +257,7 @@ function ProductCustomizationPreview() {
                                         {item?.name + ':'}
                                     </span>
                                 <ul>{
-                                        item?.options?.map((option: any) => {
+                                        item?.selectedOptions?.map((option: any) => {
                                             return (
                                                 <li className="text-sm font-medium text-gray-800">
                                                     {option?.name}
@@ -289,18 +272,13 @@ function ProductCustomizationPreview() {
                 })
 
             }
-                    
-                
-           
-            
-
             <div className="w-full flex justify-between bg-white rounded-lg p-3 border border-gray-200">
                 <div className="flex flex-col gap-2">
                     <span className="text-sm font-semibold text-gray-800 uppercase">
                         Precio Unitario
                     </span>
                     <span className="text-xl text-center font-medium text-gray-800">
-                        ${priceData?.unitPrice}
+                        {('$' + itemForCart?.priceData?.finalPrice )|| 'Seleccionar variante.'}
                     </span>
                 </div>
                 <div className="flex flex-col gap-2">
@@ -316,13 +294,12 @@ function ProductCustomizationPreview() {
                         Precio Total
                     </span>
                     <span className="text-xl text-center font-medium text-gray-800">
-                        ${priceData?.totalPrice}
+                        {( '$' +totalForThisProduct ) || 'Seleccionar variante.'}
                     </span>
                 </div>
             </div>
         </div>
     )
-
 }
 
 
@@ -368,9 +345,12 @@ function ProductVariantSelector() {
                                 <div className="flex flex-col gap-1">
                                     <div className="flex items-center gap-2">
                                         <span className="text-lg">
-                                            {optionVariant?.emoji || '📌'}
+                                            {optionVariant?.emoji}
                                         </span>
                                         <span className="text-sm font-semibold">{optionVariant?.label}</span>
+                                        <span className="text-sm text-green-600 font-medium ">
+                                             ${optionVariant?.price?.finalPrice}
+                                         </span>
                                     </div>
                                     {optionVariant.affectPrice > 0 && (
                                         <span className="text-xs text-green-600 font-medium ml-7">

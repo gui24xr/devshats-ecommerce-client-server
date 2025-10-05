@@ -1,8 +1,6 @@
 import { create } from "zustand";
 import axios from "axios";
 
-
-
 // URL base dinámica que funciona tanto en localhost como en ngrok
 const getBaseUrl = () => {
     if (typeof window !== 'undefined') {
@@ -31,12 +29,9 @@ const useProductsStore = create((set, get) => ({
     fetchProducts: async () => {
         set({ loading: true, error: null });
         try {
-
             const baseUrl = getBaseUrl();
             console.log('Fetching from:', baseUrl);
-
             const { data } = await axios.get(`${baseUrl}/api/products`);
-            console.log('data: ', data)
             set({
                 loading: false,
                 loaded: true,
@@ -45,31 +40,24 @@ const useProductsStore = create((set, get) => ({
                 productsStats: data.stats,
                 filteredProducts: data.products,
                 productsOrderByCategories: getProductsOrderByCategories(data.categories, data.products)
-            });
-
-
-
+            })
         } catch (error) {
             set({ error: error });
         } finally {
             set({ loading: false });
         }
     },
-    mapProductsCategories:(products: any) => {
-
-    },
 
     filterProductsByCategories: (categoryId: string ) => {
-        
         if (categoryId === 'all_categories') {
             set({
                 filteredProducts: get().products,
                 selectedCategory: get().categories.find((category: any) => category.id === 'all_categories')
-            });
+            })
             return;
         }
+
         const filteredProducts = get().products.filter((product: any) => product.categories.some((category: any) => category.id === categoryId));
-       
         set({
             filteredProducts: filteredProducts,
             selectedCategory: get().categories.find((category: any) => category.id === categoryId)
@@ -83,7 +71,6 @@ const useProductsStore = create((set, get) => ({
             filteredProducts: filteredProducts
         });
     },
-
     getProductById: (productId: string) => {
         return get().products.find((product: any) => product.id === productId);
     },
@@ -91,8 +78,6 @@ const useProductsStore = create((set, get) => ({
 }))
 
 export default useProductsStore;
-
-
 
 
 

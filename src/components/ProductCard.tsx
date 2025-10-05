@@ -5,7 +5,7 @@ import { useProductBuilderStore } from "@/stores"
 
 
 const getInitialVariantId = (product: any) => {
-  if (product.hasVariants) {
+  if (product.templateVariant) {
     const selectedVariant = product?.templateVariant.options.find(item => item.isDefault == true)
     return selectedVariant?.id
   }
@@ -13,7 +13,7 @@ const getInitialVariantId = (product: any) => {
 }
 
 const getProductPrice = (product: any, selectedVariantId: any) => {
-  if (product?.hasVariants) {
+  if (product?.templateVariant) {
     const selectedVariant = product?.templateVariant.options.find(item => item.id == selectedVariantId)
     return selectedVariant?.price
   }

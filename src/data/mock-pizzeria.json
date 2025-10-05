@@ -377,8 +377,6 @@
           "isNew": false,
           "isPopular": true
         },
-        "hasVariants": true,
-        "isCustomizable": false,
         "templateVariant": {
           "name": "tamaño",
           "label": "Tamaño",
@@ -389,7 +387,7 @@
               "label": "Individual",
               "price": {
                 "basePrice": 8.99,
-                "discount": 1.50,
+                "discount": 1.5,
                 "finalPrice": 7.49
               },
               "sku": "PIZZA-MOZ-HOR",
@@ -406,7 +404,7 @@
               "label": "Mediana",
               "price": {
                 "basePrice": 12.99,
-                "discount": 2.00,
+                "discount": 2,
                 "finalPrice": 10.99
               },
               "sku": "PIZZA-MOZ-MED",
@@ -423,7 +421,7 @@
               "label": "Grande",
               "price": {
                 "basePrice": 16.99,
-                "discount": 2.50,
+                "discount": 2.5,
                 "finalPrice": 14.49
               },
               "sku": "PIZZA-MOZ-GRA",
@@ -436,7 +434,7 @@
             }
           ]
         },
-        "customizationTemplate": null
+        "customizationFeaturesTemplate": null
       },
       {
         "id": "prod_002_pizza_napolitana",
@@ -476,8 +474,6 @@
           "isNew": false,
           "isPopular": false
         },
-        "hasVariants": true,
-        "isCustomizable": false,
         "templateVariant": {
           "name": "tamaño",
           "label": "Tamaño",
@@ -535,7 +531,7 @@
             }
           ]
         },
-        "customizationTemplate": null
+        "customizationFeaturesTemplate": null
       },
       {
         "id": "prod_003_pizza_fugazzeta",
@@ -575,8 +571,6 @@
           "isNew": false,
           "isPopular": true
         },
-        "hasVariants": true,
-        "isCustomizable": false,
         "templateVariant": {
           "name": "tamaño",
           "label": "Tamaño",
@@ -586,9 +580,9 @@
               "name": "Individual",
               "label": "Individual",
               "price": {
-                "basePrice": 8.50,
-                "discount": 1.00,
-                "finalPrice": 7.50
+                "basePrice": 8.5,
+                "discount": 1,
+                "finalPrice": 7.5
               },
               "sku": "PIZZA-FUG-HOR",
               "prepTime": {
@@ -603,7 +597,7 @@
               "name": "Mediana",
               "label": "Mediana",
               "price": {
-                "basePrice": 11.50,
+                "basePrice": 11.5,
                 "discount": 1.51,
                 "finalPrice": 9.99
               },
@@ -620,9 +614,9 @@
               "name": "Grande",
               "label": "Grande",
               "price": {
-                "basePrice": 15.50,
-                "discount": 2.00,
-                "finalPrice": 13.50
+                "basePrice": 15.5,
+                "discount": 2,
+                "finalPrice": 13.5
               },
               "sku": "PIZZA-FUG-GRA",
               "prepTime": {
@@ -634,7 +628,7 @@
             }
           ]
         },
-        "customizationTemplate": null
+        "customizationFeaturesTemplate": null
       },
       {
         "id": "prod_004_empanadas_carne",
@@ -674,8 +668,6 @@
           "isNew": false,
           "isPopular": true
         },
-        "hasVariants": true,
-        "isCustomizable": false,
         "templateVariant": {
           "name": "coccion",
           "label": "Cocción",
@@ -685,9 +677,9 @@
               "name": "Horno de barro",
               "label": "Horno de barro",
               "price": {
-                "basePrice": 1.50,
-                "discount": 0.30,
-                "finalPrice": 1.20
+                "basePrice": 1.5,
+                "discount": 0.3,
+                "finalPrice": 1.2
               },
               "sku": "EMP-CAR-HOR",
               "prepTime": {
@@ -702,9 +694,9 @@
               "name": "Fritas",
               "label": "Fritas",
               "price": {
-                "basePrice": 1.40,
-                "discount": 0.20,
-                "finalPrice": 1.20
+                "basePrice": 1.4,
+                "discount": 0.2,
+                "finalPrice": 1.2
               },
               "sku": "EMP-CAR-FRI",
               "prepTime": {
@@ -716,7 +708,7 @@
             }
           ]
         },
-        "customizationTemplate": null
+        "customizationFeaturesTemplate": null
       },
       {
         "id": "prod_005_empanadas_jamon_queso",
@@ -755,8 +747,6 @@
           "isNew": false,
           "isPopular": false
         },
-        "hasVariants": true,
-        "isCustomizable": false,
         "templateVariant": {
           "name": "coccion",
           "label": "Cocción",
@@ -766,9 +756,9 @@
               "name": "Horno de barro",
               "label": "Horno de barro",
               "price": {
-                "basePrice": 1.60,
+                "basePrice": 1.6,
                 "discount": null,
-                "finalPrice": 1.60
+                "finalPrice": 1.6
               },
               "sku": "EMP-JQ-HOR",
               "prepTime": {
@@ -783,9 +773,9 @@
               "name": "Fritas",
               "label": "Fritas",
               "price": {
-                "basePrice": 1.50,
+                "basePrice": 1.5,
                 "discount": null,
-                "finalPrice": 1.50
+                "finalPrice": 1.5
               },
               "sku": "EMP-JQ-FRI",
               "prepTime": {
@@ -797,7 +787,7 @@
             }
           ]
         },
-        "customizationTemplate": null
+        "customizationFeaturesTemplate": null
       },
       {
         "id": "prod_006_empanadas_pollo",
@@ -836,8 +826,6 @@
           "isNew": false,
           "isPopular": false
         },
-        "hasVariants": true,
-        "isCustomizable": false,
         "templateVariant": {
           "name": "coccion",
           "label": "Cocción",
@@ -849,7 +837,7 @@
               "price": {
                 "basePrice": 1.55,
                 "discount": 0.25,
-                "finalPrice": 1.30
+                "finalPrice": 1.3
               },
               "sku": "EMP-POL-HOR",
               "prepTime": {
@@ -866,7 +854,7 @@
               "price": {
                 "basePrice": 1.45,
                 "discount": 0.15,
-                "finalPrice": 1.30
+                "finalPrice": 1.3
               },
               "sku": "EMP-POL-FRI",
               "prepTime": {
@@ -878,7 +866,7 @@
             }
           ]
         },
-        "customizationTemplate": null
+        "customizationFeaturesTemplate": null
       },
       {
         "id": "prod_007_pizza_calabresa",
@@ -918,8 +906,6 @@
           "isNew": false,
           "isPopular": true
         },
-        "hasVariants": true,
-        "isCustomizable": false,
         "templateVariant": {
           "name": "tamaño",
           "label": "Tamaño",
@@ -929,9 +915,9 @@
               "name": "Individual",
               "label": "Individual",
               "price": {
-                "basePrice": 9.00,
-                "discount": 1.00,
-                "finalPrice": 8.00
+                "basePrice": 9,
+                "discount": 1,
+                "finalPrice": 8
               },
               "sku": "PIZZA-CAL-HOR",
               "prepTime": {
@@ -946,9 +932,9 @@
               "name": "Mediana",
               "label": "Mediana",
               "price": {
-                "basePrice": 12.00,
-                "discount": 1.50,
-                "finalPrice": 10.50
+                "basePrice": 12,
+                "discount": 1.5,
+                "finalPrice": 10.5
               },
               "sku": "PIZZA-CAL-MED",
               "prepTime": {
@@ -963,9 +949,9 @@
               "name": "Grande",
               "label": "Grande",
               "price": {
-                "basePrice": 16.00,
-                "discount": 2.00,
-                "finalPrice": 14.00
+                "basePrice": 16,
+                "discount": 2,
+                "finalPrice": 14
               },
               "sku": "PIZZA-CAL-GRA",
               "prepTime": {
@@ -977,7 +963,7 @@
             }
           ]
         },
-        "customizationTemplate": null
+        "customizationFeaturesTemplate": null
       },
       {
         "id": "prod_008_pizza_cuatro_quesos",
@@ -1016,8 +1002,6 @@
           "isNew": false,
           "isPopular": true
         },
-        "hasVariants": true,
-        "isCustomizable": false,
         "templateVariant": {
           "name": "tamaño",
           "label": "Tamaño",
@@ -1027,9 +1011,9 @@
               "name": "Mediana",
               "label": "Mediana",
               "price": {
-                "basePrice": 13.00,
+                "basePrice": 13,
                 "discount": null,
-                "finalPrice": 13.00
+                "finalPrice": 13
               },
               "sku": "PIZZA-4Q-MED",
               "prepTime": {
@@ -1044,9 +1028,9 @@
               "name": "Grande",
               "label": "Grande",
               "price": {
-                "basePrice": 17.50,
+                "basePrice": 17.5,
                 "discount": null,
-                "finalPrice": 17.50
+                "finalPrice": 17.5
               },
               "sku": "PIZZA-4Q-GRA",
               "prepTime": {
@@ -1058,7 +1042,7 @@
             }
           ]
         },
-        "customizationTemplate": null
+        "customizationFeaturesTemplate": null
       },
       {
         "id": "prod_009_pizza_pepperoni",
@@ -1098,8 +1082,6 @@
           "isNew": false,
           "isPopular": true
         },
-        "hasVariants": true,
-        "isCustomizable": false,
         "templateVariant": {
           "name": "tamaño",
           "label": "Tamaño",
@@ -1109,9 +1091,9 @@
               "name": "Mediana",
               "label": "Mediana",
               "price": {
-                "basePrice": 12.50,
-                "discount": 1.50,
-                "finalPrice": 11.00
+                "basePrice": 12.5,
+                "discount": 1.5,
+                "finalPrice": 11
               },
               "sku": "PIZZA-PEP-MED",
               "prepTime": {
@@ -1126,9 +1108,9 @@
               "name": "Grande",
               "label": "Grande",
               "price": {
-                "basePrice": 16.50,
-                "discount": 2.00,
-                "finalPrice": 14.50
+                "basePrice": 16.5,
+                "discount": 2,
+                "finalPrice": 14.5
               },
               "sku": "PIZZA-PEP-GRA",
               "prepTime": {
@@ -1140,7 +1122,7 @@
             }
           ]
         },
-        "customizationTemplate": null
+        "customizationFeaturesTemplate": null
       },
       {
         "id": "prod_010_pizza_vegetariana",
@@ -1180,8 +1162,6 @@
           "isNew": false,
           "isPopular": false
         },
-        "hasVariants": true,
-        "isCustomizable": false,
         "templateVariant": {
           "name": "tamaño",
           "label": "Tamaño",
@@ -1193,7 +1173,7 @@
               "price": {
                 "basePrice": 10.99,
                 "discount": 1.49,
-                "finalPrice": 9.50
+                "finalPrice": 9.5
               },
               "sku": "PIZZA-VEG-HOR",
               "prepTime": {
@@ -1210,7 +1190,7 @@
               "price": {
                 "basePrice": 13.99,
                 "discount": 1.99,
-                "finalPrice": 12.00
+                "finalPrice": 12
               },
               "sku": "PIZZA-VEG-MED",
               "prepTime": {
@@ -1227,7 +1207,7 @@
               "price": {
                 "basePrice": 17.99,
                 "discount": 2.49,
-                "finalPrice": 15.50
+                "finalPrice": 15.5
               },
               "sku": "PIZZA-VEG-GRA",
               "prepTime": {
@@ -1239,7 +1219,7 @@
             }
           ]
         },
-        "customizationTemplate": null
+        "customizationFeaturesTemplate": null
       },
       {
         "id": "prod_011_pizza_hawaiana",
@@ -1279,8 +1259,6 @@
           "isNew": false,
           "isPopular": false
         },
-        "hasVariants": true,
-        "isCustomizable": false,
         "templateVariant": {
           "name": "tamaño",
           "label": "Tamaño",
@@ -1321,7 +1299,7 @@
             }
           ]
         },
-        "customizationTemplate": null
+        "customizationFeaturesTemplate": null
       },
       {
         "id": "prod_012_pizza_caprese",
@@ -1361,8 +1339,6 @@
           "isNew": false,
           "isPopular": false
         },
-        "hasVariants": true,
-        "isCustomizable": false,
         "templateVariant": {
           "name": "tamaño",
           "label": "Tamaño",
@@ -1372,9 +1348,9 @@
               "name": "Mediana",
               "label": "Mediana",
               "price": {
-                "basePrice": 10.50,
-                "discount": 1.50,
-                "finalPrice": 9.00
+                "basePrice": 10.5,
+                "discount": 1.5,
+                "finalPrice": 9
               },
               "sku": "PIZZA-CAP-MED",
               "prepTime": {
@@ -1389,9 +1365,9 @@
               "name": "Grande",
               "label": "Grande",
               "price": {
-                "basePrice": 14.50,
-                "discount": 2.00,
-                "finalPrice": 12.50
+                "basePrice": 14.5,
+                "discount": 2,
+                "finalPrice": 12.5
               },
               "sku": "PIZZA-CAP-GRA",
               "prepTime": {
@@ -1403,7 +1379,7 @@
             }
           ]
         },
-        "customizationTemplate": null
+        "customizationFeaturesTemplate": null
       },
       {
         "id": "prod_013_pizza_bbq_pollo",
@@ -1443,8 +1419,6 @@
           "isNew": false,
           "isPopular": true
         },
-        "hasVariants": true,
-        "isCustomizable": false,
         "templateVariant": {
           "name": "tamaño",
           "label": "Tamaño",
@@ -1454,9 +1428,9 @@
               "name": "Mediana",
               "label": "Mediana",
               "price": {
-                "basePrice": 13.50,
-                "discount": 2.00,
-                "finalPrice": 11.50
+                "basePrice": 13.5,
+                "discount": 2,
+                "finalPrice": 11.5
               },
               "sku": "PIZZA-BBQ-MED",
               "prepTime": {
@@ -1471,9 +1445,9 @@
               "name": "Grande",
               "label": "Grande",
               "price": {
-                "basePrice": 17.50,
-                "discount": 2.50,
-                "finalPrice": 15.00
+                "basePrice": 17.5,
+                "discount": 2.5,
+                "finalPrice": 15
               },
               "sku": "PIZZA-BBQ-GRA",
               "prepTime": {
@@ -1485,7 +1459,7 @@
             }
           ]
         },
-        "customizationTemplate": null
+        "customizationFeaturesTemplate": null
       },
       {
         "id": "prod_014_empanadas_verdura",
@@ -1525,8 +1499,6 @@
           "isNew": false,
           "isPopular": false
         },
-        "hasVariants": true,
-        "isCustomizable": false,
         "templateVariant": {
           "name": "coccion",
           "label": "Cocción",
@@ -1536,9 +1508,9 @@
               "name": "Horno de barro",
               "label": "Horno de barro",
               "price": {
-                "basePrice": 1.40,
+                "basePrice": 1.4,
                 "discount": null,
-                "finalPrice": 1.40
+                "finalPrice": 1.4
               },
               "sku": "EMP-VER-HOR",
               "prepTime": {
@@ -1553,9 +1525,9 @@
               "name": "Fritas",
               "label": "Fritas",
               "price": {
-                "basePrice": 1.30,
+                "basePrice": 1.3,
                 "discount": null,
-                "finalPrice": 1.30
+                "finalPrice": 1.3
               },
               "sku": "EMP-VER-FRI",
               "prepTime": {
@@ -1567,7 +1539,7 @@
             }
           ]
         },
-        "customizationTemplate": null
+        "customizationFeaturesTemplate": null
       },
       {
         "id": "prod_015_empanadas_humita",
@@ -1607,8 +1579,6 @@
           "isNew": false,
           "isPopular": false
         },
-        "hasVariants": true,
-        "isCustomizable": false,
         "templateVariant": {
           "name": "coccion",
           "label": "Cocción",
@@ -1618,9 +1588,9 @@
               "name": "Horno de barro",
               "label": "Horno de barro",
               "price": {
-                "basePrice": 1.70,
-                "discount": 0.20,
-                "finalPrice": 1.50
+                "basePrice": 1.7,
+                "discount": 0.2,
+                "finalPrice": 1.5
               },
               "sku": "EMP-HUM-HOR",
               "prepTime": {
@@ -1635,9 +1605,9 @@
               "name": "Fritas",
               "label": "Fritas",
               "price": {
-                "basePrice": 10.20,
-                "discount": 1.20,
-                "finalPrice": 9.00
+                "basePrice": 10.2,
+                "discount": 1.2,
+                "finalPrice": 9
               },
               "sku": "EMP-HUM-FRI",
               "prepTime": {
@@ -1649,7 +1619,7 @@
             }
           ]
         },
-        "customizationTemplate": null
+        "customizationFeaturesTemplate": null
       },
       {
         "id": "prod_016_empanadas_arabes",
@@ -1689,8 +1659,6 @@
           "isNew": false,
           "isPopular": true
         },
-        "hasVariants": true,
-        "isCustomizable": false,
         "templateVariant": {
           "name": "coccion",
           "label": "Cocción",
@@ -1700,9 +1668,9 @@
               "name": "Horno de barro",
               "label": "Horno de barro",
               "price": {
-                "basePrice": 1.80,
-                "discount": 0.30,
-                "finalPrice": 1.50
+                "basePrice": 1.8,
+                "discount": 0.3,
+                "finalPrice": 1.5
               },
               "sku": "EMP-ARA-HOR",
               "prepTime": {
@@ -1717,9 +1685,9 @@
               "name": "Fritas",
               "label": "Fritas",
               "price": {
-                "basePrice": 10.80,
-                "discount": 1.80,
-                "finalPrice": 9.00
+                "basePrice": 10.8,
+                "discount": 1.8,
+                "finalPrice": 9
               },
               "sku": "EMP-ARA-FRI",
               "prepTime": {
@@ -1731,7 +1699,7 @@
             }
           ]
         },
-        "customizationTemplate": null
+        "customizationFeaturesTemplate": null
       },
       {
         "id": "prod_017_empanadas_cebolla_queso",
@@ -1770,8 +1738,6 @@
           "isNew": false,
           "isPopular": false
         },
-        "hasVariants": true,
-        "isCustomizable": false,
         "templateVariant": {
           "name": "coccion",
           "label": "Cocción",
@@ -1781,9 +1747,9 @@
               "name": "Horno de barro",
               "label": "Horno de barro",
               "price": {
-                "basePrice": 1.60,
+                "basePrice": 1.6,
                 "discount": null,
-                "finalPrice": 1.60
+                "finalPrice": 1.6
               },
               "sku": "EMP-CQ-HOR",
               "prepTime": {
@@ -1798,9 +1764,9 @@
               "name": "Fritas",
               "label": "Fritas",
               "price": {
-                "basePrice": 9.60,
+                "basePrice": 9.6,
                 "discount": null,
-                "finalPrice": 9.60
+                "finalPrice": 9.6
               },
               "sku": "EMP-CQ-FRI",
               "prepTime": {
@@ -1812,7 +1778,7 @@
             }
           ]
         },
-        "customizationTemplate": null
+        "customizationFeaturesTemplate": null
       },
       {
         "id": "prod_018_empanadas_atun",
@@ -1835,7 +1801,7 @@
           }
         ],
         "reviewsCount": 45,
-        "rating": 4.0,
+        "rating": 4,
         "tags": [
           "atún",
           "pescado",
@@ -1852,8 +1818,6 @@
           "isNew": false,
           "isPopular": false
         },
-        "hasVariants": true,
-        "isCustomizable": false,
         "templateVariant": {
           "name": "coccion",
           "label": "Cocción",
@@ -1863,9 +1827,9 @@
               "name": "Horno de barro",
               "label": "Horno de barro",
               "price": {
-                "basePrice": 1.90,
-                "discount": 0.30,
-                "finalPrice": 1.60
+                "basePrice": 1.9,
+                "discount": 0.3,
+                "finalPrice": 1.6
               },
               "sku": "EMP-ATU-HOR",
               "prepTime": {
@@ -1880,9 +1844,9 @@
               "name": "Fritas",
               "label": "Fritas",
               "price": {
-                "basePrice": 11.40,
-                "discount": 1.80,
-                "finalPrice": 9.60
+                "basePrice": 11.4,
+                "discount": 1.8,
+                "finalPrice": 9.6
               },
               "sku": "EMP-ATU-FRI",
               "prepTime": {
@@ -1894,7 +1858,7 @@
             }
           ]
         },
-        "customizationTemplate": null
+        "customizationFeaturesTemplate": null
       },
       {
         "id": "prod_019_empanadas_caprese",
@@ -1934,8 +1898,6 @@
           "isNew": false,
           "isPopular": false
         },
-        "hasVariants": true,
-        "isCustomizable": false,
         "templateVariant": {
           "name": "coccion",
           "label": "Cocción",
@@ -1947,7 +1909,7 @@
               "price": {
                 "basePrice": 1.65,
                 "discount": 0.25,
-                "finalPrice": 1.40
+                "finalPrice": 1.4
               },
               "sku": "EMP-CAP-HOR",
               "prepTime": {
@@ -1962,9 +1924,9 @@
               "name": "Fritas",
               "label": "Fritas",
               "price": {
-                "basePrice": 9.90,
-                "discount": 1.50,
-                "finalPrice": 8.40
+                "basePrice": 9.9,
+                "discount": 1.5,
+                "finalPrice": 8.4
               },
               "sku": "EMP-CAP-FRI",
               "prepTime": {
@@ -1976,7 +1938,7 @@
             }
           ]
         },
-        "customizationTemplate": null
+        "customizationFeaturesTemplate": null
       },
       {
         "id": "prod_020_empanadas_picantes",
@@ -2016,8 +1978,6 @@
           "isNew": false,
           "isPopular": false
         },
-        "hasVariants": true,
-        "isCustomizable": false,
         "templateVariant": {
           "name": "coccion",
           "label": "Cocción",
@@ -2044,9 +2004,9 @@
               "name": "Fritas",
               "label": "Fritas",
               "price": {
-                "basePrice": 10.50,
+                "basePrice": 10.5,
                 "discount": null,
-                "finalPrice": 10.50
+                "finalPrice": 10.5
               },
               "sku": "EMP-PIC-FRI",
               "prepTime": {
@@ -2058,7 +2018,7 @@
             }
           ]
         },
-        "customizationTemplate": null
+        "customizationFeaturesTemplate": null
       },
       {
         "id": "prod_019_empanadas_dozen",
@@ -2085,8 +2045,6 @@
           }
         ],
         "isActive": true,
-        "isCustomizable": true,
-        "hasVariants": false,
         "reviewsCount": 203,
         "rating": 4.8,
         "tags": [
@@ -2106,289 +2064,287 @@
           "isNew": false,
           "isPopular": true
         },
-        "customizationTemplate": {
-          "features": [
-            {
-              "id": "gustos_empanadas",
-              "name": "Gustos de Empanadas",
-              "description": "Selecciona los gustos que deseas para tu pedido",
-              "type": "combo",
-              "emoji": "🥟",
-              "icon": "🥟",
-              "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
-              "constraints": {
-                "minTotal": 1,
-                "maxTotal": 12,
-                "minPerOption": 0,
-                "maxPerOption": 6,
-                "exactTotal": false,
-                "required": true
-              },
-              "options": [
-                {
-                  "id": "carne",
-                  "name": "Carne",
-                  "description": "Empanada rellena de carne picada condimentada",
-                  "priceModifier": 0,
-                  "available": true,
-                  "minQuantity": 0,
-                  "maxQuantity": 6,
-                  "sortOrder": 1,
-                  "category": "clasicas",
-                  "emoji": "🥩",
-                  "icon": "🥩",
-                  "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
-                },
-                {
-                  "id": "pollo",
-                  "name": "Pollo",
-                  "description": "Empanada de pollo desmenuzado con especias",
-                  "priceModifier": 0,
-                  "available": true,
-                  "minQuantity": 0,
-                  "maxQuantity": 6,
-                  "sortOrder": 2,
-                  "category": "clasicas",
-                  "emoji": "🐔",
-                  "icon": "🐔",
-                  "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
-                },
-                {
-                  "id": "jamón_queso",
-                  "name": "Jamón y Queso",
-                  "description": "Empanada clásica de jamón cocido y queso",
-                  "priceModifier": 0,
-                  "available": true,
-                  "minQuantity": 0,
-                  "maxQuantity": 6,
-                  "sortOrder": 3,
-                  "category": "clasicas",
-                  "emoji": "🧀",
-                  "icon": "🧀",
-                  "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
-                },
-                {
-                  "id": "humita",
-                  "name": "Humita",
-                  "description": "Empanada dulce de choclo con cebolla blanca",
-                  "priceModifier": 0,
-                  "available": true,
-                  "minQuantity": 0,
-                  "maxQuantity": 6,
-                  "sortOrder": 4,
-                  "category": "vegetarianas",
-                  "emoji": "🌽",
-                  "icon": "🌽",
-                  "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
-                },
-                {
-                  "id": "caprese",
-                  "name": "Caprese",
-                  "description": "Empanada de tomate, mozzarella y albahaca",
-                  "priceModifier": 0.5,
-                  "available": true,
-                  "minQuantity": 0,
-                  "maxQuantity": 6,
-                  "sortOrder": 5,
-                  "category": "vegetarianas",
-                  "emoji": "🍅",
-                  "icon": "🍅",
-                  "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
-                },
-                {
-                  "id": "carne_picante",
-                  "name": "Carne Picante",
-                  "description": "Empanada de carne con ají molido y locoto",
-                  "priceModifier": 0.25,
-                  "available": true,
-                  "minQuantity": 0,
-                  "maxQuantity": 6,
-                  "sortOrder": 6,
-                  "category": "picantes",
-                  "emoji": "🌶️",
-                  "icon": "🌶️",
-                  "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
-                },
-                {
-                  "id": "roquefort",
-                  "name": "Roquefort",
-                  "description": "Empanada de queso roquefort con nueces",
-                  "priceModifier": 1.0,
-                  "available": true,
-                  "minQuantity": 0,
-                  "maxQuantity": 6,
-                  "sortOrder": 7,
-                  "category": "gourmet",
-                  "emoji": "🧄",
-                  "icon": "🧄",
-                  "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
-                },
-                {
-                  "id": "verdura",
-                  "name": "Verdura",
-                  "description": "Empanada de acelga, cebolla y huevo",
-                  "priceModifier": 0,
-                  "available": true,
-                  "minQuantity": 0,
-                  "maxQuantity": 6,
-                  "sortOrder": 8,
-                  "category": "vegetarianas",
-                  "emoji": "🥬",
-                  "icon": "🥬",
-                  "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
-                },
-                {
-                  "id": "atun",
-                  "name": "Atún",
-                  "description": "Empanada de atún con cebolla y aceitunas",
-                  "priceModifier": 0.75,
-                  "available": true,
-                  "minQuantity": 0,
-                  "maxQuantity": 6,
-                  "sortOrder": 9,
-                  "category": "pescado",
-                  "emoji": "🐟",
-                  "icon": "🐟",
-                  "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
-                },
-                {
-                  "id": "dulce_membrillo",
-                  "name": "Dulce de Membrillo",
-                  "description": "Empanada dulce rellena de membrillo",
-                  "priceModifier": 0,
-                  "available": true,
-                  "minQuantity": 0,
-                  "maxQuantity": 6,
-                  "sortOrder": 10,
-                  "category": "dulces",
-                  "emoji": "🍯",
-                  "icon": "🍯",
-                  "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
-                },
-                {
-                  "id": "dulce_batata",
-                  "name": "Dulce de Batata",
-                  "description": "Empanada dulce rellena de batata",
-                  "priceModifier": 0,
-                  "available": true,
-                  "minQuantity": 0,
-                  "maxQuantity": 6,
-                  "sortOrder": 11,
-                  "category": "dulces",
-                  "emoji": "🍠",
-                  "icon": "🍠",
-                  "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
-                },
-                {
-                  "id": "cebolla_queso",
-                  "name": "Cebolla y Queso",
-                  "description": "Empanada de cebolla caramelizada con queso",
-                  "priceModifier": 0.25,
-                  "available": true,
-                  "minQuantity": 0,
-                  "maxQuantity": 6,
-                  "sortOrder": 12,
-                  "category": "vegetarianas",
-                  "emoji": "🧅",
-                  "icon": "🧅",
-                  "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
-                }
-              ]
+        "customizationFeaturesTemplate": [
+          {
+            "id": "gustos_empanadas",
+            "name": "Gustos de Empanadas",
+            "description": "Selecciona los gustos que deseas para tu pedido",
+            "type": "combo",
+            "emoji": "🥟",
+            "icon": "🥟",
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+            "constraints": {
+              "minTotal": 1,
+              "maxTotal": 12,
+              "minPerOption": 0,
+              "maxPerOption": 6,
+              "exactTotal": false,
+              "required": true
             },
-            {
-              "id": "tipo_masa",
-              "name": "Tipo de Masa",
-              "description": "Elige el tipo de masa para tus empanadas",
-              "type": "variant",
-              "emoji": "🥟",
-              "icon": "🥟",
-              "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
-              "constraints": {
-                "required": true,
-                "allowMultiple": false,
-                "hasDefault": true
+            "options": [
+              {
+                "id": "carne",
+                "name": "Carne",
+                "description": "Empanada rellena de carne picada condimentada",
+                "priceModifier": 0,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 1,
+                "category": "clasicas",
+                "emoji": "🥩",
+                "icon": "🥩",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
               },
-              "options": [
-                {
-                  "id": "horno",
-                  "name": "Al Horno",
-                  "description": "Masa tradicional horneada, más liviana",
-                  "priceModifier": 0,
-                  "available": true,
-                  "default": true,
-                  "sortOrder": 1,
-                  "emoji": "🔥",
-                  "icon": "🔥",
-                  "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
-                },
-                {
-                  "id": "frita",
-                  "name": "Frita",
-                  "description": "Masa dorada y crocante, frita en aceite",
-                  "priceModifier": 0.5,
-                  "available": true,
-                  "default": false,
-                  "sortOrder": 2,
-                  "emoji": "🍳",
-                  "icon": "🍳",
-                  "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
-                }
-              ]
+              {
+                "id": "pollo",
+                "name": "Pollo",
+                "description": "Empanada de pollo desmenuzado con especias",
+                "priceModifier": 0,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 2,
+                "category": "clasicas",
+                "emoji": "🐔",
+                "icon": "🐔",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "jamón_queso",
+                "name": "Jamón y Queso",
+                "description": "Empanada clásica de jamón cocido y queso",
+                "priceModifier": 0,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 3,
+                "category": "clasicas",
+                "emoji": "🧀",
+                "icon": "🧀",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "humita",
+                "name": "Humita",
+                "description": "Empanada dulce de choclo con cebolla blanca",
+                "priceModifier": 0,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 4,
+                "category": "vegetarianas",
+                "emoji": "🌽",
+                "icon": "🌽",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "caprese",
+                "name": "Caprese",
+                "description": "Empanada de tomate, mozzarella y albahaca",
+                "priceModifier": 0.5,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 5,
+                "category": "vegetarianas",
+                "emoji": "🍅",
+                "icon": "🍅",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "carne_picante",
+                "name": "Carne Picante",
+                "description": "Empanada de carne con ají molido y locoto",
+                "priceModifier": 0.25,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 6,
+                "category": "picantes",
+                "emoji": "🌶️",
+                "icon": "🌶️",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "roquefort",
+                "name": "Roquefort",
+                "description": "Empanada de queso roquefort con nueces",
+                "priceModifier": 1,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 7,
+                "category": "gourmet",
+                "emoji": "🧄",
+                "icon": "🧄",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "verdura",
+                "name": "Verdura",
+                "description": "Empanada de acelga, cebolla y huevo",
+                "priceModifier": 0,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 8,
+                "category": "vegetarianas",
+                "emoji": "🥬",
+                "icon": "🥬",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "atun",
+                "name": "Atún",
+                "description": "Empanada de atún con cebolla y aceitunas",
+                "priceModifier": 0.75,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 9,
+                "category": "pescado",
+                "emoji": "🐟",
+                "icon": "🐟",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "dulce_membrillo",
+                "name": "Dulce de Membrillo",
+                "description": "Empanada dulce rellena de membrillo",
+                "priceModifier": 0,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 10,
+                "category": "dulces",
+                "emoji": "🍯",
+                "icon": "🍯",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "dulce_batata",
+                "name": "Dulce de Batata",
+                "description": "Empanada dulce rellena de batata",
+                "priceModifier": 0,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 11,
+                "category": "dulces",
+                "emoji": "🍠",
+                "icon": "🍠",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "cebolla_queso",
+                "name": "Cebolla y Queso",
+                "description": "Empanada de cebolla caramelizada con queso",
+                "priceModifier": 0.25,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 12,
+                "category": "vegetarianas",
+                "emoji": "🧅",
+                "icon": "🧅",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              }
+            ]
+          },
+          {
+            "id": "tipo_masa",
+            "name": "Tipo de Masa",
+            "description": "Elige el tipo de masa para tus empanadas",
+            "type": "variant",
+            "emoji": "🥟",
+            "icon": "🥟",
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+            "constraints": {
+              "required": true,
+              "allowMultiple": false,
+              "hasDefault": true
             },
-            {
-              "id": "coccion",
-              "name": "Punto de Cocción",
-              "description": "Elige qué tan doraditas quieres tus empanadas",
-              "type": "variant",
-              "emoji": "🌡️",
-              "icon": "🌡️",
-              "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
-              "constraints": {
-                "required": true,
-                "allowMultiple": false,
-                "hasDefault": true
+            "options": [
+              {
+                "id": "horno",
+                "name": "Al Horno",
+                "description": "Masa tradicional horneada, más liviana",
+                "priceModifier": 0,
+                "available": true,
+                "default": true,
+                "sortOrder": 1,
+                "emoji": "🔥",
+                "icon": "🔥",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
               },
-              "options": [
-                {
-                  "id": "dorado_suave",
-                  "name": "Dorado Suave",
-                  "description": "Cocción ligera, masa más blanda",
-                  "priceModifier": 0,
-                  "available": true,
-                  "default": false,
-                  "sortOrder": 1,
-                  "emoji": "🟡",
-                  "icon": "🟡",
-                  "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
-                },
-                {
-                  "id": "dorado_medio",
-                  "name": "Dorado Medio",
-                  "description": "Cocción perfecta, equilibrio ideal",
-                  "priceModifier": 0,
-                  "available": true,
-                  "default": true,
-                  "sortOrder": 2,
-                  "emoji": "🟠",
-                  "icon": "🟠",
-                  "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
-                },
-                {
-                  "id": "bien_dorado",
-                  "name": "Bien Dorado",
-                  "description": "Cocción intensa, masa bien crocante",
-                  "priceModifier": 0,
-                  "available": true,
-                  "default": false,
-                  "sortOrder": 3,
-                  "emoji": "🟤",
-                  "icon": "🟤",
-                  "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
-                }
-              ]
-            }
-          ]
-        }
+              {
+                "id": "frita",
+                "name": "Frita",
+                "description": "Masa dorada y crocante, frita en aceite",
+                "priceModifier": 0.5,
+                "available": true,
+                "default": false,
+                "sortOrder": 2,
+                "emoji": "🍳",
+                "icon": "🍳",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              }
+            ]
+          },
+          {
+            "id": "coccion",
+            "name": "Punto de Cocción",
+            "description": "Elige qué tan doraditas quieres tus empanadas",
+            "type": "variant",
+            "emoji": "🌡️",
+            "icon": "🌡️",
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+            "constraints": {
+              "required": true,
+              "allowMultiple": false,
+              "hasDefault": true
+            },
+            "options": [
+              {
+                "id": "dorado_suave",
+                "name": "Dorado Suave",
+                "description": "Cocción ligera, masa más blanda",
+                "priceModifier": 0,
+                "available": true,
+                "default": false,
+                "sortOrder": 1,
+                "emoji": "🟡",
+                "icon": "🟡",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "dorado_medio",
+                "name": "Dorado Medio",
+                "description": "Cocción perfecta, equilibrio ideal",
+                "priceModifier": 0,
+                "available": true,
+                "default": true,
+                "sortOrder": 2,
+                "emoji": "🟠",
+                "icon": "🟠",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "bien_dorado",
+                "name": "Bien Dorado",
+                "description": "Cocción intensa, masa bien crocante",
+                "priceModifier": 0,
+                "available": true,
+                "default": false,
+                "sortOrder": 3,
+                "emoji": "🟤",
+                "icon": "🟤",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              }
+            ]
+          }
+        ]
       }
     ]
   }
