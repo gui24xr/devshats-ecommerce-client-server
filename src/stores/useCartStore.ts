@@ -1,13 +1,13 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { useStoreCheckout } from "@/stores";
 
-const useCartStore = create((set, get) => ({
+const cartStoreConfig = (set, get) => ({
   items: [],
   itemsCount: 0,
-  ticket: {
-    detail: [],
-    totalPrice: 0,
-  },
-
+  totalPrice: 0,
+  error: null,  
+  
   addToCart: ({ itemForCart, quantity }: any) => {
     try{
       const { priceData: newItemPriceData,...newItemProductData } = itemForCart;
@@ -30,23 +30,23 @@ const useCartStore = create((set, get) => ({
        get()._updateCartItem(foundedCartItem.id, updatedCartItem)
     }
     }catch(error){
-      console.log(error)
+        get()._setError(error);
     }
   },
 
-  changeCartItemQuantity: (itemId: any, quantity: number) => {
+  changeCartItemQuantity: (itemId: any, newQuantity: number) => {
     try{
-      if (!(quantity>0)) throw new Error("La cantidad debe ser mayor a 0");
+      if (!(newQuantity>0)) throw new Error("La cantidad debe ser mayor a 0");
       const foundedCartItem = get()._getCartItemById(itemId);
       if (!foundedCartItem) throw new Error("El item no existe en el carrito"); 
       const updatedCartItem = {
         ...foundedCartItem,
-        quantity: quantity,
-        subtotal: foundedCartItem.unitPriceData.finalPrice * quantity,
+        quantity: newQuantity,
+        subtotal: foundedCartItem.unitPriceData.finalPrice * newQuantity,
       };
       get()._updateCartItem(itemId, updatedCartItem);
     }catch(error){
-      console.error(error)
+       get()._setError(error);
     }
   },
 
@@ -57,7 +57,8 @@ const useCartStore = create((set, get) => ({
       set({ items: [...currentItemsList, newItemForCart] });
       get()._recalculateCart()
     }catch(error){
-      console.error(error)
+       console.error(error);
+       throw error;
     }
   },
 
@@ -73,7 +74,8 @@ const useCartStore = create((set, get) => ({
     set({ items: newItemsList });
     get()._recalculateCart()
     }catch(error){
-      console.error(error)
+       console.error(error);
+       throw error;
     }
   },
 
@@ -87,7 +89,7 @@ const useCartStore = create((set, get) => ({
         set({ items: updatedItemList });
         get()._recalculateCart()
       }catch(error){
-        console.error(error)
+         get()._setError(error);
       }
   },
 
@@ -96,7 +98,7 @@ const useCartStore = create((set, get) => ({
          set({ items: [] });
          get()._recalculateCart()
       }catch(error){
-        console.error(error)
+         get()._setError(error);
       }
     },
 
@@ -108,16 +110,28 @@ const useCartStore = create((set, get) => ({
 
         set({ 
           itemsCount: newCartCount,
-          ticket: {
-            detail: currentItemsList,
-            totalPrice: newTotalPrice
-          }
+          totalPrice: newTotalPrice,
+         
         });
       }catch(error){
-        console.error(error)
+         console.error(error);
+         throw error;
       }
     },
 
+    getCurrentCartTicket: () => {
+      try{
+        const currentItemsList = get().items;
+        const newTotalPrice = get().totalPrice
+        return {
+            detail: currentItemsList,
+            itemsCount: get().itemsCount,
+            totalPrice: newTotalPrice,
+          }
+      } catch(error){
+         //get()._setError(error);
+      }
+    },
 
 
   _getCartItemById: (itemId: any) => {
@@ -129,9 +143,35 @@ const useCartStore = create((set, get) => ({
     const currentItemsList = get().items;
     return currentItemsList.find((item: any) => objetosIguales(item.productData, productData));
   },
+
+  clearError: () => set({ error: null }),
+  
+_setError: (error: any) => {
+  const message = error?.message || String(error); 
+  console.error('Cart Error:', message);
+  set({ error: message });
+},
   
 
+})
+const useCartStore = create(persist(cartStoreConfig, { 
+  name: "cartStore",
+  onRehydrateStorage: () => {
+    console.log("Rehidratación iniciando...")
+    return (state) => {
+      console.log("Store Checkout reaccionando a rehydrate de store cart's state");
+      if (state) {
+        state._recalculateCart();
+        useStoreCheckout.getState().onChangeCart(state.getCurrentCartTicket())
+      }
+    }
+  } 
 }));
+
+useCartStore.subscribe((state, prevState) => {
+  console.log("Store Checkout reaccionando a cambio de store cart's state");
+  useStoreCheckout.getState().onChangeCart(state.getCurrentCartTicket())
+});
 
 export default useCartStore;
 

@@ -1,8 +1,19 @@
-export default function FloatingRapidCatalogWidget({ productsQuantity = 15, showRapidCatalogDetail }) {
+"use client"
+import { useProductsStore, useModalsStore } from "../stores";
+
+
+export default function FloatingRapidCatalogWidget() {
+
+    const productsQuantity = useProductsStore(state => state.filteredProducts.length)
+    const showCatalogModal = useModalsStore((state) => state.showCatalogModal);
+
+    const handleClick = () => { 
+      showCatalogModal()
+    }
     return (
       <div className="fixed bottom-24 right-4 sm:bottom-28 sm:right-6 z-50">
         <button
-          onClick={() => {showRapidCatalogDetail && showRapidCatalogDetail(true)}}
+          onClick={handleClick}
           className="relative bg-cyan-600 hover:bg-emerald-700 active:bg-emerald-800 text-white rounded-full w-14 h-14 sm:w-16 sm:h-16 shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center group touch-manipulation"
         >
           {/* Emoji del catálogo */}

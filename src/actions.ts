@@ -1,13 +1,13 @@
 'use server'
 import DataService from "./lib/DataService"
 
-async function checkoutOrder(orderData: any){
+async function checkoutOrder(checkoutData: any){
     //Hay que validar los precios , costos, stock, todo de la compra
     //SI todo lo anterior salio bien entonces ponerlo en la base de datos de la serverAPP,
     //Hacer que esta app o la server app envien el email
     //Saliendo todo ok devuelvo el wa.me
 
- const { branchId, customerName, customerPhone, customerEmail, notes, selectedDeliveryMethodType, selectedPaymentMethodType, customerCompleteAddress, customerCoordinates, cartItems } = orderData
+ const { branchId, customerCkeckoutData, cartTicket } = checkoutData
  
  const selectedBranch = await DataService.getBranchById(branchId)
  if (!selectedBranch) return {success: false}
@@ -18,15 +18,9 @@ async function checkoutOrder(orderData: any){
 
 const stringMessage = getOrderMessage({
     chatMessageConfig: chatMessageConfig, 
-    orderItems: cartItems, //Revisar despues
+    cartTicket: cartTicket, //Revisar despues
     orderNumber,
-    customerName, 
-    customerPhone, 
-    customerEmail, 
-    notes, 
-    selectedDeliveryMethodType, 
-    selectedPaymentMethodType, 
-    customerCompleteAddress, 
+    customerCheckoutData: customerCkeckoutData,
     pickupPointCompleteAddress: pickupPointCompleteAddress 
 })
 
@@ -44,99 +38,147 @@ export {
 }
 
 
-
-
-
 //---------HELPERS
  function getOrderMessage({
     chatMessageConfig,
-    orderItems = [],
+    cartTicket,
     orderNumber,
-    customerName,
-    customerPhone,
-    customerEmail,
-    notes,
-    selectedDeliveryMethodType,
-    selectedPaymentMethodType,
-    customerCompleteAddress,
+    customerCheckoutData,    
     pickupPointCompleteAddress,
  }){
 
     const headerMessageSection = getMessageHeaderSection(chatMessageConfig)
     const footerMessageSection =  getMessageFooterSection(chatMessageConfig)
-    const clientDataItems = getClientDataItems({customerName,customerPhone,customerEmail,notes,selectedDeliveryMethodType,  selectedPaymentMethodType, customerCompleteAddress, pickupPointCompleteAddress})
+    const clientDataItems = getClientDataItems(customerCheckoutData)
     const orderMessageListLines = getMessageClientSection(clientDataItems)
-    return [...headerMessageSection,...orderMessageListLines,...footerMessageSection].join('')
-       
+    const orderMessageCartSection = getOrderMessagesCartSection(cartTicket)
+
+    return [...headerMessageSection,
+            wtspMessagesConverter.getLineBreak(),
+            ...orderMessageListLines,
+            wtspMessagesConverter.getLineBreak(),
+            ... orderMessageCartSection,
+            wtspMessagesConverter.getLineBreak(),
+            ...footerMessageSection].join('')
  }
 
  
+ function getOrderMessagesCartSection(cartTicket: any){
+    const { detail:details, itemsCount, totalPrice} = cartTicket
+    const fragments = []
+    fragments.push(wtspMessagesConverter.getBoldText('Mi Pedido:'))
+    fragments.push(wtspMessagesConverter.getLineBreak())
+    details.forEach((detail: any) => {
+        fragments.push(wtspMessagesConverter.getBoldText('• '  + detail.quantity + ' X ' + detail.productData?.title))
+        fragments.push(wtspMessagesConverter.getLineBreak())
+    if (detail.productData.variant) {
+        fragments.push(wtspMessagesConverter.getCommonText('  ◦ '))
+        fragments.push(wtspMessagesConverter.getItalicText(detail.productData.variant.name))
+        fragments.push(wtspMessagesConverter.getCommonText(': '))
+        fragments.push(wtspMessagesConverter.getCommonText(detail.productData.variant.selectedOption.name))
+        fragments.push(wtspMessagesConverter.getLineBreak())
+    }
+    if (detail.productData.customizationFeatures) {
+        detail.productData.customizationFeatures.forEach((customizationFeature: any) => {
+            fragments.push(wtspMessagesConverter.getCommonText('  ◦ '))
+            fragments.push(wtspMessagesConverter.getItalicText(customizationFeature.name))
+            fragments.push(wtspMessagesConverter.getCommonText(':'))
+            fragments.push(wtspMessagesConverter.getLineBreak())
+            customizationFeature.selectedOptions.forEach((selectedOption: any) => {
+                fragments.push(wtspMessagesConverter.getCommonText('     -  ' + ''))
+                fragments.push(wtspMessagesConverter.getCommonText(selectedOption.name))
+                fragments.push(wtspMessagesConverter.getLineBreak())
+            })
+        })
+    }})
+    fragments.push(wtspMessagesConverter.getSimpleLine())
+    fragments.push(wtspMessagesConverter.getBoldText('   ' + itemsCount + ' productos' + '  -  Total: $ ' + totalPrice ))
+    fragments.push(wtspMessagesConverter.getLineBreak())
+    fragments.push(wtspMessagesConverter.getSimpleLine())
+    return fragments.join('')
+ }
 
 function getMessageHeaderSection(chatMessageConfig: any){
-    const headerMessageListLines = []
+    const fragments = []
     if(chatMessageConfig?.header) {
-        headerMessageListLines.push('*' + chatMessageConfig?.header + '*' + '\n')
-        headerMessageListLines.push('━'.repeat(24) + '\n')
+        fragments.push(wtspMessagesConverter.getBoldText(chatMessageConfig?.header))
+        fragments.push(wtspMessagesConverter.getLineBreak())
+        fragments.push(wtspMessagesConverter.getSimpleLine())
     }
-
     if(chatMessageConfig?.welcomeMessage) {
-        headerMessageListLines.push(chatMessageConfig?.welcomeMessage + '\n\n')
+        fragments.push(wtspMessagesConverter.getItalicText(chatMessageConfig?.welcomeMessage))
+        fragments.push(wtspMessagesConverter.getLineBreak())
     }
-
-    return headerMessageListLines
+    return fragments
 }
 
 
 function getMessageFooterSection(chatMessageConfig: any){
-    const footerMessageListLines = []
+    const fragments = []
     
-    if (chatMessageConfig?.footerMessage || chatMessageConfig?.footerTitle || chatMessageConfig?.contactData?.whatsappNumbers || chatMessageConfig?.contactData?.phones || chatMessageConfig?.contactData?.emails || chatMessageConfig?.workingHoursText) {
-        footerMessageListLines.push('\n' + '━'.repeat(24) + '\n')
-    }
-
-    if (chatMessageConfig?.footerTitle) {
-        footerMessageListLines.push(chatMessageConfig?.footerTitle + '\n\n')
+      if (chatMessageConfig?.footerTitle) {
+       fragments.push(wtspMessagesConverter.getBoldText(chatMessageConfig?.footerTitle))
+       fragments.push(wtspMessagesConverter.getLineBreak())
     }
 
     if (chatMessageConfig?.contactData?.whatsappNumbers || chatMessageConfig?.contactData?.phones || chatMessageConfig?.contactData?.emails ) {
-        footerMessageListLines.push(`*Nuestros datos de contacto:* \n`)
-        
-        chatMessageConfig?.contactData?.whatsappNumbers && footerMessageListLines.push(`_Whatsapp:_ ${chatMessageConfig?.contactData?.whatsappNumbers.join(', ')}.\n`)
-        chatMessageConfig?.contactData?.phones && footerMessageListLines.push(`_Telefono:_ ${chatMessageConfig?.contactData?.phones.join(', ')}.\n`)
-        chatMessageConfig?.contactData?.emails && footerMessageListLines.push(`_Email:_ ${chatMessageConfig?.contactData?.emails.join(', ')}.\n`)
+          
+        if(chatMessageConfig?.contactData?.whatsappNumbers){
+            fragments.push(wtspMessagesConverter.getItalicText('Whatsapp'))
+            fragments.push(wtspMessagesConverter.getCommonText(': '))
+            fragments.push(wtspMessagesConverter.getCommonText(chatMessageConfig?.contactData?.whatsappNumbers.join(', ')))
+            fragments.push(wtspMessagesConverter.getLineBreak())
+        }
+        if(chatMessageConfig?.contactData?.phones){
+            fragments.push(wtspMessagesConverter.getItalicText('Telefono'))
+            fragments.push(wtspMessagesConverter.getCommonText(': '))
+            fragments.push(wtspMessagesConverter.getCommonText(chatMessageConfig?.contactData?.phones.join(', ')))
+            fragments.push(wtspMessagesConverter.getLineBreak())
+        }
+        if(chatMessageConfig?.contactData?.emails){
+            fragments.push(wtspMessagesConverter.getItalicText('Email'))
+            fragments.push(wtspMessagesConverter.getCommonText(': '))
+            fragments.push(wtspMessagesConverter.getCommonText(chatMessageConfig?.contactData?.emails.join(', ')))
+            fragments.push(wtspMessagesConverter.getLineBreak())
+        }
     }
-
     if (chatMessageConfig?.ubicationText) {
-        footerMessageListLines.push(`\n *Nuestra ubicacion:* \n`)
-        footerMessageListLines.push('_' + chatMessageConfig?.ubicationText + '_' + '\n')
+        fragments.push(wtspMessagesConverter.getItalicText('Nuestra ubicacion'))
+        fragments.push(wtspMessagesConverter.getCommonText(': '))
+        fragments.push(wtspMessagesConverter.getCommonText(chatMessageConfig?.ubicationText))
+        fragments.push(wtspMessagesConverter.getLineBreak())
     }
-    
-
-    if (chatMessageConfig.workingHoursText) {
-        footerMessageListLines.push('*Nuestros horarios de atencion:*' + '\n' + '_' + chatMessageConfig?.workingHoursText + '_' + '.\n')
+    if (chatMessageConfig?.workingHoursText) {
+        fragments.push(wtspMessagesConverter.getItalicText('Nuestros horarios de atencion'))
+        fragments.push(wtspMessagesConverter.getCommonText(': '))
+        fragments.push(wtspMessagesConverter.getCommonText(chatMessageConfig?.workingHoursText))
+        fragments.push(wtspMessagesConverter.getLineBreak())
     }
-
     if (chatMessageConfig?.footerMessage) {
-        footerMessageListLines.push('\n' + chatMessageConfig?.footerMessage + '\n')
+        fragments.push(wtspMessagesConverter.getLineBreak())
+        fragments.push(wtspMessagesConverter.getCommonText(chatMessageConfig?.footerMessage))
     }
-
-    return footerMessageListLines
+    return fragments
 }
 
 function getMessageClientSection(clientDataItems){
-    const clientMessageListLines = []
-if (clientDataItems.length > 0){
-        clientMessageListLines.push('━'.repeat(24) + '\n') && clientMessageListLines.push('*' + 'Datos del cliente' + '*' + '\n')
+    const fragments = []
+    if (clientDataItems.length > 0){
+        fragments.push(wtspMessagesConverter.getBoldText('Datos del cliente'))
+        fragments.push(wtspMessagesConverter.getLineBreak())
         clientDataItems.forEach((item) => {
-            clientMessageListLines.push('•' + item.emoji + ' ' + item.label + ': ' + item.value + '\n')
-    })   
+            fragments.push(wtspMessagesConverter.getCommonText('• '))
+            fragments.push(wtspMessagesConverter.getItalicText(item.label))
+            fragments.push(wtspMessagesConverter.getCommonText(': '))
+            fragments.push(wtspMessagesConverter.getCommonText(item.value))
+            fragments.push(wtspMessagesConverter.getLineBreak())
+        })   
     }
-
-    return clientMessageListLines
+    return fragments
 }
 
- function getClientDataItems({customerName,customerPhone,customerEmail,notes,selectedDeliveryMethodType,  selectedPaymentMethodType, customerCompleteAddress, pickupPointCompleteAddress: pickupPointCompleteAddress}){
-     
+ function getClientDataItems(customerCheckoutData: any){
+     const {customerName, customerEmail, customerPhone, selectedPaymentMethodType, selectedDeliveryMethodType, pickupPointCompleteAddress, customerCompleteAddress, notes} = customerCheckoutData
     const clientDataItems = []
     clientDataItems.push({emoji:'👤', label: 'Nombre', value: (customerName || 'Completar nombre.')})
     clientDataItems.push({emoji:'📧', label: 'Email', value: (customerEmail || 'Completar email.')})
@@ -171,4 +213,17 @@ if (clientDataItems.length > 0){
          default:
              return'Completar forma de pago.';
      }
+ }
+
+
+
+ //--------------------------------------------------
+ const wtspMessagesConverter = {
+    getLineBreak: () => '\n',
+    getEmoji: (emoji) => `:${emoji}:`,
+    getBoldText: (text) => `*${text}*`,
+    getItalicText: (text) => `_${text}_`,
+    getUnderlinedText: (text) => `__${text}__`,
+    getCommonText: (text) => `${text}`,
+    getSimpleLine: () => '━'.repeat(24) + '\n'
  }

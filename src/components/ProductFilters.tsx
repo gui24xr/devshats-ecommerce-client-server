@@ -1,10 +1,15 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { useProductsStore } from '@/stores'
+
+export default function ProductFilters() {
+
+  const categories = useProductsStore(state => state.categories)
+  const selectedCategory = useProductsStore(state => state.selectedCategory)
+  const foundedProductsQuantity = useProductsStore(state => state.filteredProducts.length)
+  const filterProductsByCategories = useProductsStore(state => state.filterProductsByCategories)
 
 
-
-
-export default function ProductFilters({ categories, selectedCategory, foundedProductsQuantity, filterProductsByCategories, }: any) {
     const [isExpanded, setIsExpanded] = useState(false)
 
     useEffect(() => {

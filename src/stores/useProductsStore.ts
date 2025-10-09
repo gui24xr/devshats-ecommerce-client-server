@@ -25,6 +25,9 @@ const useProductsStore = create((set, get) => ({
     filteredProducts: [],
     selectedCategory: null,
 
+   
+
+    
 
     fetchProducts: async () => {
         set({ loading: true, error: null });
@@ -32,7 +35,17 @@ const useProductsStore = create((set, get) => ({
             const baseUrl = getBaseUrl();
             console.log('Fetching from:', baseUrl);
             const { data } = await axios.get(`${baseUrl}/api/products`);
-            set({
+            get().hydrateAndConfigProducts(data);
+        } catch (error) {
+            set({ error: error });
+        } finally {
+            set({ loading: false });
+        }
+    },
+
+    hydrateAndConfigProducts: (data: any) => {
+        try{
+             set({
                 loading: false,
                 loaded: true,
                 products: data.products,
@@ -41,10 +54,9 @@ const useProductsStore = create((set, get) => ({
                 filteredProducts: data.products,
                 productsOrderByCategories: getProductsOrderByCategories(data.categories, data.products)
             })
-        } catch (error) {
-            set({ error: error });
-        } finally {
-            set({ loading: false });
+        }catch(error){
+            console.error(error);
+            throw error;
         }
     },
 

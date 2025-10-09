@@ -1,10 +1,7 @@
-import { Portrait, SocialProofs, ProductsContainer } from "@/components";
+import { Portrait, SocialProofs, ProductsContainer, ProductsSkeleton } from "@/components";
 import { Suspense } from "react";
-import DataService from "@/lib/DataService";
 
 export default async function Home() {
-
-  const { customizationTemplateSettings, planSettings } = await DataService.getStoreDataAndConfigs()
 
   return (
     <div>
@@ -14,8 +11,8 @@ export default async function Home() {
         </Suspense>
       </section>
       <section id="products-section">
-        <Suspense fallback={<div>Loading...</div>}>
-          <ProductsContainer planSettings={planSettings} renderConfig={customizationTemplateSettings.productsContainerRenderConfig} />
+        <Suspense fallback={<ProductsSkeleton />}>
+          <ProductsContainer/>
         </Suspense>
       </section>
       <section>

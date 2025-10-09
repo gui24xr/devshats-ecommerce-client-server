@@ -1,68 +1,47 @@
-'use client'
-import { useState } from "react";
-import { LayoutModal, ProductFilters, ProductGrid, ProductsByCategoriesCatalog, FloatingRapidCatalogWidget } from "../index";
-import { useCartStore, useProductsStore } from "@/stores";
 
-export default function ProductsContainer({ planSettings, renderConfig }: { planSettings: any, renderConfig: any }) {
+import DataService from "@/lib/DataService";
+import { 
+    ProductsStoreHydrator,
+    ProductFilters, 
+    ProductGrid, 
+    ProductsByCategoriesCatalog, 
+    ProductCustomizerModal,
+    FloatingRapidCatalogWidget,
+    ProductsByCategoriesCatalogModal 
+} from "../index";
 
-    const { backgroundProductContainerColor, defaultProductImage } = renderConfig
+export default async function ProductsContainer() {
 
-    const categories = useProductsStore(state => state.categories)
-    const selectedCategory = useProductsStore(state => state.selectedCategory)
-    const filteredProducts = useProductsStore(state => state.filteredProducts)
-    const filteredProductsCount = useProductsStore(state => state.filteredProducts.length)
-    const filterProductsByCategories = useProductsStore(state => state.filterProductsByCategories)
-    const productsOrderByCategories = useProductsStore(state => state.productsOrderByCategories)
-    const loading = useProductsStore(state => state.loading)
-    const error = useProductsStore(state => state.error)
+    const { customizationTemplateSettings, planSettings } = await DataService.getStoreDataAndConfigs()
+    const { backgroundProductContainerColor, defaultProductImage } = customizationTemplateSettings.productsContainerRenderConfig
 
-    const addToCart = useCartStore(state => state.addToCart)
-
-    const [rapidCatalogModalIsOpen, setRapidCatalogModalIsOpen] = useState(false)
-
-    if (loading) return <div className=" text-black text-center text-gray-500 py-4">Cargando...</div>
-    if (error) return <div className=" text-black text-center text-gray-500 py-4">Error: {error.message}</div>
-
+    const productsData = await DataService.getProducts();
+   
     return (
+     
         <>
+            <ProductsStoreHydrator productsData={productsData}/>
+            <ProductCustomizerModal/>
             <div className={`w-full min-h-screen ${backgroundProductContainerColor}`}>
                 <div className="container mx-auto py-16">
                     {(planSettings.type === "plan_medium" || planSettings.type === "plan_large") && (
                         <>
-                            <ProductFilters
-                                categories={categories}
-                                selectedCategory={selectedCategory}
-                                foundedProductsQuantity={filteredProductsCount}
-                                filterProductsByCategories={filterProductsByCategories}
-                            />
-                            <ProductGrid
-                                products={filteredProducts}
-                                onAddItemToCart={addToCart}
-                                defaultProductImage={defaultProductImage}
-                            />
+                            <ProductFilters/>
+                            <ProductGrid/>
                         </>
                     )}
 
                     {planSettings.type === "plan_small" && (
-                        <ProductsByCategoriesCatalog productsOrderByCategories={productsOrderByCategories} />
+                        <ProductsByCategoriesCatalog />
                     )}
                 </div>
             </div>
+            
 
             {(planSettings.type === "plan_medium" || planSettings.type === "plan_large") && (
                 <>
-                    <FloatingRapidCatalogWidget productsQuantity={filteredProductsCount} showRapidCatalogDetail={setRapidCatalogModalIsOpen} />
-
-                    <LayoutModal
-                        isOpen={rapidCatalogModalIsOpen}
-                        onClose={setRapidCatalogModalIsOpen}
-                        title="Catálogo"
-                        description="Catálogo de productos."
-                        minWidth="w-1/2"
-                        maxWidth="max-w-2xl"
-                        content={<ProductsByCategoriesCatalog productsOrderByCategories={productsOrderByCategories} />}
-                        footer={<div></div>}
-                    />
+                    <FloatingRapidCatalogWidget/>
+                    <ProductsByCategoriesCatalogModal/>
                 </>
             )}
         </>
@@ -73,7 +52,6 @@ export default function ProductsContainer({ planSettings, renderConfig }: { plan
 
 
 
-//------------------------------
 
 
 

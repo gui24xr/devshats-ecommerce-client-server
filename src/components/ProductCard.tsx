@@ -21,7 +21,7 @@ const getProductPrice = (product: any, selectedVariantId: any) => {
 }
 
 
-export default function ProductCard({ product, onAddItemToCart, defaultProductImage }: any) {
+export default function ProductCard({ product, defaultProductImage }: any) {
 
 
   const [isAdding, setIsAdding] = useState(false)

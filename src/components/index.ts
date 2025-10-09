@@ -9,20 +9,24 @@ import Portrait from "./pages/Portrait";
 import ProductsPortrait from "./pages/ProductsPortrait";
 import ProductsPortraitContainer from "./pages/ProductsPortraitContainer";
 import ProductsContainer from "./pages/ProductsContainer";
-import ProductsByCategoriesCatalog from "./ProductsByCategoriesCatalog";
+import ProductsStoreHydrator from "./ProductsStoreHydrator";
+import ProductsByCategoriesCatalog from "./ProductsByCategoriesCatalog"
 import FloatingRapidCatalogWidget from "./FloatingRapidCatalogWidget";
+import ProductsByCategoriesCatalogModal from "./ProductsByCategoriesCatalogModal";
 
 import ProductFilters from "./ProductFilters";
 import ProductCard from "./ProductCard";
 import ProductGrid from "./ProductGrid";
 import ProductCustomizer from "./ProductCustomizer";
-import ProductCustomizerContainer from "./ProductCustomizerContainer";
+import ProductCustomizerModal from "./ProductCustomizerModal";
 import ProductCardBody from "./ProductCardBody";
+import ProductsSkeleton from "./ProductsSkeleton";
 import StarRating from "./StartRating";
 
 import CartContainer from "./layout/CartContainer";
 import FloatingCartWidget from "./FloatingCardWidget";  
-import CartDetails from "./CartDetail";
+import CartDetails from "./CartDetails";
+import CartDetailsModal from "./CartDetailsModal";
 import QuantitySelectorSmall from "./QuantitySelectorSmall";
 import QuantitySelectorBig from "./QuantitySelectorBig";
 import CartCheckoutContainer from "./pages/CartCheckoutContainer";
@@ -46,14 +50,17 @@ export {
     ProductsPortraitContainer,
     ProductFilters,
     ProductsContainer,
+    ProductsStoreHydrator,
     ProductCard,
     ProductGrid,
     ProductCustomizer,
-    ProductCustomizerContainer,
+    ProductCustomizerModal,
     CartContainer,
     FloatingCartWidget,
     CartDetails,
+    CartDetailsModal,
     ProductCardBody,
+    ProductsSkeleton,
     StarRating,
     ProductsByCategoriesCatalog,
     FloatingRapidCatalogWidget,
@@ -66,4 +73,5 @@ export {
     PremiumTrustIndicators,
     CartCheckoutActionButtons,
     AddressMapSelector,
+    ProductsByCategoriesCatalogModal
 };

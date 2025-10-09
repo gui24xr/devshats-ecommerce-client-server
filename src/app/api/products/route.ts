@@ -3,6 +3,7 @@ import DataService from "@/lib/DataService";
 
 export async function GET() {
     const productsData = await DataService.getProducts();
+   
     return NextResponse.json({
         products: productsData.products,
         categories: productsData.categories.map((category) => ({

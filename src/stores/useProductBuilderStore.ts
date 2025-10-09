@@ -1,17 +1,14 @@
 import { create } from "zustand";
-import { useCartStore, useProductsStore } from "@/stores";
+import { useCartStore, useProductsStore, useModalsStore } from "@/stores";
 
 interface ProductBuilderState {
   currentProduct: any;
   itemForCart: any;
   quantity: number;
   totalForThisProduct: number | null;
-  customizerIsOpen: boolean;
-  customizationError: string | null;
+  
 
 
-  openCustomizer: () => void;
-  closeCustomizer: () => void;
   setError: (errorMessage: string) => void;
   setQuantity: (quantity: number) => void;
   handlerProductToAddToCart: ({ productId, selectedVariantId, quantity, onError }: {productId: string, selectedVariantId: string, quantity?: number, onError?: (errorMessage: string) => void}) => void;
@@ -31,14 +28,7 @@ const useProductBuilderStore = create<ProductBuilderState>((set, get) => ({
     itemForCart: null,
     quantity: 0,
     totalForThisProduct: null,
-    customizerIsOpen: false,
-    customizationError: null,
-    openCustomizer: () => {
-        set({ customizerIsOpen: true })
-    },
-    closeCustomizer: () => {
-        set({ customizerIsOpen: false })
-    },
+    
     setQuantity: (quantity: any) => {
         set({ quantity: quantity })
         get().setTotalForThisProduct()
@@ -52,7 +42,7 @@ const useProductBuilderStore = create<ProductBuilderState>((set, get) => ({
         try {
             if (!productId) throw new Error('No se ha seleccionado ningun producto.')    
             if ((productId !== get().currentProduct?.id || !get().currentProduct)) get()._resetCurrentProduct({productId, selectedVariantId, quantity })
-            get().openCustomizer()
+             useModalsStore.getState().showProductCustomizerModal()
         }  catch(error : any) {
             get().setError(error.message)
             onError?.(error.message)
@@ -141,7 +131,7 @@ const useProductBuilderStore = create<ProductBuilderState>((set, get) => ({
             itemForCart: get().itemForCart,
             quantity: get().quantity
             })
-            get().closeCustomizer()
+            useModalsStore.getState().hideProductCustomizerModal()
         }catch(error: any){
             get().setError(error.message)
             onError?.(error.message)    

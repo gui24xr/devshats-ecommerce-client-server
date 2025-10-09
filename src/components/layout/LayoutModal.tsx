@@ -1,24 +1,24 @@
-"use client"
+
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import { X } from 'lucide-react'
-import { useStoreTemplateConfig } from '@/stores'
+
 
 export default function LayoutModal({
   isOpen = false,
   onClose,
+  titleIcon = <X />,
   title = "Mi modal",
   description = "descripcion del modal",
   minWidth = "w-full",
   maxWidth = "w-full",
+  backgroundColor = "bg-gradient-to-br from-green-500 to-blue-500",
   content = <DefaultHeader />,
   footer = <DefaultFooter />
+  
 }) {
 
-  const portrait = useStoreTemplateConfig(state => state.portrait)
-  const loading = useStoreTemplateConfig(state => state.loading)
 
-  if (loading) return <div className="text-center text-gray-500 py-4">Cargando...</div>
   return (
     <>
       {/* El Modal con transiciones */}
@@ -56,10 +56,11 @@ export default function LayoutModal({
                     <div className="h-full w-full flex flex-col bg-white shadow-2xl">
 
                       {/* Header */}
-                      <div className={`${portrait.backgroundColor || "bg-gradient-to-br from-green-500 to-blue-500"} w-full flex items-center justify-between px-4 py-2 text-white flex-shrink-0`}>
+                      <div className={backgroundColor}>
+                      <div className={'w-full flex items-center justify-between px-4 py-2 text-white flex-shrink-0'}>
                         <div>
                           <Dialog.Title className="font-bold text-sm">
-                            {portrait.titleLogoIcon} {title}
+                            {titleIcon} {title}
                           </Dialog.Title>
                           <p className="text-orange-100 text-sm">
                             {description}
@@ -71,6 +72,7 @@ export default function LayoutModal({
                         >
                           <X className="h-5 w-5" />
                         </button>
+                      </div>
                       </div>
 
                       {/* Contenido scrolleable */}

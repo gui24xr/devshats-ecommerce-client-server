@@ -1,13 +1,8 @@
 'use client'
 import { useState } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
-import { Archivo_Black, Roboto } from "next/font/google";
-
-const archivo_black = Archivo_Black({
-    subsets: ['latin'],
-    weight: ['400'],
-    variable: '--font-archivo-black'
-})
+import { Roboto } from "next/font/google";
+import { useProductsStore } from "@/stores";
 
 const roboto = Roboto({
     subsets: ['latin'],
@@ -15,11 +10,11 @@ const roboto = Roboto({
     variable: '--font-roboto'
 })
 
-export default function ProductsByCategoriesCatalog({ productsOrderByCategories }: any) {
+export default function ProductsByCategoriesCatalog() {
+
+    const productsOrderByCategories = useProductsStore(state => state.productsOrderByCategories)
     const [expandedCategories, setExpandedCategories] = useState(new Set());
-
-
-
+   
     
     // Función para toggle de expansión de categorías
     const toggleCategory = (categoryId) => {

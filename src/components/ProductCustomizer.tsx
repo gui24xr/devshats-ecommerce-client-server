@@ -6,9 +6,6 @@ import { QuantitySelectorSmall, QuantitySelectorBig } from "@/components"
 export default function ProductCustomizer() {
 
     const currentProduct = useProductBuilderStore(state => state.currentProduct)
-    const quantity = useProductBuilderStore(state => state.quantity)
-    const setQuantity = useProductBuilderStore(state => state.setQuantity)
-    
     
     return (
         <div className="h-[90vh] flex flex-col gap-8 bg-gray-50">
@@ -19,19 +16,7 @@ export default function ProductCustomizer() {
                 <div className="flex items-center justify-center px-1 lg:px-4 pb-48">
                     <div className={`w-full grid grid-cols-1 gap-4 md:${currentProduct?.customizationFeaturesTemplate ? 'grid-cols-1' : 'grid-cols-1'} h-full overflow-y-auto`}>
                         <div className="flex flex-col  gap-4   lg:px-32 ">
-                            <div className="flex flex-col items-center gap-3 border border-gray-200 rounded-lg p-4">
-                                <h5 className="text-base font-semibold text-gray-800 flex items-center gap-2">
-                                    Seleccionar cantidad
-                                </h5>
-                                <div className="flex items-center gap-3 ">
-                                    <QuantitySelectorBig
-                                        quantity={quantity}
-                                        onChange={setQuantity}
-                                        minQuantity={1}
-                                        maxQuantity={10}
-                                    />
-                                </div>
-                            </div>
+                            <ProductCustomizerQuantitySelector/>
                             <div className="flex flex-wrap">
                                 {(currentProduct?.templateVariant) && (<ProductVariantSelector/>)} 
                             </div>
@@ -60,6 +45,27 @@ export default function ProductCustomizer() {
     )
 }
 
+
+
+function ProductCustomizerQuantitySelector() {
+        const quantity = useProductBuilderStore(state => state.quantity)
+    const setQuantity = useProductBuilderStore(state => state.setQuantity)
+    return (
+         <div className="flex flex-col items-center gap-3 border border-gray-200 rounded-lg p-4">
+                                <h5 className="text-base font-semibold text-gray-800 flex items-center gap-2">
+                                    Seleccionar cantidad
+                                </h5>
+                                <div className="flex items-center gap-3 ">
+                                    <QuantitySelectorBig
+                                        quantity={quantity}
+                                        onChange={setQuantity}
+                                        minQuantity={1}
+                                        maxQuantity={10}
+                                    />
+                                </div>
+                            </div>
+    )
+}
 function AddToCartSection() {
    const addProductToCart = useProductBuilderStore(state => state.addProductToCart)
     const handleAddToCart = () => {

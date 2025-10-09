@@ -1,12 +1,12 @@
 'use client'
-import { useStoreCheckout } from '@/stores'
+import { useStoreCheckout, useCartStore } from '@/stores'
 
 export default function CheckoutOrderResume() {
   const selectedDeliveryMethod = useStoreCheckout(state => state.selectedDeliveryMethod)
   const currentMotoDeliveryAmount = useStoreCheckout(state => state.orderDeliveryAmount)
   
-  const cartItemsCount = useStoreCheckout(state => state.cartItemsCount)
-  const cartTicketAmount = useStoreCheckout(state => state.cartTicketAmount)
+  const cartItemsCount = useCartStore(state => state.itemsCount)
+  const cartTicket = useCartStore(state => state.totalPrice)
 
   const orderTax = useStoreCheckout(state => state.orderTax)
   const orderFinalAmount = useStoreCheckout(state => state.orderFinalAmount)
@@ -24,7 +24,7 @@ export default function CheckoutOrderResume() {
             <span className="text-orange-500 text-sm sm:text-base">🛒</span>
             <span className="whitespace-nowrap">{cartItemsCount} productos</span>
           </span>
-          <span className="font-bold text-gray-900 text-xs sm:text-sm ml-2">${cartTicketAmount?.toFixed(2)}</span>
+          <span className="font-bold text-gray-900 text-xs sm:text-sm ml-2">${cartTicket.toFixed(2) || 0}</span>
         </div>
         {selectedDeliveryMethod && selectedDeliveryMethod?.type === 'motoDelivery' && (    
         <div className="flex justify-between items-center p-2 sm:p-3 hover:bg-orange-100 rounded-xl transition-all duration-300">

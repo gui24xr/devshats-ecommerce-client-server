@@ -1,4 +1,4 @@
-import { ProductsPortraitContainer, ProductsContainer } from "@/components";
+import { ProductsPortraitContainer,  } from "@/components";
 import { Suspense } from "react";
 
 

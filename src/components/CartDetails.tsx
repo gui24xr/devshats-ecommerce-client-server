@@ -1,49 +1,52 @@
 "use client";
 import { Trash2, ShoppingCart } from "lucide-react";
-import { useCartStore } from "@/stores";
+import { useCartStore, useModalsStore } from "@/stores";
+import { redirect } from "next/navigation";
 
-export default function CartDetails({ onCheckout, onClose }: any) {
+export default function CartDetails() {
   const itemsList = useCartStore((state) => state.items);
-  const itemsCount = useCartStore((state) => state.itemsCount);
-  const changeCartItemQuantity = useCartStore((state) => state.changeCartItemQuantity);
-  const totalPrice = useCartStore((state) => state.ticket.totalPrice);
-  const removeCartItemFromCart = useCartStore((state) => state.removeCartItemFromCart);
-  const clearCart = useCartStore((state) => state.clearCart);
+  const hideCartModal = useModalsStore((state) => state.hideCartModal);
+ 
 
+  
   return (
     <div className="p-4 mb-20">
       {itemsList.length > 0 ? (
         <>
-          <CartDetailHeader onClearCart={clearCart} />
+          <CartDetailHeader />
 
           <div className="grid grid-cols-1 gap-2 p-2">
             {itemsList.map((item) => (
               <CartItemDetail
                 item={item}
-                changeCartItemQuantity={changeCartItemQuantity}
-                removeCartItemFromCart={removeCartItemFromCart}
               />
             ))}
           </div>
         </>
       ) : (
-        <CartEmpty onFollowShopping={onClose} />
+        <CartEmpty/>
       )}
-      {itemsCount > 0 && (
-        <AddToCartSection
-          totalPrice={totalPrice}
-          itemsCount={itemsCount}
-          onClick={onCheckout}
-        />
-      )}
+     
+        <CheckoutBar/>
+    
     </div>
   );
 }
 
-function CartItemDetail({ item, changeCartItemQuantity, removeCartItemFromCart }) {
-  const onChangeQuantity = (quantity) => {
-    changeCartItemQuantity(item.id, quantity);
-  };
+function CartItemDetail({ item }) {
+
+
+  const changeCartItemQuantity = useCartStore((state) => state.changeCartItemQuantity);
+  const removeCartItem = useCartStore((state) => state.removeCartItem);
+  
+const handleChangeQuantity = (newQuantity: number) => {
+  changeCartItemQuantity(item.id, newQuantity);  // 👈 item.id del scope
+}
+const handleRemoveItem = (itemId:string) => {
+    removeCartItem(itemId);
+};
+
+  
 
   return (
     <div className="w-full bg-gray-50 rounded-lg flex flex-col items-start px-4 pt-6  pb-2">
@@ -126,7 +129,7 @@ function CartItemDetail({ item, changeCartItemQuantity, removeCartItemFromCart }
               </span>
               <ItemDetailQuantitySelector
                 quantity={item.quantity}
-                onChange={onChangeQuantity}
+                onChange={handleChangeQuantity}
                 min={1}
                 max={10}
               />
@@ -135,7 +138,7 @@ function CartItemDetail({ item, changeCartItemQuantity, removeCartItemFromCart }
               subtotal: ${item?.subtotal}
             </span>
             <button
-              onClick={() => removeCartItemFromCart(item.id)}
+              onClick={() => handleRemoveItem(item.id)}
               className="text-right text-sm font-semibold text-red-600 capitalize"
             >
               Eliminar
@@ -149,11 +152,16 @@ function CartItemDetail({ item, changeCartItemQuantity, removeCartItemFromCart }
   // Obtener variante seleccionada si existe
 }
 
-function AddToCartSection({ totalPrice, itemsCount, onClick }: any) {
-  const handleCheckoutButton = () => {
-    // Validar requisitos mínimos antes de agregar al carrito
-    onClick();
-  };
+function CheckoutBar() {
+
+ const itemsCount = useCartStore((state) => state.itemsCount);
+ const totalPrice = useCartStore((state) => state.totalPrice);
+ const hideCartModal = useModalsStore((state) => state.hideCartModal);
+ const handleCheckout = () => {
+      hideCartModal()
+      redirect("/checkout");
+    };
+
 
   return (
     <div className="fixed bottom-4 left-4 right-4 z-50 lg:left-auto lg:right-4 lg:max-w-lg">
@@ -166,8 +174,10 @@ function AddToCartSection({ totalPrice, itemsCount, onClick }: any) {
             Total: ${totalPrice}
           </span>
           <button
+            type="button"
+            hidden={itemsCount === 0}
             className="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
-            onClick={handleCheckoutButton}
+            onClick={handleCheckout}
           >
             <span className="text-xl">🛒</span>
             <span className="text-base">Finalizar compra</span>
@@ -178,7 +188,13 @@ function AddToCartSection({ totalPrice, itemsCount, onClick }: any) {
   );
 }
 
-function CartDetailHeader({ onClearCart }: any) {
+function CartDetailHeader() {
+  
+ const clearCart = useCartStore((state) => state.clearCart);
+  const handleClickClearCart = () => {
+    clearCart && clearCart()
+  }
+
   return (
     <div className="flex flex-row justify-between bg-orange-500 font-semibold text-white rounded-md px-2 py-1">
       <div className="flex flex-row items-center justify-center gap-2">
@@ -187,7 +203,7 @@ function CartDetailHeader({ onClearCart }: any) {
       </div>
       <button
         className="flex flex-row gap-2 bg-purple-500 text-white rounded-md px-2 py-1"
-        onClick={() => onClearCart && onClearCart()}
+        onClick={handleClickClearCart}
       >
         <span> Vaciar carrito </span>
         <Trash2 className="self-center w-4 h-4" />
@@ -196,9 +212,10 @@ function CartDetailHeader({ onClearCart }: any) {
   );
 }
 
-function CartEmpty({ onFollowShopping }: any) {
+function CartEmpty() {
+   const hideCartModal = useModalsStore((state) => state.hideCartModal);
   const handleClick = () => {
-    onFollowShopping && onFollowShopping();
+    hideCartModal();
   };
   return (
     <div className="text-center py-16 px-6">

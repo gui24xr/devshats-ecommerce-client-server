@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
-import { CartContainer, ClientWrapper, ProductCustomizerContainer } from "@/components";	
+import { CartContainer, ClientWrapper } from "@/components";	
+import { Suspense } from "react";
 
 import {  Footer } from "@/components";
 
@@ -22,20 +23,18 @@ export const metadata: Metadata = {
 
 const inter = Inter({ subsets: ["latin"] })
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>){
+
+
+
   return (
     <html lang="en">
       <body
-        className={`${inter.className} ${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ClientWrapper>
-          <CartContainer />
-          <ProductCustomizerContainer />
-         
+        className={`${inter.className} ${geistSans.variable} ${geistMono.variable} antialiased`}>
+          <ClientWrapper>
+          <Suspense fallback={<div></div>}>
+            <CartContainer />
+          </Suspense>
           <div className="min-h-screen bg-gray-100 text-black">
             {children}
           </div>

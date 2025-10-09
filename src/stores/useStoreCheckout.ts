@@ -27,9 +27,9 @@ const useStoreCheckout = create((set, get) => ({
   },
   notes: null,
 
-  cartItemsCount: 0,
-  cartTicketAmount: 0,
-  cartItems: [],
+  //cartItemsCount: 0,
+  cartTicket: null,
+  //cartItems: [],
   orderDeliveryAmount: 0,
   orderTax: 0,
   orderCurrency: "ARS",
@@ -47,70 +47,7 @@ const useStoreCheckout = create((set, get) => ({
     customerAddress: null,
     notes: null,
   },
-  /*
-  resumeObject:  {
-      orderData: [
-        {
-          id: 1,
-          label: "Nombre",
-          emoji: "👤",
-          value: get().customerName || "Completar nombre.",
-        },
-        {
-          id: 2,
-          label: "Teléfono",
-          emoji: "📞",
-          value: get().customerPhone || "Completar telefono.",
-        },
-        {
-          id: 3,
-          label: "Email",
-          emoji: "📧",
-          value: get().customerEmail || "Completar email.",
-        },
-        {
-          id: 4,
-          label: "Forma de retiro/entrega",
-          emoji: "🚚",
-          value:
-            getDeliveryMethodLabel(get().selectedDeliveryMethodType) ||
-            "Completar forma de retiro/entrega.",
-        },
-        {
-          id: 5,
-          label: "Forma de pago",
-          emoji: "💳",
-          value:
-            getPaymenthMethodLabel(get().selectedPaymentMethodType) ||
-            "Completar forma de pago.",
-        },
-        {
-          id: 6,
-          label:
-            get().selectedDeliveryMethodType === "motoDelivery"
-              ? "Dirección de entrega"
-              : get().selectedDeliveryMethodType === "pickup"
-              ? "Dirección de retiro"
-              : "Dirección de entrega/retiro",
-          emoji: "📍",
-          value:
-            get().selectedDeliveryMethodType === "motoDelivery"
-              ? get().currentCustomerAddress.completeAddress ||
-                "Completar dirección de entrega."
-              : get().selectedDeliveryMethodType === "pickup"
-              ? getPickupPointCompleteAddress() ||
-                "Consultar dirección de retiro."
-              : "Completar dirección de entrega/retiro.",
-        },
-        {
-          id: 7,
-          label: "Notas",
-          emoji: "📝",
-          value: get().notes || "Sin notas adicionales.",
-        },
-      ],
-    },
-  */
+  
 
   setCustomerName: (customerName: string) => {
     set({ customerName: customerName });
@@ -148,7 +85,6 @@ const useStoreCheckout = create((set, get) => ({
         (deliveryMethod) => deliveryMethod.type === "pickup"
       ),
     });
-
     get().calculateOrderAmount();
   },
 
@@ -231,36 +167,31 @@ const useStoreCheckout = create((set, get) => ({
     //----------------------------------------------------------
   },
 
-  onChangeCart({ cartItemsCount, cartTicketAmount, cartItems }) {
+  onChangeCart(cartTicket: any) {
     set({
-      cartItemsCount: cartItemsCount,
-      cartTicketAmount: cartTicketAmount,
-      cartItems: cartItems,
+      cartTicket: cartTicket,
     });
     get().calculateOrderAmount();
   },
 
   submitOrder: async () => {
-    
-   
-    const orderData = {
+    const checkoutData = {
       branchId: get().branchId,
-      customerName: get().customerName,
-      customerPhone: get().customerPhone,
-      customerEmail: get().customerEmail,
-      notes: get().notes,
-      selectedDeliveryMethodType: get().selectedDeliveryMethod?.type,
-      selectedPaymentMethodType: get().selectedPaymentMethod?.type,
-      customerCompleteAddress: get().currentCustomerAddress?.completeAddress,
-      customerCoordinates: get().currentCustomerAddress?.coordinates,
-      cartItems: get().cartItems,
+      customerCkeckoutData: {
+        customerName: get().customerName,
+        customerPhone: get().customerPhone,
+        customerEmail: get().customerEmail,
+        notes: get().notes,
+        selectedDeliveryMethodType: get().selectedDeliveryMethod?.type,
+        selectedPaymentMethodType: get().selectedPaymentMethod?.type,
+        customerCompleteAddress: get().currentCustomerAddress?.completeAddress,
+        customerCoordinates: get().currentCustomerAddress?.coordinates,
+      },
+      cartTicket: get().cartTicket,
     }
 
-   
-
-    const response = await checkoutOrder(orderData);
+    const response = await checkoutOrder(checkoutData);
     console.log("Resultado action: ", response);
-    console.log("Resultado action emonki: ", '📞');
 
    if (response.success) {
     const encodeMessage = encodeURIComponent(response.message)
@@ -273,7 +204,7 @@ const useStoreCheckout = create((set, get) => ({
   },
 
   calculateOrderAmount: () => {
-    const currentCartTicketAmount = get().cartTicketAmount;
+    const currentCartTicketAmount = get().cartTicket?.totalPrice;
 
     const deliveryAmount =
       get().selectedDeliveryMethod?.type === "motoDelivery"
@@ -288,14 +219,7 @@ const useStoreCheckout = create((set, get) => ({
 }));
 
 
-useCartStore.subscribe((state, prevState) => {
-  console.log("El precio del carrito cambio", state.ticket.totalPrice);
-  useStoreCheckout.getState().onChangeCart({
-    cartItemsCount: state.itemsCount,
-    cartTicketAmount: state.ticket.totalPrice,
-    cartItems: state.items,
-  });
-});
+
 
 
 useBranchesStore.subscribe((state, prevState) => {

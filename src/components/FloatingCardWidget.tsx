@@ -1,14 +1,18 @@
 "use client"
-import { useCartStore } from "@/stores";
+import { useCartStore, useModalsStore } from "@/stores";
 
 
-export default function FloatingCartWidget({ onClick } : any) {
+export default function FloatingCartWidget() {
     const itemsCount = useCartStore((state) => state.itemsCount);
+    const showCartModal = useModalsStore((state) => state.showCartModal);
 
+    const handleClick = () => {
+      showCartModal()
+    }
     return (
       <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
         <button
-          onClick={()=>{onClick && onClick()}}
+          onClick={handleClick}
           className="relative bg-blue-600 hover:bg-gray-50 active:bg-blue-800 text-white rounded-full w-14 h-14 sm:w-16 sm:h-16 shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center group touch-manipulation"
         >
           {/* Emoji del carrito */}
