@@ -1,23 +1,14 @@
 import { create } from "zustand";
-import { useBranchesStore, useCartStore } from "@/stores";
+import {  useBranchesStore, useCartStore, useModalsStore } from "@/stores";
 import { checkoutOrder } from "@/actions";
+import { use } from "react";
+
 
 const useStoreCheckout = create((set, get) => ({
   isSubmitting: false,
-  
-  branchId: null,
-  deliveryMethods: [],
-  paymentMethods: [],
-  motoDeliveryOriginCoordinates: null,
-  pickupPointCompleteAddress: null,
-  pickupPointCoordinates: null,
-  motoDeliveryMaxDistanceInKms: null,
-  motoDeliveryBasePrice:null,
-  motoDeliveryDistancePricing: null,
-  
-  
-  selectedDeliveryMethod: null,
-  selectedPaymentMethod: null,
+ 
+  selectedDeliveryMethodType: null,
+  selectedPaymentMethodType: null,
   customerName: null,
   customerPhone: null,
   customerEmail: null,
@@ -27,18 +18,17 @@ const useStoreCheckout = create((set, get) => ({
   },
   notes: null,
 
-  //cartItemsCount: 0,
   cartTicket: null,
-  //cartItems: [],
+
+  distancePickupPointToCustomerAddressInKms: null,
+  distanceMotoDeliveryToCustomerAddressInKms: null,
+  allowMotoDeliveryToCustomerAddress: false,
+
   orderDeliveryAmount: 0,
   orderTax: 0,
   orderCurrency: "ARS",
   orderFinalAmount: 0,
 
-  showDeliveryAddressAndRadioForm: false,
-  distancePickupPointToCustomerAddressInKms: null,
-  distanceMotoDeliveryToCustomerAddressInKms: null,
-  allowMotoDeliveryToCustomerAddress: false,
 
   errors: {
     customerName: null,
@@ -61,17 +51,20 @@ const useStoreCheckout = create((set, get) => ({
     set({ customerPhone: customerPhone });
   },
 
-  selectDeliveryMethod: (deliveryMethodType: string) => {
+  selectDeliveryMethodType: (deliveryMethodType: string) => {
     try {
-      const foundDeliveryMethod = get().deliveryMethods.find(
+      const foundDeliveryMethod = useBranchesStore.getState().selectedBranch?.deliveryMethods?.find(
         (deliveryMethod) => deliveryMethod.type === deliveryMethodType
       );
+      if (!foundDeliveryMethod) {
+        throw new Error("Delivery method not found");
+      }
       switch (foundDeliveryMethod.type) {
         case "pickup":
-          get().onSelectPickupDeliveryMethod();
+          get()._onSelectPickupDeliveryMethod();
           break;
         case "motoDelivery":
-          get().onSelectMotoDeliveryDeliveryMethod();
+          get()._onSelectMotoDeliveryDeliveryMethod();
           break;
       }
     } catch (error) {
@@ -79,32 +72,28 @@ const useStoreCheckout = create((set, get) => ({
     }
   },
 
-  onSelectPickupDeliveryMethod: () => {
-    set({
-      selectedDeliveryMethod: get().deliveryMethods.find(
-        (deliveryMethod) => deliveryMethod.type === "pickup"
-      ),
-    });
-    get().calculateOrderAmount();
+  _onSelectPickupDeliveryMethod: () => {
+    try{
+      set({ selectedDeliveryMethodType: "pickup"});
+      get().calculateOrderAmount();
+    }catch (error) {
+      throw error;
+    }
+    
   },
 
-  onSelectMotoDeliveryDeliveryMethod: () => {
-    set({
-      selectedDeliveryMethod: get().deliveryMethods.find(
-        (deliveryMethod) => deliveryMethod.type === "motoDelivery"
-      ),
-    });
-    get().calculateOrderAmount();
+  _onSelectMotoDeliveryDeliveryMethod: () => {
+    try{
+      set({ selectedDeliveryMethodType: "motoDelivery"});
+      get().calculateOrderAmount();
+    }catch (error) {
+      throw error;
+    }
   },
 
-  selectPaymentMethod: (paymentMethodType: string) => {
+  selectPaymentMethodType: (paymentMethodType: string) => {
     try {
-      const foundPaymentMethod = get().paymentMethods.find(
-        (paymentMethod) => paymentMethod.type === paymentMethodType
-      );
-      set({
-        selectedPaymentMethod: foundPaymentMethod,
-      });
+      set({ selectedPaymentMethodType: paymentMethodType})
     } catch (error) {
       throw error;
     }
@@ -114,76 +103,87 @@ const useStoreCheckout = create((set, get) => ({
     set({ notes: notes });
   },
 
-  setShowDeliveryAddressAndRadioForm: (show: boolean) => {
-    set({ showDeliveryAddressAndRadioForm: show });
-  },
-
-  setCustomerAddress: ({ completeAddress, customerCoordinates }) => {
-    const {
+ validateCustomerAddress: ({ completeAddress, customerCoordinates, onSuccess, onError }) => {
+  try{
+const {
       distanceMotoDeliveryToCustomerAddressInKms,
       distancePickupPointToCustomerAddressInKms,
       allowMotoDeliveryToCustomerAddress,
       deliveryAmount,
     } = getDeliveryStatics({ 
       customerCoordinates: customerCoordinates,
-      pickupPointCoordinates: get().pickupPointCoordinates,
-      motoDeliveryOriginCoordinates: get().motoDeliveryOriginCoordinates,
-      motoDeliveryMaxDistanceInKms: get().motoDeliveryMaxDistanceInKms,
-      motoDeliveryBasePrice: get().motoDeliveryBasePrice,
-      motoDeliveryDistancePricing: get().motoDeliveryDistancePricing
+      pickupPointCoordinates: useBranchesStore.getState().selectedBranch.pickupPointCoordinates,
+      motoDeliveryOriginCoordinates: useBranchesStore.getState().selectedBranch.motoDeliveryOriginCoordinates,
+      motoDeliveryMaxDistanceInKms: useBranchesStore.getState().selectedBranch.motoDeliveryMaxDistanceInKms,
+      motoDeliveryBasePrice: useBranchesStore.getState().selectedBranch.motoDeliveryBasePrice,
+      motoDeliveryDistancePricing: useBranchesStore.getState().selectedBranch.motoDeliveryDistancePricing
   });
 
-    console.log("Statics : ", {
-      distanceMotoDeliveryToCustomerAddressInKms:
-        distanceMotoDeliveryToCustomerAddressInKms,
-      distancePickupPointToCustomerAddressInKms:
-        distancePickupPointToCustomerAddressInKms,
-      allowMotoDeliveryToCustomerAddress: allowMotoDeliveryToCustomerAddress,
-      deliveryAmount: deliveryAmount,
-    });
+    onSuccess({
+      currentCustomerAddress: { completeAddress: completeAddress, coordinates: customerCoordinates,},
+      distancePickupPointToCustomerAddressInKms:distancePickupPointToCustomerAddressInKms,
+      distanceMotoDeliveryToCustomerAddressInKms:distanceMotoDeliveryToCustomerAddressInKms,
+      allowMotoDeliveryToCustomerAddress: allowMotoDeliveryToCustomerAddress,      
+      orderDeliveryAmount: deliveryAmount,
+    })
+  }catch(error: any){
+    onError?.(error.message)
+  }
+    
+  },
+  setCustomerAddress: ({ completeAddress, customerCoordinates}) => {
+    try{
+const {
+      distanceMotoDeliveryToCustomerAddressInKms,
+      distancePickupPointToCustomerAddressInKms,
+      allowMotoDeliveryToCustomerAddress,
+      deliveryAmount,
+    } = getDeliveryStatics({ 
+      customerCoordinates: customerCoordinates,
+      pickupPointCoordinates: useBranchesStore.getState().selectedBranch.pickupPointCoordinates,
+      motoDeliveryOriginCoordinates: useBranchesStore.getState().selectedBranch.motoDeliveryOriginCoordinates,
+      motoDeliveryMaxDistanceInKms: useBranchesStore.getState().selectedBranch.motoDeliveryMaxDistanceInKms,
+      motoDeliveryBasePrice: useBranchesStore.getState().selectedBranch.motoDeliveryBasePrice,
+      motoDeliveryDistancePricing: useBranchesStore.getState().selectedBranch.motoDeliveryDistancePricing
+  });
 
-    if (!allowMotoDeliveryToCustomerAddress) {
-      alert("La dirección está fuera del área de entrega en moto.");
-      return;
-    }
 
     set({
       currentCustomerAddress: {
         completeAddress: completeAddress,
         coordinates: customerCoordinates,
       },
-      distancePickupPointToCustomerAddressInKms:
-        distancePickupPointToCustomerAddressInKms,
-      distanceMotoDeliveryToCustomerAddressInKms:
-        distanceMotoDeliveryToCustomerAddressInKms,
-      allowMotoDeliveryToCustomerAddress: allowMotoDeliveryToCustomerAddress,
-
-      showDeliveryAddressAndRadioForm: false,
+      distancePickupPointToCustomerAddressInKms:distancePickupPointToCustomerAddressInKms,
+      distanceMotoDeliveryToCustomerAddressInKms:distanceMotoDeliveryToCustomerAddressInKms,
+      allowMotoDeliveryToCustomerAddress: allowMotoDeliveryToCustomerAddress,      
       orderDeliveryAmount: deliveryAmount,
     });
 
-    get().calculateOrderAmount();
+      get().calculateOrderAmount();
+      useModalsStore.getState().hideAddressMapSelectorModal();
+    }catch(error: any){
+      throw error
+    }
+    
 
     //----------------------------------------------------------
   },
 
   onChangeCart(cartTicket: any) {
-    set({
-      cartTicket: cartTicket,
-    });
+    set({cartTicket: cartTicket});
     get().calculateOrderAmount();
   },
 
   submitOrder: async () => {
     const checkoutData = {
-      branchId: get().branchId,
+      branchId: useBranchesStore.getState().selectedBranch.id,
       customerCkeckoutData: {
         customerName: get().customerName,
         customerPhone: get().customerPhone,
         customerEmail: get().customerEmail,
         notes: get().notes,
-        selectedDeliveryMethodType: get().selectedDeliveryMethod?.type,
-        selectedPaymentMethodType: get().selectedPaymentMethod?.type,
+        selectedDeliveryMethodType: get().selectedDeliveryMethodType,
+        selectedPaymentMethodType: get().selectedPaymentMethodType,
         customerCompleteAddress: get().currentCustomerAddress?.completeAddress,
         customerCoordinates: get().currentCustomerAddress?.coordinates,
       },
@@ -220,26 +220,6 @@ const useStoreCheckout = create((set, get) => ({
 
 
 
-
-
-useBranchesStore.subscribe((state, prevState) => {
-  useStoreCheckout.setState({
-    branchId: state.id,
-    deliveryMethods: state.deliveryMethods,
-    paymentMethods: state.paymentMethods,
-    motoDeliveryOriginCoordinates: state.deliveryMethods?.find(
-      (dm) => dm.type === "motoDelivery"
-    )?.constraints?.originCoordinates,
-    pickupPointCompleteAddress: state.deliveryMethods.find(
-      (dm) => dm.type === "pickup"
-    )?.constraints?.pickupPointCompleteAddress,
-    motoDeliveryMaxDistanceInKms : state.deliveryMethods.find(
-    (dm) => dm.type === "motoDelivery")?.constraints?.maxDistanceInKms,
-    motoDeliveryBasePrice : state.deliveryMethods.find((dm) => dm.type === "motoDelivery")?.constraints?.pricing?.basePrice,
-    motoDeliveryDistancePricing : state.deliveryMethods.find((dm) => dm.type === "motoDelivery")?.constraints?.pricing?.distancePricing
-  });
-});
-
 export default useStoreCheckout;
 
 //Helpers ---------------------------------------------------------------
@@ -271,6 +251,14 @@ function getDeliveryStatics({
   motoDeliveryBasePrice,
   motoDeliveryDistancePricing
 }) {
+
+  console.log('aaa csustomerCoordinates', customerCoordinates)
+  console.log('aaa pickupPointCoordinates', pickupPointCoordinates)
+  console.log('aaa motoDeliveryOriginCoordinates', motoDeliveryOriginCoordinates)
+  console.log(' aaaa motoDeliveryMaxDistanceInKms', motoDeliveryMaxDistanceInKms)
+  console.log('aaa motoDeliveryBasePrice', motoDeliveryBasePrice)
+  console.log('aaa motoDeliveryDistancePricing', motoDeliveryDistancePricing)
+
 
   let distancePickupPointToCustomerAddressInKms;
   let distanceMotoDeliveryToCustomerAddressInKms;

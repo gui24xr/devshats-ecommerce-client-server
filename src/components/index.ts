@@ -41,6 +41,8 @@ import PremiumTrustIndicators from "./PremiumTrustIndicators";
 import CartCheckoutActionButtons from "./CartCheckoutActionButtons";
 
 import AddressMapSelector  from "./GoogleMapsAddressSelector";
+import AddressMapSelectorModal from "./AddressMapSelectorModal";
+import DeliveryPreview from "./DeliveryPreview";
 
 
 export { 
@@ -79,5 +81,7 @@ export {
     PremiumTrustIndicators,
     CartCheckoutActionButtons,
     AddressMapSelector,
-    ProductsByCategoriesCatalogModal
+    ProductsByCategoriesCatalogModal,
+    AddressMapSelectorModal,
+    DeliveryPreview
 };

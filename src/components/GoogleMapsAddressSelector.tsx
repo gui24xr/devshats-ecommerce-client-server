@@ -416,7 +416,7 @@ export default function AddressMapSelector({ onAddressSelect, centerCoordinates 
 
   return (
     <div className="max-w-4xl mx-auto p-6 flex flex-col gap-6">
-      <div className="mb-6">
+      <div>
         <h1 className="text-2xl font-bold text-gray-800 mb-2">
           Ubicacion de entrega
         </h1>

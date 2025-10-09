@@ -2,15 +2,14 @@
 import { useState } from "react";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { useStoreCheckout } from "@/stores";
-
+import { useStoreCheckout, useBranchesStore, useModalsStore } from "@/stores";
+import { BranchSelectorWidget } from "@/components";
 
 import {
-  LayoutModal,
-  AddressMapSelector,
   CheckoutOrderResume,
   PremiumTrustIndicators,
   CartCheckoutActionButtons,
+  AddressMapSelectorModal
 } from "@/components";
 
 export default function CheckoutForm() {
@@ -26,6 +25,15 @@ export default function CheckoutForm() {
               <CustomerEmailInput />
               <CustomerPhoneInput />
               <hr className="border-gray-300" />
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-2 flex items-end gap-2">
+                <span>🏠</span>
+                Seleccionar sucursal
+              </label>
+                <BranchSelectorWidget />
+              </div>
+             
+              <hr className="border-gray-300" />
               <DeliveryMethodsSelector />
               <hr className="border-gray-300" />
               <PaymentMethodSelector />
@@ -34,62 +42,24 @@ export default function CheckoutForm() {
             </div>
           </div>
           <div className="order-2 lg:order-2 px-2 sm:px-4 lg:px-8 flex flex-col gap-8">
-            <CheckoutOrderResume />
+           {<CheckoutOrderResume /> }
             <PremiumTrustIndicators />
             <div className="space-y-8 mt-8">
-              <OrderPreview />
+              {/*<OrderPreview /> */}
               <CartCheckoutActionButtons
               />
             </div>
           </div>
         </div>
       </div>
-      <AddressMapSelectorModal />
+      <AddressMapSelectorModal/>
     </>
   );
 }
 
 //------------------------------------------------------------------------------------------------------
 
-function AddressMapSelectorModal() {
-  const showDeliveryAddressAndRadioForm = useStoreCheckout(
-    (state) => state.showDeliveryAddressAndRadioForm
-  );
-  const setShowDeliveryAddressAndRadioForm = useStoreCheckout(
-    (state) => state.setShowDeliveryAddressAndRadioForm
-  );
 
-  const motoDeliveryOriginCoordinates = useStoreCheckout(
-    (state) => state.motoDeliveryOriginCoordinates
-  );
-
-  const setCustomerAddress = useStoreCheckout(
-    (state) => state.setCustomerAddress
-  );
-
-
-  const onChangeCustomerAddress = (addressData) => {
-    console.log("addressData selected:", addressData);
-    setCustomerAddress({
-      completeAddress: addressData.address,
-      customerCoordinates: addressData.coordinates,
-    });
-  };
-
-  return (
-    <LayoutModal
-      isOpen={showDeliveryAddressAndRadioForm}
-      onClose={() => setShowDeliveryAddressAndRadioForm(false)}
-      title="Selecciona tu dirección"
-      content={
-        <AddressMapSelector
-          onAddressSelect={onChangeCustomerAddress}
-          centerCoordinates={motoDeliveryOriginCoordinates}
-        />
-      }
-    />
-  )
-}
 
 function CheckoutFormHeader() {
   return (
@@ -274,9 +244,23 @@ const getPhonePlaceholder = (countryCode: string) => {
 };
 
 function DeliveryMethodsSelector() {
-  const setShowDeliveryAddressAndRadioForm = useStoreCheckout(
-    (state) => state.setShowDeliveryAddressAndRadioForm
+
+
+  const deliveryMethods = useBranchesStore(
+    (state) => state.selectedBranch?.deliveryMethods || []
   );
+
+  const pickupPointCompleteAddress = useBranchesStore(
+    (state) => state.selectedBranch?.pickupPointCompleteAddress
+  )
+
+  const selectDeliveryMethodType = useStoreCheckout(
+    (state) => state.selectDeliveryMethodType
+  );
+  const selectedDeliveryMethodType = useStoreCheckout(
+    (state) => state.selectedDeliveryMethodType
+  );
+
 
   const distanceMotoDeliveryToCustomerAddressInKms = useStoreCheckout(
     (state) => state.distanceMotoDeliveryToCustomerAddressInKms
@@ -286,25 +270,16 @@ function DeliveryMethodsSelector() {
     (state) => state.distancePickupPointToCustomerAddressInKms
   );
 
-  const deliveryMethods = useStoreCheckout(
-    (state) => state.deliveryMethods || []
-  );
-  const selectDeliveryMethod = useStoreCheckout(
-    (state) => state.selectDeliveryMethod
-  );
-  const selectedDeliveryMethod = useStoreCheckout(
-    (state) => state.selectedDeliveryMethod
-  );
+  const showAddressMapSelectorModal = useModalsStore(state => state.showAddressMapSelectorModal)
+
 
   const customerCompleteAddress = useStoreCheckout(
     (state) => state.currentCustomerAddress?.completeAddress
   );
 
-  const pickupPointCompleteAddress = useStoreCheckout(
-    (state) => state.pickupPointCompleteAddress
-  )
+
   const handleClick = (deliveryMethodType: string) => {
-    selectDeliveryMethod(deliveryMethodType);
+    selectDeliveryMethodType(deliveryMethodType);
   };
 
 
@@ -321,7 +296,7 @@ function DeliveryMethodsSelector() {
             type="button"
             onClick={() => handleClick(deliveryMethod.type)}
             className={`group p-3 border-2 rounded-xl text-center transition-all duration-300 transform hover:scale-105 ${
-              deliveryMethod?.type === selectedDeliveryMethod?.type
+              deliveryMethod?.type === selectedDeliveryMethodType
                 ? "border-orange-500 bg-gradient-to-br from-orange-50 to-red-50 shadow-lg"
                 : "border-gray-300 hover:border-orange-300 hover:shadow-md"
             }`}
@@ -338,7 +313,7 @@ function DeliveryMethodsSelector() {
           </button>
         ))}
       </div>
-      {selectedDeliveryMethod?.type === "motoDelivery" && (
+      {selectedDeliveryMethodType === "motoDelivery" && (
         <div className="p-4 flex flex-wrap gap-1">
           <h3 className="text-sm font-semibold text-gray-700 flex items-end gap-2">
             <span>🏠</span>
@@ -348,12 +323,11 @@ function DeliveryMethodsSelector() {
             <p className="text-sm text-gray-600">
               {(customerCompleteAddress &&
                 (`${customerCompleteAddress} (${distanceMotoDeliveryToCustomerAddressInKms} kms)` ||
-                  customerCompleteAddress)) ||
-                customerCompleteAddress}
+                  customerCompleteAddress)) ||  customerCompleteAddress}
             </p>
 
             <button
-              onClick={() => setShowDeliveryAddressAndRadioForm(true)}
+              onClick={() => showAddressMapSelectorModal()}
               className="text-sm text-blue-600 underline"
               type="button"
             >
@@ -364,7 +338,7 @@ function DeliveryMethodsSelector() {
           </div>
         </div>
       )}
-      {selectedDeliveryMethod?.type === "pickup" && (
+      {selectedDeliveryMethodType === "pickup" && (
         <div className="p-4 flex flex-col gap-2">
           <h3 className="text-sm font-semibold text-gray-700 flex items-end gap-2">
             <span>🏠</span>
@@ -377,7 +351,7 @@ function DeliveryMethodsSelector() {
             </p>
 
             <button
-              onClick={() => setShowDeliveryAddressAndRadioForm(true)}
+              onClick={() => showAddressMapSelectorModal()}
               className="text-sm text-blue-600 underline text-right"
               type="button"
             >
@@ -404,8 +378,8 @@ function OrderPreview() {
   const selectedDeliveryMethod = useStoreCheckout(
     (state) => state.selectedDeliveryMethod
   );
-  const selectedPaymentMethod = useStoreCheckout(
-    (state) => state.selectedPaymentMethod
+  const selectedPaymentMethodType = useStoreCheckout(
+    (state) => state.selectedPaymentMethodType
   );
 
 
@@ -514,17 +488,28 @@ function OrderPreview() {
 }
 
 function PaymentMethodSelector() {
-  const selectPaymentMethod = useStoreCheckout(
-    (state) => state.selectPaymentMethod
-  );
-  const selectedPaymentMethod = useStoreCheckout(
-    (state) => state.selectedPaymentMethod
-  );
 
-  const paymentMethods = useStoreCheckout((state) => state.paymentMethods);
+  const selectedBranch = useBranchesStore((state) => state.selectedBranch);
+  const paymenthMethodsLoading = useBranchesStore((state) => state.loading);
+  const selectPaymentMethodType = useStoreCheckout((state) => state.selectPaymentMethodType);
+  const selectedPaymentMethodType = useStoreCheckout((state) => state.selectedPaymentMethodType);
+
+  // Early return si no hay branch
+  if (!selectedBranch) {
+    return <div>Selecciona una sucursal primero</div>;
+  }
+
+  const paymentMethods = selectedBranch.paymentMethods;
+  
   const handleClick = (paymentMethodType: string) => {
-    selectPaymentMethod(paymentMethodType);
+    selectPaymentMethodType(paymentMethodType);
   };
+
+  if (paymenthMethodsLoading){
+    return <div>Metodos de pago cargando</div>
+  }
+
+
 
   return (
     <div className="flex flex-col gap-2">
@@ -538,8 +523,7 @@ function PaymentMethodSelector() {
             type="button"
             onClick={() => handleClick(paymentMethod.type)}
             className={`flex flex-row group p-3 border-2 rounded-xl text-center transition-all duration-300 transform hover:scale-105 ${
-              paymentMethod?.type === selectedPaymentMethod?.type
-                ? "border-orange-500 bg-gradient-to-br from-orange-50 to-red-50 shadow-lg"
+              paymentMethod?.type === selectedPaymentMethodType   ? "border-orange-500 bg-gradient-to-br from-orange-50 to-red-50 shadow-lg"
                 : "border-gray-300 hover:border-orange-300 hover:shadow-md"
             }`}
           >

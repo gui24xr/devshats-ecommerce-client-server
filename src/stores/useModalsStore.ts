@@ -6,6 +6,7 @@ interface ModalsStore {
   cartModalIsOpen: boolean
   catalogModalIsOpen: boolean
   productCustomizerModalIsOpen: boolean
+  addressMapSelectorModalIsOpen: boolean
   
   // Métodos para Cart Modal
   showCartModal: () => void
@@ -21,6 +22,11 @@ interface ModalsStore {
   showProductCustomizerModal: () => void
   hideProductCustomizerModal: () => void
   toggleProductCustomizerModal: () => void
+
+  // Metodos para Address Map Selector Modal
+  showAddressMapSelectorModal: () => void
+  hideAddressMapSelectorModal: () => void
+  toggleAddressMapSelectorModal: () => void
 }
 
 const useModalsStore = create<ModalsStore>((set) => ({
@@ -28,7 +34,9 @@ const useModalsStore = create<ModalsStore>((set) => ({
   cartModalIsOpen: false,
   catalogModalIsOpen: false,
   productCustomizerModalIsOpen: false,
+  addressMapSelectorModalIsOpen: false,
   
+    
   // Cart Modal
   showCartModal: () => set({ cartModalIsOpen: true }),
   hideCartModal: () => set({ cartModalIsOpen: false }),
@@ -43,6 +51,12 @@ const useModalsStore = create<ModalsStore>((set) => ({
   showProductCustomizerModal: () => set({ productCustomizerModalIsOpen: true }),
   hideProductCustomizerModal: () => set({ productCustomizerModalIsOpen: false }),
   toggleProductCustomizerModal: () => set((state) => ({ productCustomizerModalIsOpen: !state.productCustomizerModalIsOpen })),
+
+  // Address Map Selector Modal
+  showAddressMapSelectorModal: () => set({ addressMapSelectorModalIsOpen: true }),
+  hideAddressMapSelectorModal: () => set({ addressMapSelectorModalIsOpen: false }),
+  toggleAddressMapSelectorModal: () => set((state) => ({ addressMapSelectorModalIsOpen: !state.addressMapSelectorModalIsOpen })),
+  
 }))
 
 export default useModalsStore
