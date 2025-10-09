@@ -1,4 +1,4 @@
-import ClientWrapper from "./layout/ClientWrapper";
+
 import Navbar from "./layout/NavBar";
 import Footer from "./layout/Footer";
 import LayoutModal from "./layout/LayoutModal";
@@ -14,6 +14,10 @@ import ProductsByCategoriesCatalog from "./ProductsByCategoriesCatalog"
 import FloatingRapidCatalogWidget from "./FloatingRapidCatalogWidget";
 import ProductsByCategoriesCatalogModal from "./ProductsByCategoriesCatalogModal";
 
+import BranchesContainer from "./BranchesContainer";
+import BranchesStoreHydrator from "./BranchesStoreHydrator";
+import BranchSelectorWidget from "./BranchSelectorWidget";
+
 import ProductFilters from "./ProductFilters";
 import ProductCard from "./ProductCard";
 import ProductGrid from "./ProductGrid";
@@ -23,7 +27,7 @@ import ProductCardBody from "./ProductCardBody";
 import ProductsSkeleton from "./ProductsSkeleton";
 import StarRating from "./StartRating";
 
-import CartContainer from "./layout/CartContainer";
+import CartContainer from "./CartContainer";
 import FloatingCartWidget from "./FloatingCardWidget";  
 import CartDetails from "./CartDetails";
 import CartDetailsModal from "./CartDetailsModal";
@@ -40,7 +44,6 @@ import AddressMapSelector  from "./GoogleMapsAddressSelector";
 
 
 export { 
-    ClientWrapper,
     Navbar,
     Footer,
     LayoutModal,
@@ -48,6 +51,9 @@ export {
     Portrait,
     ProductsPortrait,
     ProductsPortraitContainer,
+    BranchesContainer,
+    BranchesStoreHydrator,
+    BranchSelectorWidget,
     ProductFilters,
     ProductsContainer,
     ProductsStoreHydrator,

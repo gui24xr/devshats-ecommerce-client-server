@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { BranchSelectorWidget } from '@/components';
 /*theme puede ser transparent o white*/ 
 
 const Navbar = ({ config }: any) => {
@@ -39,6 +40,11 @@ const Navbar = ({ config }: any) => {
             </div>
           </div>
 
+          {/* BranchesSelector - Desktop */}
+          <div className="hidden md:block">
+            <BranchSelectorWidget />
+          </div>
+
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
@@ -73,8 +79,11 @@ const Navbar = ({ config }: any) => {
             </div>
           ))}
           </div>
-              
+          
         )}
+        <div className="md:hidden">
+            <BranchSelectorWidget />
+          </div>
     </nav>
   );
 };

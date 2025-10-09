@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
-import { CartContainer, ClientWrapper } from "@/components";	
+import { CartContainer, BranchesContainer } from "@/components";	
 import { Suspense } from "react";
 
 import {  Footer } from "@/components";
@@ -31,15 +31,17 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
     <html lang="en">
       <body
         className={`${inter.className} ${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <ClientWrapper>
-          <Suspense fallback={<div></div>}>
+           <Suspense fallback={<div>Cargando...</div>}>
+            <BranchesContainer />
+          </Suspense>
+          <Suspense fallback={<div>Cargando...</div>}>
             <CartContainer />
           </Suspense>
           <div className="min-h-screen bg-gray-100 text-black">
             {children}
           </div>
           <Footer />
-        </ClientWrapper>
+       
       </body>
     </html>
   );

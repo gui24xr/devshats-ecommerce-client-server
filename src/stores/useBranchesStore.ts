@@ -1,16 +1,4 @@
 import { create } from "zustand";
-import axios from "axios";
-
-// URL base dinámica que funciona tanto en localhost como en ngrok
-const getBaseUrl = () => {
-    if (typeof window !== 'undefined') {
-        // En el cliente, usar la URL actual
-        return window.location.origin;
-    }
-    // En el servidor, usar localhost por defecto
-    return 'http://localhost:3000';
-};
-
 
 const useBranchesStore = create((set, get) => ({
     branches: [],
@@ -19,7 +7,6 @@ const useBranchesStore = create((set, get) => ({
     error: null,
     loaded: false,
 
-    //---------------------------------
     id: null,
     name: null,
     active: null,
@@ -30,56 +17,42 @@ const useBranchesStore = create((set, get) => ({
     deliveryMethods: [],
     paymentMethods: [],
     
-    //--------------------------------
-
-    fetchBranches: async () => {
-        set({ loading: true, error: null });
-        try {
-            const baseUrl = getBaseUrl();
-            const { data } = await axios.get(`${baseUrl}/api/branches`);
-            console.log('data branches : ', data.branches)
-            set({ branches: data.branches });
-
-            //--nuevo ------------------------------
+    hydrateAndConfigBranches: (branchesData: any) => {
+        try{
+            set({branches: branchesData})
             set({
-                id: data.branches[0].id,
-                name: data.branches[0].name,
-                active: data.branches[0].active,
-                addressData: data.branches[0].addressData,
-                contactData: data.branches[0].contactData,
-                workingHours: data.branches[0].workingHours,
-                waMessagePhone: data.branches[0].waMessagePhone,
-                deliveryMethods: data.branches[0].deliveryMethods,
-                paymentMethods: data.branches[0].paymentMethods,
+                id: branchesData[0].id,
+                name: branchesData[0].name,
+                active: branchesData[0].active,
+                addressData: branchesData[0].addressData,
+                contactData: branchesData[0].contactData,
+                workingHours: branchesData[0].workingHours,
+                waMessagePhone: branchesData[0].waMessagePhone,
+                deliveryMethods: branchesData[0].deliveryMethods,
+                paymentMethods: branchesData[0].paymentMethods,
             })
-
-            //------------------------------------------
-        } catch (error) {
-            set({ error: error });
-        } finally {
-            set({ loading: false });
+        }catch(error){
+            console.error(error);
+            throw error;
         }
     },
-    initializeBranchConfig: () => {
-        set({ selectedBranch: get().branches[0]})
-        console.log('selectedBranch : ', get().selectedBranch)
-    },
+
     changeSelectedBranch: (branchId: any) => {
-        const branch = get().branches.find((branch: any) => branch.id === branchId)
-        if (!branch) {
+        const foundedBranch = get().branches.find((branch: any) => branch.id === branchId)
+        if (!foundedBranch) {
             alert('Branch not found')
             return;
         }
         set({
             selectedBranch: {
-                id: branch.id,
-                name: branch.name,
-                address: branch.address,
-                coordinates: branch.coordinates,
-                phones: branch.phones,
-                waMessagePhone: branch.waMessagePhone,
-                workingHours: branch.workingHours,
-                deliveryMethods: branch.deliveryMethods,
+                id: foundedBranch.id,
+                name: foundedBranch.name,
+                address: foundedBranch.address,
+                coordinates: foundedBranch.coordinates,
+                phones: foundedBranch.phones,
+                waMessagePhone: foundedBranch.waMessagePhone,
+                workingHours: foundedBranch.workingHours,
+                deliveryMethods: foundedBranch.deliveryMethods,
             }
         })
     }

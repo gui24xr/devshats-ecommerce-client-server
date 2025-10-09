@@ -1,5 +1,5 @@
 import DataService from "@/lib/DataService";
-import { FloatingCartWidget, CartDetailsModal } from "../index";
+import { FloatingCartWidget, CartDetailsModal } from "../components";
 
 
 export default async function CartContainer() {
