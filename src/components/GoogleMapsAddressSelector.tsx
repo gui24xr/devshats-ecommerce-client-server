@@ -1,7 +1,7 @@
 "use client";
 import { useState, useCallback, useRef, useEffect } from "react";
 
-const GoogleMapsAddressSelector = ({ onAddressSelect, apiKey, centerCoordinates }) => {
+const GoogleMapsAddressSelector = ({ onAddressSelect, apiKey, centerCoordinates, showInstructions = false }) => {
   const [map, setMap] = useState(null);
   const [autocomplete, setAutocomplete] = useState(null);
   const [marker, setMarker] = useState(null);
@@ -133,6 +133,7 @@ const GoogleMapsAddressSelector = ({ onAddressSelect, apiKey, centerCoordinates 
 
       setSelectedPlace(addressData);
       onAddressSelect?.(addressData);
+      
     });
 
     // Cuando se hace clic en el mapa
@@ -265,14 +266,14 @@ const GoogleMapsAddressSelector = ({ onAddressSelect, apiKey, centerCoordinates 
   }
 
   return (
-    <div className="w-full space-y-4">
+    <div className="w-full space-y-2">
       {/* Input con autocompletado */}
       <div className="relative">
         <input
           ref={autocompleteRef}
           type="text"
           placeholder="Buscar dirección..."
-          className="w-full px-4 py-3 pr-12 text-lg border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-4 py-2 pr-12 text-lg text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
         <div className="absolute inset-y-0 right-0 flex items-center pr-3">
           <svg
@@ -321,7 +322,8 @@ const GoogleMapsAddressSelector = ({ onAddressSelect, apiKey, centerCoordinates 
         */}
 
       {/* Instrucciones */}
-      <div className="text-sm text-gray-600 bg-gray-50 p-3 rounded-lg">
+      {showInstructions && (
+          <div className="text-sm text-gray-600 bg-gray-50 p-3 rounded-lg">
         <p className="font-medium mb-1">💡 Cómo usar:</p>
         <ul className="list-disc list-inside space-y-1">
           <li>Escribe en el campo de búsqueda para autocompletado</li>
@@ -329,6 +331,8 @@ const GoogleMapsAddressSelector = ({ onAddressSelect, apiKey, centerCoordinates 
           <li>Arrastra el marcador para ajustar la posición</li>
         </ul>
       </div>
+      )}
+    
     </div>
   );
 };
@@ -415,7 +419,8 @@ export default function AddressMapSelector({ onAddressSelect, centerCoordinates 
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 flex flex-col gap-6">
+    <div className="flex flex-col gap-6">
+      {/*
       <div>
         <h1 className="text-2xl font-bold text-gray-800 mb-2">
           Ubicacion de entrega
@@ -425,6 +430,7 @@ export default function AddressMapSelector({ onAddressSelect, centerCoordinates 
           Selecciona la ubicacion de entrega y luego validar la ubicacion.
         </p>
       </div>
+*/}
 
       <GoogleMapsAddressSelector
         apiKey={GOOGLE_MAPS_API_KEY}

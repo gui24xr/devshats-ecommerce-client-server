@@ -15,8 +15,7 @@ export default function ProductsByCategoriesCatalogModal() {
       onClose={hideCatalogModal}
       title="Catálogo"
       description="Catálogo de productos."
-      minWidth="w-1/2"
-      maxWidth="max-w-2xl"
+      titleIcon ={'📋'}
       content={<ProductsByCategoriesCatalog />}
       footer={<div></div>}
     />

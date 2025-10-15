@@ -1,8 +1,9 @@
 'use client'
-import { useStoreCheckout, useCartStore } from '@/stores'
+
+import { useStoreCheckout, useCartStore  } from '@/stores'
 
 export default function CheckoutOrderResume() {
-  const selectedDeliveryMethod = useStoreCheckout(state => state.selectedDeliveryMethod)
+
   const currentMotoDeliveryAmount = useStoreCheckout(state => state.orderDeliveryAmount)
   
   const cartItemsCount = useCartStore(state => state.itemsCount)
@@ -11,6 +12,9 @@ export default function CheckoutOrderResume() {
   const orderTax = useStoreCheckout(state => state.orderTax)
   const orderFinalAmount = useStoreCheckout(state => state.orderFinalAmount)
   const orderCurrency = useStoreCheckout(state => state.orderCurrency)
+
+  const selectedDeliveryOption = useStoreCheckout(state => state.selectedDeliveryOption)
+
 
   return (
     <div className="bg-gradient-to-br from-orange-50 to-red-50 border-2 border-orange-200 rounded-2xl p-3 sm:p-4 lg:p-6 shadow-lg">
@@ -26,14 +30,14 @@ export default function CheckoutOrderResume() {
           </span>
           <span className="font-bold text-gray-900 text-xs sm:text-sm ml-2">${cartTicket.toFixed(2) || 0}</span>
         </div>
-        {selectedDeliveryMethod && selectedDeliveryMethod?.type === 'motoDelivery' && (    
+        {selectedDeliveryOption?.deliveryType === 'motoDelivery' && (    
         <div className="flex justify-between items-center p-2 sm:p-3 hover:bg-orange-100 rounded-xl transition-all duration-300">
           <span className="text-gray-700 flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
             <span className="text-green-500 text-sm sm:text-base">🚚</span>
             <span className="whitespace-nowrap">Envío</span>
           </span>
           <span className={`font-bold text-xs sm:text-sm ml-2 ${currentMotoDeliveryAmount === 0 ? 'text-green-600' : 'text-gray-900'}`}>
-            {currentMotoDeliveryAmount === 0 ? "GRATIS" : `$${currentMotoDeliveryAmount.toFixed(2)}`}
+            {selectedDeliveryOption?.deliveryAmount === 0 ? "GRATIS" : `$${selectedDeliveryOption?.deliveryAmount.toFixed(2)}`}
           </span>
         </div>
         ) }

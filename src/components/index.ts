@@ -43,7 +43,8 @@ import CartCheckoutActionButtons from "./CartCheckoutActionButtons";
 import AddressMapSelector  from "./GoogleMapsAddressSelector";
 import AddressMapSelectorModal from "./AddressMapSelectorModal";
 import DeliveryPreview from "./DeliveryPreview";
-
+import MotoDeliveryCard from "./MotoDeliveryCard";
+import PickupOptionCard from "./PickupOptionCard";
 
 export { 
     Navbar,
@@ -83,5 +84,7 @@ export {
     AddressMapSelector,
     ProductsByCategoriesCatalogModal,
     AddressMapSelectorModal,
-    DeliveryPreview
+    DeliveryPreview,
+    MotoDeliveryCard,
+    PickupOptionCard
 };

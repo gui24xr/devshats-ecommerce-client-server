@@ -10,12 +10,11 @@ export default function LayoutModal({
   titleIcon = <X />,
   title = "Mi modal",
   description = "descripcion del modal",
-  minWidth = "w-full",
-  maxWidth = "w-full",
+  fullScreen = false, // Nueva prop más simple
   backgroundColor = "bg-gradient-to-br from-green-500 to-blue-500",
   content = <DefaultHeader />,
   footer = <DefaultFooter />
-  
+
 }) {
 
 
@@ -40,7 +39,7 @@ export default function LayoutModal({
 
           <div className="fixed inset-0 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden ">
-              <div className={`pointer-events-none fixed inset-y-0 right-0 flex w-full xl:w-1/2`}>
+              <div className={`pointer-events-none fixed inset-y-0 right-0 flex ${fullScreen ? 'w-full' : 'w-full xl:w-1/2'}`}>
 
                 {/* Panel del modal deslizándose desde la derecha */}
                 <Transition.Child
@@ -60,11 +59,13 @@ export default function LayoutModal({
                       <div className={'w-full flex items-center justify-between px-4 py-2 text-white flex-shrink-0'}>
                         <div>
                           <Dialog.Title className="font-bold text-sm">
-                            {titleIcon} {title}
+                            <div className="flex items-center gap-2">
+                              <span>{titleIcon} </span>
+                              <span>{title}</span>
+                            </div>
+                             
                           </Dialog.Title>
-                          <p className="text-orange-100 text-sm">
-                            {description}
-                          </p>
+                         
                         </div>
                         <button
                           onClick={() => onClose(false)}

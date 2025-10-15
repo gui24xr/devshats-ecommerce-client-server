@@ -11,9 +11,8 @@ export default function CartDetailsModal() {
             isOpen={cartModalIsOpen}
             onClose={hideCartModal}
             title="Mi Carrito"
+            titleIcon={'🛒'}
             description="Detalle de carrito."
-            minWidth="w-full"
-            maxWidth="max-w-full"
             content={<CartDetails/>}
         />)
 }

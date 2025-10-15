@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import  {useDeliveryAndPaymentOptionsStore, useStoreCheckout } from "@/stores";
 
 const useBranchesStore = create((set, get) => ({
     branches: [],
@@ -10,8 +11,26 @@ const useBranchesStore = create((set, get) => ({
     hydrateAndConfigBranches: (branchesData: any) => {
          set({loading: true})
         try{
-           
-            set({branches: branchesData})
+           const mappedBrancheData = branchesData.map((branchItem: any) => ({
+                id: branchItem.id,
+                name: branchItem.name,
+                active: branchItem.active,
+                addressData: branchItem.addressData,
+                contactData: branchItem.contactData,
+                workingHours: branchItem.workingHours,
+                waMessagePhone: branchItem.waMessagePhone,
+                deliveryMethods: branchItem.deliveryMethods,
+                paymentMethods: branchItem.paymentMethods,
+                pickupPointCompleteAddress: branchItem.deliveryMethods.find((dm) => dm.type === "pickup")?.constraints?.pickupPointCompleteAddress,
+                pickupPointCoordinates: branchItem.deliveryMethods.find((dm) => dm.type === "pickup")?.constraints?.pickupCoordinates,
+                motoDeliveryOriginCoordinates: branchItem.deliveryMethods?.find((dm) => dm.type === "motoDelivery")?.constraints?.originCoordinates, 
+                motoDeliveryMaxDistanceInKms: branchItem.deliveryMethods.find((dm) => dm.type === "motoDelivery")?.constraints?.maxDistanceInKms,
+                motoDeliveryBasePrice: branchItem.deliveryMethods.find((dm) => dm.type === "motoDelivery")?.constraints?.pricing?.basePrice,
+                motoDeliveryDistancePricing: branchItem.deliveryMethods.find((dm) => dm.type === "motoDelivery")?.constraints?.pricing?.distancePricing,
+
+                
+           })) 
+            set({branches: mappedBrancheData})
             get().changeSelectedBranch(branchesData[0].id)
         }catch(error){
             console.error(error);
@@ -29,35 +48,7 @@ const useBranchesStore = create((set, get) => ({
             alert('Branch not found')
             return;
         }
-        set({
-            selectedBranch:{
-                id: foundedBranch.id,
-                name: foundedBranch.name,
-                active: foundedBranch.active,
-                addressData: foundedBranch.addressData,
-                contactData: foundedBranch.contactData,
-                workingHours: foundedBranch.workingHours,
-                waMessagePhone: foundedBranch.waMessagePhone,
-                deliveryMethods: foundedBranch.deliveryMethods,
-                paymentMethods: foundedBranch.paymentMethods,
-                 
-
-                pickupPointCompleteAddress: foundedBranch.deliveryMethods.find((dm) => dm.type === "pickup")?.constraints?.pickupPointCompleteAddress,
-
-                pickupPointCoordinates: foundedBranch.deliveryMethods.find((dm) => dm.type === "pickup")?.constraints?.pickupCoordinates,
-
-                motoDeliveryOriginCoordinates: foundedBranch.deliveryMethods?.find((dm) => dm.type === "motoDelivery")?.constraints?.originCoordinates, 
-
-                motoDeliveryMaxDistanceInKms: foundedBranch.deliveryMethods.find((dm) => dm.type === "motoDelivery")?.constraints?.maxDistanceInKms,
-                
-                motoDeliveryBasePrice: foundedBranch.deliveryMethods.find((dm) => dm.type === "motoDelivery")?.constraints?.pricing?.basePrice,
-
-                motoDeliveryDistancePricing: foundedBranch.deliveryMethods.find((dm) => dm.type === "motoDelivery")?.constraints?.pricing?.distancePricing,
-
-               
-
-            }
-        })
+        set({selectedBranch: foundedBranch})
         }catch(error){
             console.error(error);
             throw error;
@@ -67,5 +58,11 @@ const useBranchesStore = create((set, get) => ({
         
     }
 }));
+
+
+useBranchesStore.subscribe((state, prevState) => {
+    console.log("Store delivery options reaccionando a cambio de store branches's state");
+    useStoreCheckout.getState().onChangeBranches();
+});
 
 export default useBranchesStore;
