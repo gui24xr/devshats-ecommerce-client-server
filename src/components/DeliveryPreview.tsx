@@ -1,21 +1,24 @@
 "use client";
-import { useState  } from "react";
+import { useState, useEffect  } from "react";
 import {  useModalsStore } from "@/stores";
 import {  AddressMapSelector, MotoDeliveryCard, PickupOptionCard } from "@/components";
-import { useStoreCheckout } from "@/stores";
+import { useDeliveryAndPaymentStore } from "@/stores";
 
 export default function DeliveryPreview() {
   
   const hideAddressMapSelectorModal = useModalsStore((state) => state.hideAddressMapSelectorModal);
-
-  const setCustomerAddressData =  useStoreCheckout((state) => state.setCustomerAddressData);
-  const motoDeliveryOptions =  useStoreCheckout((state) => state.motoDeliveryOptions)
-  const pickupDeliveryOptions =  useStoreCheckout((state) => state.pickupDeliveryOptions)
-  const customerAddressData =  useStoreCheckout((state) => state.customerAddressData);
-  const selectDeliveryOption =  useStoreCheckout((state) => state.selectDeliveryOption);
-  const setMapRadioData = useStoreCheckout((state) => state.setMapRadioData);
+  const mapData =  useDeliveryAndPaymentStore((state) => state.mapData);
+  const setMapData =  useDeliveryAndPaymentStore((state) => state.setMapData);
+  const motoDeliveryOptions =  useDeliveryAndPaymentStore((state) => state.motoDeliveryOptions)
+  const pickupDeliveryOptions =  useDeliveryAndPaymentStore((state) => state.pickupDeliveryOptions)
+  const selectDeliveryOption =  useDeliveryAndPaymentStore((state) => state.selectDeliveryOption);
+  const reset =  useDeliveryAndPaymentStore((state) => state.reset);
 
   const [mapIsVisible, setMapIsVisible] = useState(false);
+
+  useEffect(() => {
+    !mapData && reset();
+  }, []);
 
   const handleClickOption = (option) => {
     selectDeliveryOption(option);
@@ -27,8 +30,7 @@ export default function DeliveryPreview() {
       alert("No se selecciono ninguna direccion...");
       return;
     }
-
-    setMapRadioData({ address: mapData.address, coordinates: mapData.coordinates });
+    setMapData({ address: mapData.address, coordinates: mapData.coordinates });
     setMapIsVisible(false);
   };
 
@@ -45,20 +47,20 @@ export default function DeliveryPreview() {
             </h5>
           <div className="w-full px-8 flex flex-col space-between gap-4">
             <p className="text-sm text-gray-600">
-              {customerAddressData?.address || 'Elegir una sucursal para retirar o Seleccionar una direccion de entrega para calcular el costo y si hacemos delivery a domicilio'}.
+              {mapData?.address || 'Elegir una sucursal para retirar o ingresar una direccion de entrega para calcular el costo y si hacemos delivery a domicilio'}.
                </p>
                <div className="ml-auto flex flex-wrap gap-4">
               <button
                 className="  text-sm text-blue-600 underline text-right"
                 type="button"
                 onClick={handleClickChangeAddress}>
-                {mapIsVisible ? "Ocultar mapa" : `${customerAddressData ? 'Cambiar direccion' :  'Ingresar otra direccion'}`}
+                {mapIsVisible ? "Ocultar mapa" : `${mapData ? 'Cambiar direccion' :  'Ingresar direccion'}`}
               </button>
-              {customerAddressData && (
+              {mapData && (
                 <button
                 className="ml-auto text-sm text-blue-600 underline text-right"
                 type="button"
-                onClick={() => setCustomerAddressData(null)}>
+                onClick={() => setMapData(null)}>
                 Borrar direccion
               </button>
               
@@ -72,7 +74,7 @@ export default function DeliveryPreview() {
           <>
           <AddressMapSelector
             onAddressSelect={onChangeAddressInMap}
-            //centerCoordinates={motoDeliveryOriginCoordinates}
+            centerCoordinates={mapData?.coordinates || null}
             />
             <hr className="border-gray-300 mt-8 mb-8" />
 
@@ -107,7 +109,11 @@ export default function DeliveryPreview() {
             </div>
           ) : (
             <div className="w-full px-8 flex flex-col gap-4">
-            <p className="text-gray-600 text-sm">{customerAddressData ? "No hay opciones disponibles" : "No se ha seleccionado ninguna direccion. Ingrese una direccion de entrega para calcular el costo y si hacemos delivery a domicilio."}</p>
+            
+            <p className="text-gray-600 text-sm">
+              {(motoDeliveryOptions?.length < 1 && mapData) && "No hay opciones disponibles" }
+              {!mapData  && "No se ha seleccionado ninguna direccion. Ingrese una direccion de entrega para calcular el costo y si hacemos delivery a domicilio."}
+            </p>
              <button
                 className="  text-sm text-blue-600 underline text-right"
                 type="button"

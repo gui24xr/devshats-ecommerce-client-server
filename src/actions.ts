@@ -1,14 +1,15 @@
 'use server'
 import DataService from "./lib/DataService"
 
-async function checkoutOrder(checkoutData: any){
+async function checkoutOrder(checkoutPayloadData: any){
     //Hay que validar los precios , costos, stock, todo de la compra
     //SI todo lo anterior salio bien entonces ponerlo en la base de datos de la serverAPP,
     //Hacer que esta app o la server app envien el email
     //Saliendo todo ok devuelvo el wa.me
+//const { customerData, paymentsAndDeliveryConstrainst, cartTicketAndTotals } = checkoutPayloadData
+ const { branchId, customerData, cartTicket } = checkoutPayloadData
+ //const branchId = paymentsAndDeliveryConstrainst.branchId
 
- const { branchId, customerCkeckoutData, cartTicket } = checkoutData
- 
  const selectedBranch = await DataService.getBranchById(branchId)
  if (!selectedBranch) return {success: false}
  const waMessagePhone = selectedBranch?.waMessageConfig.waPhoneNumber?.trim()
@@ -20,7 +21,7 @@ const stringMessage = getOrderMessage({
     chatMessageConfig: chatMessageConfig, 
     cartTicket: cartTicket, //Revisar despues
     orderNumber,
-    customerCheckoutData: customerCkeckoutData,
+    customerCheckoutData: customerData,
     pickupPointCompleteAddress: pickupPointCompleteAddress 
 })
 
@@ -55,9 +56,9 @@ export {
 
     return [...headerMessageSection,
             wtspMessagesConverter.getLineBreak(),
-            ...orderMessageListLines,
-            wtspMessagesConverter.getLineBreak(),
             ... orderMessageCartSection,
+            wtspMessagesConverter.getLineBreak(),
+             ...orderMessageListLines,
             wtspMessagesConverter.getLineBreak(),
             ...footerMessageSection].join('')
  }
@@ -178,15 +179,28 @@ function getMessageClientSection(clientDataItems){
 }
 
  function getClientDataItems(customerCheckoutData: any){
-     const {customerName, customerEmail, customerPhone, selectedPaymentMethodType, selectedDeliveryMethodType, pickupPointCompleteAddress, customerCompleteAddress, notes} = customerCheckoutData
+
+    console.log('Info del cliente en getClientdataItems', customerCheckoutData);
+     const { customerName, customerEmail, customerPhone, customerPhoneCountry, selectedPaymentMethodType, selectedDeliveryMethodType, pickupPointCompleteAddress, customerAddressData, motoDeliverybetweenStreets, motoDeliveryReference, motoDeliveryExtraInfo, notes} = customerCheckoutData
     const clientDataItems = []
     clientDataItems.push({emoji:'👤', label: 'Nombre', value: (customerName || 'Completar nombre.')})
     clientDataItems.push({emoji:'📧', label: 'Email', value: (customerEmail || 'Completar email.')})
     clientDataItems.push({emoji:'📞', label: 'Telefono', value: (customerPhone || 'Completar telefono.')})
     clientDataItems.push({emoji:'💳', label: 'Forma de pago', value: getSelectedPaymentMethodTypeText(selectedPaymentMethodType)})
+    
     clientDataItems.push({emoji:'🚀', label: 'Forma de retiro/entrega', value: getSelectedDeliveryMethodTypeText(selectedDeliveryMethodType)})
-    selectedDeliveryMethodType === 'pickup' && clientDataItems.push({emoji:'🏠', label: 'Dirección de retiro', value: (pickupPointCompleteAddress || 'Consultar direccion de retiro.')})
-    selectedDeliveryMethodType === 'motoDelivery' && clientDataItems.push({emoji:'🏠', label: 'Dirección de entrega', value: (customerCompleteAddress || 'Completar direccion de entrega.')})
+    
+    if (selectedDeliveryMethodType === 'pickup') {
+        clientDataItems.push({emoji:'🏠', label: 'Dirección de retiro', value: (pickupPointCompleteAddress || 'Consultar direccion de retiro.')})
+    }
+
+    if(selectedDeliveryMethodType === 'motoDelivery'){
+         clientDataItems.push({emoji:'🏠', label: 'Dirección de entrega', value: (customerAddressData?.completeAddress || 'Completar direccion de entrega.')})
+         clientDataItems.push({emoji:'🏠', label: 'Entre calles', value: (motoDeliverybetweenStreets || 'Sin informacion.')})
+         clientDataItems.push({emoji:'🏠', label: 'Referencia', value: (motoDeliveryReference || 'Sin informacion.')})
+         clientDataItems.push({emoji:'🏠', label: 'Informacion adicional', value: (motoDeliveryExtraInfo || 'Sin informacion.')})
+    }
+
     clientDataItems.push({emoji:'💭', label: 'Nota', value: (notes || 'Sin notas adicionales.')})
     return clientDataItems
  }
@@ -194,7 +208,7 @@ function getMessageClientSection(clientDataItems){
  function getSelectedDeliveryMethodTypeText(selectedDeliveryMethodType: string) {
      switch (selectedDeliveryMethodType) {
          case 'motoDelivery':
-             return 'Entrega a domicilio por delivery.';
+             return 'Entrega a domicilio.';
          case 'pickup':
              return 'Retiro en sucursal.';
          default:
@@ -210,6 +224,8 @@ function getMessageClientSection(clientDataItems){
              return 'Tarjeta';
          case 'BANK_TRANSFER_PAYMENT':
              return 'Tarjeta';
+         case 'MERCADOPAGO_PAYMENT':
+             return 'Mercado Pago';
          default:
              return'Completar forma de pago.';
      }

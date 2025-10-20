@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { useStoreCheckout } from "@/stores";
+
 
 const cartStoreConfig = (set, get) => ({
   items: [],
@@ -162,16 +162,17 @@ const useCartStore = create(persist(cartStoreConfig, {
       console.log("Store Checkout reaccionando a rehydrate de store cart's state");
       if (state) {
         state._recalculateCart();
-        useStoreCheckout.getState().onChangeCart(state.getCurrentCartTicket())
+        //useStoreCheckout.getState().onChangeCart(state.getCurrentCartTicket())
       }
     }
   } 
 }));
-
+/*
 useCartStore.subscribe((state, prevState) => {
   console.log("Store Checkout reaccionando a cambio de store cart's state");
   useStoreCheckout.getState().onChangeCart(state.getCurrentCartTicket())
 });
+*/
 
 export default useCartStore;
 

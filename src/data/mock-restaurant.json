@@ -791,7 +791,7 @@
         },
         "contactData": {
           "phones": [
-            "+54 2225 1234-5678",
+            "+5422251234-5678",
             "+5492225123456"
           ],
           "emails": [
@@ -829,7 +829,7 @@
           }
         },
         "waMessageConfig": {
-          "waPhoneNumber": "+5492225149165",
+          "waPhoneNumber": "+5491159149165",
           "chatMessageConfig": {
             "header": "HotDogs Paradise Sucursal San Vicente - Solicitud de pedido.",
             "welcomeMessage": "Hola Hotdogs Paradise! Tengo un nuevo pedido para ti. Estos son los detalles:",

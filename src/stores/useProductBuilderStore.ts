@@ -8,7 +8,6 @@ interface ProductBuilderState {
   totalForThisProduct: number | null;
   
 
-
   setError: (errorMessage: string) => void;
   setQuantity: (quantity: number) => void;
   handlerProductToAddToCart: ({ productId, selectedVariantId, quantity, onError }: {productId: string, selectedVariantId: string, quantity?: number, onError?: (errorMessage: string) => void}) => void;
@@ -151,22 +150,6 @@ interface calculateTotalPriceProps{
     quantity: number;
 }
 
-
-const calculateTotalPrice = ({ currentProduct, selectedVariant, customization, quantity }: calculateTotalPriceProps) => {
-    const getBasePrice = () => {
-        const productPrice = currentProduct.templateVariant ? selectedVariant.price : currentProduct.price
-        return productPrice.finalPrice
-    }
-
-    const totalOfCustomizationOptions = (
-        currentProduct.customizationFeaturesTemplate ?
-            customization.reduce((total: any, item: any) => total + item.options.reduce((total: any, option: any) => total + option.priceModifier, 0), 0) : 0
-    )
-    return {
-        unitPrice: getBasePrice(),
-        totalPrice: (getBasePrice() + totalOfCustomizationOptions) * quantity
-    }
-}
 
  function checkProductVariant({product, selectedVariantId}: {product: any, selectedVariantId: any}): void {
     if (product.templateVariant && !selectedVariantId) throw new Error('No se ha seleccionado ninguna variante.')

@@ -1,13 +1,13 @@
 "use client";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useStoreCheckout } from "@/stores";
+import { useDeliveryAndPaymentStore } from "@/stores";
 
 export default function CartCheckoutActionButtons() {
 
   const router = useRouter();
-  const submitOrder = useStoreCheckout((state) => state.submitOrder);
-  const isSubmitting = useStoreCheckout((state) => state.isSubmitting);
+  const submitOrder = useDeliveryAndPaymentStore((state) => state.submitOrder);
+  const isSubmitting = useDeliveryAndPaymentStore((state) => state.isSubmitting);
   const handleSubmit = () => {
     submitOrder();
   }
@@ -18,7 +18,9 @@ export default function CartCheckoutActionButtons() {
   return (
     <div className="space-y-3 sm:space-y-4 pb-4">
       <button
-        onClick={handleSubmit}
+        disabled={isSubmitting}
+        type="submit"
+        //onClick={handleSubmit}
         className="w-full bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 text-base sm:text-lg"
       >
         {isSubmitting ? (

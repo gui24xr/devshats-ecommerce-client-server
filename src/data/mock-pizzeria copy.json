@@ -1,0 +1,2364 @@
+{
+  "store": {
+    "id": "store_001",
+    "clientData": {
+      "name": "Pizza Loca"
+    },
+    "planSettings": {
+      "type": "plan_medium"
+    },
+    "branchesConfigs": {
+      "defaultBranchId": "sucursal_centro",
+      "availableBranches": [
+        {
+          "id": "sucursal_centro",
+          "name": "Sucursal Centro",
+          "address": "Av. Principal 123, Centro, Ciudad",
+          "phone": "+54 11 1234-5678",
+          "active": true
+        }
+      ]
+    },
+    "customizationTemplateSettings": {
+      "bussinessContent": {
+        "general": {
+          "name": "Pizza Loca",
+          "tagline": "La mejor pizza de Buenos Aires",
+          "subTagline": "Sabores auténticos que te van a volver loco",
+          "welcome": "Bienvenidos a nuestra tienda",
+          "description": "Los mejores productos al mejor precio",
+          "logo": "https://cdn.pixabay.com/photo/2017/05/05/16/42/session-2287671_960_720.jpg"
+        },
+        "contact": {
+          "whatsappNumber": "+5491123456789",
+          "phoneNumber": "+5491187654321",
+          "email": "pedidos@pizzaloca.com",
+          "address": "Av. Corrientes 5678, CABA",
+          "workingHours": "🕐 Lun-Dom 11:00 AM - 2:00 AM"
+        },
+        "delivery": {
+          "tagline": "Envío gratis en nuestro radio",
+          "description": "Hacemos delivery en zona norte y oeste",
+          "terms": "Pedido mínimo $2000. Tiempo estimado 30-45 min"
+        },
+        "offers": {
+          "mainOffer": "20% OFF en tu primera compra",
+          "seasonalPromo": "Descuentos especiales de verano",
+          "loyaltyProgram": "Acumulá puntos en cada compra"
+        },
+        "policies": {
+          "returns": "Devolución gratis hasta 7 días",
+          "warranty": "Garantía de 30 días en todos los productos",
+          "privacy": "Tus datos están seguros con nosotros"
+        }
+      },
+      "navBarConfig": {
+        "backgroundColor": "bg-transparent",
+        "title": "Pizza Loca",
+        "titleLogoIcon": "🍕",
+        "titleColor": "text-white",
+        "linksColor": "text-white"
+      },
+      "portrait": {
+        "titleLogoIcon": "🍕",
+        "floatingIcons": [
+          "🍕",
+          "🥟",
+          "🥤"
+        ],
+        "background": {
+          "color": "bg-gradient-to-br from-yellow-400 to-orange-500",
+          "imageUrl": "https://media.istockphoto.com/id/899907172/photo/baked-tasty-margerita-pizza-near-oven.jpg?s=2048x2048&w=is&k=20&c=Cdue4TgIbH4rEdXAcOS-y-gxiD4ukgOIriURn03dBoc=",
+          "showImage": true
+        },
+        "showBusinessFeatures": {
+          "contact": {
+            "whatsappNumber": true,
+            "phoneNumber": true,
+            "email": true,
+            "address": true,
+            "workingHours": true
+          },
+          "delivery": {
+            "tagline": true,
+            "time": false,
+            "cost": false,
+            "options": false,
+            "minOrder": true,
+            "maxOrder": false
+          },
+          "socialProof": {
+            "reviews": true,
+            "rating": true,
+            "testimonials": true,
+            "certifications": true
+          },
+          "business": {
+            "specialOffers": true,
+            "paymentMethods": true,
+            "warranty": true,
+            "returnPolicy": true
+          }
+        }
+      },
+      "productsContainerRenderConfig": {
+        "backgroundProductContainerColor": "bg-yellow-400",
+        "defaultProductImage": "https://cdn.pixabay.com/photo/2017/05/05/16/42/session-2287671_960_720.jpg"
+      },
+      "whyChooseUs": {
+        "title": "¿Por qué elegirnos?",
+        "subtitle": "Descubre lo que nos hace únicos en el mundo de las pizzas y empanadas artesanales",
+        "features": [
+          {
+            "icon": "🍕",
+            "title": "Sabores Auténticos",
+            "description": "Recetas tradicionales y combinaciones únicas que te transportarán a Italia en cada bocado."
+          },
+          {
+            "icon": "🥟",
+            "title": "Empanadas al Horno",
+            "description": "Nuestras empanadas son cocidas a la perfección, con un relleno jugoso y masa dorada y crujiente."
+          },
+          {
+            "icon": "🛵",
+            "title": "Entrega Caliente",
+            "description": "Tu pedido llega a tu puerta recién salido del horno, garantizando el máximo sabor y calidad."
+          }
+        ]
+      }
+    },
+    "branches": [
+      {
+        "id": "sucursal_centro",
+        "name": "Sucursal Centro",
+        "active": true,
+        "addressData": {
+          "textAddress": "Av. Principal 123",
+          "city": "Ciudad",
+          "state": "Provincia",
+          "zip": "1000",
+          "country": "País",
+          "formattedAddress": "Av. Principal 123, Centro, Ciudad, Provincia, 1000, País",
+          "referencwes": "Frente al parque central",
+          "coordinates": {
+            "lat": -34.6037,
+            "lng": -58.3816
+          }
+        },
+        "contactData": {
+          "phones": [
+            "+54 11 1234-5678",
+            "+5491112345678"
+          ],
+          "emails": [
+            "info@hotdogsparadise.com"
+          ]
+        },
+        "workingHours": {
+          "monday": {
+            "open": "09:00",
+            "close": "18:00"
+          },
+          "tuesday": {
+            "open": "09:00",
+            "close": "18:00"
+          },
+          "wednesday": {
+            "open": "09:00",
+            "close": "18:00"
+          },
+          "thursday": {
+            "open": "09:00",
+            "close": "18:00"
+          },
+          "friday": {
+            "open": "09:00",
+            "close": "18:00"
+          },
+          "saturday": {
+            "open": "10:00",
+            "close": "14:00"
+          },
+          "sunday": {
+            "closed": true
+          }
+        },
+        "allowedDeliveryMethodsTypes": [
+          "moto_delivery",
+          "pickup"
+        ],
+        "waMessagePhone": " +5491112345678",
+        "deliveryMethods": [
+          {
+            "type": "motoDelivery",
+            "enabled": true,
+            "uiData": {
+              "label": "Moto delivery",
+              "emoji": "🛵",
+              "icon": "🛵",
+              "maxRadius": "6 kms",
+              "availableHours": "10:00 - 20:00",
+              "estimatedTime": "45-60 min",
+              "showAvailableHours": true,
+              "showMaxRadius": true
+            },
+            "constraints": {
+              "maxDistanceInKms": 6,
+              "originCoordinates": {
+                "lat": -34.6037,
+                "lng": -58.3816
+              },
+              "availableHours": {
+                "start": "10:00",
+                "end": "20:00"
+              },
+              "pricing": {
+                "basePrice": 0,
+                "currency": "USD",
+                "distancePricing": [
+                  {
+                    "from": 0,
+                    "to": 2,
+                    "addPrice": 0
+                  },
+                  {
+                    "from": 2,
+                    "to": 4,
+                    "addPrice": 5
+                  },
+                  {
+                    "from": 4,
+                    "to": 6,
+                    "addPrice": 11
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "pickup",
+            "enabled": true,
+            "uiData": {
+              "label": "Retiro en sucursal",
+              "emoji": "🏪",
+              "icon": "🏪",
+              "estimatedTime": "Disponible en 30 min",
+              "showEstimatedTime": true,
+              "showSchedule": true
+            },
+            "constraints": {
+              "preparationTimeInMinutes": 30,
+              "pickupInstructions": "Pasa por la sucursal y menciona tu nombre.",
+              "pickupPointCompleteAddress": "Sucursal Centro - Av. Principal 123",
+              "pickupCoordinates": {
+                "lat": -34.6037,
+                "lng": -58.3816
+              },
+              "workingHours": {
+                "monday": {
+                  "open": "09:00",
+                  "close": "18:00"
+                },
+                "tuesday": {
+                  "open": "09:00",
+                  "close": "18:00"
+                },
+                "wednesday": {
+                  "open": "09:00",
+                  "close": "18:00"
+                },
+                "thursday": {
+                  "open": "09:00",
+                  "close": "18:00"
+                },
+                "friday": {
+                  "open": "09:00",
+                  "close": "18:00"
+                },
+                "saturday": {
+                  "open": "10:00",
+                  "close": "14:00"
+                },
+                "sunday": {
+                  "closed": true
+                }
+              }
+            }
+          }
+        ],
+        "allowedPaymentMethodsTypes": [
+          "moto_delivery",
+          "pickup"
+        ],
+        "paymentMethods": [
+          {
+            "type": "CASH_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Efectivo",
+              "emoji": "💶",
+              "icon": "💶",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          },
+          {
+            "type": "CREDIT_CARD_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Tarjeta de Crédito",
+              "emoji": "💳",
+              "icon": "💳",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          },
+          {
+            "type": "BANK_TRANSFER_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Transferencia Bancaria",
+              "emoji": "🏦",
+              "icon": "🏦",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          }
+        ]
+      }
+    ],
+    "categories": [
+      {
+        "id": "cat_001",
+        "name": "Pizzas",
+        "displayOrder": 1,
+        "slug": "pizzas",
+        "itemsCount": 10,
+        "label": "Pizzas",
+        "emoji": "🍕"
+      },
+      {
+        "id": "cat_002",
+        "name": "Empanadas",
+        "displayOrder": 2,
+        "slug": "empanadas",
+        "itemsCount": 10,
+        "label": "Empanadas",
+        "emoji": "🥟"
+      }
+    ],
+    "products": [
+      {
+        "id": "prod_001_pizza_mozzarella",
+        "name": "Pizza Mozzarella",
+        "description": "Clásica pizza con salsa de tomate, mozzarella fresca y aceitunas verdes.",
+        "images": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2017/05/05/16/42/session-2287671_960_720.jpg",
+            "alt": "Pizza Mozzarella",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [
+          {
+            "id": "cat_001",
+            "name": "Pizzas",
+            "slug": "pizzas",
+            "displayOrder": 1
+          }
+        ],
+        "reviewsCount": 156,
+        "rating": 4.6,
+        "tags": [
+          "queso",
+          "tomate",
+          "italiana",
+          "clásica"
+        ],
+        "featured": true,
+        "prepTime": {
+          "min": 15,
+          "max": 20
+        },
+        "vertical": "restaurant",
+        "features": {
+          "isNew": false,
+          "isPopular": true
+        },
+        "templateVariant": {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "options": [
+            {
+              "id": "size_individual",
+              "name": "Individual",
+              "label": "Individual",
+              "price": {
+                "basePrice": 8.99,
+                "discount": 1.5,
+                "finalPrice": 7.49
+              },
+              "sku": "PIZZA-MOZ-HOR",
+              "prepTime": {
+                "min": 15,
+                "max": 20
+              },
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_mediana",
+              "name": "Mediana",
+              "label": "Mediana",
+              "price": {
+                "basePrice": 12.99,
+                "discount": 2,
+                "finalPrice": 10.99
+              },
+              "sku": "PIZZA-MOZ-MED",
+              "prepTime": {
+                "min": 18,
+                "max": 25
+              },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_grande",
+              "name": "Grande",
+              "label": "Grande",
+              "price": {
+                "basePrice": 16.99,
+                "discount": 2.5,
+                "finalPrice": 14.49
+              },
+              "sku": "PIZZA-MOZ-GRA",
+              "prepTime": {
+                "min": 20,
+                "max": 30
+              },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null
+      },
+      {
+        "id": "prod_002_pizza_napolitana",
+        "name": "Pizza Napolitana",
+        "description": "Pizza con rodajas de tomate fresco, mozzarella y ajo.",
+        "images": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2017/05/05/16/42/session-2287671_960_720.jpg",
+            "alt": "Pizza Napolitana",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [
+          {
+            "id": "cat_001",
+            "name": "Pizzas",
+            "slug": "pizzas",
+            "displayOrder": 1
+          }
+        ],
+        "reviewsCount": 92,
+        "rating": 4.4,
+        "tags": [
+          "ajo",
+          "tomate fresco",
+          "tradicional",
+          "vegetariana"
+        ],
+        "featured": false,
+        "prepTime": {
+          "min": 15,
+          "max": 22
+        },
+        "vertical": "restaurant",
+        "features": {
+          "isNew": false,
+          "isPopular": false
+        },
+        "templateVariant": {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "options": [
+            {
+              "id": "size_individual",
+              "name": "Individual",
+              "label": "Individual",
+              "price": {
+                "basePrice": 7.99,
+                "discount": null,
+                "finalPrice": 7.99
+              },
+              "sku": "PIZZA-NAP-HOR",
+              "prepTime": {
+                "min": 12,
+                "max": 18
+              },
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_mediana",
+              "name": "Mediana",
+              "label": "Mediana",
+              "price": {
+                "basePrice": 9.99,
+                "discount": null,
+                "finalPrice": 9.99
+              },
+              "sku": "PIZZA-NAP-MED",
+              "prepTime": {
+                "min": 15,
+                "max": 22
+              },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_grande",
+              "name": "Grande",
+              "label": "Grande",
+              "price": {
+                "basePrice": 13.99,
+                "discount": null,
+                "finalPrice": 13.99
+              },
+              "sku": "PIZZA-NAP-GRA",
+              "prepTime": {
+                "min": 18,
+                "max": 25
+              },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null
+      },
+      {
+        "id": "prod_003_pizza_fugazzeta",
+        "name": "Pizza Fugazzeta",
+        "description": "Pizza rellena de mozzarella con cebolla salteada encima.",
+        "images": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2017/05/05/16/42/session-2287671_960_720.jpg",
+            "alt": "Pizza Fugazzeta",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [
+          {
+            "id": "cat_001",
+            "name": "Pizzas",
+            "slug": "pizzas",
+            "displayOrder": 1
+          }
+        ],
+        "reviewsCount": 134,
+        "rating": 4.7,
+        "tags": [
+          "cebolla",
+          "queso",
+          "rellena",
+          "especialidad"
+        ],
+        "featured": true,
+        "prepTime": {
+          "min": 20,
+          "max": 25
+        },
+        "vertical": "restaurant",
+        "features": {
+          "isNew": false,
+          "isPopular": true
+        },
+        "templateVariant": {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "options": [
+            {
+              "id": "size_individual",
+              "name": "Individual",
+              "label": "Individual",
+              "price": {
+                "basePrice": 8.5,
+                "discount": 1,
+                "finalPrice": 7.5
+              },
+              "sku": "PIZZA-FUG-HOR",
+              "prepTime": {
+                "min": 15,
+                "max": 20
+              },
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_mediana",
+              "name": "Mediana",
+              "label": "Mediana",
+              "price": {
+                "basePrice": 11.5,
+                "discount": 1.51,
+                "finalPrice": 9.99
+              },
+              "sku": "PIZZA-FUG-MED",
+              "prepTime": {
+                "min": 20,
+                "max": 25
+              },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_grande",
+              "name": "Grande",
+              "label": "Grande",
+              "price": {
+                "basePrice": 15.5,
+                "discount": 2,
+                "finalPrice": 13.5
+              },
+              "sku": "PIZZA-FUG-GRA",
+              "prepTime": {
+                "min": 22,
+                "max": 30
+              },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null
+      },
+      {
+        "id": "prod_004_empanadas_carne",
+        "name": "Empanadas de Carne",
+        "description": "Empanadas al horno con carne picada, huevo y especias.",
+        "images": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+            "alt": "Empanadas de Carne",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [
+          {
+            "id": "cat_002",
+            "name": "Empanadas",
+            "slug": "empanadas",
+            "displayOrder": 2
+          }
+        ],
+        "reviewsCount": 203,
+        "rating": 4.5,
+        "tags": [
+          "carne",
+          "horno",
+          "criolla",
+          "clásica"
+        ],
+        "featured": true,
+        "prepTime": {
+          "min": 12,
+          "max": 18
+        },
+        "vertical": "restaurant",
+        "features": {
+          "isNew": false,
+          "isPopular": true
+        },
+        "templateVariant": {
+          "name": "coccion",
+          "label": "Cocción",
+          "options": [
+            {
+              "id": "coccion_horno",
+              "name": "Horno de barro",
+              "label": "Horno de barro",
+              "price": {
+                "basePrice": 1.5,
+                "discount": 0.3,
+                "finalPrice": 1.2
+              },
+              "sku": "EMP-CAR-HOR",
+              "prepTime": {
+                "min": 12,
+                "max": 15
+              },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "coccion_fritas",
+              "name": "Fritas",
+              "label": "Fritas",
+              "price": {
+                "basePrice": 1.4,
+                "discount": 0.2,
+                "finalPrice": 1.2
+              },
+              "sku": "EMP-CAR-FRI",
+              "prepTime": {
+                "min": 8,
+                "max": 12
+              },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null
+      },
+      {
+        "id": "prod_005_empanadas_jamon_queso",
+        "name": "Empanadas de Jamón y Queso",
+        "description": "Empanadas fritas rellenas de jamón cocido y mozzarella.",
+        "images": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+            "alt": "Empanadas de Jamón y Queso",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [
+          {
+            "id": "cat_002",
+            "name": "Empanadas",
+            "slug": "empanadas",
+            "displayOrder": 2
+          }
+        ],
+        "reviewsCount": 87,
+        "rating": 4.3,
+        "tags": [
+          "jamón",
+          "queso",
+          "fritas"
+        ],
+        "featured": false,
+        "prepTime": {
+          "min": 10,
+          "max": 15
+        },
+        "vertical": "restaurant",
+        "features": {
+          "isNew": false,
+          "isPopular": false
+        },
+        "templateVariant": {
+          "name": "coccion",
+          "label": "Cocción",
+          "options": [
+            {
+              "id": "coccion_horno",
+              "name": "Horno de barro",
+              "label": "Horno de barro",
+              "price": {
+                "basePrice": 1.6,
+                "discount": null,
+                "finalPrice": 1.6
+              },
+              "sku": "EMP-JQ-HOR",
+              "prepTime": {
+                "min": 12,
+                "max": 15
+              },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "coccion_fritas",
+              "name": "Fritas",
+              "label": "Fritas",
+              "price": {
+                "basePrice": 1.5,
+                "discount": null,
+                "finalPrice": 1.5
+              },
+              "sku": "EMP-JQ-FRI",
+              "prepTime": {
+                "min": 8,
+                "max": 12
+              },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null
+      },
+      {
+        "id": "prod_006_empanadas_pollo",
+        "name": "Empanadas de Pollo",
+        "description": "Empanadas al horno con pollo desmenuzado, cebolla y especias suaves.",
+        "images": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+            "alt": "Empanadas de Pollo",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [
+          {
+            "id": "cat_002",
+            "name": "Empanadas",
+            "slug": "empanadas",
+            "displayOrder": 2
+          }
+        ],
+        "reviewsCount": 76,
+        "rating": 4.2,
+        "tags": [
+          "pollo",
+          "horno",
+          "livianas"
+        ],
+        "featured": false,
+        "prepTime": {
+          "min": 12,
+          "max": 18
+        },
+        "vertical": "restaurant",
+        "features": {
+          "isNew": false,
+          "isPopular": false
+        },
+        "templateVariant": {
+          "name": "coccion",
+          "label": "Cocción",
+          "options": [
+            {
+              "id": "coccion_horno",
+              "name": "Horno de barro",
+              "label": "Horno de barro",
+              "price": {
+                "basePrice": 1.55,
+                "discount": 0.25,
+                "finalPrice": 1.3
+              },
+              "sku": "EMP-POL-HOR",
+              "prepTime": {
+                "min": 12,
+                "max": 15
+              },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "coccion_fritas",
+              "name": "Fritas",
+              "label": "Fritas",
+              "price": {
+                "basePrice": 1.45,
+                "discount": 0.15,
+                "finalPrice": 1.3
+              },
+              "sku": "EMP-POL-FRI",
+              "prepTime": {
+                "min": 8,
+                "max": 12
+              },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null
+      },
+      {
+        "id": "prod_007_pizza_calabresa",
+        "name": "Pizza Calabresa",
+        "description": "Pizza con rodajas de longaniza calabresa y mucho queso.",
+        "images": [
+          {
+            "url": "https://www.istockphoto.com/photo/traditional-fugazzeta-pizza-with-a-wooden-background-gm2045823458-562974889",
+            "alt": "Pizza Calabresa",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [
+          {
+            "id": "cat_001",
+            "name": "Pizzas",
+            "slug": "pizzas",
+            "displayOrder": 1
+          }
+        ],
+        "reviewsCount": 98,
+        "rating": 4.5,
+        "tags": [
+          "calabresa",
+          "picante",
+          "queso",
+          "carnes"
+        ],
+        "featured": true,
+        "prepTime": {
+          "min": 18,
+          "max": 25
+        },
+        "vertical": "restaurant",
+        "features": {
+          "isNew": false,
+          "isPopular": true
+        },
+        "templateVariant": {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "options": [
+            {
+              "id": "size_individual",
+              "name": "Individual",
+              "label": "Individual",
+              "price": {
+                "basePrice": 9,
+                "discount": 1,
+                "finalPrice": 8
+              },
+              "sku": "PIZZA-CAL-HOR",
+              "prepTime": {
+                "min": 15,
+                "max": 20
+              },
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_mediana",
+              "name": "Mediana",
+              "label": "Mediana",
+              "price": {
+                "basePrice": 12,
+                "discount": 1.5,
+                "finalPrice": 10.5
+              },
+              "sku": "PIZZA-CAL-MED",
+              "prepTime": {
+                "min": 18,
+                "max": 25
+              },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_grande",
+              "name": "Grande",
+              "label": "Grande",
+              "price": {
+                "basePrice": 16,
+                "discount": 2,
+                "finalPrice": 14
+              },
+              "sku": "PIZZA-CAL-GRA",
+              "prepTime": {
+                "min": 20,
+                "max": 30
+              },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null
+      },
+      {
+        "id": "prod_008_pizza_cuatro_quesos",
+        "name": "Pizza Cuatro Quesos",
+        "description": "Mozzarella, parmesano, gorgonzola y provolone fundidos en una pizza cremosa.",
+        "images": [
+          {
+            "url": "https://www.istockphoto.com/photo/traditional-fugazzeta-pizza-with-a-wooden-background-gm2045823458-562974889",
+            "alt": "Pizza Cuatro Quesos",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [
+          {
+            "id": "cat_001",
+            "name": "Pizzas",
+            "slug": "pizzas",
+            "displayOrder": 1
+          }
+        ],
+        "reviewsCount": 145,
+        "rating": 4.8,
+        "tags": [
+          "quesos",
+          "cremosa",
+          "italiana"
+        ],
+        "featured": true,
+        "prepTime": {
+          "min": 20,
+          "max": 25
+        },
+        "vertical": "restaurant",
+        "features": {
+          "isNew": false,
+          "isPopular": true
+        },
+        "templateVariant": {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "options": [
+            {
+              "id": "size_mediana",
+              "name": "Mediana",
+              "label": "Mediana",
+              "price": {
+                "basePrice": 13,
+                "discount": null,
+                "finalPrice": 13
+              },
+              "sku": "PIZZA-4Q-MED",
+              "prepTime": {
+                "min": 20,
+                "max": 25
+              },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_grande",
+              "name": "Grande",
+              "label": "Grande",
+              "price": {
+                "basePrice": 17.5,
+                "discount": null,
+                "finalPrice": 17.5
+              },
+              "sku": "PIZZA-4Q-GRA",
+              "prepTime": {
+                "min": 22,
+                "max": 30
+              },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null
+      },
+      {
+        "id": "prod_009_pizza_pepperoni",
+        "name": "Pizza Pepperoni",
+        "description": "Pizza estilo americano con mozzarella y abundantes rodajas de pepperoni.",
+        "images": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2017/05/05/16/42/session-2287671_960_720.jpg",
+            "alt": "Pizza Pepperoni",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [
+          {
+            "id": "cat_001",
+            "name": "Pizzas",
+            "slug": "pizzas",
+            "displayOrder": 1
+          }
+        ],
+        "reviewsCount": 187,
+        "rating": 4.6,
+        "tags": [
+          "pepperoni",
+          "americana",
+          "picante",
+          "carnes"
+        ],
+        "featured": true,
+        "prepTime": {
+          "min": 18,
+          "max": 25
+        },
+        "vertical": "restaurant",
+        "features": {
+          "isNew": false,
+          "isPopular": true
+        },
+        "templateVariant": {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "options": [
+            {
+              "id": "size_mediana",
+              "name": "Mediana",
+              "label": "Mediana",
+              "price": {
+                "basePrice": 12.5,
+                "discount": 1.5,
+                "finalPrice": 11
+              },
+              "sku": "PIZZA-PEP-MED",
+              "prepTime": {
+                "min": 18,
+                "max": 25
+              },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_grande",
+              "name": "Grande",
+              "label": "Grande",
+              "price": {
+                "basePrice": 16.5,
+                "discount": 2,
+                "finalPrice": 14.5
+              },
+              "sku": "PIZZA-PEP-GRA",
+              "prepTime": {
+                "min": 20,
+                "max": 30
+              },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null
+      },
+      {
+        "id": "prod_010_pizza_vegetariana",
+        "name": "Pizza Vegetariana",
+        "description": "Pizza con pimientos, champiñones, aceitunas, cebolla y mozzarella.",
+        "images": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2017/05/05/16/42/session-2287671_960_720.jpg",
+            "alt": "Pizza Vegetariana",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [
+          {
+            "id": "cat_001",
+            "name": "Pizzas",
+            "slug": "pizzas",
+            "displayOrder": 1
+          }
+        ],
+        "reviewsCount": 73,
+        "rating": 4.4,
+        "tags": [
+          "vegetales",
+          "liviana",
+          "sin carne",
+          "vegetariana"
+        ],
+        "featured": false,
+        "prepTime": {
+          "min": 15,
+          "max": 22
+        },
+        "vertical": "restaurant",
+        "features": {
+          "isNew": false,
+          "isPopular": false
+        },
+        "templateVariant": {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "options": [
+            {
+              "id": "size_individual",
+              "name": "Individual",
+              "label": "Individual",
+              "price": {
+                "basePrice": 10.99,
+                "discount": 1.49,
+                "finalPrice": 9.5
+              },
+              "sku": "PIZZA-VEG-HOR",
+              "prepTime": {
+                "min": 15,
+                "max": 20
+              },
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_mediana",
+              "name": "Mediana",
+              "label": "Mediana",
+              "price": {
+                "basePrice": 13.99,
+                "discount": 1.99,
+                "finalPrice": 12
+              },
+              "sku": "PIZZA-VEG-MED",
+              "prepTime": {
+                "min": 18,
+                "max": 22
+              },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_grande",
+              "name": "Grande",
+              "label": "Grande",
+              "price": {
+                "basePrice": 17.99,
+                "discount": 2.49,
+                "finalPrice": 15.5
+              },
+              "sku": "PIZZA-VEG-GRA",
+              "prepTime": {
+                "min": 20,
+                "max": 28
+              },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null
+      },
+      {
+        "id": "prod_011_pizza_hawaiana",
+        "name": "Pizza Hawaiana",
+        "description": "Pizza con jamón, mozzarella y trozos de ananá.",
+        "images": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2017/05/05/16/42/session-2287671_960_720.jpg",
+            "alt": "Pizza Hawaiana",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [
+          {
+            "id": "cat_001",
+            "name": "Pizzas",
+            "slug": "pizzas",
+            "displayOrder": 1
+          }
+        ],
+        "reviewsCount": 92,
+        "rating": 4.1,
+        "tags": [
+          "jamón",
+          "ananá",
+          "agridulce",
+          "especialidad"
+        ],
+        "featured": false,
+        "prepTime": {
+          "min": 18,
+          "max": 25
+        },
+        "vertical": "restaurant",
+        "features": {
+          "isNew": false,
+          "isPopular": false
+        },
+        "templateVariant": {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "options": [
+            {
+              "id": "size_mediana",
+              "name": "Mediana",
+              "label": "Mediana",
+              "price": {
+                "basePrice": 11.99,
+                "discount": null,
+                "finalPrice": 11.99
+              },
+              "sku": "PIZZA-HAW-MED",
+              "prepTime": {
+                "min": 18,
+                "max": 25
+              },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_grande",
+              "name": "Grande",
+              "label": "Grande",
+              "price": {
+                "basePrice": 15.99,
+                "discount": null,
+                "finalPrice": 15.99
+              },
+              "sku": "PIZZA-HAW-GRA",
+              "prepTime": {
+                "min": 20,
+                "max": 30
+              },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null
+      },
+      {
+        "id": "prod_012_pizza_caprese",
+        "name": "Pizza Caprese",
+        "description": "Pizza fresca con mozzarella, tomate cherry y hojas de albahaca.",
+        "images": [
+          {
+            "url": "https://www.istockphoto.com/photo/traditional-fugazzeta-pizza-with-a-wooden-background-gm2045823458-562974889",
+            "alt": "Pizza Caprese",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [
+          {
+            "id": "cat_001",
+            "name": "Pizzas",
+            "slug": "pizzas",
+            "displayOrder": 1
+          }
+        ],
+        "reviewsCount": 86,
+        "rating": 4.5,
+        "tags": [
+          "albahaca",
+          "caprese",
+          "italiana",
+          "vegetariana"
+        ],
+        "featured": false,
+        "prepTime": {
+          "min": 15,
+          "max": 22
+        },
+        "vertical": "restaurant",
+        "features": {
+          "isNew": false,
+          "isPopular": false
+        },
+        "templateVariant": {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "options": [
+            {
+              "id": "size_mediana",
+              "name": "Mediana",
+              "label": "Mediana",
+              "price": {
+                "basePrice": 10.5,
+                "discount": 1.5,
+                "finalPrice": 9
+              },
+              "sku": "PIZZA-CAP-MED",
+              "prepTime": {
+                "min": 15,
+                "max": 22
+              },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_grande",
+              "name": "Grande",
+              "label": "Grande",
+              "price": {
+                "basePrice": 14.5,
+                "discount": 2,
+                "finalPrice": 12.5
+              },
+              "sku": "PIZZA-CAP-GRA",
+              "prepTime": {
+                "min": 18,
+                "max": 25
+              },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null
+      },
+      {
+        "id": "prod_013_pizza_bbq_pollo",
+        "name": "Pizza BBQ Pollo",
+        "description": "Pizza con pollo grillado, salsa barbacoa y mozzarella.",
+        "images": [
+          {
+            "url": "https://www.istockphoto.com/photo/traditional-fugazzeta-pizza-with-a-wooden-background-gm2045823458-562974889",
+            "alt": "Pizza BBQ Pollo",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [
+          {
+            "id": "cat_001",
+            "name": "Pizzas",
+            "slug": "pizzas",
+            "displayOrder": 1
+          }
+        ],
+        "reviewsCount": 127,
+        "rating": 4.7,
+        "tags": [
+          "pollo",
+          "bbq",
+          "americana",
+          "carnes"
+        ],
+        "featured": true,
+        "prepTime": {
+          "min": 20,
+          "max": 28
+        },
+        "vertical": "restaurant",
+        "features": {
+          "isNew": false,
+          "isPopular": true
+        },
+        "templateVariant": {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "options": [
+            {
+              "id": "size_mediana",
+              "name": "Mediana",
+              "label": "Mediana",
+              "price": {
+                "basePrice": 13.5,
+                "discount": 2,
+                "finalPrice": 11.5
+              },
+              "sku": "PIZZA-BBQ-MED",
+              "prepTime": {
+                "min": 20,
+                "max": 25
+              },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_grande",
+              "name": "Grande",
+              "label": "Grande",
+              "price": {
+                "basePrice": 17.5,
+                "discount": 2.5,
+                "finalPrice": 15
+              },
+              "sku": "PIZZA-BBQ-GRA",
+              "prepTime": {
+                "min": 22,
+                "max": 30
+              },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null
+      },
+      {
+        "id": "prod_014_empanadas_verdura",
+        "name": "Empanadas de Verdura",
+        "description": "Empanadas rellenas de espinaca y salsa blanca.",
+        "images": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+            "alt": "Empanadas de Verdura",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [
+          {
+            "id": "cat_002",
+            "name": "Empanadas",
+            "slug": "empanadas",
+            "displayOrder": 2
+          }
+        ],
+        "reviewsCount": 58,
+        "rating": 4.1,
+        "tags": [
+          "espinaca",
+          "salsa blanca",
+          "horno",
+          "vegetariana"
+        ],
+        "featured": false,
+        "prepTime": {
+          "min": 12,
+          "max": 18
+        },
+        "vertical": "restaurant",
+        "features": {
+          "isNew": false,
+          "isPopular": false
+        },
+        "templateVariant": {
+          "name": "coccion",
+          "label": "Cocción",
+          "options": [
+            {
+              "id": "coccion_horno",
+              "name": "Horno de barro",
+              "label": "Horno de barro",
+              "price": {
+                "basePrice": 1.4,
+                "discount": null,
+                "finalPrice": 1.4
+              },
+              "sku": "EMP-VER-HOR",
+              "prepTime": {
+                "min": 12,
+                "max": 15
+              },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "coccion_fritas",
+              "name": "Fritas",
+              "label": "Fritas",
+              "price": {
+                "basePrice": 1.3,
+                "discount": null,
+                "finalPrice": 1.3
+              },
+              "sku": "EMP-VER-FRI",
+              "prepTime": {
+                "min": 8,
+                "max": 12
+              },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null
+      },
+      {
+        "id": "prod_015_empanadas_humita",
+        "name": "Empanadas de Humita",
+        "description": "Empanadas con relleno cremoso de choclo, salsa blanca y queso.",
+        "images": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+            "alt": "Empanadas de Humita",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [
+          {
+            "id": "cat_002",
+            "name": "Empanadas",
+            "slug": "empanadas",
+            "displayOrder": 2
+          }
+        ],
+        "reviewsCount": 94,
+        "rating": 4.4,
+        "tags": [
+          "choclo",
+          "queso",
+          "humita",
+          "vegetariana"
+        ],
+        "featured": false,
+        "prepTime": {
+          "min": 12,
+          "max": 18
+        },
+        "vertical": "restaurant",
+        "features": {
+          "isNew": false,
+          "isPopular": false
+        },
+        "templateVariant": {
+          "name": "coccion",
+          "label": "Cocción",
+          "options": [
+            {
+              "id": "coccion_horno",
+              "name": "Horno de barro",
+              "label": "Horno de barro",
+              "price": {
+                "basePrice": 1.7,
+                "discount": 0.2,
+                "finalPrice": 1.5
+              },
+              "sku": "EMP-HUM-HOR",
+              "prepTime": {
+                "min": 12,
+                "max": 15
+              },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "coccion_fritas",
+              "name": "Fritas",
+              "label": "Fritas",
+              "price": {
+                "basePrice": 10.2,
+                "discount": 1.2,
+                "finalPrice": 9
+              },
+              "sku": "EMP-HUM-FRI",
+              "prepTime": {
+                "min": 8,
+                "max": 12
+              },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null
+      },
+      {
+        "id": "prod_016_empanadas_arabes",
+        "name": "Empanadas Árabes",
+        "description": "Empanadas abiertas con carne condimentada al estilo árabe.",
+        "images": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+            "alt": "Empanadas Árabes",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [
+          {
+            "id": "cat_002",
+            "name": "Empanadas",
+            "slug": "empanadas",
+            "displayOrder": 2
+          }
+        ],
+        "reviewsCount": 112,
+        "rating": 4.5,
+        "tags": [
+          "árabe",
+          "carne",
+          "condimentadas",
+          "internacional"
+        ],
+        "featured": true,
+        "prepTime": {
+          "min": 15,
+          "max": 20
+        },
+        "vertical": "restaurant",
+        "features": {
+          "isNew": false,
+          "isPopular": true
+        },
+        "templateVariant": {
+          "name": "coccion",
+          "label": "Cocción",
+          "options": [
+            {
+              "id": "coccion_horno",
+              "name": "Horno de barro",
+              "label": "Horno de barro",
+              "price": {
+                "basePrice": 1.8,
+                "discount": 0.3,
+                "finalPrice": 1.5
+              },
+              "sku": "EMP-ARA-HOR",
+              "prepTime": {
+                "min": 8,
+                "max": 12
+              },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "coccion_fritas",
+              "name": "Fritas",
+              "label": "Fritas",
+              "price": {
+                "basePrice": 10.8,
+                "discount": 1.8,
+                "finalPrice": 9
+              },
+              "sku": "EMP-ARA-FRI",
+              "prepTime": {
+                "min": 18,
+                "max": 20
+              },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null
+      },
+      {
+        "id": "prod_017_empanadas_cebolla_queso",
+        "name": "Empanadas de Cebolla y Queso",
+        "description": "Empanadas rellenas de cebolla caramelizada y queso.",
+        "images": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+            "alt": "Empanadas de Cebolla y Queso",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [
+          {
+            "id": "cat_002",
+            "name": "Empanadas",
+            "slug": "empanadas",
+            "displayOrder": 2
+          }
+        ],
+        "reviewsCount": 67,
+        "rating": 4.2,
+        "tags": [
+          "cebolla",
+          "caramelizada",
+          "queso"
+        ],
+        "featured": false,
+        "prepTime": {
+          "min": 12,
+          "max": 18
+        },
+        "vertical": "restaurant",
+        "features": {
+          "isNew": false,
+          "isPopular": false
+        },
+        "templateVariant": {
+          "name": "coccion",
+          "label": "Cocción",
+          "options": [
+            {
+              "id": "coccion_horno",
+              "name": "Horno de barro",
+              "label": "Horno de barro",
+              "price": {
+                "basePrice": 1.6,
+                "discount": null,
+                "finalPrice": 1.6
+              },
+              "sku": "EMP-CQ-HOR",
+              "prepTime": {
+                "min": 12,
+                "max": 15
+              },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "coccion_fritas",
+              "name": "Fritas",
+              "label": "Fritas",
+              "price": {
+                "basePrice": 9.6,
+                "discount": null,
+                "finalPrice": 9.6
+              },
+              "sku": "EMP-CQ-FRI",
+              "prepTime": {
+                "min": 8,
+                "max": 12
+              },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null
+      },
+      {
+        "id": "prod_018_empanadas_atun",
+        "name": "Empanadas de Atún",
+        "description": "Empanadas rellenas de atún, huevo y aceitunas.",
+        "images": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+            "alt": "Empanadas de Atún",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [
+          {
+            "id": "cat_002",
+            "name": "Empanadas",
+            "slug": "empanadas",
+            "displayOrder": 2
+          }
+        ],
+        "reviewsCount": 45,
+        "rating": 4,
+        "tags": [
+          "atún",
+          "pescado",
+          "livianas",
+          "mariscos"
+        ],
+        "featured": false,
+        "prepTime": {
+          "min": 12,
+          "max": 18
+        },
+        "vertical": "restaurant",
+        "features": {
+          "isNew": false,
+          "isPopular": false
+        },
+        "templateVariant": {
+          "name": "coccion",
+          "label": "Cocción",
+          "options": [
+            {
+              "id": "coccion_horno",
+              "name": "Horno de barro",
+              "label": "Horno de barro",
+              "price": {
+                "basePrice": 1.9,
+                "discount": 0.3,
+                "finalPrice": 1.6
+              },
+              "sku": "EMP-ATU-HOR",
+              "prepTime": {
+                "min": 12,
+                "max": 15
+              },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "coccion_fritas",
+              "name": "Fritas",
+              "label": "Fritas",
+              "price": {
+                "basePrice": 11.4,
+                "discount": 1.8,
+                "finalPrice": 9.6
+              },
+              "sku": "EMP-ATU-FRI",
+              "prepTime": {
+                "min": 8,
+                "max": 12
+              },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null
+      },
+      {
+        "id": "prod_019_empanadas_caprese",
+        "name": "Empanadas de Caprese",
+        "description": "Empanadas rellenas de tomate, mozzarella y albahaca.",
+        "images": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+            "alt": "Empanadas de Caprese",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [
+          {
+            "id": "cat_002",
+            "name": "Empanadas",
+            "slug": "empanadas",
+            "displayOrder": 2
+          }
+        ],
+        "reviewsCount": 81,
+        "rating": 4.3,
+        "tags": [
+          "caprese",
+          "albahaca",
+          "queso",
+          "vegetariana"
+        ],
+        "featured": false,
+        "prepTime": {
+          "min": 12,
+          "max": 18
+        },
+        "vertical": "restaurant",
+        "features": {
+          "isNew": false,
+          "isPopular": false
+        },
+        "templateVariant": {
+          "name": "coccion",
+          "label": "Cocción",
+          "options": [
+            {
+              "id": "coccion_horno",
+              "name": "Horno de barro",
+              "label": "Horno de barro",
+              "price": {
+                "basePrice": 1.65,
+                "discount": 0.25,
+                "finalPrice": 1.4
+              },
+              "sku": "EMP-CAP-HOR",
+              "prepTime": {
+                "min": 12,
+                "max": 15
+              },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "coccion_fritas",
+              "name": "Fritas",
+              "label": "Fritas",
+              "price": {
+                "basePrice": 9.9,
+                "discount": 1.5,
+                "finalPrice": 8.4
+              },
+              "sku": "EMP-CAP-FRI",
+              "prepTime": {
+                "min": 8,
+                "max": 12
+              },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null
+      },
+      {
+        "id": "prod_020_empanadas_picantes",
+        "name": "Empanadas Picantes",
+        "description": "Empanadas de carne con especias picantes y ají molido.",
+        "images": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+            "alt": "Empanadas Picantes",
+            "default": true
+          }
+        ],
+        "price": null,
+        "categories": [
+          {
+            "id": "cat_002",
+            "name": "Empanadas",
+            "slug": "empanadas",
+            "displayOrder": 2
+          }
+        ],
+        "reviewsCount": 93,
+        "rating": 4.1,
+        "tags": [
+          "picante",
+          "carne",
+          "ají",
+          "especial"
+        ],
+        "featured": false,
+        "prepTime": {
+          "min": 12,
+          "max": 18
+        },
+        "vertical": "restaurant",
+        "features": {
+          "isNew": false,
+          "isPopular": false
+        },
+        "templateVariant": {
+          "name": "coccion",
+          "label": "Cocción",
+          "options": [
+            {
+              "id": "coccion_horno",
+              "name": "Horno de barro",
+              "label": "Horno de barro",
+              "price": {
+                "basePrice": 1.75,
+                "discount": null,
+                "finalPrice": 1.75
+              },
+              "sku": "EMP-PIC-HOR",
+              "prepTime": {
+                "min": 12,
+                "max": 15
+              },
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "coccion_fritas",
+              "name": "Fritas",
+              "label": "Fritas",
+              "price": {
+                "basePrice": 10.5,
+                "discount": null,
+                "finalPrice": 10.5
+              },
+              "sku": "EMP-PIC-FRI",
+              "prepTime": {
+                "min": 8,
+                "max": 12
+              },
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null
+      },
+      {
+        "id": "prod_019_empanadas_dozen",
+        "name": "Docena de empanadas",
+        "description": "Selecciona 12 empanadas de tu elección. Combina diferentes sabores y preparaciones para crear tu docena perfecta.",
+        "price": {
+          "basePrice": 120,
+          "discount": 20,
+          "finalPrice": 100
+        },
+        "images": [
+          {
+            "url": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+            "alt": "Docena de empanadas",
+            "default": true
+          }
+        ],
+        "categories": [
+          {
+            "id": "cat_002",
+            "name": "Empanadas",
+            "slug": "empanadas",
+            "displayOrder": 2
+          }
+        ],
+        "isActive": true,
+        "reviewsCount": 203,
+        "rating": 4.8,
+        "tags": [
+          "reto",
+          "50cm",
+          "challenge",
+          "mega",
+          "compartir",
+          "pretzel"
+        ],
+        "featured": true,
+        "prepTime": {
+          "min": 15,
+          "max": 20
+        },
+        "features": {
+          "isNew": false,
+          "isPopular": true
+        },
+        "customizationFeaturesTemplate": [
+          {
+            "id": "gustos_empanadas",
+            "name": "Gustos de Empanadas",
+            "description": "Selecciona los gustos que deseas para tu pedido",
+            "type": "combo",
+            "emoji": "🥟",
+            "icon": "🥟",
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+            "constraints": {
+              "minTotal": 1,
+              "maxTotal": 12,
+              "minPerOption": 0,
+              "maxPerOption": 6,
+              "exactTotal": false,
+              "required": true
+            },
+            "options": [
+              {
+                "id": "carne",
+                "name": "Carne",
+                "description": "Empanada rellena de carne picada condimentada",
+                "priceModifier": 0,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 1,
+                "category": "clasicas",
+                "emoji": "🥩",
+                "icon": "🥩",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "pollo",
+                "name": "Pollo",
+                "description": "Empanada de pollo desmenuzado con especias",
+                "priceModifier": 0,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 2,
+                "category": "clasicas",
+                "emoji": "🐔",
+                "icon": "🐔",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "jamón_queso",
+                "name": "Jamón y Queso",
+                "description": "Empanada clásica de jamón cocido y queso",
+                "priceModifier": 0,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 3,
+                "category": "clasicas",
+                "emoji": "🧀",
+                "icon": "🧀",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "humita",
+                "name": "Humita",
+                "description": "Empanada dulce de choclo con cebolla blanca",
+                "priceModifier": 0,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 4,
+                "category": "vegetarianas",
+                "emoji": "🌽",
+                "icon": "🌽",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "caprese",
+                "name": "Caprese",
+                "description": "Empanada de tomate, mozzarella y albahaca",
+                "priceModifier": 0.5,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 5,
+                "category": "vegetarianas",
+                "emoji": "🍅",
+                "icon": "🍅",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "carne_picante",
+                "name": "Carne Picante",
+                "description": "Empanada de carne con ají molido y locoto",
+                "priceModifier": 0.25,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 6,
+                "category": "picantes",
+                "emoji": "🌶️",
+                "icon": "🌶️",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "roquefort",
+                "name": "Roquefort",
+                "description": "Empanada de queso roquefort con nueces",
+                "priceModifier": 1,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 7,
+                "category": "gourmet",
+                "emoji": "🧄",
+                "icon": "🧄",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "verdura",
+                "name": "Verdura",
+                "description": "Empanada de acelga, cebolla y huevo",
+                "priceModifier": 0,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 8,
+                "category": "vegetarianas",
+                "emoji": "🥬",
+                "icon": "🥬",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "atun",
+                "name": "Atún",
+                "description": "Empanada de atún con cebolla y aceitunas",
+                "priceModifier": 0.75,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 9,
+                "category": "pescado",
+                "emoji": "🐟",
+                "icon": "🐟",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "dulce_membrillo",
+                "name": "Dulce de Membrillo",
+                "description": "Empanada dulce rellena de membrillo",
+                "priceModifier": 0,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 10,
+                "category": "dulces",
+                "emoji": "🍯",
+                "icon": "🍯",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "dulce_batata",
+                "name": "Dulce de Batata",
+                "description": "Empanada dulce rellena de batata",
+                "priceModifier": 0,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 11,
+                "category": "dulces",
+                "emoji": "🍠",
+                "icon": "🍠",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "cebolla_queso",
+                "name": "Cebolla y Queso",
+                "description": "Empanada de cebolla caramelizada con queso",
+                "priceModifier": 0.25,
+                "available": true,
+                "minQuantity": 0,
+                "maxQuantity": 6,
+                "sortOrder": 12,
+                "category": "vegetarianas",
+                "emoji": "🧅",
+                "icon": "🧅",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              }
+            ]
+          },
+          {
+            "id": "tipo_masa",
+            "name": "Tipo de Masa",
+            "description": "Elige el tipo de masa para tus empanadas",
+            "type": "variant",
+            "emoji": "🥟",
+            "icon": "🥟",
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+            "constraints": {
+              "required": true,
+              "allowMultiple": false,
+              "hasDefault": true
+            },
+            "options": [
+              {
+                "id": "horno",
+                "name": "Al Horno",
+                "description": "Masa tradicional horneada, más liviana",
+                "priceModifier": 0,
+                "available": true,
+                "default": true,
+                "sortOrder": 1,
+                "emoji": "🔥",
+                "icon": "🔥",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "frita",
+                "name": "Frita",
+                "description": "Masa dorada y crocante, frita en aceite",
+                "priceModifier": 0.5,
+                "available": true,
+                "default": false,
+                "sortOrder": 2,
+                "emoji": "🍳",
+                "icon": "🍳",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              }
+            ]
+          },
+          {
+            "id": "coccion",
+            "name": "Punto de Cocción",
+            "description": "Elige qué tan doraditas quieres tus empanadas",
+            "type": "variant",
+            "emoji": "🌡️",
+            "icon": "🌡️",
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg",
+            "constraints": {
+              "required": true,
+              "allowMultiple": false,
+              "hasDefault": true
+            },
+            "options": [
+              {
+                "id": "dorado_suave",
+                "name": "Dorado Suave",
+                "description": "Cocción ligera, masa más blanda",
+                "priceModifier": 0,
+                "available": true,
+                "default": false,
+                "sortOrder": 1,
+                "emoji": "🟡",
+                "icon": "🟡",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "dorado_medio",
+                "name": "Dorado Medio",
+                "description": "Cocción perfecta, equilibrio ideal",
+                "priceModifier": 0,
+                "available": true,
+                "default": true,
+                "sortOrder": 2,
+                "emoji": "🟠",
+                "icon": "🟠",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              },
+              {
+                "id": "bien_dorado",
+                "name": "Bien Dorado",
+                "description": "Cocción intensa, masa bien crocante",
+                "priceModifier": 0,
+                "available": true,
+                "default": false,
+                "sortOrder": 3,
+                "emoji": "🟤",
+                "icon": "🟤",
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/02/11/19/03/meal-4840664_1280.jpg"
+              }
+            ]
+          }
+        ],
+        "vertical": "restaurant"
+      }
+    ]
+  }
+}

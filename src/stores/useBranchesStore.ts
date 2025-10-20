@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import  {useDeliveryAndPaymentOptionsStore, useStoreCheckout } from "@/stores";
 
 const useBranchesStore = create((set, get) => ({
     branches: [],
@@ -59,10 +58,5 @@ const useBranchesStore = create((set, get) => ({
     }
 }));
 
-
-useBranchesStore.subscribe((state, prevState) => {
-    console.log("Store delivery options reaccionando a cambio de store branches's state");
-    useStoreCheckout.getState().onChangeBranches();
-});
 
 export default useBranchesStore;
