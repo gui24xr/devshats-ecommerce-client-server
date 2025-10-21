@@ -2,23 +2,7 @@
 import { useState, useEffect } from "react"
 import { ProductCardBody } from "./index"
 import { useProductBuilderStore } from "@/stores"
-
-
-const getInitialVariantId = (product: any) => {
-  if (product.templateVariant) {
-    const selectedVariant = product?.templateVariant.options.find(item => item.isDefault == true)
-    return selectedVariant?.id
-  }
-  return null
-}
-
-const getProductPrice = (product: any, selectedVariantId: any) => {
-  if (product?.templateVariant) {
-    const selectedVariant = product?.templateVariant.options.find(item => item.id == selectedVariantId)
-    return selectedVariant?.price
-  }
-  return product?.price
-}
+import { ProductsHelpers } from "@/utils"
 
 
 export default function ProductCard({ product, defaultProductImage }: any) {
@@ -26,13 +10,13 @@ export default function ProductCard({ product, defaultProductImage }: any) {
 
   const [isAdding, setIsAdding] = useState(false)
   const [imageError, setImageError] = useState(false)
-  const [selectedVariantId, setSelectedVariantId] = useState(getInitialVariantId(product))
-  const [priceData, setPriceData] = useState(getProductPrice(product, selectedVariantId))
+  const [selectedVariantId, setSelectedVariantId] = useState(ProductsHelpers.getInitialVariantId(product))
+  const [priceData, setPriceData] = useState(ProductsHelpers.getProductPrice(product, selectedVariantId))
 
   const handlerProductToAddToCart = useProductBuilderStore(state => state.handlerProductToAddToCart)
   
   useEffect(() => {
-    setPriceData(getProductPrice(product, selectedVariantId))
+    setPriceData(ProductsHelpers.getProductPrice(product, selectedVariantId))
   }, [selectedVariantId])
 
   const onChangeVariant = (selectedVariantId: any) => {

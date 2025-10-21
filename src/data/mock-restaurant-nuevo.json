@@ -1,0 +1,1046 @@
+{
+  "store": {
+    "id": "store_001",
+    "clientData": {
+      "name": "Hotdog Paradise"
+    },
+    "planSettings": {
+      "type": "plan_medium"
+    },
+    "branchesConfigs": {
+      "defaultBranchId": "sucursal_centro",
+      "availableBranches": [
+        {
+          "id": "sucursal_centro",
+          "name": "Sucursal Centro",
+          "address": "Av. Principal 123, Centro, Ciudad",
+          "phone": "+54 11 1234-5678",
+          "active": true
+        }
+      ]
+    },
+    "customizationTemplateSettings": {
+      "bussinessContent": {
+        "general": {
+          "name": "Hotdog Paradise",
+          "tagline": "El mejor sabor en cada bocado",
+          "subTagline": "Personaliza tu experiencia gastronómica perfecta.",
+          "welcome": "¡Bienvenidos a Hotdog Paradise!",
+          "description": "Los mejores productos al mejor precio",
+          "logo": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI="
+        },
+        "contact": {
+          "whatsappNumber": "+5491123456789",
+          "phoneNumber": "+5491187654321",
+          "email": "pedidos@hotdogparadise.com",
+          "address": "Av. Corrientes 5678, CABA",
+          "workingHours": "🕐 Lun-Dom 11:00 AM - 2:00 AM"
+        },
+        "delivery": {
+          "tagline": "Envío a domicilio disponible",
+          "description": "Tiempo de entrega estimado: 30-45 min",
+          "terms": "Pedido mínimo $2000. Hacemos delivery en zona norte y oeste"
+        },
+        "offers": {
+          "mainOffer": "20% OFF en tu primera compra",
+          "seasonalPromo": "Descuentos especiales de verano",
+          "loyaltyProgram": "Acumulá puntos en cada compra"
+        },
+        "policies": {
+          "returns": "Devolución gratis hasta 7 días",
+          "warranty": "Garantía de 30 días en todos los productos",
+          "privacy": "Tus datos están seguros con nosotros"
+        }
+      },
+      "navBarConfig": {
+        "backgroundColor": "bg-white",
+        "title": "HotDogs Paradise",
+        "titleLogoIcon": "🌭",
+        "titleColor": "text-orange-500",
+        "linksColor": "text-gray-700"
+      },
+      "portrait": {
+        "titleLogoIcon": "🌭",
+        "floatingIcons": [
+          "🌭",
+          "🍟",
+          "🥤"
+        ],
+        "background": {
+          "color": "absolute inset-0 bg-gradient-to-br from-orange-500 via-orange-500 to-red-500",
+          "imageUrl": "https://media.istockphoto.com/id/2158482520/photo/freshly-grilled-chili-hot-dog.jpg?s=2048x2048&w=is&k=20&c=nsL-L-OY09ng4uE3zxS6tdz5NsnAn-0rUpmqGrKgewE=",
+          "showImage": false
+        },
+        "showBusinessFeatures": {
+          "contact": {
+            "whatsappNumber": true,
+            "phoneNumber": true,
+            "email": true,
+            "address": true,
+            "workingHours": true
+          },
+          "delivery": {
+            "tagline": true,
+            "time": true,
+            "cost": true,
+            "options": true,
+            "minOrder": true,
+            "maxOrder": true
+          },
+          "socialProof": {
+            "reviews": true,
+            "rating": true,
+            "testimonials": true,
+            "certifications": true
+          },
+          "business": {
+            "specialOffers": true,
+            "paymentMethods": true,
+            "warranty": true,
+            "returnPolicy": true
+          }
+        }
+      },
+      "productsContainerRenderConfig": {
+        "backgroundProductContainerColor": "bg-gradient-to-br from-orange-500 to-red-500",
+        "defaultProductImage": "https://media.istockphoto.com/id/157479378/photo/hot-dog-with-ketchup.jpg?s=2048x2048&w=is&k=20&c=jdMHZ4IgkBNkzbITnzOOwdrtP0tJRN0DN1lEZzR9MnI="
+      },
+      "whyChooseUs": {
+        "title": "¿Por qué elegirnos?",
+        "subtitle": "Descubre lo que nos hace únicos en el mundo de los hot dogs artesanales",
+        "features": [
+          {
+            "icon": "🥩",
+            "title": "Ingredientes Premium",
+            "description": "Carnes selectas y ingredientes frescos de la más alta calidad para una experiencia gastronómica excepcional"
+          },
+          {
+            "icon": "⚡",
+            "title": "Entrega Rápida",
+            "description": "Preparación rápida sin comprometer el sabor y la calidad. Tu pedido listo en 20-30 minutos"
+          },
+          {
+            "icon": "🎨",
+            "title": "100% Personalizable",
+            "description": "Crea tu hot dog perfecto con nuestras opciones de personalización ilimitadas"
+          }
+        ]
+      }
+    },
+    "branches": [
+      {
+        "id": "sucursal_centro",
+        "name": "Sucursal Centro",
+        "active": true,
+        "addressData": {
+          "textAddress": "Av. Principal 123",
+          "city": "Ciudad",
+          "state": "Provincia",
+          "zip": "1000",
+          "country": "País",
+          "formattedAddress": "Av. Principal 123, Centro, Ciudad, Provincia, 1000, País",
+          "references": "Frente al parque central",
+          "coordinates": {
+            "lat": -34.6037,
+            "lng": -58.3816
+          }
+        },
+        "contactData": {
+          "phones": [
+            "+54 11 1234-5678",
+            "+5491112345678"
+          ],
+          "emails": [
+            "info@hotdogsparadise.com"
+          ]
+        },
+        "workingHours": {
+          "monday": {
+            "open": "09:00",
+            "close": "18:00"
+          },
+          "tuesday": {
+            "open": "09:00",
+            "close": "18:00"
+          },
+          "wednesday": {
+            "open": "09:00",
+            "close": "18:00"
+          },
+          "thursday": {
+            "open": "09:00",
+            "close": "18:00"
+          },
+          "friday": {
+            "open": "09:00",
+            "close": "18:00"
+          },
+          "saturday": {
+            "open": "10:00",
+            "close": "14:00"
+          },
+          "sunday": {
+            "closed": true
+          }
+        },
+        "waMessageConfig": {
+          "waPhoneNumber": "+5491159149165",
+          "chatMessageConfig": {
+            "header": "HotDogs Paradise Sucursal Centro - Solicitud de pedido.",
+            "welcomeMessage": "Hola Hotdogs Paradise! Tengo un nuevo pedido para ti. Estos son los detalles:",
+            "contactData": {
+              "whatsappNumbers": [
+                "+5491159149165"
+              ],
+              "phones": [
+                "+541159149165"
+              ],
+              "emails": [
+                "info@hotdogsparadise.com"
+              ]
+            },
+            "ubicationText": "Av. Principal 123, Centro, Ciudad, Provincia, 1000, País",
+            "workingHoursText": "Lun a Dom 09:00 - 18:00",
+            "showConfirmButton": true,
+            "confirmButtonUrl": "https://hotdogsparadise.com/confirmacion",
+            "showCancelButton": true,
+            "cancelButtonUrl": "https://hotdogsparadise.com/cancelar",
+            "footerTitle": "Somos HotDogs Paradise",
+            "footerMessage": "¡Gracias por tu compra! Te esperamos pronto."
+          }
+        },
+        "deliveryMethods": [
+          {
+            "type": "motoDelivery",
+            "enabled": true,
+            "uiData": {
+              "label": "Moto delivery",
+              "emoji": "🛵",
+              "icon": "🛵",
+              "maxRadius": "6 kms",
+              "availableHours": "10:00 - 20:00",
+              "estimatedTime": "45-60 min",
+              "showAvailableHours": true,
+              "showMaxRadius": true
+            },
+            "constraints": {
+              "maxDistanceInKms": 6,
+              "originCoordinates": {
+                "lat": -34.98,
+                "lng": -58.37
+              },
+              "availableHours": {
+                "start": "10:00",
+                "end": "20:00"
+              },
+              "pricing": {
+                "basePrice": 0,
+                "currency": "USD",
+                "distancePricing": [
+                  {
+                    "from": 0,
+                    "to": 2,
+                    "addPrice": 0
+                  },
+                  {
+                    "from": 2,
+                    "to": 4,
+                    "addPrice": 5
+                  },
+                  {
+                    "from": 4,
+                    "to": 6,
+                    "addPrice": 11
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "pickup",
+            "enabled": true,
+            "uiData": {
+              "label": "Retiro en sucursal",
+              "emoji": "🏪",
+              "icon": "🏪",
+              "estimatedTime": "Disponible en 30 min",
+              "showEstimatedTime": true,
+              "showSchedule": true
+            },
+            "constraints": {
+              "preparationTimeInMinutes": 30,
+              "pickupInstructions": "Pasa por la sucursal y menciona tu nombre.",
+              "pickupPointCompleteAddress": "Sucursal Centro - Av. Principal 123",
+              "pickupCoordinates": {
+                "lat": -34.98,
+                "lng": -58.37
+              },
+              "workingHours": {
+                "monday": {
+                  "open": "09:00",
+                  "close": "18:00"
+                },
+                "tuesday": {
+                  "open": "09:00",
+                  "close": "18:00"
+                },
+                "wednesday": {
+                  "open": "09:00",
+                  "close": "18:00"
+                },
+                "thursday": {
+                  "open": "09:00",
+                  "close": "18:00"
+                },
+                "friday": {
+                  "open": "09:00",
+                  "close": "18:00"
+                },
+                "saturday": {
+                  "open": "10:00",
+                  "close": "14:00"
+                },
+                "sunday": {
+                  "closed": true
+                }
+              }
+            }
+          }
+        ],
+        "paymentMethods": [
+          {
+            "type": "CASH_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Efectivo",
+              "emoji": "💶",
+              "icon": "💶",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          },
+          {
+            "type": "CREDIT_CARD_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Tarjeta de Crédito",
+              "emoji": "💳",
+              "icon": "💳",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          },
+          {
+            "type": "BANK_TRANSFER_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Transferencia Bancaria",
+              "emoji": "🏦",
+              "icon": "🏦",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          }
+        ]
+      },
+      {
+        "id": "sucursal_norte",
+        "name": "Sucursal Norte",
+        "active": true,
+        "addressData": {
+          "textAddress": "Av. Libertador 456",
+          "city": "Ciudad",
+          "state": "Provincia",
+          "zip": "1001",
+          "country": "País",
+          "formattedAddress": "Av. Libertador 456, Zona Norte, Ciudad, Provincia, 1001, País",
+          "references": "Al lado del shopping",
+          "coordinates": {
+            "lat": -34.5837,
+            "lng": -58.3916
+          }
+        },
+        "contactData": {
+          "phones": [
+            "+54 11 2345-6789",
+            "+5491123456789"
+          ],
+          "emails": [
+            "norte@hotdogsparadise.com"
+          ]
+        },
+        "workingHours": {
+          "monday": {
+            "open": "10:00",
+            "close": "22:00"
+          },
+          "tuesday": {
+            "open": "10:00",
+            "close": "22:00"
+          },
+          "wednesday": {
+            "open": "10:00",
+            "close": "22:00"
+          },
+          "thursday": {
+            "open": "10:00",
+            "close": "22:00"
+          },
+          "friday": {
+            "open": "10:00",
+            "close": "23:00"
+          },
+          "saturday": {
+            "open": "10:00",
+            "close": "23:00"
+          },
+          "sunday": {
+            "open": "11:00",
+            "close": "20:00"
+          }
+        },
+        "waMessageConfig": {
+          "waPhoneNumber": "+5491123456789",
+          "chatMessageConfig": {
+            "header": "HotDogs Paradise Sucursal Norte - Solicitud de pedido.",
+            "welcomeMessage": "Hola Hotdogs Paradise Norte! Tengo un nuevo pedido para ti. Estos son los detalles:",
+            "contactData": {
+              "whatsappNumbers": [
+                "+5491123456789"
+              ],
+              "phones": [
+                "+541123456789"
+              ],
+              "emails": [
+                "norte@hotdogsparadise.com"
+              ]
+            },
+            "ubicationText": "Av. Libertador 456, Zona Norte, Ciudad, Provincia, 1001, País",
+            "workingHoursText": "Lun a Jue 10:00 - 22:00, Vie y Sáb 10:00 - 23:00, Dom 11:00 - 20:00",
+            "showConfirmButton": true,
+            "confirmButtonUrl": "https://hotdogsparadise.com/confirmacion",
+            "showCancelButton": true,
+            "cancelButtonUrl": "https://hotdogsparadise.com/cancelar",
+            "footerTitle": "Somos HotDogs Paradise",
+            "footerMessage": "¡Gracias por tu compra! Te esperamos pronto."
+          }
+        },
+        "deliveryMethods": [
+          {
+            "type": "motoDelivery",
+            "enabled": true,
+            "uiData": {
+              "label": "Moto delivery",
+              "emoji": "🛵",
+              "icon": "🛵",
+              "maxRadius": "8 kms",
+              "availableHours": "11:00 - 22:00",
+              "estimatedTime": "40-55 min",
+              "showAvailableHours": true,
+              "showMaxRadius": true
+            },
+            "constraints": {
+              "maxDistanceInKms": 8,
+              "originCoordinates": {
+                "lat": -34.5837,
+                "lng": -58.3916
+              },
+              "availableHours": {
+                "start": "11:00",
+                "end": "22:00"
+              },
+              "pricing": {
+                "basePrice": 0,
+                "currency": "USD",
+                "distancePricing": [
+                  {
+                    "from": 0,
+                    "to": 3,
+                    "addPrice": 0
+                  },
+                  {
+                    "from": 3,
+                    "to": 6,
+                    "addPrice": 6
+                  },
+                  {
+                    "from": 6,
+                    "to": 8,
+                    "addPrice": 12
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "pickup",
+            "enabled": true,
+            "uiData": {
+              "label": "Retiro en sucursal",
+              "emoji": "🏪",
+              "icon": "🏪",
+              "estimatedTime": "Disponible en 25 min",
+              "showEstimatedTime": true,
+              "showSchedule": true
+            },
+            "constraints": {
+              "preparationTimeInMinutes": 25,
+              "pickupInstructions": "Pasa por la sucursal y menciona tu nombre.",
+              "pickupPointCompleteAddress": "Sucursal Norte - Av. Libertador 456",
+              "pickupCoordinates": {
+                "lat": -34.5837,
+                "lng": -58.3916
+              },
+              "workingHours": {
+                "monday": {
+                  "open": "10:00",
+                  "close": "22:00"
+                },
+                "tuesday": {
+                  "open": "10:00",
+                  "close": "22:00"
+                },
+                "wednesday": {
+                  "open": "10:00",
+                  "close": "22:00"
+                },
+                "thursday": {
+                  "open": "10:00",
+                  "close": "22:00"
+                },
+                "friday": {
+                  "open": "10:00",
+                  "close": "23:00"
+                },
+                "saturday": {
+                  "open": "10:00",
+                  "close": "23:00"
+                },
+                "sunday": {
+                  "open": "11:00",
+                  "close": "20:00"
+                }
+              }
+            }
+          }
+        ],
+        "paymentMethods": [
+          {
+            "type": "CASH_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Efectivo",
+              "emoji": "💶",
+              "icon": "💶",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          },
+          {
+            "type": "CREDIT_CARD_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Tarjeta de Crédito",
+              "emoji": "💳",
+              "icon": "💳",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          },
+          {
+            "type": "DEBIT_CARD_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Tarjeta de Débito",
+              "emoji": "💳",
+              "icon": "💳",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          }
+        ]
+      },
+      {
+        "id": "sucursal_sur",
+        "name": "Sucursal Sur",
+        "active": true,
+        "addressData": {
+          "textAddress": "Calle San Martín 789",
+          "city": "Ciudad",
+          "state": "Provincia",
+          "zip": "1002",
+          "country": "País",
+          "formattedAddress": "Calle San Martín 789, Zona Sur, Ciudad, Provincia, 1002, País",
+          "references": "Cerca de la estación de tren",
+          "coordinates": {
+            "lat": -34.6237,
+            "lng": -58.3716
+          }
+        },
+        "contactData": {
+          "phones": [
+            "+54 11 3456-7890",
+            "+5491134567890"
+          ],
+          "emails": [
+            "sur@hotdogsparadise.com"
+          ]
+        },
+        "workingHours": {
+          "monday": {
+            "open": "08:00",
+            "close": "20:00"
+          },
+          "tuesday": {
+            "open": "08:00",
+            "close": "20:00"
+          },
+          "wednesday": {
+            "open": "08:00",
+            "close": "20:00"
+          },
+          "thursday": {
+            "open": "08:00",
+            "close": "20:00"
+          },
+          "friday": {
+            "open": "08:00",
+            "close": "21:00"
+          },
+          "saturday": {
+            "open": "09:00",
+            "close": "21:00"
+          },
+          "sunday": {
+            "closed": true
+          }
+        },
+        "waMessageConfig": {
+          "waPhoneNumber": "+5491134567890",
+          "chatMessageConfig": {
+            "header": "HotDogs Paradise Sucursal Sur - Solicitud de pedido.",
+            "welcomeMessage": "Hola Hotdogs Paradise Sur! Tengo un nuevo pedido para ti. Estos son los detalles:",
+            "contactData": {
+              "whatsappNumbers": [
+                "+5491134567890"
+              ],
+              "phones": [
+                "+541134567890"
+              ],
+              "emails": [
+                "sur@hotdogsparadise.com"
+              ]
+            },
+            "ubicationText": "Calle San Martín 789, Zona Sur, Ciudad, Provincia, 1002, País",
+            "workingHoursText": "Lun a Jue 08:00 - 20:00, Vie 08:00 - 21:00, Sáb 09:00 - 21:00, Dom cerrado",
+            "showConfirmButton": true,
+            "confirmButtonUrl": "https://hotdogsparadise.com/confirmacion",
+            "showCancelButton": true,
+            "cancelButtonUrl": "https://hotdogsparadise.com/cancelar",
+            "footerTitle": "Somos HotDogs Paradise",
+            "footerMessage": "¡Gracias por tu compra! Te esperamos pronto."
+          }
+        },
+        "deliveryMethods": [
+          {
+            "type": "motoDelivery",
+            "enabled": true,
+            "uiData": {
+              "label": "Moto delivery",
+              "emoji": "🛵",
+              "icon": "🛵",
+              "maxRadius": "5 kms",
+              "availableHours": "09:00 - 19:00",
+              "estimatedTime": "50-65 min",
+              "showAvailableHours": true,
+              "showMaxRadius": true
+            },
+            "constraints": {
+              "maxDistanceInKms": 5,
+              "originCoordinates": {
+                "lat": -34.6237,
+                "lng": -58.3716
+              },
+              "availableHours": {
+                "start": "09:00",
+                "end": "19:00"
+              },
+              "pricing": {
+                "basePrice": 0,
+                "currency": "USD",
+                "distancePricing": [
+                  {
+                    "from": 0,
+                    "to": 2,
+                    "addPrice": 0
+                  },
+                  {
+                    "from": 2,
+                    "to": 3.5,
+                    "addPrice": 4
+                  },
+                  {
+                    "from": 3.5,
+                    "to": 5,
+                    "addPrice": 9
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "pickup",
+            "enabled": true,
+            "uiData": {
+              "label": "Retiro en sucursal",
+              "emoji": "🏪",
+              "icon": "🏪",
+              "estimatedTime": "Disponible en 35 min",
+              "showEstimatedTime": true,
+              "showSchedule": true
+            },
+            "constraints": {
+              "preparationTimeInMinutes": 35,
+              "pickupInstructions": "Pasa por la sucursal y menciona tu nombre.",
+              "pickupPointCompleteAddress": "Sucursal Sur - Calle San Martín 789",
+              "pickupCoordinates": {
+                "lat": -34.6237,
+                "lng": -58.3716
+              },
+              "workingHours": {
+                "monday": {
+                  "open": "08:00",
+                  "close": "20:00"
+                },
+                "tuesday": {
+                  "open": "08:00",
+                  "close": "20:00"
+                },
+                "wednesday": {
+                  "open": "08:00",
+                  "close": "20:00"
+                },
+                "thursday": {
+                  "open": "08:00",
+                  "close": "20:00"
+                },
+                "friday": {
+                  "open": "08:00",
+                  "close": "21:00"
+                },
+                "saturday": {
+                  "open": "09:00",
+                  "close": "21:00"
+                },
+                "sunday": {
+                  "closed": true
+                }
+              }
+            }
+          }
+        ],
+        "paymentMethods": [
+          {
+            "type": "CASH_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Efectivo",
+              "emoji": "💶",
+              "icon": "💶",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          },
+          {
+            "type": "CREDIT_CARD_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Tarjeta de Crédito",
+              "emoji": "💳",
+              "icon": "💳",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          }
+        ]
+      },
+      {
+        "id": "sucursal_sanvicente",
+        "name": "Sucursal San Vicente",
+        "active": true,
+        "addressData": {
+          "textAddress": "Av. Presidente Perón 456",
+          "city": "San Vicente",
+          "state": "Buenos Aires",
+          "zip": "1865",
+          "country": "Argentina",
+          "formattedAddress": "Av. Presidente Perón 456, San Vicente, Buenos Aires, 1865, Argentina",
+          "references": "Cerca de la plaza principal",
+          "coordinates": {
+            "lat": -35.01472511663142,
+            "lng": -58.43184720312694
+          }
+        },
+        "contactData": {
+          "phones": [
+            "+5422251234-5678",
+            "+5492225123456"
+          ],
+          "emails": [
+            "sanvicente@hotdogsparadise.com"
+          ]
+        },
+        "workingHours": {
+          "monday": {
+            "open": "09:00",
+            "close": "22:00"
+          },
+          "tuesday": {
+            "open": "09:00",
+            "close": "22:00"
+          },
+          "wednesday": {
+            "open": "09:00",
+            "close": "22:00"
+          },
+          "thursday": {
+            "open": "09:00",
+            "close": "22:00"
+          },
+          "friday": {
+            "open": "09:00",
+            "close": "23:00"
+          },
+          "saturday": {
+            "open": "10:00",
+            "close": "23:00"
+          },
+          "sunday": {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        },
+        "waMessageConfig": {
+          "waPhoneNumber": "+5491159149165",
+          "chatMessageConfig": {
+            "header": "HotDogs Paradise Sucursal San Vicente - Solicitud de pedido.",
+            "welcomeMessage": "Hola Hotdogs Paradise! Tengo un nuevo pedido para ti. Estos son los detalles:",
+            "contactData": {
+              "whatsappNumbers": [
+                "+5492225149165"
+              ],
+              "phones": [
+                "+542225149165"
+              ],
+              "emails": [
+                "sanvicente@hotdogsparadise.com"
+              ]
+            },
+            "ubicationText": "Av. Presidente Perón 456, San Vicente, Buenos Aires, 1865, Argentina",
+            "workingHoursText": "Lun a Jue 09:00 - 22:00, Vie y Sab 09:00 - 23:00, Dom 10:00 - 22:00",
+            "showConfirmButton": true,
+            "confirmButtonUrl": "https://hotdogsparadise.com/confirmacion",
+            "showCancelButton": true,
+            "cancelButtonUrl": "https://hotdogsparadise.com/cancelar",
+            "footerTitle": "Somos HotDogs Paradise San Vicente",
+            "footerMessage": "¡Gracias por tu compra! Te esperamos pronto."
+          }
+        },
+        "deliveryMethods": [
+          {
+            "type": "motoDelivery",
+            "enabled": true,
+            "uiData": {
+              "label": "Moto delivery",
+              "emoji": "🛵",
+              "icon": "🛵",
+              "maxRadius": "8 kms",
+              "availableHours": "10:00 - 22:00",
+              "estimatedTime": "50-70 min",
+              "showAvailableHours": true,
+              "showMaxRadius": true
+            },
+            "constraints": {
+              "maxDistanceInKms": 8,
+              "originCoordinates": {
+                "lat": -35.01472511663142,
+                "lng": -58.43184720312694
+              },
+              "availableHours": {
+                "start": "10:00",
+                "end": "22:00"
+              },
+              "pricing": {
+                "basePrice": 500,
+                "currency": "ARS",
+                "distancePricing": [
+                  {
+                    "from": 0,
+                    "to": 2,
+                    "addPrice": 0
+                  },
+                  {
+                    "from": 2,
+                    "to": 4,
+                    "addPrice": 800
+                  },
+                  {
+                    "from": 4,
+                    "to": 6,
+                    "addPrice": 1500
+                  },
+                  {
+                    "from": 6,
+                    "to": 8,
+                    "addPrice": 2200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "pickup",
+            "enabled": true,
+            "uiData": {
+              "label": "Retiro en sucursal",
+              "emoji": "🏪",
+              "icon": "🏪",
+              "estimatedTime": "Disponible en 30 min",
+              "showEstimatedTime": true,
+              "showSchedule": true
+            },
+            "constraints": {
+              "preparationTimeInMinutes": 30,
+              "pickupInstructions": "Pasa por la sucursal y menciona tu nombre.",
+              "pickupPointCompleteAddress": "Sucursal San Vicente - Av. Presidente Perón 456",
+              "pickupCoordinates": {
+                "lat": -35.01472511663142,
+                "lng": -58.43184720312694
+              },
+              "workingHours": {
+                "monday": {
+                  "open": "09:00",
+                  "close": "22:00"
+                },
+                "tuesday": {
+                  "open": "09:00",
+                  "close": "22:00"
+                },
+                "wednesday": {
+                  "open": "09:00",
+                  "close": "22:00"
+                },
+                "thursday": {
+                  "open": "09:00",
+                  "close": "22:00"
+                },
+                "friday": {
+                  "open": "09:00",
+                  "close": "23:00"
+                },
+                "saturday": {
+                  "open": "10:00",
+                  "close": "23:00"
+                },
+                "sunday": {
+                  "open": "10:00",
+                  "close": "22:00"
+                }
+              }
+            }
+          }
+        ],
+        "paymentMethods": [
+          {
+            "type": "CASH_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Efectivo",
+              "emoji": "💵",
+              "icon": "💵",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          },
+          {
+            "type": "CREDIT_CARD_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Tarjeta de Crédito",
+              "emoji": "💳",
+              "icon": "💳",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          },
+          {
+            "type": "DEBIT_CARD_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Tarjeta de Débito",
+              "emoji": "💳",
+              "icon": "💳",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          },
+          {
+            "type": "MERCADOPAGO_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Mercado Pago",
+              "emoji": "💙",
+              "icon": "💙",
+              "description": "Pago digital seguro",
+              "showDescription": true
+            },
+            "constraints": {}
+          }
+        ]
+      }
+    ],
+    "categories": [
+      {
+        "id": "cat_001",
+        "name": "Hot Dogs",
+        "displayOrder": 1,
+        "slug": "hot-dogs",
+        "itemsCount": 19,
+        "label": "Hot Dogs",
+        "emoji": "🌭"
+      },
+      {
+        "id": "cat_002",
+        "name": "Acompañamientos",
+        "displayOrder": 2,
+        "slug": "acompanamientos",
+        "itemsCount": 4,
+        "label": "Acompañamientos",
+        "emoji": "🍟"
+      },
+      {
+        "id": "cat_003",
+        "name": "Bebidas",
+        "displayOrder": 3,
+        "slug": "bebidas",
+        "itemsCount": 2,
+        "label": "Bebidas",
+        "emoji": "🥤"
+      }
+    ],
+    "products": [
+     
+    ]
+  }
+}

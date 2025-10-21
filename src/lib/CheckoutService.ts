@@ -30,7 +30,7 @@ const CheckoutService = {
             motoDeliveryExtraInfo: dataFromCheckoutForm.motoDeliveryExtraInfo || null,
             notes: 'Notas adicionales',
           },
-          cartTicket: useCartStore.getState().getCurrentCartTicket(),
+          orderTicketPreview: this.getCurrentOrder(),
           branchId: selectedDeliveryOption?.branchId,
           
         }

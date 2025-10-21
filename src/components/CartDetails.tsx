@@ -18,6 +18,7 @@ export default function CartDetails() {
           <div className="grid grid-cols-1 gap-2 p-2">
             {itemsList.map((item) => (
               <CartItemDetail
+                key={item.id}
                 item={item}
               />
             ))}
@@ -33,7 +34,7 @@ export default function CartDetails() {
   );
 }
 
-function CartItemDetail({ item }) {
+function CartItemDetail({ item }: { item: any }) {
 
 
   const changeCartItemQuantity = useCartStore((state) => state.changeCartItemQuantity);
@@ -50,9 +51,7 @@ const handleRemoveItem = (itemId:string) => {
 
   return (
     <div className="w-full bg-gray-50 rounded-lg flex flex-col items-start px-4 pt-6  pb-2">
-      
-
-      <div className="w-full flex flex-col">
+       <div className="w-full flex flex-col">
         <div className="flex flex-row gap-4 border-t border-blue-200 pt-2 ">
           <div className="min-w-[80px] flex flex-col">
             <img
@@ -83,14 +82,14 @@ const handleRemoveItem = (itemId:string) => {
             {item.productData?.customizationFeatures && (
               <div className="w-full flex flex-col gap-0.5">
                 {item.productData?.customizationFeatures?.map((feature) =>
-                      <div className="w-full flex ">
+                      <div key={feature.id} className="w-full flex ">
                         <div className="flex flex-wrap ">
                           <div className="flex flex-wrap ">
                             <span className="text-sm  text-gray-800 ">
                               {feature?.name + ":"}
                             </span>
-                            {feature?.selectedOptions?.map((selectedOption,) => (
-                              <div className="flex">
+                            {feature?.selectedOptions?.map((selectedOption) => (
+                              <div key={selectedOption.id} className="flex">
                                 <span className="text-sm text-gray-800">
                                   {selectedOption?.name}{" "}
                                   {selectedOption?.priceModifier ? (

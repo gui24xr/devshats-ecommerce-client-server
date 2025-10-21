@@ -1069,12 +1069,12 @@
           "queso asadero",
           "pretzel"
         ],
-        "featured": true,
+        
         "prepTime": {
           "min": 8,
           "max": 12
         },
-        "vertical": "restaurant",
+ 
         "features": {
           "isNew": false,
           "isPopular": true
@@ -1435,12 +1435,12 @@
           "queso asadero",
           "integral"
         ],
-        "featured": true,
+        
         "prepTime": {
           "min": 8,
           "max": 12
         },
-        "vertical": "restaurant",
+   
         "features": {
           "isNew": false,
           "isPopular": false
@@ -1801,12 +1801,12 @@
           "queso asadero",
           "blanco"
         ],
-        "featured": true,
+        
         "prepTime": {
           "min": 8,
           "max": 12
         },
-        "vertical": "restaurant",
+    
         "features": {
           "isNew": true,
           "isPopular": false
@@ -2167,12 +2167,12 @@
           "30cm",
           "pretzel"
         ],
-        "featured": true,
+        
         "prepTime": {
           "min": 10,
           "max": 15
         },
-        "vertical": "restaurant",
+      
         "features": {
           "isNew": false,
           "isPopular": true
@@ -2533,12 +2533,12 @@
           "30cm",
           "integral"
         ],
-        "featured": true,
+        
         "prepTime": {
           "min": 10,
           "max": 15
         },
-        "vertical": "restaurant",
+     
         "features": {
           "isNew": true,
           "isPopular": false
@@ -2899,12 +2899,12 @@
           "30cm",
           "blanco"
         ],
-        "featured": true,
+        
         "prepTime": {
           "min": 10,
           "max": 15
         },
-        "vertical": "restaurant",
+
         "features": {
           "isNew": false,
           "isPopular": true
@@ -3265,12 +3265,12 @@
           "trompo",
           "pretzel"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 7,
           "max": 10
         },
-        "vertical": "restaurant",
+       
         "features": {
           "isNew": true,
           "isPopular": false
@@ -3631,12 +3631,12 @@
           "trompo",
           "integral"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 7,
           "max": 10
         },
-        "vertical": "restaurant",
+        
         "features": {
           "isNew": false,
           "isPopular": true
@@ -3997,12 +3997,12 @@
           "trompo",
           "blanco"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 7,
           "max": 10
         },
-        "vertical": "restaurant",
+   
         "features": {
           "isNew": true,
           "isPopular": false
@@ -4363,12 +4363,12 @@
           "especialidad",
           "pretzel"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 12,
           "max": 18
         },
-        "vertical": "restaurant",
+    
         "features": {
           "isNew": false,
           "isPopular": true
@@ -4729,12 +4729,12 @@
           "especialidad",
           "integral"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 12,
           "max": 18
         },
-        "vertical": "restaurant",
+   
         "features": {
           "isNew": true,
           "isPopular": false
@@ -5095,12 +5095,12 @@
           "especialidad",
           "blanco"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 12,
           "max": 18
         },
-        "vertical": "restaurant",
+     
         "features": {
           "isNew": false,
           "isPopular": true
@@ -5461,12 +5461,12 @@
           "regional",
           "pretzel"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 8,
           "max": 12
         },
-        "vertical": "restaurant",
+      
         "features": {
           "isNew": true,
           "isPopular": false
@@ -5827,12 +5827,12 @@
           "regional",
           "integral"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 8,
           "max": 12
         },
-        "vertical": "restaurant",
+
         "features": {
           "isNew": false,
           "isPopular": true
@@ -6193,12 +6193,12 @@
           "regional",
           "blanco"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 8,
           "max": 12
         },
-        "vertical": "restaurant",
+        
         "features": {
           "isNew": true,
           "isPopular": false
@@ -6560,7 +6560,7 @@
           "compartir",
           "pretzel"
         ],
-        "featured": true,
+        
         "prepTime": {
           "min": 15,
           "max": 20
@@ -6909,12 +6909,12 @@
           "compartir",
           "integral"
         ],
-        "featured": true,
+        
         "prepTime": {
           "min": 15,
           "max": 20
         },
-        "vertical": "restaurant",
+      
         "features": {
           "isNew": true,
           "isPopular": false
@@ -7259,12 +7259,12 @@
           "compartir",
           "blanco"
         ],
-        "featured": true,
+        
         "prepTime": {
           "min": 15,
           "max": 20
         },
-        "vertical": "restaurant",
+      
         "features": {
           "isNew": false,
           "isPopular": true
@@ -7607,12 +7607,12 @@
           "crujiente",
           "mexicano"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 5,
           "max": 8
         },
-        "vertical": "restaurant",
+       
         "features": {
           "isNew": false,
           "isPopular": true
@@ -7691,12 +7691,12 @@
           "chile",
           "antojito"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 3,
           "max": 5
         },
-        "vertical": "restaurant",
+        
         "features": {
           "isNew": true,
           "isPopular": false
@@ -7998,12 +7998,12 @@
           "retornable",
           "azúcar de caña"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 1,
           "max": 2
         },
-        "vertical": "restaurant",
+     
         "features": {
           "isNew": false,
           "isPopular": true
@@ -8094,12 +8094,12 @@
           "canela",
           "refrescante"
         ],
-        "featured": true,
+        
         "prepTime": {
           "min": 3,
           "max": 5
         },
-        "vertical": "restaurant",
+
         "features": {
           "isNew": true,
           "isPopular": false
@@ -8180,12 +8180,12 @@
           "frijoles",
           "compartir"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 8,
           "max": 12
         },
-        "vertical": "restaurant",
+   
         "features": {
           "isNew": false,
           "isPopular": true
@@ -8221,12 +8221,12 @@
           "crujiente",
           "tradicional"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 10,
           "max": 15
         },
-        "vertical": "restaurant",
+     
         "features": {
           "isNew": true,
           "isPopular": false

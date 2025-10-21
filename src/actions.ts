@@ -7,7 +7,7 @@ async function checkoutOrder(checkoutPayloadData: any){
     //Hacer que esta app o la server app envien el email
     //Saliendo todo ok devuelvo el wa.me
 //const { customerData, paymentsAndDeliveryConstrainst, cartTicketAndTotals } = checkoutPayloadData
- const { branchId, customerData, cartTicket } = checkoutPayloadData
+ const { branchId, customerData, orderTicketPreview } = checkoutPayloadData
  //const branchId = paymentsAndDeliveryConstrainst.branchId
 
  const selectedBranch = await DataService.getBranchById(branchId)
@@ -19,7 +19,7 @@ async function checkoutOrder(checkoutPayloadData: any){
 
 const stringMessage = getOrderMessage({
     chatMessageConfig: chatMessageConfig, 
-    cartTicket: cartTicket, //Revisar despues
+    orderTicket: orderTicketPreview, //Revisar despues
     orderNumber,
     customerCheckoutData: customerData,
     pickupPointCompleteAddress: pickupPointCompleteAddress 
@@ -42,7 +42,7 @@ export {
 //---------HELPERS
  function getOrderMessage({
     chatMessageConfig,
-    cartTicket,
+    orderTicket,
     orderNumber,
     customerCheckoutData,    
     pickupPointCompleteAddress,
@@ -52,7 +52,7 @@ export {
     const footerMessageSection =  getMessageFooterSection(chatMessageConfig)
     const clientDataItems = getClientDataItems(customerCheckoutData)
     const orderMessageListLines = getMessageClientSection(clientDataItems)
-    const orderMessageCartSection = getOrderMessagesCartSection(cartTicket)
+    const orderMessageCartSection = getOrderMessagesCartSection(orderTicket)
 
     return [...headerMessageSection,
             wtspMessagesConverter.getLineBreak(),
@@ -64,13 +64,17 @@ export {
  }
 
  
- function getOrderMessagesCartSection(cartTicket: any){
-    const { detail:details, itemsCount, totalPrice} = cartTicket
+ function getOrderMessagesCartSection(orderTicket: any){
+    console.log('Cart ticket llegado', orderTicket)
+    const { 
+        cartDetail:details, deliveryAmount, orderTax, currency, finalAmount, cartTicketAmount, cartItemsCount
+    } = orderTicket
     const fragments = []
     fragments.push(wtspMessagesConverter.getBoldText('Mi Pedido:'))
     fragments.push(wtspMessagesConverter.getLineBreak())
     details.forEach((detail: any) => {
-        fragments.push(wtspMessagesConverter.getBoldText('• '  + detail.quantity + ' X ' + detail.productData?.title))
+        fragments.push(wtspMessagesConverter.getBoldText('• ' + detail.productData?.title))
+        //fragments.push(wtspMessagesConverter.getBoldText('• '  + detail.quantity + ' X ' + detail.productData?.title))
         fragments.push(wtspMessagesConverter.getLineBreak())
     if (detail.productData.variant) {
         fragments.push(wtspMessagesConverter.getCommonText('  ◦ '))
@@ -91,9 +95,22 @@ export {
                 fragments.push(wtspMessagesConverter.getLineBreak())
             })
         })
-    }})
+    }
+
+    //fragments.push(wtspMessagesConverter.getLineBreak())
+    fragments.push(wtspMessagesConverter.getCommonText('  □ '))
+    fragments.push(wtspMessagesConverter.getCommonText('Cant: ' +detail.quantity + ' X $' + detail?.unitPriceData.finalPrice + '= $' + detail?.subtotal))
+    fragments.push(wtspMessagesConverter.getLineBreak())
+    
+
+})
     fragments.push(wtspMessagesConverter.getSimpleLine())
-    fragments.push(wtspMessagesConverter.getBoldText('   ' + itemsCount + ' productos' + '  -  Total: $ ' + totalPrice ))
+    fragments.push(wtspMessagesConverter.getItalicText('Subtotal: $' +  cartTicketAmount))
+    fragments.push(wtspMessagesConverter.getLineBreak())
+    fragments.push(wtspMessagesConverter.getItalicText('Delivery: $' + deliveryAmount ))
+    fragments.push(wtspMessagesConverter.getLineBreak())
+    fragments.push(wtspMessagesConverter.getSimpleLine())
+    fragments.push(wtspMessagesConverter.getBoldText('Total: $' + finalAmount  ))
     fragments.push(wtspMessagesConverter.getLineBreak())
     fragments.push(wtspMessagesConverter.getSimpleLine())
     return fragments.join('')
