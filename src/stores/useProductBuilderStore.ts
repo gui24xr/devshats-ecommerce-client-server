@@ -1,26 +1,186 @@
+import { Product, ProductTypeBasic, ProductTypeSingleVariant } from "@/types";
 import { create } from "zustand";
 import { useCartStore, useProductsStore, useModalsStore } from "@/stores";
+// ============================================
+// CURRENT PRODUCT (Producto en construcción)
+// ============================================
+
+interface VariantOptionBuilder {
+  id: string;
+  name: string;
+  label: string;
+  price: {
+    basePrice?: number | null;
+    discount?: number | null;
+    finalPrice: number;
+  };
+  sku?: string;
+  prepTime: {
+    min: number;
+    max: number;
+  };
+  isDefault: boolean;
+  isActive: boolean;
+  isSelected: boolean; // ← Campo añadido para builder
+}
+
+interface TemplateVariantBuilder {
+  name: string;
+  label: string;
+  options: VariantOptionBuilder[];
+}
+
+interface CustomizationOptionBuilder {
+  id: string;
+  name: string;
+  description: string | null;
+  priceModifier: number;
+  available: boolean;
+  minQuantity?: number; // para combo
+  maxQuantity?: number; // para combo
+  default?: boolean; // para check/variant
+  sortOrder?: number;
+  category?: string;
+  emoji?: string;
+  icon?: string;
+  imgUrl?: string | null;
+  // Campos añadidos para builder
+  isSelected: boolean;
+  selectedQuantity?: number; // solo para combo
+}
+
+interface CustomizationFeatureBuilder {
+  id: string;
+  name: string;
+  description: string | null;
+  type: "combo" | "check" | "variant";
+  emoji?: string;
+  icon?: string;
+  imgUrl?: string;
+  constraints: any; // puedes especificar mejor según el tipo
+  options: CustomizationOptionBuilder[];
+}
+
+// Current Product = Product + campos de estado del builder
+interface CurrentProduct extends Omit<Product, 'templateVariant' | 'customizationFeaturesTemplate'> {
+  templateVariant: TemplateVariantBuilder | null;
+  customizationFeaturesTemplate: CustomizationFeatureBuilder[] | null;
+}
+
+// ============================================
+// ITEM FOR CART (Producto listo para carrito)
+// ============================================
+
+interface SelectedVariantOption {
+  id: string;
+  name: string;
+  label: string;
+  sku?: string;
+  priceData: {
+    basePrice?: number | null;
+    discount?: number | null;
+    finalPrice: number;
+  };
+}
+
+interface VariantForCart {
+  name: string;
+  label: string;
+  selectedOption: SelectedVariantOption | null;
+}
+
+interface SelectedCustomizationOption {
+  id: string;
+  name: string;
+  description: string | null;
+  priceModifier: number;
+  available: boolean;
+  sortOrder?: number;
+  category?: string;
+  emoji?: string;
+  icon?: string;
+  imgUrl?: string | null;
+  isSelected: boolean;
+  selectedQuantity?: number; // solo para combo
+}
+
+interface CustomizationFeatureForCart {
+  id: string;
+  name: string;
+  description: string | null;
+  type: "combo" | "check" | "variant";
+  emoji?: string;
+  icon?: string;
+  imgUrl?: string;
+  constraints: any;
+  selectedOptions: SelectedCustomizationOption[];
+}
+
+interface ItemForCart {
+  id: string;
+  type: 'BASIC_PRODUCT' | 'SINGLE_VARIANT_PRODUCT';
+  title: string;
+  image?: string;
+  variant: VariantForCart | null;
+  customizationFeatures: CustomizationFeatureForCart[] | null;
+  priceData: {
+    basePrice: {
+      basePrice?: number | null;
+      discount?: number | null;
+      finalPrice: number;
+    } | null;
+    extraForCustomizations: number;
+    finalPrice: number;
+  };
+}
+
+// ============================================
+// STATE INTERFACE
+// ============================================
 
 interface ProductBuilderState {
-  currentProduct: any;
-  itemForCart: any;
+  currentProduct: CurrentProduct | null;
+  itemForCart: ItemForCart | null;
   quantity: number;
   totalForThisProduct: number | null;
-  
 
   setError: (errorMessage: string) => void;
   setQuantity: (quantity: number) => void;
-  handlerProductToAddToCart: ({ productId, selectedVariantId, quantity, onError }: {productId: string, selectedVariantId: string, quantity?: number, onError?: (errorMessage: string) => void}) => void;
-  _resetCurrentProduct: ({ productId, selectedVariantId, quantity }: {productId: string, selectedVariantId: string, quantity?: number}) => void;
+  handlerProductToAddToCart: ({ productId, selectedVariantId, quantity, onError }: {
+    productId: string, 
+    selectedVariantId: string, 
+    quantity?: number, 
+    onError?: (errorMessage: string) => void
+  }) => void;
+  _resetCurrentProduct: ({ productId, selectedVariantId, quantity }: {
+    productId: string, 
+    selectedVariantId: string, 
+    quantity?: number
+  }) => void;
   setItemForCart: () => void;
   setTotalForThisProduct: () => void;
-  setSelectedVariant: ({ selectedVariantId, onError }: {selectedVariantId: string, onError: (errorMessage: string) => void}) => void;
-  setCustomizationFeatureTypeVariant: ({featureId, selectedOptionId, onError}: {featureId: string, selectedOptionId: string, onError: (errorMessage: string) => void}) => void;
-  setCustomizationFeatureTypeCheck: ({featureId, selectedOptionId, onError}: {featureId: string, selectedOptionId: string, onError: (errorMessage: string) => void}) => void;
-  setCustomizationFeatureTypeCombo: ({featureId, selectedOptionId, newSelectedQuantity, onError}: {featureId: string, selectedOptionId: string, newSelectedQuantity: number, onError: (errorMessage: string) => void}) => void;
+  setSelectedVariant: ({ selectedVariantId, onError }: {
+    selectedVariantId: string, 
+    onError: (errorMessage: string) => void
+  }) => void;
+  setCustomizationFeatureTypeVariant: ({featureId, selectedOptionId, onError}: {
+    featureId: string, 
+    selectedOptionId: string, 
+    onError: (errorMessage: string) => void
+  }) => void;
+  setCustomizationFeatureTypeCheck: ({featureId, selectedOptionId, onError}: {
+    featureId: string, 
+    selectedOptionId: string, 
+    onError: (errorMessage: string) => void
+  }) => void;
+  setCustomizationFeatureTypeCombo: ({featureId, selectedOptionId, newSelectedQuantity, onError}: {
+    featureId: string, 
+    selectedOptionId: string, 
+    newSelectedQuantity: number, 
+    onError: (errorMessage: string) => void
+  }) => void;
   addProductToCart: ({onError}: {onError?: (errorMessage: string) => void}) => void;
 }
-
 
 const useProductBuilderStore = create<ProductBuilderState>((set, get) => ({
     currentProduct: null,
@@ -152,28 +312,10 @@ interface calculateTotalPriceProps{
 
 
  function checkProductVariant({product, selectedVariantId}: {product: any, selectedVariantId: any}): void {
-    if (product.templateVariant && !selectedVariantId) throw new Error('No se ha seleccionado ninguna variante.')
-    if (product.templateVariant && (!product.templateVariant.options.find((item: any) => item.id === selectedVariantId))) throw new Error('La variante seleccionada no existe.')
+    if (product.type == 'SINGLE_VARIANT_PRODUCT' && !selectedVariantId) throw new Error('No se ha seleccionado ninguna variante.')
+    if (product.type == 'SINGLE_VARIANT_PRODUCT' && (!product.templateVariant.options.find((item: any) => item.id === selectedVariantId))) throw new Error('La variante seleccionada no existe.')
 }
 
-
-interface ProductVariant {
-  id: string;
-  name: string;
-  label: string;
-  price: {
-    basePrice: number;
-    discount: number | null;
-    finalPrice: number;
-  };
-  sku: string;
-  prepTime: {
-    min: number;
-    max: number;
-  };
-  isDefault: boolean;
-  isActive: boolean;
-}
 
 
 function getProductBuilderTemplate(product: any): any {
@@ -207,7 +349,7 @@ function getProductBuilderTemplate(product: any): any {
         if (!product) throw new Error('El producto no existe.')
         const productBuilderTemplate = {
             ...product,
-            templateVariant: product.templateVariant ? {
+            templateVariant: product.type == 'SINGLE_VARIANT_PRODUCT' ? {
                 ...product.templateVariant,
                 options: product.templateVariant.options.map((item: any) => ({...item, isSelected: false}))
             } : null, 
@@ -225,7 +367,7 @@ function getProductBuilderTemplate(product: any): any {
 function getProductBuilderTemplateWithVariantModified(product: any, selectedVariantId: any): any {
     try{
         if (!product) throw new Error('El producto no existe.')
-        if (!product.templateVariant) throw new Error('El producto no tiene variantes.')
+        if (!(product.type == 'SINGLE_VARIANT_PRODUCT')) throw new Error('El producto no tiene variantes.')
         const variantIndex = product.templateVariant.options.findIndex((item: any) => item.id === selectedVariantId)
         if (variantIndex < 0) throw new Error('La variante seleccionada no existe.')
         //Pongo todas en false excepecta la seleccionada
@@ -399,9 +541,10 @@ const getCurrentProductExtraForCustomizations = (features: any[]) => {
   
     return {
        id: currentProduct?.id,
+       type: currentProduct?.type,
        title: currentProduct?.name,
        image: currentProduct?.images?.[0]?.url,
-       variant: currentProduct?.templateVariant ? mapVariantToCartItem(currentProduct?.templateVariant):null,
+       variant: currentProduct?.type === 'SINGLE_VARIANT_PRODUCT' ? mapVariantToCartItem(currentProduct?.templateVariant):null,
        customizationFeatures: customization,
        priceData: {
            basePrice: basePrice,

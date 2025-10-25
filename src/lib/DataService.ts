@@ -1,23 +1,23 @@
+import { Product, Category, Branch } from "@/types";
 //import data from "@/data/mock-tiendaropa.json";
-//import data from "@/data/mock-restaurant.json";
+import data from "@/data/mock-restaurant.json";
 //import data from "@/data/mock-pizzeria.json";
-import data from "@/data/mock-restaurant-nuevo.json";
+//import data from "@/data/mock-restaurant-nuevo.json";
 
 
-interface DataService {
-    getProducts: () => Promise<any>
+interface IDataService {
+    getProducts: () => Promise<{ products: Product[], categories: Category[], stats: { totalProducts: number }}>
     getStoreDataAndConfigs: () => Promise<any>
-    getBranches: () => Promise<any>
-    getBranchById: (id: string) => Promise<any>
+    getBranches: () => Promise<Branch[]>
+    getBranchById: (id: string) => Promise<Branch | undefined>
 }
 
 
-
-const DataService : DataService = {
+const DataService : IDataService = {
     getProducts: async () => {
         return {
-            products: data.store.products,
-            categories: data.store.categories,
+            products: data.store.products as Product[],
+            categories: data.store.categories as Category[],
             stats: {
                 totalProducts: data.store.products.length,
             }
@@ -27,10 +27,10 @@ const DataService : DataService = {
         return data.store
     },
     getBranches: async () => {
-        return data.store.branches
+        return data.store.branches as Branch[]
     },
     getBranchById: async (id: string) => {
-        return data.store.branches.find((branch: any) => branch.id === id);
+        return (data.store.branches as Branch[]).find((branch) => branch.id === id);
     },
 }
 

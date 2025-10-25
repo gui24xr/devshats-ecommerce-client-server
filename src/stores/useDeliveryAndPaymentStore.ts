@@ -1,29 +1,57 @@
 import { create } from "zustand";
-import  CheckoutService  from "@/lib/CheckoutService";
+import CheckoutService from "@/lib/CheckoutService";
+import {
+  MapData,
+  PickupOption,
+  MotoDeliveryOption,
+  DeliveryOption,
+  PaymentMethod,
+  CartTicket
+} from "@/types";
 
+interface DeliveryAndPaymentStoreState {
+  isSubmitting: boolean;
+  mapData: MapData | null;
+  motoDeliveryOptions: MotoDeliveryOption[];
+  pickupDeliveryOptions: PickupOption[];
+  allowedPaymentMethods: PaymentMethod[];
+  selectedDeliveryOption: DeliveryOption | null;
+  selectedPaymentMethodType: string | null;
 
-const useDeliveryAndPaymentStore = create((set, get) => ({
+  cartTicket: CartTicket | null;
+  orderTax: number;
+  orderCurrency: string;
+  orderFinalAmount: number;
+
+  // Methods
+  reset: () => void;
+  setMapData: (mapData?: MapData | null) => void;
+  selectDeliveryOption: (deliveryOption: DeliveryOption | null) => void;
+  selectPaymentMethodType: (paymentMethodType: string) => void;
+}
+
+const useDeliveryAndPaymentStore = create<DeliveryAndPaymentStoreState>((set, get) => ({
   isSubmitting: false,
   mapData: null,
   motoDeliveryOptions: [],
   pickupDeliveryOptions: [],
   allowedPaymentMethods: [],
   selectedDeliveryOption: null,
-  selectedPaymentMethodType: null, 
-  
-  
+  selectedPaymentMethodType: null,
+
+
   cartTicket: null,
   orderTax: 0,
   orderCurrency: "ARS", //Queda abierto como resolver esto
   orderFinalAmount: 0,
 
 reset: () => {
-    const pickupOptionsWithoutDistance = CheckoutService.getPickupOptions(null) 
+    const pickupOptionsWithoutDistance = CheckoutService.getPickupOptions(null)
     set({ motoDeliveryOptions: [] });
     set({ pickupDeliveryOptions: pickupOptionsWithoutDistance });
     get().selectDeliveryOption(null);
   },
-setMapData: (mapData?: {address: string, coordinates: {lat: number, lng: number}} | null) => {
+setMapData: (mapData?: MapData | null) => {
    if (!mapData) {
     get().reset();
     return;
@@ -46,10 +74,14 @@ setMapData: (mapData?: {address: string, coordinates: {lat: number, lng: number}
   get().selectDeliveryOption(null);
 },
 
-  selectDeliveryOption: (deliveryOption: any) => {
-      set({ selectedDeliveryOption: deliveryOption, });
-      const allowedPaymentMethods = CheckoutService.getBranchPaymenthMethods(deliveryOption?.branchId);
-      set({ allowedPaymentMethods: allowedPaymentMethods || [] });
+  selectDeliveryOption: (deliveryOption: DeliveryOption | null) => {
+      set({ selectedDeliveryOption: deliveryOption });
+      if (deliveryOption) {
+        const allowedPaymentMethods = CheckoutService.getBranchPaymenthMethods(deliveryOption.branchId);
+        set({ allowedPaymentMethods: allowedPaymentMethods || [] });
+      } else {
+        set({ allowedPaymentMethods: [] });
+      }
       //get().calculateOrderAmount();
   },
 

@@ -771,6 +771,243 @@
             "constraints": {}
           }
         ]
+      },
+      {
+        "id": "sucursal_sanvicente",
+        "name": "Sucursal San Vicente",
+        "active": true,
+        "addressData": {
+          "textAddress": "Av. Presidente Perón 456",
+          "city": "San Vicente",
+          "state": "Buenos Aires",
+          "zip": "1865",
+          "country": "Argentina",
+          "formattedAddress": "Av. Presidente Perón 456, San Vicente, Buenos Aires, 1865, Argentina",
+          "references": "Cerca de la plaza principal",
+          "coordinates": {
+            "lat": -35.01472511663142,
+            "lng": -58.43184720312694
+          }
+        },
+        "contactData": {
+          "phones": [
+            "+5422251234-5678",
+            "+5492225123456"
+          ],
+          "emails": [
+            "sanvicente@hotdogsparadise.com"
+          ]
+        },
+        "workingHours": {
+          "monday": {
+            "open": "09:00",
+            "close": "22:00"
+          },
+          "tuesday": {
+            "open": "09:00",
+            "close": "22:00"
+          },
+          "wednesday": {
+            "open": "09:00",
+            "close": "22:00"
+          },
+          "thursday": {
+            "open": "09:00",
+            "close": "22:00"
+          },
+          "friday": {
+            "open": "09:00",
+            "close": "23:00"
+          },
+          "saturday": {
+            "open": "10:00",
+            "close": "23:00"
+          },
+          "sunday": {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        },
+        "waMessageConfig": {
+          "waPhoneNumber": "+5491159149165",
+          "chatMessageConfig": {
+            "header": "HotDogs Paradise Sucursal San Vicente - Solicitud de pedido.",
+            "welcomeMessage": "Hola Hotdogs Paradise! Tengo un nuevo pedido para ti. Estos son los detalles:",
+            "contactData": {
+              "whatsappNumbers": [
+                "+5492225149165"
+              ],
+              "phones": [
+                "+542225149165"
+              ],
+              "emails": [
+                "sanvicente@hotdogsparadise.com"
+              ]
+            },
+            "ubicationText": "Av. Presidente Perón 456, San Vicente, Buenos Aires, 1865, Argentina",
+            "workingHoursText": "Lun a Jue 09:00 - 22:00, Vie y Sab 09:00 - 23:00, Dom 10:00 - 22:00",
+            "showConfirmButton": true,
+            "confirmButtonUrl": "https://hotdogsparadise.com/confirmacion",
+            "showCancelButton": true,
+            "cancelButtonUrl": "https://hotdogsparadise.com/cancelar",
+            "footerTitle": "Somos HotDogs Paradise San Vicente",
+            "footerMessage": "¡Gracias por tu compra! Te esperamos pronto."
+          }
+        },
+        "deliveryMethods": [
+          {
+            "type": "motoDelivery",
+            "enabled": true,
+            "uiData": {
+              "label": "Moto delivery",
+              "emoji": "🛵",
+              "icon": "🛵",
+              "maxRadius": "8 kms",
+              "availableHours": "10:00 - 22:00",
+              "estimatedTime": "50-70 min",
+              "showAvailableHours": true,
+              "showMaxRadius": true
+            },
+            "constraints": {
+              "maxDistanceInKms": 8,
+              "originCoordinates": {
+                "lat": -35.01472511663142,
+                "lng": -58.43184720312694
+              },
+              "availableHours": {
+                "start": "10:00",
+                "end": "22:00"
+              },
+              "pricing": {
+                "basePrice": 500,
+                "currency": "ARS",
+                "distancePricing": [
+                  {
+                    "from": 0,
+                    "to": 2,
+                    "addPrice": 0
+                  },
+                  {
+                    "from": 2,
+                    "to": 4,
+                    "addPrice": 800
+                  },
+                  {
+                    "from": 4,
+                    "to": 6,
+                    "addPrice": 1500
+                  },
+                  {
+                    "from": 6,
+                    "to": 8,
+                    "addPrice": 2200
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "pickup",
+            "enabled": true,
+            "uiData": {
+              "label": "Retiro en sucursal",
+              "emoji": "🏪",
+              "icon": "🏪",
+              "estimatedTime": "Disponible en 30 min",
+              "showEstimatedTime": true,
+              "showSchedule": true
+            },
+            "constraints": {
+              "preparationTimeInMinutes": 30,
+              "pickupInstructions": "Pasa por la sucursal y menciona tu nombre.",
+              "pickupPointCompleteAddress": "Sucursal San Vicente - Av. Presidente Perón 456",
+              "pickupCoordinates": {
+                "lat": -35.01472511663142,
+                "lng": -58.43184720312694
+              },
+              "workingHours": {
+                "monday": {
+                  "open": "09:00",
+                  "close": "22:00"
+                },
+                "tuesday": {
+                  "open": "09:00",
+                  "close": "22:00"
+                },
+                "wednesday": {
+                  "open": "09:00",
+                  "close": "22:00"
+                },
+                "thursday": {
+                  "open": "09:00",
+                  "close": "22:00"
+                },
+                "friday": {
+                  "open": "09:00",
+                  "close": "23:00"
+                },
+                "saturday": {
+                  "open": "10:00",
+                  "close": "23:00"
+                },
+                "sunday": {
+                  "open": "10:00",
+                  "close": "22:00"
+                }
+              }
+            }
+          }
+        ],
+        "paymentMethods": [
+          {
+            "type": "CASH_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Efectivo",
+              "emoji": "💵",
+              "icon": "💵",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          },
+          {
+            "type": "CREDIT_CARD_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Tarjeta de Crédito",
+              "emoji": "💳",
+              "icon": "💳",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          },
+          {
+            "type": "DEBIT_CARD_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Tarjeta de Débito",
+              "emoji": "💳",
+              "icon": "💳",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          },
+          {
+            "type": "MERCADOPAGO_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Mercado Pago",
+              "emoji": "💙",
+              "icon": "💙",
+              "description": "Pago digital seguro",
+              "showDescription": true
+            },
+            "constraints": {}
+          }
+        ]
       }
     ],
     "categories": [
@@ -832,12 +1069,12 @@
           "queso asadero",
           "pretzel"
         ],
-        "featured": true,
+        
         "prepTime": {
           "min": 8,
           "max": 12
         },
-        "vertical": "restaurant",
+ 
         "features": {
           "isNew": false,
           "isPopular": true
@@ -1198,12 +1435,12 @@
           "queso asadero",
           "integral"
         ],
-        "featured": true,
+        
         "prepTime": {
           "min": 8,
           "max": 12
         },
-        "vertical": "restaurant",
+   
         "features": {
           "isNew": false,
           "isPopular": false
@@ -1564,12 +1801,12 @@
           "queso asadero",
           "blanco"
         ],
-        "featured": true,
+        
         "prepTime": {
           "min": 8,
           "max": 12
         },
-        "vertical": "restaurant",
+    
         "features": {
           "isNew": true,
           "isPopular": false
@@ -1930,12 +2167,12 @@
           "30cm",
           "pretzel"
         ],
-        "featured": true,
+        
         "prepTime": {
           "min": 10,
           "max": 15
         },
-        "vertical": "restaurant",
+      
         "features": {
           "isNew": false,
           "isPopular": true
@@ -2296,12 +2533,12 @@
           "30cm",
           "integral"
         ],
-        "featured": true,
+        
         "prepTime": {
           "min": 10,
           "max": 15
         },
-        "vertical": "restaurant",
+     
         "features": {
           "isNew": true,
           "isPopular": false
@@ -2662,12 +2899,12 @@
           "30cm",
           "blanco"
         ],
-        "featured": true,
+        
         "prepTime": {
           "min": 10,
           "max": 15
         },
-        "vertical": "restaurant",
+
         "features": {
           "isNew": false,
           "isPopular": true
@@ -3028,12 +3265,12 @@
           "trompo",
           "pretzel"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 7,
           "max": 10
         },
-        "vertical": "restaurant",
+       
         "features": {
           "isNew": true,
           "isPopular": false
@@ -3394,12 +3631,12 @@
           "trompo",
           "integral"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 7,
           "max": 10
         },
-        "vertical": "restaurant",
+        
         "features": {
           "isNew": false,
           "isPopular": true
@@ -3760,12 +3997,12 @@
           "trompo",
           "blanco"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 7,
           "max": 10
         },
-        "vertical": "restaurant",
+   
         "features": {
           "isNew": true,
           "isPopular": false
@@ -4126,12 +4363,12 @@
           "especialidad",
           "pretzel"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 12,
           "max": 18
         },
-        "vertical": "restaurant",
+    
         "features": {
           "isNew": false,
           "isPopular": true
@@ -4492,12 +4729,12 @@
           "especialidad",
           "integral"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 12,
           "max": 18
         },
-        "vertical": "restaurant",
+   
         "features": {
           "isNew": true,
           "isPopular": false
@@ -4858,12 +5095,12 @@
           "especialidad",
           "blanco"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 12,
           "max": 18
         },
-        "vertical": "restaurant",
+     
         "features": {
           "isNew": false,
           "isPopular": true
@@ -5224,12 +5461,12 @@
           "regional",
           "pretzel"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 8,
           "max": 12
         },
-        "vertical": "restaurant",
+      
         "features": {
           "isNew": true,
           "isPopular": false
@@ -5590,12 +5827,12 @@
           "regional",
           "integral"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 8,
           "max": 12
         },
-        "vertical": "restaurant",
+
         "features": {
           "isNew": false,
           "isPopular": true
@@ -5956,12 +6193,12 @@
           "regional",
           "blanco"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 8,
           "max": 12
         },
-        "vertical": "restaurant",
+        
         "features": {
           "isNew": true,
           "isPopular": false
@@ -6323,7 +6560,7 @@
           "compartir",
           "pretzel"
         ],
-        "featured": true,
+        
         "prepTime": {
           "min": 15,
           "max": 20
@@ -6672,12 +6909,12 @@
           "compartir",
           "integral"
         ],
-        "featured": true,
+        
         "prepTime": {
           "min": 15,
           "max": 20
         },
-        "vertical": "restaurant",
+      
         "features": {
           "isNew": true,
           "isPopular": false
@@ -7022,12 +7259,12 @@
           "compartir",
           "blanco"
         ],
-        "featured": true,
+        
         "prepTime": {
           "min": 15,
           "max": 20
         },
-        "vertical": "restaurant",
+      
         "features": {
           "isNew": false,
           "isPopular": true
@@ -7370,12 +7607,12 @@
           "crujiente",
           "mexicano"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 5,
           "max": 8
         },
-        "vertical": "restaurant",
+       
         "features": {
           "isNew": false,
           "isPopular": true
@@ -7454,12 +7691,12 @@
           "chile",
           "antojito"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 3,
           "max": 5
         },
-        "vertical": "restaurant",
+        
         "features": {
           "isNew": true,
           "isPopular": false
@@ -7761,12 +7998,12 @@
           "retornable",
           "azúcar de caña"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 1,
           "max": 2
         },
-        "vertical": "restaurant",
+     
         "features": {
           "isNew": false,
           "isPopular": true
@@ -7857,12 +8094,12 @@
           "canela",
           "refrescante"
         ],
-        "featured": true,
+        
         "prepTime": {
           "min": 3,
           "max": 5
         },
-        "vertical": "restaurant",
+
         "features": {
           "isNew": true,
           "isPopular": false
@@ -7943,12 +8180,12 @@
           "frijoles",
           "compartir"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 8,
           "max": 12
         },
-        "vertical": "restaurant",
+   
         "features": {
           "isNew": false,
           "isPopular": true
@@ -7984,12 +8221,12 @@
           "crujiente",
           "tradicional"
         ],
-        "featured": false,
+        
         "prepTime": {
           "min": 10,
           "max": 15
         },
-        "vertical": "restaurant",
+     
         "features": {
           "isNew": true,
           "isPopular": false

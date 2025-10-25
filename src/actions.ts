@@ -9,7 +9,6 @@ async function checkoutOrder(checkoutPayloadData: any){
 //const { customerData, paymentsAndDeliveryConstrainst, cartTicketAndTotals } = checkoutPayloadData
  const { branchId, customerData, orderTicketPreview } = checkoutPayloadData
  //const branchId = paymentsAndDeliveryConstrainst.branchId
-
  const selectedBranch = await DataService.getBranchById(branchId)
  if (!selectedBranch) return {success: false}
  const waMessagePhone = selectedBranch?.waMessageConfig.waPhoneNumber?.trim()

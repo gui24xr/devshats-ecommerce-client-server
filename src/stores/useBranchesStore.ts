@@ -1,34 +1,42 @@
 import { create } from "zustand";
+import { Branch, MappedBranch } from "@/types";
 
-const useBranchesStore = create((set, get) => ({
+interface BranchesStoreState {
+    branches: MappedBranch[];
+    selectedBranch: MappedBranch | null;
+    loading: boolean;
+    error: string | null;
+    loaded: boolean;
+
+    // Methods
+    hydrateAndConfigBranches: (branchesData: Branch[]) => void;
+    changeSelectedBranch: (branchId: string) => void;
+}
+
+const useBranchesStore = create<BranchesStoreState>((set, get) => ({
     branches: [],
     selectedBranch: null,
     loading: true,
     error: null,
     loaded: false,
-    
-    hydrateAndConfigBranches: (branchesData: any) => {
+
+    hydrateAndConfigBranches: (branchesData: Branch[]) => {
          set({loading: true})
         try{
-           const mappedBrancheData = branchesData.map((branchItem: any) => ({
-                id: branchItem.id,
-                name: branchItem.name,
-                active: branchItem.active,
-                addressData: branchItem.addressData,
-                contactData: branchItem.contactData,
-                workingHours: branchItem.workingHours,
-                waMessagePhone: branchItem.waMessagePhone,
-                deliveryMethods: branchItem.deliveryMethods,
-                paymentMethods: branchItem.paymentMethods,
-                pickupPointCompleteAddress: branchItem.deliveryMethods.find((dm) => dm.type === "pickup")?.constraints?.pickupPointCompleteAddress,
-                pickupPointCoordinates: branchItem.deliveryMethods.find((dm) => dm.type === "pickup")?.constraints?.pickupCoordinates,
-                motoDeliveryOriginCoordinates: branchItem.deliveryMethods?.find((dm) => dm.type === "motoDelivery")?.constraints?.originCoordinates, 
-                motoDeliveryMaxDistanceInKms: branchItem.deliveryMethods.find((dm) => dm.type === "motoDelivery")?.constraints?.maxDistanceInKms,
-                motoDeliveryBasePrice: branchItem.deliveryMethods.find((dm) => dm.type === "motoDelivery")?.constraints?.pricing?.basePrice,
-                motoDeliveryDistancePricing: branchItem.deliveryMethods.find((dm) => dm.type === "motoDelivery")?.constraints?.pricing?.distancePricing,
+           const mappedBrancheData: MappedBranch[] = branchesData.map((branchItem) => {
+                const pickupMethod = branchItem.deliveryMethods.find((dm) => dm.type === "pickup");
+                const motoMethod = branchItem.deliveryMethods.find((dm) => dm.type === "motoDelivery");
 
-                
-           })) 
+                return {
+                    ...branchItem,
+                    pickupPointCompleteAddress: pickupMethod?.type === 'pickup' ? pickupMethod.constraints.pickupPointCompleteAddress : undefined,
+                    pickupPointCoordinates: pickupMethod?.type === 'pickup' ? pickupMethod.constraints.pickupCoordinates : undefined,
+                    motoDeliveryOriginCoordinates: motoMethod?.type === 'motoDelivery' ? motoMethod.constraints.originCoordinates : undefined,
+                    motoDeliveryMaxDistanceInKms: motoMethod?.type === 'motoDelivery' ? motoMethod.constraints.maxDistanceInKms : undefined,
+                    motoDeliveryBasePrice: motoMethod?.type === 'motoDelivery' ? motoMethod.constraints.pricing.basePrice : undefined,
+                    motoDeliveryDistancePricing: motoMethod?.type === 'motoDelivery' ? motoMethod.constraints.pricing.distancePricing : undefined,
+                };
+           })
             set({branches: mappedBrancheData})
             get().changeSelectedBranch(branchesData[0].id)
         }catch(error){
@@ -39,10 +47,10 @@ const useBranchesStore = create((set, get) => ({
         }
     },
 
-    changeSelectedBranch: (branchId: any) => {
+    changeSelectedBranch: (branchId: string) => {
         set({loading: true})
         try{
-            const foundedBranch = get().branches.find((branch: any) => branch.id === branchId)
+            const foundedBranch = get().branches.find((branch) => branch.id === branchId)
         if (!foundedBranch) {
             alert('Branch not found')
             return;
@@ -54,7 +62,7 @@ const useBranchesStore = create((set, get) => ({
         }finally{
             set({loading: false})
         }
-        
+
     }
 }));
 

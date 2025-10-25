@@ -1051,7 +1051,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_001",
@@ -1069,12 +1068,10 @@
           "queso asadero",
           "pretzel"
         ],
-        
         "prepTime": {
           "min": 8,
           "max": 12
         },
- 
         "features": {
           "isNew": false,
           "isPopular": true
@@ -1404,7 +1401,8 @@
               }
             ]
           }
-        ]
+        ],
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_001_integral",
@@ -1417,7 +1415,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_001",
@@ -1435,12 +1432,10 @@
           "queso asadero",
           "integral"
         ],
-        
         "prepTime": {
           "min": 8,
           "max": 12
         },
-   
         "features": {
           "isNew": false,
           "isPopular": false
@@ -1770,7 +1765,8 @@
               }
             ]
           }
-        ]
+        ],
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_001_blanco",
@@ -1783,7 +1779,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_001",
@@ -1801,12 +1796,10 @@
           "queso asadero",
           "blanco"
         ],
-        
         "prepTime": {
           "min": 8,
           "max": 12
         },
-    
         "features": {
           "isNew": true,
           "isPopular": false
@@ -2136,7 +2129,8 @@
               }
             ]
           }
-        ]
+        ],
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_002_pretzel",
@@ -2149,7 +2143,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_001",
@@ -2167,12 +2160,10 @@
           "30cm",
           "pretzel"
         ],
-        
         "prepTime": {
           "min": 10,
           "max": 15
         },
-      
         "features": {
           "isNew": false,
           "isPopular": true
@@ -2502,7 +2493,8 @@
               }
             ]
           }
-        ]
+        ],
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_002_integral",
@@ -2515,7 +2507,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_001",
@@ -2533,12 +2524,10 @@
           "30cm",
           "integral"
         ],
-        
         "prepTime": {
           "min": 10,
           "max": 15
         },
-     
         "features": {
           "isNew": true,
           "isPopular": false
@@ -2868,7 +2857,8 @@
               }
             ]
           }
-        ]
+        ],
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_002_blanco",
@@ -2881,7 +2871,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_001",
@@ -2899,12 +2888,10 @@
           "30cm",
           "blanco"
         ],
-        
         "prepTime": {
           "min": 10,
           "max": 15
         },
-
         "features": {
           "isNew": false,
           "isPopular": true
@@ -3234,7 +3221,8 @@
               }
             ]
           }
-        ]
+        ],
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_003_pretzel",
@@ -3247,7 +3235,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_001",
@@ -3265,12 +3252,10 @@
           "trompo",
           "pretzel"
         ],
-        
         "prepTime": {
           "min": 7,
           "max": 10
         },
-       
         "features": {
           "isNew": true,
           "isPopular": false
@@ -3600,7 +3585,8 @@
               }
             ]
           }
-        ]
+        ],
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_003_integral",
@@ -3613,7 +3599,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_001",
@@ -3631,12 +3616,10 @@
           "trompo",
           "integral"
         ],
-        
         "prepTime": {
           "min": 7,
           "max": 10
         },
-        
         "features": {
           "isNew": false,
           "isPopular": true
@@ -3966,7 +3949,8 @@
               }
             ]
           }
-        ]
+        ],
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_003_blanco",
@@ -3979,7 +3963,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_001",
@@ -3997,12 +3980,10 @@
           "trompo",
           "blanco"
         ],
-        
         "prepTime": {
           "min": 7,
           "max": 10
         },
-   
         "features": {
           "isNew": true,
           "isPopular": false
@@ -4332,7 +4313,8 @@
               }
             ]
           }
-        ]
+        ],
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_004_pretzel",
@@ -4345,7 +4327,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_001",
@@ -4363,12 +4344,10 @@
           "especialidad",
           "pretzel"
         ],
-        
         "prepTime": {
           "min": 12,
           "max": 18
         },
-    
         "features": {
           "isNew": false,
           "isPopular": true
@@ -4698,7 +4677,8 @@
               }
             ]
           }
-        ]
+        ],
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_004_integral",
@@ -4711,7 +4691,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_001",
@@ -4729,12 +4708,10 @@
           "especialidad",
           "integral"
         ],
-        
         "prepTime": {
           "min": 12,
           "max": 18
         },
-   
         "features": {
           "isNew": true,
           "isPopular": false
@@ -5064,7 +5041,8 @@
               }
             ]
           }
-        ]
+        ],
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_004_blanco",
@@ -5077,7 +5055,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_001",
@@ -5095,12 +5072,10 @@
           "especialidad",
           "blanco"
         ],
-        
         "prepTime": {
           "min": 12,
           "max": 18
         },
-     
         "features": {
           "isNew": false,
           "isPopular": true
@@ -5430,7 +5405,8 @@
               }
             ]
           }
-        ]
+        ],
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_005_pretzel",
@@ -5443,7 +5419,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_001",
@@ -5461,12 +5436,10 @@
           "regional",
           "pretzel"
         ],
-        
         "prepTime": {
           "min": 8,
           "max": 12
         },
-      
         "features": {
           "isNew": true,
           "isPopular": false
@@ -5796,7 +5769,8 @@
               }
             ]
           }
-        ]
+        ],
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_005_integral",
@@ -5809,7 +5783,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_001",
@@ -5827,12 +5800,10 @@
           "regional",
           "integral"
         ],
-        
         "prepTime": {
           "min": 8,
           "max": 12
         },
-
         "features": {
           "isNew": false,
           "isPopular": true
@@ -6162,7 +6133,8 @@
               }
             ]
           }
-        ]
+        ],
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_005_blanco",
@@ -6175,7 +6147,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_001",
@@ -6193,12 +6164,10 @@
           "regional",
           "blanco"
         ],
-        
         "prepTime": {
           "min": 8,
           "max": 12
         },
-        
         "features": {
           "isNew": true,
           "isPopular": false
@@ -6528,7 +6497,8 @@
               }
             ]
           }
-        ]
+        ],
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_006_pretzel",
@@ -6541,7 +6511,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_001",
@@ -6560,7 +6529,6 @@
           "compartir",
           "pretzel"
         ],
-        
         "prepTime": {
           "min": 15,
           "max": 20
@@ -6877,7 +6845,8 @@
               }
             ]
           }
-        ]
+        ],
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_006_integral",
@@ -6890,7 +6859,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_001",
@@ -6909,12 +6877,10 @@
           "compartir",
           "integral"
         ],
-        
         "prepTime": {
           "min": 15,
           "max": 20
         },
-      
         "features": {
           "isNew": true,
           "isPopular": false
@@ -7227,7 +7193,8 @@
               }
             ]
           }
-        ]
+        ],
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_006_blanco",
@@ -7240,7 +7207,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_001",
@@ -7259,12 +7225,10 @@
           "compartir",
           "blanco"
         ],
-        
         "prepTime": {
           "min": 15,
           "max": 20
         },
-      
         "features": {
           "isNew": false,
           "isPopular": true
@@ -7577,7 +7541,8 @@
               }
             ]
           }
-        ]
+        ],
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_007",
@@ -7590,7 +7555,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_002",
@@ -7607,12 +7571,10 @@
           "crujiente",
           "mexicano"
         ],
-        
         "prepTime": {
           "min": 5,
           "max": 8
         },
-       
         "features": {
           "isNew": false,
           "isPopular": true
@@ -7657,7 +7619,7 @@
             }
           ]
         },
-        "customizationFeaturesTemplate": null
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_008",
@@ -7691,12 +7653,10 @@
           "chile",
           "antojito"
         ],
-        
         "prepTime": {
           "min": 3,
           "max": 5
         },
-        
         "features": {
           "isNew": true,
           "isPopular": false
@@ -7969,7 +7929,8 @@
               }
             ]
           }
-        ]
+        ],
+        "type": "BASIC_PRODUCT"
       },
       {
         "id": "prod_009",
@@ -7981,7 +7942,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_003",
@@ -7998,12 +7958,10 @@
           "retornable",
           "azúcar de caña"
         ],
-        
         "prepTime": {
           "min": 1,
           "max": 2
         },
-     
         "features": {
           "isNew": false,
           "isPopular": true
@@ -8065,8 +8023,8 @@
             }
           ]
         },
-        "customizationFeaturesTemplate": null,
-        "description": "Coca-Cola mexicana de vidrio retornable, hecha con azúcar de caña. El sabor auténtico que acompaña tu comida."
+        "description": "Coca-Cola mexicana de vidrio retornable, hecha con azúcar de caña. El sabor auténtico que acompaña tu comida.",
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_010",
@@ -8078,7 +8036,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_003",
@@ -8094,12 +8051,10 @@
           "canela",
           "refrescante"
         ],
-        
         "prepTime": {
           "min": 3,
           "max": 5
         },
-
         "features": {
           "isNew": true,
           "isPopular": false
@@ -8144,8 +8099,8 @@
             }
           ]
         },
-        "customizationFeaturesTemplate": null,
-        "description": "Agua fresca de horchata natural con arroz, canela, vainilla y leche condensada. Refrescante y tradicional, perfecta para el calor de Monterrey."
+        "description": "Agua fresca de horchata natural con arroz, canela, vainilla y leche condensada. Refrescante y tradicional, perfecta para el calor de Monterrey.",
+        "type": "SINGLE_VARIANT_PRODUCT"
       },
       {
         "id": "prod_011",
@@ -8180,17 +8135,15 @@
           "frijoles",
           "compartir"
         ],
-        
         "prepTime": {
           "min": 8,
           "max": 12
         },
-   
         "features": {
           "isNew": false,
           "isPopular": true
         },
-        "customizationFeaturesTemplate": null
+        "type": "BASIC_PRODUCT"
       },
       {
         "id": "prod_012",
@@ -8203,7 +8156,6 @@
             "default": true
           }
         ],
-        "price": null,
         "categories": [
           {
             "id": "cat_002",
@@ -8221,12 +8173,10 @@
           "crujiente",
           "tradicional"
         ],
-        
         "prepTime": {
           "min": 10,
           "max": 15
         },
-     
         "features": {
           "isNew": true,
           "isPopular": false
@@ -8271,7 +8221,7 @@
             }
           ]
         },
-        "customizationFeaturesTemplate": null
+        "type": "SINGLE_VARIANT_PRODUCT"
       }
     ]
   }

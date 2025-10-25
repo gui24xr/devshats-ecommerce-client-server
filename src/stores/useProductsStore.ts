@@ -1,6 +1,31 @@
+import { Product, Category, GetProductsResponse } from "@/types";
 import { create } from "zustand";
 
-const useProductsStore = create((set, get) => ({
+
+interface CategoryWithProducts extends Category { products: Product[] }
+
+interface ProductsStoreState {
+    loading: boolean;
+    error: string | null;
+    loaded: boolean;
+    products: Product[];
+    productsOrderByCategories: CategoryWithProducts[];
+    productsLoaded: boolean;
+    categories: Category[];
+    productsStats: {
+        totalProducts: number;
+    };
+    filteredProducts: Product[];
+    selectedCategory: Category | null;
+
+    // Methods
+    hydrateAndConfigProducts: (data: GetProductsResponse) => void;
+    filterProductsByCategories: (categoryId: string) => void;
+    filterProductsByPreparationTime: (params: { minInMinutes: number; maxInMinutes: number }) => void;
+    getProductById: (productId: string) => Product | undefined;
+}
+
+const useProductsStore = create<ProductsStoreState>((set, get) => ({
     loading: true,
     error: null,
     loaded: false,
@@ -14,7 +39,7 @@ const useProductsStore = create((set, get) => ({
     filteredProducts: [],
     selectedCategory: null,
 
-    hydrateAndConfigProducts: (data: any) => {
+    hydrateAndConfigProducts: (data: GetProductsResponse) => {
         try{
              set({
                 loading: false,
@@ -35,27 +60,31 @@ const useProductsStore = create((set, get) => ({
         if (categoryId === 'all_categories') {
             set({
                 filteredProducts: get().products,
-                selectedCategory: get().categories.find((category: any) => category.id === 'all_categories')
+                selectedCategory: get().categories.find((category) => category.id === 'all_categories')
             })
             return;
         }
 
-        const filteredProducts = get().products.filter((product: any) => product.categories.some((category: any) => category.id === categoryId));
+        const filteredProducts = get().products.filter((product) =>
+            product.categories?.some((category) => category.id === categoryId)
+        );
         set({
             filteredProducts: filteredProducts,
-            selectedCategory: get().categories.find((category: any) => category.id === categoryId)
+            selectedCategory: get().categories.find((category) => category.id === categoryId)
         });
     },
 
 
     filterProductsByPreparationTime: ({minInMinutes, maxInMinutes}: {minInMinutes: number, maxInMinutes: number}) => {
-        const filteredProducts = get().products.filter((product: any) => product.prepTime.min >= minInMinutes && product.prepTime.max <= maxInMinutes);
+        const filteredProducts = get().products.filter((product) =>
+            product.prepTime && product.prepTime.min >= minInMinutes && product.prepTime.max <= maxInMinutes
+        );
         set({
             filteredProducts: filteredProducts
         });
     },
     getProductById: (productId: string) => {
-        return get().products.find((product: any) => product.id === productId);
+        return get().products.find((product) => product.id === productId);
     },
     
 }))
@@ -66,14 +95,14 @@ export default useProductsStore;
 
 
 //---------------------- esto mas adelante venndra del server
-function getProductsOrderByCategories(categories: any, products: any) {
-  
-    const productsOrderByCategories = categories.map((category: any) => ({
+function getProductsOrderByCategories(categories: Category[], products: Product[]): CategoryWithProducts[] {
+
+    const productsOrderByCategories = categories.map((category) => ({
       ...category,
       products: products
-        .filter((product: any) => product.categories.some((c: any) => c.id === category.id))
-        .sort((a: any, b: any) => a.displayOrder - b.displayOrder)
-        .map((product: any) => ({
+        .filter((product) => product.categories?.some((c) => c.id === category.id))
+        .sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0))
+        .map((product) => ({
           ...product,
           renderId: `${category.id}-${product.id}`
         }))
