@@ -7,7 +7,6 @@ import { ProductsHelpers } from "@/utils"
 
 export default function ProductCard({ product, defaultProductImage }: any) {
 
-
   const [isAdding, setIsAdding] = useState(false)
   const [imageError, setImageError] = useState(false)
   const [selectedVariantId, setSelectedVariantId] = useState(ProductsHelpers.getInitialVariantId(product))
@@ -19,7 +18,7 @@ export default function ProductCard({ product, defaultProductImage }: any) {
     setPriceData(ProductsHelpers.getProductPrice(product, selectedVariantId))
   }, [selectedVariantId])
 
-  const onChangeVariant = (selectedVariantId: any) => {
+  const onSelectVariant = (selectedVariantId: any) => {
     setSelectedVariantId(selectedVariantId)
   }
 
@@ -32,10 +31,6 @@ export default function ProductCard({ product, defaultProductImage }: any) {
       onError: (error: any) => console.error('Error adding to cart:', error) })
   }
 
-
-
-
-  if (!product) return ("No hay nada")
   return (
     <>
       <div className="group cursor-pointer bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-0 overflow-hidden h-full flex flex-col">
@@ -93,7 +88,7 @@ export default function ProductCard({ product, defaultProductImage }: any) {
             productPrice={priceData}
             handleAddProductToCart={handleAddProductToCart}
             selectedVariantId={selectedVariantId}
-            onChangeVariant={onChangeVariant}
+            onChangeVariant={onSelectVariant}
           />
 
 

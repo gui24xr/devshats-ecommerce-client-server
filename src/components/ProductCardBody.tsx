@@ -47,7 +47,7 @@ export default function ProductCardBody({ product, productPrice,  onChangeVarian
 
         {/* Variants Section - Altura fija siempre */}
         <div className="h-12 mb-4">
-          {product.templateVariant && (
+          {product.type == "SINGLE_VARIANT_PRODUCT" && (
             
             <>
               <h4 className="text-xs font-medium text-gray-500 mb-2">Seleccionar una variante</h4>

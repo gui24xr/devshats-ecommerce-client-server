@@ -1,22 +1,27 @@
+import { Product, PriceData } from '../types';
+
 const ProductsHelpers = {
-  getInitialVariantId: (product: any) => {
-    if (product.templateVariant) {
+  getInitialVariantId: (product: Product): string | null => {
+    if (product.type === 'SINGLE_VARIANT_PRODUCT') {
       const selectedVariant = product?.templateVariant.options.find(
-        (item) => item.isDefault == true
+        (item) => item.isDefault === true
       );
-      return selectedVariant?.id;
+      return selectedVariant?.id || null;
     }
     return null;
   },
 
-  getProductPrice: (product: any, selectedVariantId: any) => {
-    if (product?.templateVariant) {
+  getProductPrice: (product: Product, selectedVariantId: string): PriceData | undefined => {
+    if (product.type === 'SINGLE_VARIANT_PRODUCT') {
       const selectedVariant = product?.templateVariant.options.find(
-        (item) => item.id == selectedVariantId
+        (item) => item.id === selectedVariantId
       );
       return selectedVariant?.price;
     }
-    return product?.price;
+
+    if (product.type === 'BASIC_PRODUCT') return product?.price;
+
+    throw new Error('Product type not supported');
   },
 };
 

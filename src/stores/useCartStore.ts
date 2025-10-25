@@ -1,19 +1,24 @@
+import { 
+  ItemForCart,  
+  CartStoreState, 
+  CartItem, 
+  CartItemProductData,
+  CartTicket  } from "@/types";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-
-const cartStoreConfig = (set, get) => ({
+const cartStoreConfig = (set: any, get: any): CartStoreState => ({
   items: [],
   itemsCount: 0,
   totalPrice: 0,
   error: null,  
   
-  addToCart: ({ itemForCart, quantity }: any) => {
+  addToCart: ({ itemForCart, quantity }: { itemForCart: ItemForCart; quantity: number }) => {
     try{
       const { priceData: newItemPriceData,...newItemProductData } = itemForCart;
       const foundedCartItem = get()._getItemByProductData(newItemProductData);
       if (!foundedCartItem) {
-        const newCartitem = {
+        const newCartitem: CartItem = {
           id: generateItemCartId(),
           productData: newItemProductData,
           unitPriceData: newItemPriceData,
@@ -26,7 +31,7 @@ const cartStoreConfig = (set, get) => ({
        //Solo actualiza cantidad, total price
        const newQuantity = foundedCartItem.quantity + quantity
        const newSubtotal = foundedCartItem.unitPriceData.finalPrice * newQuantity
-       const updatedCartItem = {...foundedCartItem,quantity: newQuantity,subtotal: newSubtotal};
+       const updatedCartItem: CartItem = {...foundedCartItem,quantity: newQuantity,subtotal: newSubtotal};
        get()._updateCartItem(foundedCartItem.id, updatedCartItem)
     }
     }catch(error){
@@ -34,12 +39,12 @@ const cartStoreConfig = (set, get) => ({
     }
   },
 
-  changeCartItemQuantity: (itemId: any, newQuantity: number) => {
+  changeCartItemQuantity: (itemId: string, newQuantity: number) => {
     try{
       if (!(newQuantity>0)) throw new Error("La cantidad debe ser mayor a 0");
       const foundedCartItem = get()._getCartItemById(itemId);
       if (!foundedCartItem) throw new Error("El item no existe en el carrito"); 
-      const updatedCartItem = {
+      const updatedCartItem: CartItem = {
         ...foundedCartItem,
         quantity: newQuantity,
         subtotal: foundedCartItem.unitPriceData.finalPrice * newQuantity,
@@ -50,10 +55,10 @@ const cartStoreConfig = (set, get) => ({
     }
   },
 
-  _createCartItem: (newItemForCart: any) => {
+  _createCartItem: (newItemForCart: CartItem) => {
     try{
       if (!newItemForCart) throw new Error("Ingrese un item valido");
-      const currentItemsList = get().items;
+      const currentItemsList: CartItem[] = get().items;
       set({ items: [...currentItemsList, newItemForCart] });
       get()._recalculateCart()
     }catch(error){
@@ -62,11 +67,11 @@ const cartStoreConfig = (set, get) => ({
     }
   },
 
-  _updateCartItem: (itemId : string, updatedCartItem: any) => {
+  _updateCartItem: (itemId: string, updatedCartItem: CartItem) => {
     console.log("updatedCartItem", updatedCartItem)
     try{
-     const currentItemsList = get().items;
-    const searchedItemIndex = currentItemsList.findIndex((item: any) => item.id === itemId);
+     const currentItemsList: CartItem[] = get().items;
+    const searchedItemIndex = currentItemsList.findIndex((item) => item.id === itemId);
     if (searchedItemIndex === -1) throw new Error("El item no existe en el carrito");
     
     const newItemsList = [...currentItemsList];
@@ -79,13 +84,13 @@ const cartStoreConfig = (set, get) => ({
     }
   },
 
-    removeCartItem: (itemId: any) => {
+    removeCartItem: (itemId: string) => {
       try{
         if (!itemId) throw new Error("itemId es requerido.");
         const  foundedItem = get()._getCartItemById(itemId);
         if (!foundedItem) throw new Error("El item no existe en el carrito");
-        const currentItemsList = get().items;
-        const updatedItemList = currentItemsList.filter((item: any) => item.id !== itemId);
+        const currentItemsList: CartItem[] = get().items;
+        const updatedItemList = currentItemsList.filter((item) => item.id !== itemId);
         set({ items: updatedItemList });
         get()._recalculateCart()
       }catch(error){
@@ -104,14 +109,13 @@ const cartStoreConfig = (set, get) => ({
 
     _recalculateCart: () => {
       try{
-        const currentItemsList = get().items;
-        const newCartCount =currentItemsList.reduce((total: any, item: any) => total + item.quantity, 0);
-        const newTotalPrice = currentItemsList.reduce((total: any, item: any) => total + item.subtotal, 0);
+        const currentItemsList: CartItem[] = get().items;
+        const newCartCount = currentItemsList.reduce((total, item) => total + item.quantity, 0);
+        const newTotalPrice = currentItemsList.reduce((total, item) => total + item.subtotal, 0);
 
         set({ 
           itemsCount: newCartCount,
           totalPrice: newTotalPrice,
-         
         });
       }catch(error){
          console.error(error);
@@ -119,9 +123,9 @@ const cartStoreConfig = (set, get) => ({
       }
     },
 
-    getCurrentCartTicket: () => {
+    getCurrentCartTicket: (): CartTicket | undefined => {
       try{
-        const currentItemsList = get().items;
+        const currentItemsList: CartItem[] = get().items;
         const newTotalPrice = get().totalPrice
         return {
             detail: currentItemsList,
@@ -133,27 +137,25 @@ const cartStoreConfig = (set, get) => ({
       }
     },
 
-
-  _getCartItemById: (itemId: any) => {
-    const currentItemsList = get().items;
-    return currentItemsList.find((item: any) => item.id === itemId);
+  _getCartItemById: (itemId: string): CartItem | undefined => {
+    const currentItemsList: CartItem[] = get().items;
+    return currentItemsList.find((item) => item.id === itemId);
   },
 
-  _getItemByProductData: (productData: any) => {
-    const currentItemsList = get().items;
-    return currentItemsList.find((item: any) => objetosIguales(item.productData, productData));
+  _getItemByProductData: (productData: CartItemProductData): CartItem | undefined => {
+    const currentItemsList: CartItem[] = get().items;
+    return currentItemsList.find((item) => objetosIguales(item.productData, productData));
   },
 
   clearError: () => set({ error: null }),
   
-_setError: (error: any) => {
-  const message = error?.message || String(error); 
-  console.error('Cart Error:', message);
-  set({ error: message });
-},
-  
-
+  _setError: (error: any) => {
+    const message = error?.message || String(error); 
+    console.error('Cart Error:', message);
+    set({ error: message });
+  },
 })
+
 const useCartStore = create(persist(cartStoreConfig, { 
   name: "cartStore",
   onRehydrateStorage: () => {
@@ -162,67 +164,18 @@ const useCartStore = create(persist(cartStoreConfig, {
       console.log("Store Checkout reaccionando a rehydrate de store cart's state");
       if (state) {
         state._recalculateCart();
-        //useStoreCheckout.getState().onChangeCart(state.getCurrentCartTicket())
       }
     }
   } 
 }));
-/*
-useCartStore.subscribe((state, prevState) => {
-  console.log("Store Checkout reaccionando a cambio de store cart's state");
-  useStoreCheckout.getState().onChangeCart(state.getCurrentCartTicket())
-});
-*/
 
 export default useCartStore;
 
-
-
 //--------------------------------Helpers
-function generateItemCartId() {
+function generateItemCartId(): string {
   return Date.now() + Math.random().toString(36);
 }
 
-function objetosIguales(obj1: any, obj2: any) {
-  // Misma referencia
-  if (obj1 === obj2) return true;
-  // Null o undefined
-  if (obj1 == null || obj2 == null) return false;
-  // Diferentes tipos
-  if (typeof obj1 !== typeof obj2) return false;
-  // Primitivos
-  if (typeof obj1 !== "object") return obj1 === obj2;
-  // Arrays
-  if (Array.isArray(obj1) !== Array.isArray(obj2)) return false;
-  if (Array.isArray(obj1)) {
-    if (obj1.length !== obj2.length) return false;
-    for (let i = 0; i < obj1.length; i++) {
-      if (!objetosIguales(obj1[i], obj2[i])) return false;
-    }
-    return true;
-  }
-  // Dates
-  if (obj1 instanceof Date && obj2 instanceof Date) {
-    return obj1.getTime() === obj2.getTime();
-  }
-  // RegExp
-  if (obj1 instanceof RegExp && obj2 instanceof RegExp) {
-    return obj1.toString() === obj2.toString();
-  }
-  // Objetos
-  const keys1 = Object.keys(obj1);
-  const keys2 = Object.keys(obj2);
-
-  if (keys1.length !== keys2.length) return false;
-
-  for (let key of keys1) {
-    if (!keys2.includes(key)) return false;
-    if (!objetosIguales(obj1[key], obj2[key])) return false;
-  }
-
-  return true;
+function objetosIguales(obj1: any, obj2: any): boolean {
+  // ... mismo código
 }
-
-
-
-
