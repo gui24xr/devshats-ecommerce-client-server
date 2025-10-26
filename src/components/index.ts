@@ -46,6 +46,8 @@ import DeliveryPreview from "./DeliveryPreview";
 import MotoDeliveryCard from "./MotoDeliveryCard";
 import PickupOptionCard from "./PickupOptionCard";
 
+import StoreBanner from "./StoreBanner";
+
 export { 
     Navbar,
     Footer,
@@ -86,5 +88,6 @@ export {
     AddressMapSelectorModal,
     DeliveryPreview,
     MotoDeliveryCard,
-    PickupOptionCard
+    PickupOptionCard,
+    StoreBanner
 };

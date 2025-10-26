@@ -8,7 +8,7 @@ export default function ProductCustomizer() {
     const currentProduct = useProductBuilderStore(state => state.currentProduct)
     
     return (
-        <div className="h-[90vh] flex flex-col gap-8 bg-gray-50">
+        <div className="min-h-[90vh] flex flex-col gap-8 bg-gray-50">
             <div>
                 <ProductDetail />
             </div>

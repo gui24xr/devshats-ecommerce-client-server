@@ -14,5 +14,6 @@ export default function CartDetailsModal() {
             titleIcon={'🛒'}
             description="Detalle de carrito."
             content={<CartDetails/>}
+            showHeader={false}
         />)
 }

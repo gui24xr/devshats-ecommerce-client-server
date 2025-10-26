@@ -2,20 +2,21 @@
 import { Trash2, ShoppingCart } from "lucide-react";
 import { useCartStore, useModalsStore } from "@/stores";
 import { redirect } from "next/navigation";
-
+import { StoreBanner } from "@/components";
 export default function CartDetails() {
   const itemsList = useCartStore((state) => state.items);
   const hideCartModal = useModalsStore((state) => state.hideCartModal);
  
 
+
   
   return (
-    <div className="p-4 mb-20">
-      {itemsList.length > 0 ? (
-        <>
-          <CartDetailHeader />
-
-          <div className="grid grid-cols-1 gap-2 p-2">
+    <div className="flex flex-col h-full">
+      {/* Contenido scrolleable */}
+      <div className="flex-1 overflow-y-auto p-4 pb-32">
+        <StoreBanner />
+        {itemsList.length > 0 ? (
+          <div className="grid grid-cols-1 gap-4 p-2">
             {itemsList.map((item) => (
               <CartItemDetail
                 key={item.id}
@@ -23,13 +24,13 @@ export default function CartDetails() {
               />
             ))}
           </div>
-        </>
-      ) : (
-        <CartEmpty/>
-      )}
-     
-        <CheckoutBar/>
-    
+        ) : (
+          <CartEmpty/>
+        )}
+      </div>
+
+      {/* Header fijo en la parte inferior */}
+      {itemsList.length > 0 && <CartResultBar />}
     </div>
   );
 }
@@ -50,78 +51,75 @@ const handleRemoveItem = (itemId:string) => {
   
 
   return (
-    <div className="w-full bg-gray-50 rounded-lg flex flex-col items-start px-4 pt-6  pb-2">
+    <div className="w-full bg-gray-100 rounded-lg flex flex-col items-start ">
        <div className="w-full flex flex-col">
-        <div className="flex flex-row gap-4 border-t border-blue-200 pt-2 ">
-          <div className="min-w-[80px] flex flex-col">
+        <div className="flex flex-row gap-4 ">
+          <div className="min-w-[80px] max-w-[80px] flex flex-col">
             <img
               src={item?.productData?.image}
               alt={item?.productData?.title}
               className="w-24 h-24 object-cover"
             />
           </div>
-          <div className="flex flex-col">
-            <div className="flex flex-row justify-between">
-              <h4 className="text-sm font-bold text-black ">
+          <div className="flex flex-col w-full min-h-[96px]">
+             <h4 className="text-sm font-bold text-black bg-gray-200 px-2">
                 {item.productData?.title}
               </h4>
-            </div>
 
-            {item.productData?.variant && (
-              <div className="flex flex-wrap items-start gap-2">
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-sm text-gray-800 ">
+           <div className="flex flex-col w-full px-4 pt-2 flex-1">
+            <div>
+              {item.productData?.type == 'SINGLE_VARIANT_PRODUCT' && (
+                <div className="bg-white rounded-md p-2 border border-gray-200 mb-2">
+                  <span className="text-sm text-gray-800 font-semibold block mb-1">
                     {item.productData?.variant?.label + ":"}
                   </span>
-                  <span className="text-sm  text-gray-800">
+                  <span className="text-sm text-gray-700 italic">
                     {item?.productData?.variant?.selectedOption?.label}
                   </span>
                 </div>
-              </div>
-            )}
-            {item.productData?.customizationFeatures && (
-              <div className="w-full flex flex-col gap-0.5">
-                {item.productData?.customizationFeatures?.map((feature) =>
-                      <div key={feature.id} className="w-full flex ">
-                        <div className="flex flex-wrap ">
-                          <div className="flex flex-wrap ">
-                            <span className="text-sm  text-gray-800 ">
-                              {feature?.name + ":"}
-                            </span>
-                            {feature?.selectedOptions?.map((selectedOption) => (
-                              <div key={selectedOption.id} className="flex">
-                                <span className="text-sm text-gray-800">
-                                  {selectedOption?.name}{" "}
-                                  {selectedOption?.priceModifier ? (
-                                    <span className="text-xs text-green-600 font-medium">
-                                      (+${selectedOption?.priceModifier})
-                                    </span>
-                                  ) : null}{" "}
-                                </span>
-                                {selectedOption?.selectedQuantity > 0 && (
-                                  <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full font-medium">
-                                    x{selectedOption?.selectedQuantity}
-                                  </span>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    
-                )}
-              </div>
-            )}
-            <span className="text-sm font-semibold text-green-600 capitalize">
-              Precio: ${item?.unitPriceData?.finalPrice}
-            </span>
+              )}
+              {item.productData?.customizationFeatures && (
+                <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-2">
+                  {item.productData?.customizationFeatures?.map((feature) => (
+                    <div key={feature.id} className="bg-white rounded-md p-2 border border-gray-200">
+                      <span className="text-sm font-semibold text-gray-800 block mb-1.5">
+                        {feature?.name}:
+                      </span>
+                      <ul className="list-disc list-inside pl-2 space-y-0.5">
+                        {feature?.selectedOptions?.map((selectedOption) => (
+                          <li key={selectedOption.id} className="text-sm text-gray-700 italic">
+                            <span className="font-medium">{selectedOption?.name}</span>
+                            {selectedOption?.priceModifier > 0 && (
+                              <span className="text-xs text-green-600 font-semibold ml-1">
+                                {" "}(+${selectedOption?.priceModifier})
+                              </span>
+                            )}
+                            {selectedOption?.selectedQuantity && selectedOption?.selectedQuantity > 0 && (
+                              <span className="text-xs bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full font-medium ml-2">
+                                {" "}x{selectedOption?.selectedQuantity}
+                              </span>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div className="w-full text-right pt-3 mt-auto">
+              <span className="text-base font-bold text-green-600">
+                Precio: ${item?.unitPriceData?.finalPrice}
+              </span>
+            </div>
           </div>
         </div>
-        <div className="flex items-end justify-end border-t border-blue-200 mt-2 p-1.5">
+        </div>
+        <div className="flex items-end justify-end border-t border-blue-200 p-1.5">
           <div className="w-full flex flex-col self-end text-right">
-            {" "}
+           
             <div className="flex items-center justify-end gap-2">
-              {" "}
+            
               {/* justify-end para alinear a la derecha */}
               <span className="text-sm font-semibold text-blue-500 capitalize">
                 Cantidad:
@@ -151,62 +149,80 @@ const handleRemoveItem = (itemId:string) => {
   // Obtener variante seleccionada si existe
 }
 
-function CheckoutBar() {
+function CartResultBar() {
 
- const itemsCount = useCartStore((state) => state.itemsCount);
- const totalPrice = useCartStore((state) => state.totalPrice);
- const hideCartModal = useModalsStore((state) => state.hideCartModal);
- const handleCheckout = () => {
-      hideCartModal()
-      redirect("/checkout");
-    };
+  const itemsCount = useCartStore((state) => state.itemsCount);
+  const totalPrice = useCartStore((state) => state.totalPrice);
+  const clearCart = useCartStore((state) => state.clearCart);
+  const hideCartModal = useModalsStore((state) => state.hideCartModal);
 
-
-  return (
-    <div className="fixed bottom-4 left-4 right-4 z-50 lg:left-auto lg:right-4 lg:max-w-lg">
-      <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-5">
-        <div className="flex flex-col items-center justify-between gap-2 ">
-          <span className="text-sm font-semibold text-gray-800 uppercase">
-            Cantidad de items: {itemsCount}
-          </span>
-          <span className="text-sm font-semibold text-gray-800 uppercase">
-            Total: ${totalPrice}
-          </span>
-          <button
-            type="button"
-            hidden={itemsCount === 0}
-            className="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
-            onClick={handleCheckout}
-          >
-            <span className="text-xl">🛒</span>
-            <span className="text-base">Finalizar compra</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function CartDetailHeader() {
-  
- const clearCart = useCartStore((state) => state.clearCart);
   const handleClickClearCart = () => {
     clearCart && clearCart()
   }
 
+  const handleCheckout = () => {
+    hideCartModal()
+    redirect("/checkout");
+  };
+
   return (
-    <div className="flex flex-row justify-between bg-orange-500 font-semibold text-white rounded-md px-2 py-1">
-      <div className="flex flex-row items-center justify-center gap-2">
-        <span>Mi Carrito</span>
-        <ShoppingCart className="w-4 h-4" />
+    <div className="bg-gradient-to-r from-orange-500 to-red-500 shadow-2xl p-3 border-t-2 border-orange-600">
+    <div className="sticky bottom-0 pb-2 md:px-4 md:pt-2 md:pb-4">
+      {/* Título del carrito */}
+      <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center gap-2">
+          <ShoppingCart className="w-5 h-5 text-white" />
+          <h2 className="text-lg font-bold text-white">Mi Carrito</h2>
+        </div>
+        <div>
+            <button
+          className="bg-red-600 hover:bg-red-700 text-white rounded-lg p-2 transition-all"
+          onClick={handleClickClearCart}
+          title="Vaciar carrito"
+        >
+          <Trash2 className="w-4 h-4" />
+        </button>
+        </div>
+        
       </div>
-      <button
-        className="flex flex-row gap-2 bg-purple-500 text-white rounded-md px-2 py-1"
-        onClick={handleClickClearCart}
-      >
-        <span> Vaciar carrito </span>
-        <Trash2 className="self-center w-4 h-4" />
-      </button>
+
+      {/* Información del carrito - Una línea */}
+      <div className="bg-white/10 rounded-md px-3 py-2 mb-3">
+       <div className="flex flex-row justify-between">
+          <div className="flex items-center gap-1.5">
+            <span className="text-white font-bold">{itemsCount}</span>
+            <span className="text-white/90 text-sm">Items</span>   
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="text-white/90 text-sm">Total:</span>
+            <span className="text-white font-bold text-lg">${totalPrice}</span>
+          </div>
+        
+       
+       
+          
+        </div>
+      </div>
+
+      {/* Botones de acción - Una línea */}
+      <div className="flex items-center gap-2">
+         <button
+              type="button"
+              className="flex-1 bg-white/20 hover:bg-white/30 text-white font-medium py-2 px-3 rounded-lg transition-all text-sm"
+              onClick={() => hideCartModal()}>
+              Seguir Comprando
+            </button>
+        <button
+          type="button"
+          disabled={itemsCount === 0}
+          className="flex-1 bg-white hover:bg-gray-100 text-orange-600 font-bold py-2 px-3 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+          onClick={handleCheckout}
+        >
+          Finalizar Compra
+        </button>
+      
+      </div>
+    </div>
     </div>
   );
 }

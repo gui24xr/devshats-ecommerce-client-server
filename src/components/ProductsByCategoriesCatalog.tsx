@@ -1,21 +1,15 @@
 'use client'
 import { useState } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
-import { Roboto } from "next/font/google";
 import { useProductsStore } from "@/stores";
-
-const roboto = Roboto({
-    subsets: ['latin'],
-    weight: ['400'],
-    variable: '--font-roboto'
-})
+import { StoreBanner } from "@/components";
 
 export default function ProductsByCategoriesCatalog() {
 
     const productsOrderByCategories = useProductsStore(state => state.productsOrderByCategories)
     const [expandedCategories, setExpandedCategories] = useState(new Set());
-   
-    
+
+
     // Función para toggle de expansión de categorías
     const toggleCategory = (categoryId) => {
         const newExpanded = new Set(expandedCategories);
@@ -28,114 +22,96 @@ export default function ProductsByCategoriesCatalog() {
     };
 
     return (
-        <div className="max-w-4xl mx-auto p-6 bg-gray-50 min-h-screen">
-            <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
-                Catálogo de Productos
-            </h1>
+        <div className="flex flex-col h-full">
+            {/* StoreBanner arriba con padding horizontal */}
+            <div className="px-4 pt-4">
+                <StoreBanner />
+            </div>
 
-            <div className="space-y-4">
-                {productsOrderByCategories.map((category) => (
-                    <div key={category.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                        {/* Header de categoría - clickeable */}
-                        <button
-                            onClick={() => toggleCategory(category.id)}
-                            className="w-full px-4 flex items-center justify-between bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
-                        >
-                            <div className="flex items-center space-x-3">
-                                <span className="text-white font-semibold text-lg">
-                                    {category.name}
-                                </span>
-                                <span className="bg-blue-800 text-white px-2 py-1 rounded-full text-sm">
-                                    {category.products.length}
-                                </span>
-                            </div>
+            {/* Contenido scrolleable */}
+            <div className="flex-1 overflow-y-auto px-4 pb-4">
+                {/* Mensaje informativo arriba */}
+                <div className="mb-4 text-center text-gray-600 bg-blue-50 p-3 rounded-lg border border-blue-200">
+                    <p className="text-sm">Haz clic en las categorías para expandir/contraer los productos</p>
+                </div>
 
-                            <div className="text-white">
-                                {expandedCategories.has(category.id) ? (
-                                    <ChevronDown size={20} />
-                                ) : (
-                                    <ChevronRight size={20} />
-                                )}
-                            </div>
-                        </button>
+                <div className="space-y-2">
+                    {productsOrderByCategories.map((category) => (
+                        <div key={category.id} className="bg-white shadow-md ">
+                            {/* Header de categoría - clickeable */}
+                            <button
+                                onClick={() => toggleCategory(category.id)}
+                                className="w-full px-4 flex items-center justify-between bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
+                            >
+                                <div className="flex items-center space-x-3">
+                                    <span className="text-white font-semibold text-lg">
+                                        {category.name}
+                                    </span>
+                                    <span className="bg-blue-800 text-white px-2 py-1 rounded-full text-sm">
+                                        {category.products.length}
+                                    </span>
+                                </div>
 
-                        {/* Lista de productos - colapsable */}
-                        {expandedCategories.has(category.id) && (
-                            <div className="p-4 space-y-3 bg-gray-50">
-                                {category.products.map((product) => (
-                                    <div
-                                        key={product.renderId}
-                                        className="bg-white p-4 rounded-lg shadow-sm border border-gray-200 flex items-center justify-between hover:shadow-md transition-shadow duration-200"
-                                    >
-                                        <div className="flex flex-col gap-1">
-                                            <h3 className={`${roboto.className} text-xl font-bold text-gray-900 group-hover:text-orange-600 transition-colors duration-300`}>
+                                <div className="text-white">
+                                    {expandedCategories.has(category.id) ? (
+                                        <ChevronDown size={20} />
+                                    ) : (
+                                        <ChevronRight size={20} />
+                                    )}
+                                </div>
+                            </button>
+
+                            {/* Lista de productos - colapsable */}
+                            {expandedCategories.has(category.id) && (
+                                <div className="space-y-2 bg-gray-50">
+                                    {category.products.map((product) => (
+                                        <div
+                                            key={product.renderId}
+                                            className="bg-white p-3 border-b border-gray-200 flex flex-col hover:bg-gray-50 transition-colors duration-200"
+                                        >
+                                            <h3 className="text-sm font-bold text-black bg-gray-200 px-2 py-1 mb-2">
                                                 {product.name}
                                             </h3>
-                                            {/* Description */}
-                                            <p className="text-gray-600 text-sm text-justify">
+                                            <p className="text-gray-600 text-sm px-2 mb-3">
                                                 {product.description || "Producto sin descripción"}
                                             </p>
-                                        </div>
-                                        <div className="ml-4">
-                                            <span className="text-xl font-bold text-green-600">
-                                                {product.price}
-                                            </span>
-                                        </div>
 
+                                            {/* Precio para productos básicos */}
+                                            {product.type === 'BASIC_PRODUCT' && (
+                                                <div className="px-2 flex justify-end">
+                                                    <div className="bg-white rounded-md px-3 py-2 border border-gray-200 hover:border-green-500 transition-colors">
+                                                        <span className="text-sm font-bold text-green-600">
+                                                            ${product.price?.finalPrice || 0}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            )}
 
-
-                                        <div className="h-12 mb-4">
+                                            {/* Variantes */}
                                             {product.templateVariant && (
-                                                <>
-                                                    <h4 className="text-xs font-medium text-gray-500 mb-2">Vriantes</h4>
-                                                    <div className="flex gap-2">
+                                                <div className="px-2 flex justify-end">
+                                                    <div className="flex flex-wrap gap-2 justify-end">
                                                         {product.templateVariant.options.map((option: any) => (
-                                                            <div className="flex flex-col gap-1 bg-green-500 hover:bg-green-600 text-white flex-1 py-1 px-2 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm">
-
-                                                            <span>
-                                                                
-                                                                {option.label}
-                                                            </span>
-                                                            <span >
-                                                                {option.price.finalPrice}
-                                                            </span>
-
+                                                            <div key={option.id} className="bg-white rounded-md px-3 py-2 border border-gray-200 hover:border-green-500 transition-colors flex items-center gap-2">
+                                                                <span className="text-sm font-medium text-gray-800">
+                                                                    {option.label}
+                                                                </span>
+                                                                <span className="text-sm font-bold text-green-600">
+                                                                    ${option.price.finalPrice}
+                                                                </span>
                                                             </div>
                                                         ))}
                                                     </div>
-                                                </>
+                                                </div>
                                             )}
                                         </div>
-
-
-                                    </div>
-
-
-                                ))
-
-
-
-
-
-
-
-
-
-
-                                }
-
-
-                            </div>
-                        )}
-                    </div>
-                ))}
-            </div>
-
-            {/* Footer informativo */}
-            <div className="mt-8 text-center text-gray-600">
-                <p>Haz clic en las categorías para expandir/contraer los productos</p>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
 }
-

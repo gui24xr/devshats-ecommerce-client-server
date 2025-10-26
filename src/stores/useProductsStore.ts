@@ -108,10 +108,10 @@ function getProductsOrderByCategories(categories: Category[], products: Product[
         }))
     }));
 
-    //COmo muestro x categorias borro la categoria todas.
-    delete productsOrderByCategories[0]
-    console.log('productsOrderByCategories: ', productsOrderByCategories)
-    return productsOrderByCategories
+    //Como muestro por categorías, filtro la categoría "todas"
+    const filteredCategories = productsOrderByCategories.filter(cat => cat.id !== 'all_categories');
+    console.log('productsOrderByCategories: ', filteredCategories)
+    return filteredCategories
   };
 
 

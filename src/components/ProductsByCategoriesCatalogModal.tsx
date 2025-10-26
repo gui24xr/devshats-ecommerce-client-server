@@ -17,7 +17,8 @@ export default function ProductsByCategoriesCatalogModal() {
       description="Catálogo de productos."
       titleIcon ={'📋'}
       content={<ProductsByCategoriesCatalog />}
-      footer={<div></div>}
+      showHeader={false}
+
     />
   );
 }

@@ -13,7 +13,8 @@ export default function LayoutModal({
   fullScreen = false, // Nueva prop más simple
   backgroundColor = "bg-gradient-to-br from-green-500 to-blue-500",
   content = <DefaultHeader />,
-  footer = <DefaultFooter />
+  footer = <DefaultFooter />,
+  showHeader = true
 
 }) {
 
@@ -55,6 +56,7 @@ export default function LayoutModal({
                     <div className="h-full w-full flex flex-col bg-white shadow-2xl">
 
                       {/* Header */}
+                      {showHeader && (
                       <div className={backgroundColor}>
                       <div className={'w-full flex items-center justify-between px-4 py-2 text-white flex-shrink-0'}>
                         <div>
@@ -75,6 +77,7 @@ export default function LayoutModal({
                         </button>
                       </div>
                       </div>
+                       )}
 
                       {/* Contenido scrolleable */}
                       <div className="flex-1 overflow-y-auto
