@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import { useProductsStore } from '@/stores'
 
-export default function ProductFilters() {
+export default function ProductFilters({expandedMode = false, onFilterApplied = () => {}}) {
 
   const categories = useProductsStore(state => state.categories)
   const selectedCategory = useProductsStore(state => state.selectedCategory)
@@ -10,7 +10,7 @@ export default function ProductFilters() {
   const filterProductsByCategories = useProductsStore(state => state.filterProductsByCategories)
 
 
-    const [isExpanded, setIsExpanded] = useState(false)
+    const [isExpanded, setIsExpanded] = useState(expandedMode)
 
     useEffect(() => {
         'Al iniciar el componente se seleccionan por default todas las categorias...'
@@ -21,11 +21,16 @@ export default function ProductFilters() {
     const onCategoryChange = (category: string) => {
         filterProductsByCategories(category)
         setIsExpanded(false)
+        onFilterApplied()
+    }
+
+    const handleCloseButton = () => {
+        
     }
     /****************************************************************************************/
     return (
-        <div className="bg-white rounded-2xl shadow-lg border-0 overflow-hidden  md:mb-6">
-            <div className="p-6 grid grid-cols-1">
+        <div className=" bg-white shadow-lg border-0 overflow-hidden mb-4">
+            <div className="px-6 py-4 grid grid-cols-1">
                 {/* Compact Header - Always Visible on ALL devices */}
                 <div className="flex flex-col gap-4 ">
                     {/* Header */}
@@ -60,7 +65,7 @@ export default function ProductFilters() {
 
 function CompactHeader({ foundedProductsQuantity, setIsExpanded, isExpanded }: any) {
     return (
-        <div className="flex items-center justify-between">
+        <div className="flex  items-center justify-between">
             <div className="flex items-center gap-3">
                 <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg md:rounded-xl flex items-center justify-center shadow-lg">
                     <span className="text-white text-sm md:text-lg">🔍</span>
@@ -116,7 +121,7 @@ function CategoriesSelector({ categories, selectedCategory, onCategoryChange }: 
                 <span className="text-lg">🏷️</span>
                 Todas las Categorías
             </span>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3">
+            <div className="flex flex-col gap-2">
                 {/* Category Buttons */}
                 {categories.map((category: any) => {
                     return (
@@ -152,7 +157,7 @@ function CategoriesSelector({ categories, selectedCategory, onCategoryChange }: 
 
 function AdditionalFiltersSection() {
     return (
-        <div className="grid md:grid-cols-3 gap-6 pt-6 border-t border-gray-100 ">
+        <div className="flex flex-col gap-4">
             {/* Preparation Time */}
             <div>
                 <h4 className="text-sm font-semibold text-gray-800 mb-3 flex items-center gap-2">

@@ -24,7 +24,7 @@ export default function StoreBanner() {
   const { portrait, bussinessContent } = data;
 
   return (
-    <div className="bg-gradient-to-r from-orange-500 to-red-500 rounded-lg shadow-md px-4 py-3 mb-4">
+    <div className="bg-gradient-to-r from-orange-500 to-red-500 shadow-md px-4 py-3 mb-4">
       <div className="flex items-center justify-center gap-2 mb-1">
         <span className="text-2xl">{portrait.titleLogoIcon}</span>
         <h1 className="text-xl font-bold text-white">

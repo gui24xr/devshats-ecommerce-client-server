@@ -1,17 +1,16 @@
 'use client'
-import { ProductCard } from "./index"
 import { useProductsStore } from "@/stores"
-
-export default function ProductGrid({  onAddItemToCart }: any) {
+import { ProductCard,ProductCardTypeClothes } from '@/components'
+export default function ProductGrid() {
   
   const filteredProducts = useProductsStore(state => state.filteredProducts)
   const defaultProductImage = 'https://media.istockphoto.com/id/463075967/photo/e-commerce-shopping-cart-with-cardboard-boxes-on-laptop.jpg?s=2048x2048&w=is&k=20&c=ed0xkV4w7V9ZG3qadn_MWrj07cmD9jcYw5HuKefDaCE='
   return (
     <>
     {filteredProducts.length < 1 ? <NoProductsShowMessage /> :
-    <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div className="grid gap-12 grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-3 px-8 pt-12 pb-24">
       {filteredProducts.map((product: any) => (
-        <ProductCard
+        <ProductCardTypeClothes
           key={product.id}
           product={product}
           defaultProductImage={defaultProductImage}

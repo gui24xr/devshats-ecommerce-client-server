@@ -1,0 +1,1758 @@
+{
+  "store": {
+    "id": "store_002",
+    "clientData": {
+      "name": "Trendy Threads"
+    },
+    "planSettings": {
+      "type": "plan_medium"
+    },
+    "branchesConfigs": {
+      "defaultBranchId": "sucursal_palermo",
+      "availableBranches": [
+        {
+          "id": "sucursal_palermo",
+          "name": "Sucursal Palermo",
+          "address": "Av. Santa Fe 1234, Palermo, CABA",
+          "phone": "+54 11 2233-4455",
+          "active": true
+        },
+        {
+          "id": "sucursal_belgrano",
+          "name": "Sucursal Belgrano",
+          "address": "Av. Cabildo 3456, Belgrano, CABA",
+          "phone": "+54 11 5566-7788",
+          "active": true
+        }
+      ]
+    },
+    "customizationTemplateSettings": {
+      "bussinessContent": {
+        "general": {
+          "name": "Trendy Threads",
+          "tagline": "Tu estilo, tu historia.",
+          "subTagline": "Moda que te inspira a ser auténtico",
+          "welcome": "¡Bienvenidos a Trendy Threads!",
+          "description": "Las últimas tendencias en moda al mejor precio",
+          "logo": "https://cdn.pixabay.com/photo/2016/11/29/03/49/fashion-1867160_960_720.jpg"
+        },
+        "contact": {
+          "whatsappNumber": "+5491198765432",
+          "phoneNumber": "+5491122334455",
+          "email": "contacto@trendythreads.com",
+          "address": "Av. Santa Fe 1234, CABA",
+          "workingHours": "🕐 Lun-Sáb 10:00 AM - 8:00 PM"
+        },
+        "delivery": {
+          "tagline": "Envío gratis en compras mayores a $10.000",
+          "description": "Hacemos envíos a todo el país",
+          "terms": "Envío estándar 3-5 días hábiles. Envío express disponible"
+        },
+        "offers": {
+          "mainOffer": "15% OFF en tu primera compra con el código BIENVENIDA15",
+          "seasonalPromo": "Descuentos de fin de temporada",
+          "loyaltyProgram": "Programa de puntos 'TrendyPoints'"
+        },
+        "policies": {
+          "returns": "Cambios y devoluciones gratis por 30 días",
+          "warranty": "Garantía de calidad en todas nuestras prendas",
+          "privacy": "Tu privacidad es nuestra prioridad"
+        }
+      },
+      "navBarConfig": {
+        "backgroundColor": "bg-transparent",
+        "title": "Threndy Threads",
+        "titleLogoIcon": "👗",
+        "titleColor": "text-white",
+        "linksColor": "text-white"
+      },
+      "portrait": {
+        "titleLogoIcon": "👕",
+        "floatingIcons": [
+          "👖",
+          "👗",
+          "👟"
+        ],
+        "background": {
+          "color": "bg-gradient-to-br from-purple-400 to-pink-500",
+          "imageUrl": "https://images.pexels.com/photos/135620/pexels-photo-135620.jpeg",
+          "showImage": true
+        },
+        "showBusinessFeatures": {
+          "contact": {
+            "whatsappNumber": true,
+            "phoneNumber": true,
+            "email": true,
+            "address": true,
+            "workingHours": true
+          },
+          "delivery": {
+            "tagline": true,
+            "time": false,
+            "cost": false,
+            "options": false,
+            "minOrder": true,
+            "maxOrder": false
+          },
+          "socialProof": {
+            "reviews": true,
+            "rating": true,
+            "testimonials": true,
+            "certifications": true
+          },
+          "business": {
+            "specialOffers": true,
+            "paymentMethods": true,
+            "warranty": true,
+            "returnPolicy": true
+          }
+        }
+      },
+      "productsContainerRenderConfig": {
+        "backgroundProductContainerColor": "bg-white",
+        "defaultProductImage": "https://media.istockphoto.com/id/678525150/photo/fashion-store-segment.jpg?s=2048x2048&w=is&k=20&c=r2rfbGqpPweVVX8BeoLcykjicnv_enfF77ITUdX9f1w="
+      },
+      "whyChooseUs": {
+        "title": "¿Por qué elegirnos?",
+        "subtitle": "Descubre las razones por las que somos tu mejor opción en moda",
+        "features": [
+          {
+            "icon": "💎",
+            "title": "Calidad Premium",
+            "description": "Prendas confeccionadas con los mejores tejidos y acabados para garantizar durabilidad y confort"
+          },
+          {
+            "icon": "🚚",
+            "title": "Envíos Rápidos y Seguros",
+            "description": "Nos aseguramos de que tus prendas lleguen a ti en el menor tiempo posible y en perfectas condiciones"
+          },
+          {
+            "icon": "✨",
+            "title": "Diseños Exclusivos",
+            "description": "Colecciones limitadas y diseños únicos para que tu estilo resalte del resto"
+          }
+        ]
+      }
+    },
+    "branches": [
+      {
+        "id": "sucursal_palermo",
+        "name": "Sucursal Palermo",
+        "active": true,
+        "addressData": {
+          "textAddress": "Av. Santa Fe 1234",
+          "city": "CABA",
+          "state": "Buenos Aires",
+          "zip": "1425",
+          "country": "Argentina",
+          "formattedAddress": "Av. Santa Fe 1234, Palermo, CABA, Buenos Aires, 1425, Argentina",
+          "references": "A 2 cuadras de Plaza Italia",
+          "coordinates": {
+            "lat": -34.588,
+            "lng": -58.4198
+          }
+        },
+        "contactData": {
+          "phones": [
+            "+54 11 2233-4455",
+            "+5491122334455"
+          ],
+          "emails": [
+            "palermo@trendythreads.com"
+          ]
+        },
+        "workingHours": {
+          "monday": {
+            "open": "10:00",
+            "close": "20:00"
+          },
+          "tuesday": {
+            "open": "10:00",
+            "close": "20:00"
+          },
+          "wednesday": {
+            "open": "10:00",
+            "close": "20:00"
+          },
+          "thursday": {
+            "open": "10:00",
+            "close": "20:00"
+          },
+          "friday": {
+            "open": "10:00",
+            "close": "20:00"
+          },
+          "saturday": {
+            "open": "10:00",
+            "close": "20:00"
+          },
+          "sunday": {
+            "open": "12:00",
+            "close": "18:00"
+          }
+        },
+        "allowedDeliveryMethodsTypes": [
+          "moto_delivery",
+          "pickup"
+        ],
+        "waMessagePhone": "+5491122334455",
+        "deliveryMethods": [
+          {
+            "type": "motoDelivery",
+            "enabled": true,
+            "uiData": {
+              "label": "Moto delivery",
+              "emoji": "🛵",
+              "icon": "🛵",
+              "maxRadius": "8 kms",
+              "availableHours": "10:00 - 20:00",
+              "estimatedTime": "40-60 min",
+              "showAvailableHours": true,
+              "showMaxRadius": true
+            },
+            "constraints": {
+              "maxDistanceInKms": 8,
+              "originCoordinates": {
+                "lat": -34.588,
+                "lng": -58.4198
+              },
+              "availableHours": {
+                "start": "10:00",
+                "end": "20:00"
+              },
+              "pricing": {
+                "basePrice": 0,
+                "currency": "ARS",
+                "distancePricing": [
+                  {
+                    "from": 0,
+                    "to": 3,
+                    "addPrice": 0
+                  },
+                  {
+                    "from": 3,
+                    "to": 6,
+                    "addPrice": 500
+                  },
+                  {
+                    "from": 6,
+                    "to": 8,
+                    "addPrice": 1000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "pickup",
+            "enabled": true,
+            "uiData": {
+              "label": "Retiro en sucursal",
+              "emoji": "🏪",
+              "icon": "🏪",
+              "estimatedTime": "Disponible en 2 horas",
+              "showEstimatedTime": true,
+              "showSchedule": true
+            },
+            "constraints": {
+              "preparationTimeInMinutes": 120,
+              "pickupInstructions": "Pasa por la sucursal de Palermo y menciona tu nombre.",
+              "pickupPointCompleteAddress": "Sucursal Palermo - Av. Santa Fe 1234",
+              "pickupCoordinates": {
+                "lat": -34.588,
+                "lng": -58.4198
+              },
+              "workingHours": {
+                "monday": {
+                  "open": "10:00",
+                  "close": "20:00"
+                },
+                "tuesday": {
+                  "open": "10:00",
+                  "close": "20:00"
+                },
+                "wednesday": {
+                  "open": "10:00",
+                  "close": "20:00"
+                },
+                "thursday": {
+                  "open": "10:00",
+                  "close": "20:00"
+                },
+                "friday": {
+                  "open": "10:00",
+                  "close": "20:00"
+                },
+                "saturday": {
+                  "open": "10:00",
+                  "close": "20:00"
+                },
+                "sunday": {
+                  "open": "12:00",
+                  "close": "18:00"
+                }
+              }
+            }
+          }
+        ],
+        "allowedPaymentMethodsTypes": [
+          "CASH_PAYMENT",
+          "CREDIT_CARD_PAYMENT",
+          "BANK_TRANSFER_PAYMENT"
+        ],
+        "paymentMethods": [
+          {
+            "type": "CASH_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Efectivo",
+              "emoji": "💶",
+              "icon": "💶",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          },
+          {
+            "type": "CREDIT_CARD_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Tarjeta de Crédito",
+              "emoji": "💳",
+              "icon": "💳",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          },
+          {
+            "type": "BANK_TRANSFER_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Transferencia Bancaria",
+              "emoji": "🏦",
+              "icon": "🏦",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          }
+        ]
+      },
+      {
+        "id": "sucursal_belgrano",
+        "name": "Sucursal Belgrano",
+        "active": true,
+        "addressData": {
+          "textAddress": "Av. Cabildo 3456",
+          "city": "CABA",
+          "state": "Buenos Aires",
+          "zip": "1430",
+          "country": "Argentina",
+          "formattedAddress": "Av. Cabildo 3456, Belgrano, CABA, Buenos Aires, 1430, Argentina",
+          "references": "Cerca de Barrancas de Belgrano",
+          "coordinates": {
+            "lat": -34.5629,
+            "lng": -58.4585
+          }
+        },
+        "contactData": {
+          "phones": [
+            "+54 11 5566-7788",
+            "+5491155667788"
+          ],
+          "emails": [
+            "belgrano@trendythreads.com"
+          ]
+        },
+        "workingHours": {
+          "monday": {
+            "open": "10:00",
+            "close": "20:00"
+          },
+          "tuesday": {
+            "open": "10:00",
+            "close": "20:00"
+          },
+          "wednesday": {
+            "open": "10:00",
+            "close": "20:00"
+          },
+          "thursday": {
+            "open": "10:00",
+            "close": "20:00"
+          },
+          "friday": {
+            "open": "10:00",
+            "close": "20:00"
+          },
+          "saturday": {
+            "open": "10:00",
+            "close": "20:00"
+          },
+          "sunday": {
+            "open": "12:00",
+            "close": "18:00"
+          }
+        },
+        "allowedDeliveryMethodsTypes": [
+          "moto_delivery",
+          "pickup"
+        ],
+        "waMessagePhone": "+5491155667788",
+        "deliveryMethods": [
+          {
+            "type": "motoDelivery",
+            "enabled": true,
+            "uiData": {
+              "label": "Moto delivery",
+              "emoji": "🛵",
+              "icon": "🛵",
+              "maxRadius": "8 kms",
+              "availableHours": "10:00 - 20:00",
+              "estimatedTime": "40-60 min",
+              "showAvailableHours": true,
+              "showMaxRadius": true
+            },
+            "constraints": {
+              "maxDistanceInKms": 8,
+              "originCoordinates": {
+                "lat": -34.5629,
+                "lng": -58.4585
+              },
+              "availableHours": {
+                "start": "10:00",
+                "end": "20:00"
+              },
+              "pricing": {
+                "basePrice": 0,
+                "currency": "ARS",
+                "distancePricing": [
+                  {
+                    "from": 0,
+                    "to": 3,
+                    "addPrice": 0
+                  },
+                  {
+                    "from": 3,
+                    "to": 6,
+                    "addPrice": 500
+                  },
+                  {
+                    "from": 6,
+                    "to": 8,
+                    "addPrice": 1000
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "pickup",
+            "enabled": true,
+            "uiData": {
+              "label": "Retiro en sucursal",
+              "emoji": "🏪",
+              "icon": "🏪",
+              "estimatedTime": "Disponible en 2 horas",
+              "showEstimatedTime": true,
+              "showSchedule": true
+            },
+            "constraints": {
+              "preparationTimeInMinutes": 120,
+              "pickupInstructions": "Pasa por la sucursal de Belgrano y menciona tu nombre.",
+              "pickupPointCompleteAddress": "Sucursal Belgrano - Av. Cabildo 3456",
+              "pickupCoordinates": {
+                "lat": -34.5629,
+                "lng": -58.4585
+              },
+              "workingHours": {
+                "monday": {
+                  "open": "10:00",
+                  "close": "20:00"
+                },
+                "tuesday": {
+                  "open": "10:00",
+                  "close": "20:00"
+                },
+                "wednesday": {
+                  "open": "10:00",
+                  "close": "20:00"
+                },
+                "thursday": {
+                  "open": "10:00",
+                  "close": "20:00"
+                },
+                "friday": {
+                  "open": "10:00",
+                  "close": "20:00"
+                },
+                "saturday": {
+                  "open": "10:00",
+                  "close": "20:00"
+                },
+                "sunday": {
+                  "open": "12:00",
+                  "close": "18:00"
+                }
+              }
+            }
+          }
+        ],
+        "allowedPaymentMethodsTypes": [
+          "CASH_PAYMENT",
+          "CREDIT_CARD_PAYMENT",
+          "BANK_TRANSFER_PAYMENT"
+        ],
+        "paymentMethods": [
+          {
+            "type": "CASH_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Efectivo",
+              "emoji": "💶",
+              "icon": "💶",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          },
+          {
+            "type": "CREDIT_CARD_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Tarjeta de Crédito",
+              "emoji": "💳",
+              "icon": "💳",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          },
+          {
+            "type": "BANK_TRANSFER_PAYMENT",
+            "enabled": true,
+            "uiData": {
+              "label": "Transferencia Bancaria",
+              "emoji": "🏦",
+              "icon": "🏦",
+              "description": "Al retirar/recibir tu pedido",
+              "showDescription": true
+            },
+            "constraints": {}
+          }
+        ]
+      }
+    ],
+    "categories": [
+      {
+        "id": "cat_001",
+        "name": "Ropa",
+        "displayOrder": 1,
+        "slug": "ropa",
+        "itemsCount": 10,
+        "label": "Ropa",
+        "emoji": "👕"
+      },
+      {
+        "id": "cat_002",
+        "name": "Calzado",
+        "displayOrder": 2,
+        "slug": "calzado",
+        "itemsCount": 2,
+        "label": "Calzado",
+        "emoji": "👟"
+      },
+      {
+        "id": "cat_003",
+        "name": "Accesorios",
+        "displayOrder": 3,
+        "slug": "accesorios",
+        "itemsCount": 1,
+        "label": "Accesorios",
+        "emoji": "💍"
+      }
+    ],
+    "products": [
+      {
+        "id": "prod_001_remera_basica",
+        "name": "Remera Básica Blanca",
+        "description": "Remera unisex de algodón peinado, corte recto, ideal para uso diario.",
+        "images": [
+          {
+            "url": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500",
+            "alt": "Remera Básica Blanca",
+            "default": true
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=500",
+            "alt": "Remera Básica Blanca - Vista alternativa",
+            "default": false
+          }
+        ],
+        "price": {
+          "basePrice": 19.99,
+          "discount": 5,
+          "finalPrice": 14.99
+        },
+        "categories": [
+          {
+            "id": "cat_001",
+            "name": "Ropa",
+            "slug": "ropa",
+            "displayOrder": 1
+          }
+        ],
+        "reviewsCount": 89,
+        "rating": 4.2,
+        "tags": [
+          "algodón",
+          "blanco",
+          "casual",
+          "básicos"
+        ],
+        "featured": true,
+        "prepTime": null,
+        "vertical": "fashion",
+        "features": {
+          "isNew": false,
+          "isPopular": true
+        },
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "templateVariant": {
+          "name": "talle",
+          "label": "Talle",
+          "options": [
+            {
+              "id": "size_s",
+              "name": "S",
+              "label": "Small",
+              "sku": "REM-BAS-BLA-S",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_m",
+              "name": "M",
+              "label": "Medium",
+              "sku": "REM-BAS-BLA-M",
+              "prepTime": null,
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_l",
+              "name": "L",
+              "label": "Large",
+              "sku": "REM-BAS-BLA-L",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_xl",
+              "name": "XL",
+              "label": "Extra Large",
+              "sku": "REM-BAS-BLA-XL",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null,
+        "priceStrategy": "UNIQUE_PRICE"
+      },
+      {
+        "id": "prod_002_gorra_negra",
+        "name": "Gorra Negra Clásica",
+        "description": "Gorra ajustable de algodón con visera curva y logo bordado.",
+        "images": [
+          {
+            "url": "https://images.unsplash.com/photo-1617137968427-85924c800a58?w=500",
+            "alt": "Gorra Negra Clásica",
+            "default": true
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=500",
+            "alt": "Gorra Negra Clásica - Vista alternativa",
+            "default": false
+          }
+        ],
+        "price": {
+          "basePrice": 24.99,
+          "discount": null,
+          "finalPrice": 24.99
+        },
+        "categories": [
+          {
+            "id": "cat_003",
+            "name": "Accesorios",
+            "slug": "accesorios",
+            "displayOrder": 3
+          }
+        ],
+        "reviewsCount": 45,
+        "rating": 3.8,
+        "tags": [
+          "urbano",
+          "ajustable",
+          "streetwear",
+          "casual"
+        ],
+        "featured": false,
+        "prepTime": null,
+        "vertical": "fashion",
+        "features": {
+          "isNew": false,
+          "isPopular": false
+        },
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "templateVariant": {
+          "name": "talle",
+          "label": "Talle",
+          "options": [
+            {
+              "id": "size_s",
+              "name": "S",
+              "label": "Small",
+              "sku": "GOR-NEG-CLA-S",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_m",
+              "name": "M",
+              "label": "Medium",
+              "sku": "GOR-NEG-CLA-M",
+              "prepTime": null,
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_l",
+              "name": "L",
+              "label": "Large",
+              "sku": "GOR-NEG-CLA-L",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null,
+        "priceStrategy": "UNIQUE_PRICE"
+      },
+      {
+        "id": "prod_003_zapatillas_running",
+        "name": "Zapatillas Running Blancas",
+        "description": "Zapatillas deportivas ultralivianas con suela de espuma y malla transpirable.",
+        "images": [
+          {
+            "url": "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=500",
+            "alt": "Zapatillas Running Blancas",
+            "default": true
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1528701800489-20be6c3e1c07?w=500",
+            "alt": "Zapatillas Running Blancas - Vista alternativa",
+            "default": false
+          }
+        ],
+        "price": {
+          "basePrice": 89.99,
+          "discount": 20,
+          "finalPrice": 69.99
+        },
+        "categories": [
+          {
+            "id": "cat_002",
+            "name": "Calzado",
+            "slug": "calzado",
+            "displayOrder": 2
+          }
+        ],
+        "reviewsCount": 156,
+        "rating": 4.9,
+        "tags": [
+          "running",
+          "blanco",
+          "ligeras",
+          "deporte"
+        ],
+        "featured": true,
+        "prepTime": null,
+        "vertical": "fashion",
+        "features": {
+          "isNew": false,
+          "isPopular": true
+        },
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "templateVariant": {
+          "name": "numeracion",
+          "label": "Numeración",
+          "options": [
+            {
+              "id": "size_38",
+              "name": "38",
+              "label": "38",
+              "sku": "ZAP-RUN-BLA-38",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_39",
+              "name": "39",
+              "label": "39",
+              "sku": "ZAP-RUN-BLA-39",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_40",
+              "name": "40",
+              "label": "40",
+              "sku": "ZAP-RUN-BLA-40",
+              "prepTime": null,
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_41",
+              "name": "41",
+              "label": "41",
+              "sku": "ZAP-RUN-BLA-41",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_42",
+              "name": "42",
+              "label": "42",
+              "sku": "ZAP-RUN-BLA-42",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_43",
+              "name": "43",
+              "label": "43",
+              "sku": "ZAP-RUN-BLA-43",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_44",
+              "name": "44",
+              "label": "44",
+              "sku": "ZAP-RUN-BLA-44",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null,
+        "priceStrategy": "UNIQUE_PRICE"
+      },
+      {
+        "id": "prod_004_campera_denim",
+        "name": "Campera Denim Azul",
+        "description": "Campera de jean clásica, con botones metálicos y bolsillos frontales.",
+        "images": [
+          {
+            "url": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=500",
+            "alt": "Campera Denim Azul",
+            "default": true
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=500",
+            "alt": "Campera Denim Azul - Vista alternativa",
+            "default": false
+          }
+        ],
+        "price": {
+          "basePrice": 109.99,
+          "discount": 20,
+          "finalPrice": 89.99
+        },
+        "categories": [
+          {
+            "id": "cat_001",
+            "name": "Ropa",
+            "slug": "ropa",
+            "displayOrder": 1
+          }
+        ],
+        "reviewsCount": 73,
+        "rating": 4.5,
+        "tags": [
+          "clásico",
+          "azul",
+          "casual",
+          "denim"
+        ],
+        "featured": true,
+        "prepTime": null,
+        "vertical": "fashion",
+        "features": {
+          "isNew": false,
+          "isPopular": true
+        },
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "templateVariant": {
+          "name": "talle",
+          "label": "Talle",
+          "options": [
+            {
+              "id": "size_s",
+              "name": "S",
+              "label": "Small",
+              "sku": "CAM-DEN-AZU-S",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_m",
+              "name": "M",
+              "label": "Medium",
+              "sku": "CAM-DEN-AZU-M",
+              "prepTime": null,
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_l",
+              "name": "L",
+              "label": "Large",
+              "sku": "CAM-DEN-AZU-L",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_xl",
+              "name": "XL",
+              "label": "Extra Large",
+              "sku": "CAM-DEN-AZU-XL",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null,
+        "priceStrategy": "UNIQUE_PRICE"
+      },
+      {
+        "id": "prod_005_sweater_beige",
+        "name": "Sweater Beige de Lana",
+        "description": "Sweater tejido de lana suave, cuello redondo y terminaciones elásticas.",
+        "images": [
+          {
+            "url": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500",
+            "alt": "Sweater Beige de Lana",
+            "default": true
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1612423284934-28538e8a770a?w=500",
+            "alt": "Sweater Beige de Lana - Vista alternativa",
+            "default": false
+          }
+        ],
+        "price": {
+          "basePrice": 79.99,
+          "discount": null,
+          "finalPrice": 79.99
+        },
+        "categories": [
+          {
+            "id": "cat_001",
+            "name": "Ropa",
+            "slug": "ropa",
+            "displayOrder": 1
+          }
+        ],
+        "reviewsCount": 64,
+        "rating": 4.3,
+        "tags": [
+          "beige",
+          "lana",
+          "cálido",
+          "invierno"
+        ],
+        "featured": false,
+        "prepTime": null,
+        "vertical": "fashion",
+        "features": {
+          "isNew": false,
+          "isPopular": false
+        },
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "templateVariant": {
+          "name": "talle",
+          "label": "Talle",
+          "options": [
+            {
+              "id": "size_s",
+              "name": "S",
+              "label": "Small",
+              "sku": "SWE-BEI-LAN-S",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_m",
+              "name": "M",
+              "label": "Medium",
+              "sku": "SWE-BEI-LAN-M",
+              "prepTime": null,
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_l",
+              "name": "L",
+              "label": "Large",
+              "sku": "SWE-BEI-LAN-L",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null,
+        "priceStrategy": "UNIQUE_PRICE"
+      },
+      {
+        "id": "prod_006_camisa_cuadros",
+        "name": "Camisa a Cuadros Roja",
+        "description": "Camisa de franela con estampado de cuadros, abotonada al frente.",
+        "images": [
+          {
+            "url": "https://images.unsplash.com/photo-1618354691437-1e8e4e7c9d7c?w=500",
+            "alt": "Camisa a Cuadros Roja",
+            "default": true
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1624378439575-31da9f53c8db?w=500",
+            "alt": "Camisa a Cuadros Roja - Vista alternativa",
+            "default": false
+          }
+        ],
+        "price": {
+          "basePrice": 59.99,
+          "discount": 15,
+          "finalPrice": 44.99
+        },
+        "categories": [
+          {
+            "id": "cat_001",
+            "name": "Ropa",
+            "slug": "ropa",
+            "displayOrder": 1
+          }
+        ],
+        "reviewsCount": 38,
+        "rating": 3.9,
+        "tags": [
+          "cuadros",
+          "rojo",
+          "invierno",
+          "casual"
+        ],
+        "featured": false,
+        "prepTime": null,
+        "vertical": "fashion",
+        "features": {
+          "isNew": false,
+          "isPopular": false
+        },
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "templateVariant": {
+          "name": "talle",
+          "label": "Talle",
+          "options": [
+            {
+              "id": "size_s",
+              "name": "S",
+              "label": "Small",
+              "sku": "CAM-CUA-ROJ-S",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_m",
+              "name": "M",
+              "label": "Medium",
+              "sku": "CAM-CUA-ROJ-M",
+              "prepTime": null,
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_l",
+              "name": "L",
+              "label": "Large",
+              "sku": "CAM-CUA-ROJ-L",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_xl",
+              "name": "XL",
+              "label": "Extra Large",
+              "sku": "CAM-CUA-ROJ-XL",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null,
+        "priceStrategy": "UNIQUE_PRICE"
+      },
+      {
+        "id": "prod_007_pantalon_cargo",
+        "name": "Pantalón Cargo Verde",
+        "description": "Pantalón cargo verde oliva con múltiples bolsillos y corte relajado.",
+        "images": [
+          {
+            "url": "https://images.unsplash.com/photo-1624378439849-30c9a2f50c89?w=500",
+            "alt": "Pantalón Cargo Verde",
+            "default": true
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=500",
+            "alt": "Pantalón Cargo Verde - Vista alternativa",
+            "default": false
+          }
+        ],
+        "price": {
+          "basePrice": 69.99,
+          "discount": null,
+          "finalPrice": 69.99
+        },
+        "categories": [
+          {
+            "id": "cat_001",
+            "name": "Ropa",
+            "slug": "ropa",
+            "displayOrder": 1
+          }
+        ],
+        "reviewsCount": 52,
+        "rating": 3.7,
+        "tags": [
+          "cargo",
+          "verde",
+          "casual",
+          "urbano"
+        ],
+        "featured": false,
+        "prepTime": null,
+        "vertical": "fashion",
+        "features": {
+          "isNew": false,
+          "isPopular": false
+        },
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "templateVariant": {
+          "name": "talle",
+          "label": "Talle",
+          "options": [
+            {
+              "id": "size_40",
+              "name": "40",
+              "label": "40",
+              "sku": "PAN-CAR-VER-40",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_42",
+              "name": "42",
+              "label": "42",
+              "sku": "PAN-CAR-VER-42",
+              "prepTime": null,
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_44",
+              "name": "44",
+              "label": "44",
+              "sku": "PAN-CAR-VER-44",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_46",
+              "name": "46",
+              "label": "46",
+              "sku": "PAN-CAR-VER-46",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null,
+        "priceStrategy": "UNIQUE_PRICE"
+      },
+      {
+        "id": "prod_008_top_deportivo",
+        "name": "Top Deportivo Negro",
+        "description": "Top corto deportivo de poliéster elástico y transpirable.",
+        "images": [
+          {
+            "url": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?w=500",
+            "alt": "Top Deportivo Negro",
+            "default": true
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1583454110550-d9a04f0d2520?w=500",
+            "alt": "Top Deportivo Negro - Vista alternativa",
+            "default": false
+          }
+        ],
+        "price": {
+          "basePrice": 29.99,
+          "discount": 5,
+          "finalPrice": 24.99
+        },
+        "categories": [
+          {
+            "id": "cat_001",
+            "name": "Ropa",
+            "slug": "ropa",
+            "displayOrder": 1
+          }
+        ],
+        "reviewsCount": 91,
+        "rating": 4.1,
+        "tags": [
+          "fitness",
+          "negro",
+          "mujer",
+          "deporte"
+        ],
+        "featured": false,
+        "prepTime": null,
+        "vertical": "fashion",
+        "features": {
+          "isNew": false,
+          "isPopular": true
+        },
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "templateVariant": {
+          "name": "talle",
+          "label": "Talle",
+          "options": [
+            {
+              "id": "size_xs",
+              "name": "XS",
+              "label": "Extra Small",
+              "sku": "TOP-DEP-NEG-XS",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_s",
+              "name": "S",
+              "label": "Small",
+              "sku": "TOP-DEP-NEG-S",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_m",
+              "name": "M",
+              "label": "Medium",
+              "sku": "TOP-DEP-NEG-M",
+              "prepTime": null,
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_l",
+              "name": "L",
+              "label": "Large",
+              "sku": "TOP-DEP-NEG-L",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null,
+        "priceStrategy": "UNIQUE_PRICE"
+      },
+      {
+        "id": "prod_009_zapatillas_urbanas",
+        "name": "Zapatillas Urbanas Negras",
+        "description": "Zapatillas urbanas negras de cuero sintético con suela gruesa.",
+        "images": [
+          {
+            "url": "https://images.unsplash.com/photo-1600180758895-74d52a2c2f16?w=500",
+            "alt": "Zapatillas Urbanas Negras",
+            "default": true
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1606813902827-18d4d7f89a60?w=500",
+            "alt": "Zapatillas Urbanas Negras - Vista alternativa",
+            "default": false
+          }
+        ],
+        "price": {
+          "basePrice": 99.99,
+          "discount": 20,
+          "finalPrice": 79.99
+        },
+        "categories": [
+          {
+            "id": "cat_002",
+            "name": "Calzado",
+            "slug": "calzado",
+            "displayOrder": 2
+          }
+        ],
+        "reviewsCount": 78,
+        "rating": 4.4,
+        "tags": [
+          "streetwear",
+          "negro",
+          "moda",
+          "urbano"
+        ],
+        "featured": false,
+        "prepTime": null,
+        "vertical": "fashion",
+        "features": {
+          "isNew": false,
+          "isPopular": true
+        },
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "templateVariant": {
+          "name": "numeracion",
+          "label": "Numeración",
+          "options": [
+            {
+              "id": "size_39",
+              "name": "39",
+              "label": "39",
+              "sku": "ZAP-URB-NEG-39",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_40",
+              "name": "40",
+              "label": "40",
+              "sku": "ZAP-URB-NEG-40",
+              "prepTime": null,
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_41",
+              "name": "41",
+              "label": "41",
+              "sku": "ZAP-URB-NEG-41",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_42",
+              "name": "42",
+              "label": "42",
+              "sku": "ZAP-URB-NEG-42",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_43",
+              "name": "43",
+              "label": "43",
+              "sku": "ZAP-URB-NEG-43",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null,
+        "priceStrategy": "UNIQUE_PRICE"
+      },
+      {
+        "id": "prod_010_chaleco_puffer",
+        "name": "Chaleco Puffer Azul",
+        "description": "Chaleco acolchado azul marino con cierre frontal y bolsillos laterales.",
+        "images": [
+          {
+            "url": "https://images.unsplash.com/photo-1580983561371-7d71a16df28d?w=500",
+            "alt": "Chaleco Puffer Azul",
+            "default": true
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1602810318383-e2938d1b5a10?w=500",
+            "alt": "Chaleco Puffer Azul - Vista alternativa",
+            "default": false
+          }
+        ],
+        "price": {
+          "basePrice": 79.99,
+          "discount": 20,
+          "finalPrice": 59.99
+        },
+        "categories": [
+          {
+            "id": "cat_001",
+            "name": "Ropa",
+            "slug": "ropa",
+            "displayOrder": 1
+          }
+        ],
+        "reviewsCount": 67,
+        "rating": 3.6,
+        "tags": [
+          "puffer",
+          "azul",
+          "calor",
+          "invierno"
+        ],
+        "featured": false,
+        "prepTime": null,
+        "vertical": "fashion",
+        "features": {
+          "isNew": false,
+          "isPopular": false
+        },
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "templateVariant": {
+          "name": "talle",
+          "label": "Talle",
+          "options": [
+            {
+              "id": "size_s",
+              "name": "S",
+              "label": "Small",
+              "sku": "CHA-PUF-AZU-S",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_m",
+              "name": "M",
+              "label": "Medium",
+              "sku": "CHA-PUF-AZU-M",
+              "prepTime": null,
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_l",
+              "name": "L",
+              "label": "Large",
+              "sku": "CHA-PUF-AZU-L",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_xl",
+              "name": "XL",
+              "label": "Extra Large",
+              "sku": "CHA-PUF-AZU-XL",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null,
+        "priceStrategy": "UNIQUE_PRICE"
+      },
+      {
+        "id": "prod_011_campera_cortaviento",
+        "name": "Campera Cortaviento Roja",
+        "description": "Campera ligera impermeable con capucha y cierre completo.",
+        "images": [
+          {
+            "url": "https://images.unsplash.com/photo-1584370848010-0f2e1f26e42e?w=500",
+            "alt": "Campera Cortaviento Roja",
+            "default": true
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500",
+            "alt": "Campera Cortaviento Roja - Vista alternativa",
+            "default": false
+          }
+        ],
+        "price": {
+          "basePrice": 89.99,
+          "discount": 15,
+          "finalPrice": 74.99
+        },
+        "categories": [
+          {
+            "id": "cat_001",
+            "name": "Ropa",
+            "slug": "ropa",
+            "displayOrder": 1
+          }
+        ],
+        "reviewsCount": 89,
+        "rating": 4.7,
+        "tags": [
+          "cortaviento",
+          "rojo",
+          "outdoor",
+          "deporte"
+        ],
+        "featured": true,
+        "prepTime": null,
+        "vertical": "fashion",
+        "features": {
+          "isNew": false,
+          "isPopular": true
+        },
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "templateVariant": {
+          "name": "talle",
+          "label": "Talle",
+          "options": [
+            {
+              "id": "size_s",
+              "name": "S",
+              "label": "Small",
+              "sku": "CAM-COR-ROJ-S",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_m",
+              "name": "M",
+              "label": "Medium",
+              "sku": "CAM-COR-ROJ-M",
+              "prepTime": null,
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_l",
+              "name": "L",
+              "label": "Large",
+              "sku": "CAM-COR-ROJ-L",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_xl",
+              "name": "XL",
+              "label": "Extra Large",
+              "sku": "CAM-COR-ROJ-XL",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null,
+        "priceStrategy": "UNIQUE_PRICE"
+      },
+      {
+        "id": "prod_012_falda_plisada",
+        "name": "Falda Plisada Negra",
+        "description": "Falda larga plisada negra, elegante y versátil.",
+        "images": [
+          {
+            "url": "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=500",
+            "alt": "Falda Plisada Negra",
+            "default": true
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=500",
+            "alt": "Falda Plisada Negra - Vista alternativa",
+            "default": false
+          }
+        ],
+        "price": {
+          "basePrice": 59.99,
+          "discount": null,
+          "finalPrice": 59.99
+        },
+        "categories": [
+          {
+            "id": "cat_001",
+            "name": "Ropa",
+            "slug": "ropa",
+            "displayOrder": 1
+          }
+        ],
+        "reviewsCount": 41,
+        "rating": 3.5,
+        "tags": [
+          "negro",
+          "elegante",
+          "fluido",
+          "casual"
+        ],
+        "featured": false,
+        "prepTime": null,
+        "vertical": "fashion",
+        "features": {
+          "isNew": false,
+          "isPopular": false
+        },
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "templateVariant": {
+          "name": "talle",
+          "label": "Talle",
+          "options": [
+            {
+              "id": "size_s",
+              "name": "S",
+              "label": "Small",
+              "sku": "FAL-PLI-NEG-S",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_m",
+              "name": "M",
+              "label": "Medium",
+              "sku": "FAL-PLI-NEG-M",
+              "prepTime": null,
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_l",
+              "name": "L",
+              "label": "Large",
+              "sku": "FAL-PLI-NEG-L",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null,
+        "priceStrategy": "UNIQUE_PRICE"
+      },
+      {
+        "id": "prod_013_sudadera_gris",
+        "name": "Sudadera Gris con Capucha",
+        "description": "Sudadera de algodón gris melange con capucha y bolsillo canguro.",
+        "images": [
+          {
+            "url": "https://images.unsplash.com/photo-1618354691437-1e8e4e7c9d7c?w=500",
+            "alt": "Sudadera Gris con Capucha",
+            "default": true
+          },
+          {
+            "url": "https://images.unsplash.com/photo-1596464716121-2f4d7a3d5f45?w=500",
+            "alt": "Sudadera Gris con Capucha - Vista alternativa",
+            "default": false
+          }
+        ],
+        "price": {
+          "basePrice": 64.99,
+          "discount": 10,
+          "finalPrice": 54.99
+        },
+        "categories": [
+          {
+            "id": "cat_001",
+            "name": "Ropa",
+            "slug": "ropa",
+            "displayOrder": 1
+          }
+        ],
+        "reviewsCount": 95,
+        "rating": 4.8,
+        "tags": [
+          "gris",
+          "capucha",
+          "casual",
+          "urbano"
+        ],
+        "featured": true,
+        "prepTime": null,
+        "vertical": "fashion",
+        "features": {
+          "isNew": false,
+          "isPopular": true
+        },
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "templateVariant": {
+          "name": "talle",
+          "label": "Talle",
+          "options": [
+            {
+              "id": "size_s",
+              "name": "S",
+              "label": "Small",
+              "sku": "SUD-GRI-CAP-S",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_m",
+              "name": "M",
+              "label": "Medium",
+              "sku": "SUD-GRI-CAP-M",
+              "prepTime": null,
+              "isDefault": true,
+              "isActive": true
+            },
+            {
+              "id": "size_l",
+              "name": "L",
+              "label": "Large",
+              "sku": "SUD-GRI-CAP-L",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            },
+            {
+              "id": "size_xl",
+              "name": "XL",
+              "label": "Extra Large",
+              "sku": "SUD-GRI-CAP-XL",
+              "prepTime": null,
+              "isDefault": false,
+              "isActive": true
+            }
+          ]
+        },
+        "customizationFeaturesTemplate": null,
+        "priceStrategy": "UNIQUE_PRICE"
+      }
+    ]
+  }
+}

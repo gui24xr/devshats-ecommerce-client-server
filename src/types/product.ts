@@ -31,7 +31,7 @@ export interface customizationFeatureTypeCombo {
     exactTotal: number;
     required: boolean;
   };
-  options: [
+  options:
     {
       id: string;
       name: string;
@@ -45,8 +45,8 @@ export interface customizationFeatureTypeCombo {
       emoji?: string;
       icon?: string;
       imgUrl?: string | null;
-    }
-  ];
+    }[];
+  
 }
 
 export interface customizationFeatureTypeCheck {
@@ -62,7 +62,7 @@ export interface customizationFeatureTypeCheck {
     maxSelection: number;
     required: boolean;
   };
-  options: [
+  options:
     {
       id: string;
       name: string;
@@ -75,8 +75,8 @@ export interface customizationFeatureTypeCheck {
       emoji?: string;
       icon?: string;
       imgUrl?: string | null;
-    }
-  ];
+    }[];
+  
 }
 
 export interface customizationFeatureTypeVariant {
@@ -92,7 +92,7 @@ export interface customizationFeatureTypeVariant {
     allowMultiple: boolean;
     hasDefault: boolean;
   };
-  options: [
+  options:
     {
       id: string;
       name: string;
@@ -105,47 +105,28 @@ export interface customizationFeatureTypeVariant {
       emoji?: string;
       icon?: string;
       imgUrl?: string | null;
-    }
-  ];
+    }[]
 }
 
 export interface ProductTypeBasic {
   id: string;
   type: 'BASIC_PRODUCT';
+  isActive?: boolean
   name: string;
   description?: string;
-  images?: [
-    {
-      url: string;
-      alt: string;
-      default: boolean;
-    }
-  ];
-  price: {
-    basePrice?: number | null;
-    discount?: number;
-    finalPrice: number;
-  };
-  categories: [
-    {
-      id: string;
-      name: string;
-      slug: string;
-      displayOrder: number;
-    }
-  ];
+  images?: { url: string; alt: string; default?: boolean;}[];
+  price: { basePrice?: number | null; discount?: number; finalPrice: number;};
+  sku?: string;
+  stock?: number
+  categories:{ id: string; name: string; slug: string; displayOrder: number;}[];
   reviewsCount?: number;
   rating?: number;
-  tags?: [string];
-  prepTime?: {
-    min: number;
-    max: number;
+  tags?: string[];
+  prepTime?: { min: number; max: number;
   } | null;
-  features?:{ 
-    isNew?: boolean;
-    isPopular?: boolean;
+  features?:{ isNew?: boolean; isPopular?: boolean;
   };
-  customizationFeaturesTemplate?: [];
+  customizationFeaturesTemplate?: any[];
 }
 
 
@@ -153,57 +134,41 @@ export interface ProductTypeSingleVariant {
   id: string;
   type: 'SINGLE_VARIANT_PRODUCT';
   name: string;
+  isActive?: boolean;
   description?: string;
-  images?: [
-    {
-      url: string;
-      alt: string;
-      default: boolean;
-    }
-  ];
-  categories: [
-    {
-      id: string;
-      name: string;
-      slug: string;
-      displayOrder: number;
-    }
-  ];
+  images?: { url: string; alt: string; default?: boolean;}[];
+  categories:{ id: string; name: string; slug: string; displayOrder: number;}[];
   reviewsCount?: number;
   rating?: number;
-  tags?: [string];
-  prepTime?: {
-    min: number;
-    max: number;
-  } | null;
-  features?:{ 
-    isNew?: boolean;
-    isPopular?: boolean;
-  };
+  tags?: string[];
+  prepTime?: { min: number; max: number;};
+  features?:{ isNew?: boolean;isPopular?: boolean;};
+  priceStrategy: "UNIQUE_PRICE" | "TEMPLATE_VARIANT_PRICE";
+  price?: { basePrice?: number | null;  discount?: number; finalPrice: number;};
   templateVariant: {
     name: string;
     label: string;
-    options: [
-      {
+    options: {
         id: string;
         name: string;
         label: string;
-        price: {
+        price?: {
           basePrice?: number | null;
           discount?: number | null;
           finalPrice: number;
         };
+        stock?: number;
         sku?: string;
         prepTime: {
           min: number;
           max: number;
         };
+        images?: { url: string; alt: string; default?: boolean;}[];
         isDefault: boolean;
         isActive: boolean;
-      }
-    ];
+      }[]
   }
-  customizationFeaturesTemplate?: [];
+  customizationFeaturesTemplate?: any[];
 }
 
 

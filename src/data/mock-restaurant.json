@@ -1402,7 +1402,8 @@
             ]
           }
         ],
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_001_integral",
@@ -1766,7 +1767,8 @@
             ]
           }
         ],
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_001_blanco",
@@ -2130,7 +2132,8 @@
             ]
           }
         ],
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_002_pretzel",
@@ -2494,7 +2497,8 @@
             ]
           }
         ],
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_002_integral",
@@ -2858,7 +2862,8 @@
             ]
           }
         ],
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_002_blanco",
@@ -3222,7 +3227,8 @@
             ]
           }
         ],
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_003_pretzel",
@@ -3586,7 +3592,8 @@
             ]
           }
         ],
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_003_integral",
@@ -3950,7 +3957,8 @@
             ]
           }
         ],
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_003_blanco",
@@ -4314,7 +4322,8 @@
             ]
           }
         ],
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_004_pretzel",
@@ -4678,7 +4687,8 @@
             ]
           }
         ],
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_004_integral",
@@ -5042,7 +5052,8 @@
             ]
           }
         ],
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_004_blanco",
@@ -5406,7 +5417,8 @@
             ]
           }
         ],
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_005_pretzel",
@@ -5770,7 +5782,8 @@
             ]
           }
         ],
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_005_integral",
@@ -6134,7 +6147,8 @@
             ]
           }
         ],
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_005_blanco",
@@ -6498,7 +6512,8 @@
             ]
           }
         ],
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_006_pretzel",
@@ -6846,7 +6861,8 @@
             ]
           }
         ],
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_006_integral",
@@ -7194,7 +7210,8 @@
             ]
           }
         ],
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_006_blanco",
@@ -7542,7 +7559,8 @@
             ]
           }
         ],
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_007",
@@ -7619,7 +7637,8 @@
             }
           ]
         },
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_008",
@@ -8024,7 +8043,8 @@
           ]
         },
         "description": "Coca-Cola mexicana de vidrio retornable, hecha con azúcar de caña. El sabor auténtico que acompaña tu comida.",
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_010",
@@ -8100,7 +8120,8 @@
           ]
         },
         "description": "Agua fresca de horchata natural con arroz, canela, vainilla y leche condensada. Refrescante y tradicional, perfecta para el calor de Monterrey.",
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       },
       {
         "id": "prod_011",
@@ -8221,7 +8242,8 @@
             }
           ]
         },
-        "type": "SINGLE_VARIANT_PRODUCT"
+        "type": "SINGLE_VARIANT_PRODUCT",
+        "priceStrategy": "TEMPLATE_VARIANT_PRICE"
       }
     ]
   }

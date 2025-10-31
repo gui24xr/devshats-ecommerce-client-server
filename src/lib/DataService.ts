@@ -1,8 +1,8 @@
 import { Product, Category, Branch } from "@/types";
-//import data from "@/data/mock-tiendaropa.json";
-import data from "@/data/mock-restaurant.json";
-//import data from "@/data/mock-pizzeria.json";
-//import data from "@/data/mock-restaurant-nuevo.json";
+import data from "@/data/mock-tiendaropa2.json";
+//import data from "@/data/mock-restaurant.json";
+//import data from "@/data/mock-pizzeria2.json";
+
 
 
 interface IDataService {

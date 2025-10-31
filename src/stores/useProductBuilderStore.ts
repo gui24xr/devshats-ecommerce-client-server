@@ -1,4 +1,4 @@
-import { Product, ProductTypeBasic, ProductTypeSingleVariant } from "@/types";
+import { Product, ItemForCart } from "@/types";
 import { create } from "zustand";
 import { useCartStore, useProductsStore, useModalsStore } from "@/stores";
 // ============================================
@@ -71,68 +71,6 @@ interface CurrentProduct extends Omit<Product, 'templateVariant' | 'customizatio
 // ITEM FOR CART (Producto listo para carrito)
 // ============================================
 
-interface SelectedVariantOption {
-  id: string;
-  name: string;
-  label: string;
-  sku?: string;
-  priceData: {
-    basePrice?: number | null;
-    discount?: number | null;
-    finalPrice: number;
-  };
-}
-
-interface VariantForCart {
-  name: string;
-  label: string;
-  selectedOption: SelectedVariantOption | null;
-}
-
-interface SelectedCustomizationOption {
-  id: string;
-  name: string;
-  description: string | null;
-  priceModifier: number;
-  available: boolean;
-  sortOrder?: number;
-  category?: string;
-  emoji?: string;
-  icon?: string;
-  imgUrl?: string | null;
-  isSelected: boolean;
-  selectedQuantity?: number; // solo para combo
-}
-
-interface CustomizationFeatureForCart {
-  id: string;
-  name: string;
-  description: string | null;
-  type: "combo" | "check" | "variant";
-  emoji?: string;
-  icon?: string;
-  imgUrl?: string;
-  constraints: any;
-  selectedOptions: SelectedCustomizationOption[];
-}
-
-interface ItemForCart {
-  id: string;
-  type: 'BASIC_PRODUCT' | 'SINGLE_VARIANT_PRODUCT';
-  title: string;
-  image?: string;
-  variant: VariantForCart | null;
-  customizationFeatures: CustomizationFeatureForCart[] | null;
-  priceData: {
-    basePrice: {
-      basePrice?: number | null;
-      discount?: number | null;
-      finalPrice: number;
-    } | null;
-    extraForCustomizations: number;
-    finalPrice: number;
-  };
-}
 
 // ============================================
 // STATE INTERFACE
@@ -373,7 +311,6 @@ function getProductBuilderTemplateWithVariantModified(product: any, selectedVari
         //Pongo todas en false excepecta la seleccionada
         const newOptionsArray = product.templateVariant.options.map((item: any) => ({...item, isSelected: item.id == selectedVariantId ? true : false}))
 
-
         return {
             ...product,
             templateVariant: {
@@ -506,13 +443,12 @@ const mapCustomizationToCartItem = (customizationFeaturesTemplate: any) => {
  const getCurrentProductBasePrice = (currentProduct: any) => {
      if (!currentProduct) throw new Error('El producto no existe.')
      
-     if (currentProduct.templateVariant) {
-         const selectedVariant = currentProduct?.templateVariant?.options?.find((item: any) => item.isSelected)
-         if (!selectedVariant) return null
-         return selectedVariant.price
-     } else {
-         return currentProduct.price
-     }
+     if (currentProduct.type == 'BASIC_PRODUCT') return currentProduct.price
+     if (currentProduct.type == 'SINGLE_VARIANT_PRODUCT') {
+         if (currentProduct?.priceStrategy == 'UNIQUE_PRICE') return currentProduct.price
+         if (currentProduct?.priceStrategy == 'TEMPLATE_VARIANT_PRICE') return currentProduct?.templateVariant?.options?.find((item: any) => item.isSelected).price
+     }   
+    return null
  }
 
 const getCurrentProductExtraForCustomizations = (features: any[]) => {

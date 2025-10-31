@@ -5,7 +5,6 @@ import { redirect } from "next/navigation";
 import { StoreBanner } from "@/components";
 export default function CartDetails() {
   const itemsList = useCartStore((state) => state.items);
-  const hideCartModal = useModalsStore((state) => state.hideCartModal);
  
 
 
@@ -51,95 +50,86 @@ const handleRemoveItem = (itemId:string) => {
   
 
   return (
-    <div className="w-full bg-gray-100 rounded-lg flex flex-col items-start ">
-       <div className="w-full flex flex-col">
-        <div className="flex flex-row gap-4 ">
-          <div className="min-w-[80px] max-w-[80px] flex flex-col">
-            <img
-              src={item?.productData?.image}
-              alt={item?.productData?.title}
-              className="w-24 h-24 object-cover"
-            />
-          </div>
-          <div className="flex flex-col w-full min-h-[96px]">
-             <h4 className="text-sm font-bold text-black bg-gray-200 px-2">
-                {item.productData?.title}
-              </h4>
+    <div className="bg-white p-3 border-b border-gray-200 hover:bg-gray-50 transition-colors duration-200 rounded-lg shadow-sm">
+      <div className="flex gap-3">
+        {/* Imagen del producto */}
+        <div className="w-20 h-20 flex-shrink-0">
+          <img
+            src={item?.productData?.image}
+            alt={item.productData?.title}
+            className="w-full h-full object-cover rounded-md shadow-sm"
+          />
+        </div>
 
-           <div className="flex flex-col w-full px-4 pt-2 flex-1">
-            <div>
-              {item.productData?.type == 'SINGLE_VARIANT_PRODUCT' && (
-                <div className="bg-white rounded-md p-2 border border-gray-200 mb-2">
-                  <span className="text-sm text-gray-800 font-semibold block mb-1">
-                    {item.productData?.variant?.label + ":"}
-                  </span>
-                  <span className="text-sm text-gray-700 italic">
-                    {item?.productData?.variant?.selectedOption?.label}
-                  </span>
-                </div>
-              )}
-              {item.productData?.customizationFeatures && (
-                <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-2">
-                  {item.productData?.customizationFeatures?.map((feature) => (
-                    <div key={feature.id} className="bg-white rounded-md p-2 border border-gray-200">
-                      <span className="text-sm font-semibold text-gray-800 block mb-1.5">
-                        {feature?.name}:
-                      </span>
-                      <ul className="list-disc list-inside pl-2 space-y-0.5">
-                        {feature?.selectedOptions?.map((selectedOption) => (
-                          <li key={selectedOption.id} className="text-sm text-gray-700 italic">
-                            <span className="font-medium">{selectedOption?.name}</span>
-                            {selectedOption?.priceModifier > 0 && (
-                              <span className="text-xs text-green-600 font-semibold ml-1">
-                                {" "}(+${selectedOption?.priceModifier})
-                              </span>
-                            )}
-                            {selectedOption?.selectedQuantity && selectedOption?.selectedQuantity > 0 && (
-                              <span className="text-xs bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full font-medium ml-2">
-                                {" "}x{selectedOption?.selectedQuantity}
-                              </span>
-                            )}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-            <div className="w-full text-right pt-3 mt-auto">
-              <span className="text-base font-bold text-green-600">
-                Precio: ${item?.unitPriceData?.finalPrice}
-              </span>
-            </div>
-          </div>
-        </div>
-        </div>
-        <div className="flex items-end justify-end border-t border-blue-200 p-1.5">
-          <div className="w-full flex flex-col self-end text-right">
-           
-            <div className="flex items-center justify-end gap-2">
-            
-              {/* justify-end para alinear a la derecha */}
-              <span className="text-sm font-semibold text-blue-500 capitalize">
-                Cantidad:
-              </span>
-              <ItemDetailQuantitySelector
-                quantity={item.quantity}
-                onChange={handleChangeQuantity}
-                min={1}
-                max={10}
-              />
-            </div>
-            <span className="text-sm font-semibold text-gray-800 capitalize">
-              subtotal: ${item?.subtotal}
-            </span>
+        {/* Contenido del producto */}
+        <div className="flex-1 flex flex-col">
+          <div className="flex justify-between items-start mb-1">
+            <h3 className="text-sm font-bold text-gray-900">
+              {item.productData?.title}
+            </h3>
             <button
               onClick={() => handleRemoveItem(item.id)}
-              className="text-right text-sm font-semibold text-red-600 capitalize"
+              className="text-red-600 hover:text-red-700 transition-colors ml-2"
+              title="Eliminar"
             >
-              Eliminar
+              <Trash2 className="w-4 h-4" />
             </button>
+          </div>
+
+          {/* Variante si existe */}
+          {item.productData?.type == 'SINGLE_VARIANT_PRODUCT' && (
+            <p className="text-xs text-gray-600 mb-1">
+              <span className="font-semibold">{item.productData?.variant?.label}:</span>{" "}
+              <span className="italic">{item?.productData?.variant?.selectedOption?.label}</span>
+            </p>
+          )}
+
+          {/* Customizaciones si existen */}
+          {item.productData?.customizationFeatures && item.productData.customizationFeatures.length > 0 && (
+            <div className="text-xs text-gray-600 mb-2">
+              {item.productData?.customizationFeatures?.map((feature: any) => (
+                <div key={feature.id} className="mb-1">
+                  <span className="font-semibold">{feature?.name}:</span>{" "}
+                  {feature?.selectedOptions?.map((opt: any, idx: number) => (
+                    <span key={opt.id}>
+                      {opt?.name}
+                      {opt?.priceModifier > 0 && (
+                        <span className="text-green-600 font-semibold"> (+${opt?.priceModifier})</span>
+                      )}
+                      {opt?.selectedQuantity && opt?.selectedQuantity > 1 && (
+                        <span className="text-orange-600"> x{opt?.selectedQuantity}</span>
+                      )}
+                      {idx < feature.selectedOptions.length - 1 ? ", " : ""}
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Precio unitario arriba de línea */}
+          <div className="mt-auto text-base font-bold text-purple-600 text-right mb-1">
+            ${item?.unitPriceData?.finalPrice} c/u
+          </div>
+
+          {/* Cantidad y subtotal */}
+          <div className="border-t border-gray-200 pt-2">
+            <div className="flex justify-between items-end">
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-gray-600">Cantidad:</span>
+                <ItemDetailQuantitySelector
+                  quantity={item.quantity}
+                  onChange={handleChangeQuantity}
+                  min={1}
+                  max={10}
+                />
+              </div>
+              <div className="flex flex-col items-end">
+                <div className="text-sm font-bold text-green-600">
+                  ${item?.subtotal}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

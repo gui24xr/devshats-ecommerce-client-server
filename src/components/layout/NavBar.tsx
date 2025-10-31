@@ -18,8 +18,8 @@ const Navbar = ({ config }: any) => {
 
   return (
     <nav className={backgroundColor}>
-      <div className="container mx-auto py-1 px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="container mx-auto  py-2 px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0">
             <span className={`text-2xl font-bold  ${titleColor}`}>{titleLogoIcon} {title}</span>

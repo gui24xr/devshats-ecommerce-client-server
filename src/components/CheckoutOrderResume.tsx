@@ -24,45 +24,69 @@ export default function CheckoutOrderResume() {
   
 
   return (
-    <div className="bg-gradient-to-br from-orange-50 to-red-50 border-2 border-orange-200 rounded-2xl p-3 sm:p-4 lg:p-6 shadow-lg">
-      <h3 className="font-bold text-orange-900 mb-3 sm:mb-4 text-base sm:text-lg flex items-center gap-2">
-        <span className="text-lg sm:text-xl">📋</span>
+    <div className="sticky bottom-0 bg-gradient-to-br from-orange-50 to-red-50 border-t-2 border-orange-600 p-2 sm:p-3 shadow-2xl">
+      <h3 className="font-bold text-orange-900 mb-2 text-sm sm:text-base flex items-center gap-1.5">
+        <span className="text-base sm:text-lg">📋</span>
         Resumen del pedido
       </h3>
-      <div className="space-y-1">
-        <div className="flex justify-between items-center p-1 sm:p-3 hover:bg-orange-100 rounded-xl transition-all duration-300">
-          <span className="text-gray-700 flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
-            <span className="text-orange-500 text-sm sm:text-base">🛒</span>
+      <div className="space-y-0">
+        <div className="flex justify-between items-center py-1 px-2 hover:bg-orange-100 rounded-md transition-all duration-300">
+          <span className="text-gray-700 flex items-center gap-1.5 text-xs">
+            <span className="text-orange-500 text-sm">🛒</span>
             <span className="whitespace-nowrap">{currentOrderPreview?.cartItemsCount} productos</span>
           </span>
-          <span className="font-bold text-gray-900 text-xs sm:text-sm ml-2">${cartTicket.toFixed(2) || 0}</span>
+          <span className="font-bold text-gray-900 text-xs ml-2">${cartTicket.toFixed(2) || 0}</span>
         </div>
-        {selectedDeliveryOption?.deliveryType === 'motoDelivery' && (    
-        <div className="flex justify-between items-center p-2 sm:p-3 hover:bg-orange-100 rounded-xl transition-all duration-300">
-          <span className="text-gray-700 flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
-            <span className="text-green-500 text-sm sm:text-base">🚚</span>
+        {selectedDeliveryOption?.deliveryType === 'motoDelivery' && (
+        <div className="flex justify-between items-center py-1 px-2 hover:bg-orange-100 rounded-md transition-all duration-300">
+          <span className="text-gray-700 flex items-center gap-1.5 text-xs">
+            <span className="text-green-500 text-sm">🚚</span>
             <span className="whitespace-nowrap">Envío</span>
           </span>
-          <span className={`font-bold text-xs sm:text-sm ml-2 ${currentOrderPreview?.deliveryAmount === 0 ? 'text-green-600' : 'text-gray-900'}`}>
+          <span className={`font-bold text-xs ml-2 ${currentOrderPreview?.deliveryAmount === 0 ? 'text-green-600' : 'text-gray-900'}`}>
             {currentOrderPreview?.deliveryAmount === 0 ? "GRATIS" : `$${selectedDeliveryOption?.deliveryAmount.toFixed(2)}`}
           </span>
         </div>
         ) }
-        <div className="flex justify-between items-center p-2 sm:p-3 hover:bg-orange-100 rounded-xl transition-all duration-300">
-          <span className="text-gray-700 flex items-center gap-1 sm:gap-2 text-xs sm:text-sm">
-            <span className="text-blue-500 text-sm sm:text-base">📊</span>
+        <div className="flex justify-between items-center py-1 px-2 hover:bg-orange-100 rounded-md transition-all duration-300">
+          <span className="text-gray-700 flex items-center gap-1.5 text-xs">
+            <span className="text-blue-500 text-sm">📊</span>
             <span className="whitespace-nowrap">IVA ({currentOrderPreview?.orderTax}%)</span>
           </span>
-          <span className="font-bold text-gray-900 text-xs sm:text-sm ml-2">${currentOrderPreview?.orderTax.toFixed(2)}</span>
+          <span className="font-bold text-gray-900 text-xs ml-2">${currentOrderPreview?.orderTax.toFixed(2)}</span>
         </div>
 
-        <div className="border-t-2 border-orange-300 pt-3">
-          <div className="bg-gradient-to-r from-orange-600 to-red-500 text-white p-3 sm:p-4 rounded-xl flex justify-between items-center">
-            <span className="text-sm sm:text-base font-bold">Total</span>
-            <span className="text-lg sm:text-xl font-bold">${currentOrderPreview?.finalAmount.toFixed(2) || 0} {currentOrderPreview?.currency}</span>
+        <div className="border-t border-orange-300 pt-2 mt-1">
+          <div className="bg-gradient-to-r from-orange-600 to-red-500 text-white py-2 px-3 rounded-lg flex justify-between items-center mb-2">
+            <span className="text-xs sm:text-sm font-bold">Total</span>
+            <span className="text-sm sm:text-base font-bold">${currentOrderPreview?.finalAmount.toFixed(2) || 0} {currentOrderPreview?.currency}</span>
+          </div>
+
+          {/* Action buttons */}
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={handleCancel}
+              className="flex-1 py-2.5 sm:py-3 px-3 sm:px-4 bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center gap-2 text-sm sm:text-base"
+            >
+              <span>❌</span>
+              Cancelar
+            </button>
+            <button
+              type="submit"
+              className="flex-1 py-2.5 sm:py-3 px-3 sm:px-4 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center gap-2 text-sm sm:text-base"
+            >
+              <span>📱</span>
+              Enviar por WhatsApp
+            </button>
           </div>
         </div>
       </div>
     </div>
   )
+}
+
+function handleCancel() {
+  // Navigate back or close checkout
+  window.history.back()
 }

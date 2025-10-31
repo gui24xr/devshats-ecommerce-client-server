@@ -33,56 +33,62 @@ export default function ProductCard({ product, defaultProductImage }: any) {
 
   return (
     <>
-      <div className="group cursor-pointer bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-0 overflow-hidden h-full flex flex-col">
+      <div className="group cursor-pointer bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-200 overflow-hidden h-full flex flex-row md:flex-col">
 
-        {/* Image Container - Altura fija */}
-        <div className="relative overflow-hidden h-56">
+        {/* Image Container - Responsive */}
+        <div className="relative overflow-hidden w-32 md:w-full flex-shrink-0">
           <img
             src={imageError ? defaultProductImage : (product?.images[0].url || defaultProductImage)}
             alt={product?.name}
-            className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
+            className="w-full h-full md:h-44 object-cover group-hover:scale-105 transition-transform duration-300"
             onError={() => setImageError(true)}
           />
 
-          {/* Overlay Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-
-          {/* Badge Cintilla Diagonal - Superior Derecha */}
-          {product?.features?.isNew && (
-            <div className="absolute top-1 -right-2 z-10">
-              <div className="bg-gradient-to-r from-red-500 to-red-600 text-white px-16  transform rotate-12 shadow-lg">
-                <span className="text-xs font-bold">NUEVO</span>
-              </div>
-            </div>
-          )}
-          {/* Popular Badge */}
+          {/* Badge Popular - Esquina superior izquierda pequeño */}
           {product?.features?.isPopular && (
-            <div className="absolute top-4 left-4">
-              <div className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                🔥 Popular
+            <div className="absolute top-2 left-2 z-10">
+              <div className="bg-red-500 text-white px-2 py-0.5 rounded-full text-[10px] font-bold flex items-center gap-1">
+                <span>🔥</span>
+                <span>Popular</span>
               </div>
             </div>
           )}
 
-          {/* Price Badge */}
-          {priceData.discount && (
-            <div className="absolute bottom-4 right-4">
-              <div className="bg-green-500 text-white text-xs text-shadow-lg  rounded-full px-3 py-1 shadow-lg">
-                <div className="text-center flex flex-col items-center gap-1">
-                  <p className="text-sm font-bold text-white ">
-                    ${`${priceData.discount.toFixed(0)}% OFF`}
-                  </p>
-                </div>
+          {/* Badge NUEVO - Cintilla diagonal roja esquina superior izquierda */}
+          {product?.features?.isNew && (
+            <div className="absolute top-0 left-0 z-10 overflow-hidden w-24 h-24">
+              <div className="absolute top-3 -left-8 bg-red-600 text-white text-center w-32 py-1 transform -rotate-45 shadow-lg">
+                <span className="text-[10px] font-bold">NUEVO</span>
               </div>
             </div>
           )}
 
+          {/* Price y Descuento - Juntos en esquina inferior derecha */}
+          <div className="absolute bottom-2 right-2 flex flex-col items-end gap-1">
+            {/* Descuento - Badge verde pegadito arriba del precio */}
+            {priceData?.discount && (
+              <div className="bg-green-500 text-white text-xs font-bold px-2 py-0.5 rounded">
+                -{priceData.discount.toFixed(0)}%
+              </div>
+            )}
+
+            {/* Price Badge - Fondo negro */}
+            <div className="bg-black/90 text-white px-2 py-1 rounded flex items-center gap-1.5">
+              {priceData?.discount && priceData?.basePrice && (
+                <span className="text-xs line-through opacity-60">
+                  ${priceData.basePrice.toFixed(0)}
+                </span>
+              )}
+              <span className="text-base font-bold">
+                ${priceData?.finalPrice?.toFixed(0)}
+              </span>
+            </div>
+          </div>
 
         </div>
 
         {/* Body del card y button */}
-        <div className="flex flex-col flex-grow p-6">
+        <div className="flex flex-col flex-grow p-3 md:p-4">
           <ProductCardBody
             product={product}
             productPrice={priceData}
@@ -91,32 +97,31 @@ export default function ProductCard({ product, defaultProductImage }: any) {
             onChangeVariant={onSelectVariant}
           />
 
-
-          <div className="flex flex-col gap-4">
-
-            {/* Quick Info */}
-            <div className="flex flex-col gap-4 mt-4">
-              <div className="w-full flex justify-between items-center text-xs text-gray-500 ">
-                {product?.prepTime && (
-                  <span className="flex items-center gap-1">⏱️ {product?.prepTime?.min}-{product?.prepTime?.max} min</span>
-                )}
-                <span className="flex items-center gap-1">🚚 Delivery gratis</span>
-                <span className="flex items-center gap-1">🔥 Más pedido</span>
-              </div>
-            </div>
-
-            {/* Button */}
-            <button
-              onClick={() => handleAddProductToCart()}
-              disabled={isAdding}
-              className={`flex-1 font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ${isAdding
-                ? 'bg-green-500 hover:bg-green-600 text-white'
-                : 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white'
-                }`}
-            >
-              {isAdding ? '✓ Agregado' : '🛒 Agregar al Carrito'}
-            </button>
+          {/* Quick Info - Compacto */}
+          <div className="flex items-center justify-between text-xs text-gray-500 mt-2 mb-3">
+            {product?.prepTime && (
+              <span className="flex items-center gap-1">
+                <span>🕐</span>
+                {product?.prepTime?.min}-{product?.prepTime?.max}min
+              </span>
+            )}
+            <span className="flex items-center gap-1">
+              <span>🚚</span>
+              Gratis
+            </span>
           </div>
+
+          {/* Button - Azul como en la captura */}
+          <button
+            onClick={() => handleAddProductToCart()}
+            disabled={isAdding}
+            className={`w-full font-semibold py-2.5 px-4 rounded-lg transition-all text-sm ${isAdding
+              ? 'bg-green-500 hover:bg-green-600 text-white'
+              : 'bg-blue-600 hover:bg-blue-700 text-white'
+              }`}
+          >
+            {isAdding ? '✓ Agregado' : '🛒 Agregar'}
+          </button>
         </div>
       </div>
 

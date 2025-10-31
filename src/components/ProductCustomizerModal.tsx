@@ -13,6 +13,7 @@ export default function ProductCustomizerModal() {
             onClose={hideProductCustomizerModal}
             title="Customizer"
             content={ <ProductCustomizer />}
+            showHeader={false}
         />
     )
 }

@@ -3,7 +3,7 @@ import React from "react";
 import { CheckoutForm, CartCheckoutHeader } from "@/components";
 import { useRouter } from "next/navigation";
 
-export default async function CartCheckoutContainer() {
+export default function CartCheckoutContainer() {
   const router = useRouter();
 
   const handleClose = () => {
@@ -12,7 +12,7 @@ export default async function CartCheckoutContainer() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <CartCheckoutHeader onClose={handleClose} />
+     
       <CheckoutForm />
     </div>
   );

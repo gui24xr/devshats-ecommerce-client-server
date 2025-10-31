@@ -13,13 +13,17 @@ import ProductsStoreHydrator from "./ProductsStoreHydrator";
 import ProductsByCategoriesCatalog from "./ProductsByCategoriesCatalog"
 import FloatingRapidCatalogWidget from "./FloatingRapidCatalogWidget";
 import ProductsByCategoriesCatalogModal from "./ProductsByCategoriesCatalogModal";
+import ProductsActionBar from "./ProductsActionBar";
+import ProductsTopBar from "./ProductsTopBar";
 
 import BranchesContainer from "./BranchesContainer";
 import BranchesStoreHydrator from "./BranchesStoreHydrator";
 import BranchSelectorWidget from "./BranchSelectorWidget";
 
 import ProductFilters from "./ProductFilters";
+import ProductFiltersModal from "./ProductFiltersModal";
 import ProductCard from "./ProductCard";
+import ProductCardTypeClothes from "./ProductCardTypeClothes";
 import ProductGrid from "./ProductGrid";
 import ProductCustomizer from "./ProductCustomizer";
 import ProductCustomizerModal from "./ProductCustomizerModal";
@@ -48,7 +52,7 @@ import PickupOptionCard from "./PickupOptionCard";
 
 import StoreBanner from "./StoreBanner";
 
-export { 
+export {
     Navbar,
     Footer,
     LayoutModal,
@@ -60,9 +64,11 @@ export {
     BranchesStoreHydrator,
     BranchSelectorWidget,
     ProductFilters,
+    ProductFiltersModal,
     ProductsContainer,
     ProductsStoreHydrator,
     ProductCard,
+    ProductCardTypeClothes,
     ProductGrid,
     ProductCustomizer,
     ProductCustomizerModal,
@@ -89,5 +95,7 @@ export {
     DeliveryPreview,
     MotoDeliveryCard,
     PickupOptionCard,
-    StoreBanner
+    StoreBanner,
+    ProductsActionBar,
+    ProductsTopBar
 };

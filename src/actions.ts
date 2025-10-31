@@ -2,6 +2,7 @@
 import DataService from "./lib/DataService"
 
 async function checkoutOrder(checkoutPayloadData: any){
+    console.log("checkoutOrder", checkoutPayloadData)
     //Hay que validar los precios , costos, stock, todo de la compra
     //SI todo lo anterior salio bien entonces ponerlo en la base de datos de la serverAPP,
     //Hacer que esta app o la server app envien el email
